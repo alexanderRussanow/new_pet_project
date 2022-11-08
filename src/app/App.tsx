@@ -1,11 +1,7 @@
-import { Suspense } from 'react';
-import { Link, Route, Routes } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { classNames } from '../shared/lib/UtilityMethods';
 import { useTheme } from './providers/ThemeProvider/lib/useTheme';
-import { BoardPage } from 'pages/Board';
-import { ContactPage } from 'pages/Contact';
-import { HomePage } from 'pages/Home';
-
+import {AppRouter} from './providers/router/ui/AppRouter';
 // styles
 import './styles/index.scss';
 
@@ -19,13 +15,7 @@ const App = () => {
       <Link to='/contact'>contact</Link>
       <Link to='/board'>board</Link>
       <button onClick={ toggleTheme } >Change theme</button>
-      <Suspense fallback={<div>Loading...</div>}>
-         <Routes>
-            <Route path='/' element={ <HomePage/> } />
-            <Route path='/contact' element={ <ContactPage /> } />
-            <Route path='/board' element={ <BoardPage /> } />
-         </Routes>
-      </Suspense>
+      <AppRouter />
    </div>
    )
 }
