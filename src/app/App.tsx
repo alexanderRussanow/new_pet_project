@@ -2,18 +2,22 @@ import { classNames } from '../shared/lib/UtilityMethods';
 import { AppRouter } from './providers/router/ui/AppRouter';
 import { useTheme } from './providers/ThemeProvider/lib/useTheme';
 import { Navbar } from 'widgets/Navbar';
+import { Sidebar } from 'widgets/Sidebar';
+
 // styles
 import './styles/index.scss';
 
 
 const App = () => {
-  const { theme, toggleTheme } = useTheme()
+  const { theme } = useTheme()
 
    return (
     <div className={classNames('app', {}, [theme])}>
       <Navbar />
-      <button onClick={ toggleTheme } >Change theme</button>
-      <AppRouter />
+      <div className='page-content'>
+         <Sidebar />
+         <AppRouter />
+      </div>
    </div>
    )
 }

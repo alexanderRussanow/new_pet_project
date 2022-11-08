@@ -10,9 +10,6 @@ interface NavbarProps {
 export const Navbar: React.FC<NavbarProps> = ({ className }) => {
    return (
       <div className={classNames(classes.navbar, {}, [className] )}>
-         <div>
-            logo 
-         </div>
          <div className={classNames(classes.links)}>
             <AppLink className={classNames(classes.link)} to='/'>home</AppLink>
             <AppLink className={classNames(classes.link)} to='/contact'>contact</AppLink>

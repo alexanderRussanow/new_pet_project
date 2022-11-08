@@ -3,7 +3,7 @@ import React from 'react'
 import classes from  './home.module.scss'
 
 const HomePage:React.FC = () => {
-   return <h2 className={classes.test}>Hello from Home pag, wasssssup</h2>
+   return <h2 className={classes.test}>heeeey</h2>
 }
 
 export default HomePage
