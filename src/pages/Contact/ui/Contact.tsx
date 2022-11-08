@@ -1,7 +1,9 @@
 import React from 'react'
+import {useTranslation } from 'react-i18next'
 
 const ContactPage: React.FC = () => {
-   return <h2>Hello from contact page, wasssssssup</h2>
+   const {t} = useTranslation('contact')
+   return <h2>{t('CONTACT')}</h2>
 }
 
 export default ContactPage

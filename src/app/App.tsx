@@ -6,6 +6,7 @@ import { Sidebar } from 'widgets/Sidebar';
 
 // styles
 import './styles/index.scss';
+import { Suspense } from 'react';
 
 
 const App = () => {
@@ -13,11 +14,13 @@ const App = () => {
 
    return (
     <div className={classNames('app', {}, [theme])}>
-      <Navbar />
-      <div className='page-content'>
-         <Sidebar />
-         <AppRouter />
-      </div>
+      <Suspense fallback=''>
+         <Navbar />
+         <div className='page-content'>
+            <Sidebar />
+            <AppRouter />
+         </div>
+      </Suspense>
    </div>
    )
 }
