@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext } from 'react';
 
 export enum ThemeEnum {
    LIGHT = 'light',
@@ -12,4 +12,4 @@ export interface ThemeContextProps {
 
 export const ThemeContext = createContext<ThemeContextProps>({} as ThemeContextProps);
 
-export const LS_THEME_CONTEXT_KEY = 'theme'
+export const LS_THEME_CONTEXT_KEY = 'theme';

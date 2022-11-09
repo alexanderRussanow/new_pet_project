@@ -1,1 +1,1 @@
-export { ContactPageLazy as ContactPage } from "./ui/Contact.lazy";
+export { ContactPageLazy as ContactPage } from './ui/Contact.lazy';
