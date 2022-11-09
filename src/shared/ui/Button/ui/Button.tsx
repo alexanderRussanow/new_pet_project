@@ -11,10 +11,19 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
    theme?: ButtonThemeEnum
 }
 
-export const Button: React.FC<ButtonProps> = ({
+export const Button: React.FC<ButtonProps> = ( {
     className, children, theme, ...props
-}) => (
-    <button className={classNames(classes.button, {}, [className, classes[theme]])} {...props}>
+} ) => (
+    <button
+        className={ classNames(
+            classes.button,
+            {},
+            [
+                className,
+                classes[ theme ]
+            ] 
+        ) }
+        { ...props }>
         {children}
     </button>
 );

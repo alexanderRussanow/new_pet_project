@@ -10,22 +10,22 @@ export enum AppRoutes {
 }
 
 export const RoutesPath: Record<AppRoutes, string> = {
-    [AppRoutes.HOME]: '/',
-    [AppRoutes.CONTACT]: '/contact',
-    [AppRoutes.BOARD]: '/board',
+    [ AppRoutes.HOME ]: '/',
+    [ AppRoutes.CONTACT ]: '/contact',
+    [ AppRoutes.BOARD ]: '/board',
 };
 
 export const routesConfig: Record<AppRoutes, RouteProps> = {
-    [AppRoutes.HOME]: {
-        path: RoutesPath[AppRoutes.HOME],
+    [ AppRoutes.HOME ]: {
+        path: RoutesPath[ AppRoutes.HOME ],
         element: <HomePage />,
     },
-    [AppRoutes.CONTACT]: {
-        path: RoutesPath[AppRoutes.CONTACT],
+    [ AppRoutes.CONTACT ]: {
+        path: RoutesPath[ AppRoutes.CONTACT ],
         element: <ContactPage />,
     },
-    [AppRoutes.BOARD]: {
-        path: RoutesPath[AppRoutes.BOARD],
+    [ AppRoutes.BOARD ]: {
+        path: RoutesPath[ AppRoutes.BOARD ],
         element: <BoardPage />,
     },
 };

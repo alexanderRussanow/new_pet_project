@@ -1,3 +1,3 @@
 import { lazy } from 'react';
 
-export const ContactPageLazy = lazy(() => import('./Contact'));
+export const ContactPageLazy = lazy( () => import( './Contact' ) );

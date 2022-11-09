@@ -7,9 +7,9 @@ export enum ThemeEnum {
 
 export interface ThemeContextProps {
    theme: ThemeEnum;
-   setTheme: (theme: ThemeEnum) => void;
+   setTheme: ( theme: ThemeEnum ) => void;
 }
 
-export const ThemeContext = createContext<ThemeContextProps>({} as ThemeContextProps);
+export const ThemeContext = createContext<ThemeContextProps>( {} as ThemeContextProps );
 
 export const LS_THEME_CONTEXT_KEY = 'theme';

@@ -1,3 +1,3 @@
 import { lazy } from 'react';
 
-export const BoardPageLazy = lazy(() => import('./Board'));
+export const BoardPageLazy = lazy( () => import( './Board' ) );

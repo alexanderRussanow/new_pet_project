@@ -12,10 +12,17 @@ const App = () => {
     const { theme } = useTheme();
 
     return (
-        <div className={classNames('app', {}, [theme])}>
-            <Suspense fallback="">
+        <div
+            className={ classNames(
+                'app',
+                {},
+                [
+                    theme
+                ] 
+            ) }>
+            <Suspense fallback=''>
                 <Navbar />
-                <div className="page-content">
+                <div className='page-content'>
                     <Sidebar />
                     <AppRouter />
                 </div>

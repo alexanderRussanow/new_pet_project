@@ -2,8 +2,8 @@
    "compilerOptions": {
       "outDir": "./dist/",
       "noImplicitAny": true,
-      "module": "ESNext",
-      "target": "es5",
+      "module": "esnext",
+      "target": "es2018",
       "jsx": "react-jsx",
       "allowJs": true,
       "moduleResolution": "node",
@@ -20,3 +20,4 @@
       }
    }
 }
+

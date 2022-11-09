@@ -10,14 +10,21 @@ interface ThemeSwitcherProps {
    className?: string
 }
 
-export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ({ className }) => {
+export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ( { className } ) => {
     const { theme, toggleTheme } = useTheme();
 
     return (
         <Button
-            theme={ButtonThemeEnum.CLEAR}
-            className={classNames(classes.themeSwitcher, {}, [className, classes[theme]])}
-            onClick={toggleTheme}
+            theme={ ButtonThemeEnum.CLEAR }
+            className={ classNames(
+                classes.themeSwitcher,
+                {},
+                [
+                    className,
+                    classes[ theme ]
+                ] 
+            ) }
+            onClick={ toggleTheme }
         >
             {theme === ThemeEnum.LIGHT ? <LightIcon /> : <DartIcon />}
         </Button>

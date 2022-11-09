@@ -10,12 +10,15 @@ export const useTheme = (): UseThemeResult => {
     // destructuring theme enum
     const { LIGHT, DARK } = ThemeEnum;
     // context theme
-    const { theme, setTheme } = useContext(ThemeContext);
+    const { theme, setTheme } = useContext( ThemeContext );
     // toggle theme
     const toggleTheme = () => {
         const newTheme = theme === LIGHT ? DARK : LIGHT;
-        setTheme(newTheme);
-        localStorage.setItem(LS_THEME_CONTEXT_KEY, newTheme);
+        setTheme( newTheme );
+        localStorage.setItem(
+            LS_THEME_CONTEXT_KEY,
+            newTheme 
+        );
     };
 
     return { theme, toggleTheme };
