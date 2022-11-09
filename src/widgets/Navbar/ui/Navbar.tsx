@@ -1,5 +1,4 @@
 /* eslint-disable i18next/no-literal-string */
-
 import React from 'react';
 import { classNames } from '../../../shared/lib/UtilityMethods';
 import { AppLink } from '../../../shared/ui/AppLink/AppLink';
@@ -16,7 +15,7 @@ export const Navbar: React.FC<NavbarProps> = ( { className } ) => (
             classes.navbar,
             {},
             [
-                className as string
+                className
             ] 
         ) }>
         <div className={ classNames( classes.links ) }>
