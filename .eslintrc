@@ -12,7 +12,7 @@
     },
     "extends": [
         "plugin:react/recommended",
-        "plugin:i18next/recommended",
+        // "plugin:i18next/recommended",
         "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:react/recommended",
@@ -27,7 +27,7 @@
     },
     "plugins": [
         "@typescript-eslint",
-        "i18next"
+        // "i18next"
     ],
     "rules": {
         "array-bracket-newline": [
@@ -176,12 +176,12 @@
             "error",
             4
         ],
-        "i18next/no-literal-string": [
-            "error",
-            {
-                "markupOnly": true
-            }
-        ],
+        // "i18next/no-literal-string": [
+        //     "error",
+        //     {
+        //         "markupOnly": true
+        //     }
+        // ],
     },
     "globals": {
         "__IS_DEV__": true,

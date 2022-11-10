@@ -1,3 +1,9 @@
 {
-   "ABOUT": "o nás"
+   "ABOUT": "o nás",
+   "HOME": "hlavní",
+   "CONTACT": "kontakt",
+   "BOARD": "přehled",
+   "BOUNDARY_ERROR": "Stala se chyba při načítání",
+   "RELOAD_PAGE": "Znovu načíst",
+   "GO_TO_HOME": "Jít na hlavní"
 }

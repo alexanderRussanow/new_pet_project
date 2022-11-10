@@ -1,4 +1,3 @@
-/* eslint-disable i18next/no-literal-string */
 import { Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Loader } from 'shared/ui/Loader/Loader';

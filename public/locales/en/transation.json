@@ -1,3 +1,9 @@
 {
-   "ABOUT": "about"
+   "ABOUT": "about",
+   "HOME": "home",
+   "CONTACT": "contact",
+   "BOARD": "board",
+   "BOUNDARY_ERROR": "Something went wrong",
+   "RELOAD_PAGE": "Reload page",
+   "GO_TO_HOME": "Go to home"
 }
