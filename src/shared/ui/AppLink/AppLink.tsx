@@ -1,6 +1,6 @@
 import React from 'react';
 import { LinkProps, Link } from 'react-router-dom';
-import { classNames } from 'shared/lib/UtilityMethods';
+import { classNames } from 'shared/lib/utility/UtilityMethods';
 // styles
 import classes from './AppLink.module.scss';
 

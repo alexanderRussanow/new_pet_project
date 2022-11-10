@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { classNames } from '../../../../shared/lib/UtilityMethods';
-import { LanguageSwitcher } from '../../../LanguageSwitcher';
-import { ThemeSwitcher } from '../../../ThemeSwitcher';
+import { Button } from 'shared/ui/Button';
+import { classNames } from '../../../shared/lib/utility/UtilityMethods';
+import { LanguageSwitcher } from '../../LanguageSwitcher';
+import { ThemeSwitcher } from '../../ThemeSwitcher';
 
 // styles
 import classes from './Sidebar.module.scss';
@@ -19,6 +20,7 @@ export const Sidebar: React.FC<SidebarProps> = ( { className } ) => {
 
     return (
         <div
+            data-testid='sidebar'
             className={ classNames(
                 classes.sidebar,
                 { [ classes.collapsed ]: collapsed },
@@ -26,7 +28,11 @@ export const Sidebar: React.FC<SidebarProps> = ( { className } ) => {
                     className
                 ] 
             ) }>
-            <button onClick={ toggleSidebar }>{collapsed ? '=>' : '<='}</button>
+            <Button
+                data-testid='sidebar-toggle'
+                onClick={ toggleSidebar }>
+                {collapsed ? '=>' : '<='}
+            </Button>
             <div className={ classes.switchers }>
                 <ThemeSwitcher />
                 <LanguageSwitcher />

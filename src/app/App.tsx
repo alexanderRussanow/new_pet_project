@@ -1,7 +1,7 @@
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
 import { Suspense } from 'react';
-import { classNames } from '../shared/lib/UtilityMethods';
+import { classNames } from '../shared/lib/utility/UtilityMethods';
 import { AppRouter } from './providers/router/ui/AppRouter';
 import { useTheme } from './providers/ThemeProvider/lib/useTheme';
 

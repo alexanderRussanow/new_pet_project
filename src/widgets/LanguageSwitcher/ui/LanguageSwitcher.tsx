@@ -2,7 +2,7 @@
 import { useTranslation } from 'react-i18next';
 import React from 'react';
 import { Button, ButtonThemeEnum } from '../../../shared/ui/Button';
-import { classNames } from '../../../shared/lib/UtilityMethods';
+import { classNames } from '../../../shared/lib/utility/UtilityMethods';
 // styles
 import classes from './LanguageSwitcher.module.scss';
 

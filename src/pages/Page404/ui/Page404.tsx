@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/UtilityMethods';
+import { classNames } from 'shared/lib/utility/UtilityMethods';
 // styles
 import classes from './Page404.module.scss';
 

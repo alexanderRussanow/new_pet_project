@@ -1,5 +1,5 @@
 import { ThemeEnum, useTheme } from 'app/providers/ThemeProvider';
-import { classNames } from 'shared/lib/UtilityMethods';
+import { classNames } from 'shared/lib/utility/UtilityMethods';
 import DartIcon from 'shared/assets/icons/iconDark.svg';
 import LightIcon from 'shared/assets/icons/iconLight.svg';
 // styles
