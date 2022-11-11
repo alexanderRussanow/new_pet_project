@@ -35,7 +35,7 @@ export default {
     ],
     moduleNameMapper: {
         '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
-        '\\.svg$': path.resolve(
+        '\\.(gif|ttf|eot|svg)$': path.resolve(
             __dirname,
             'svgMock.tsx' 
         ),
