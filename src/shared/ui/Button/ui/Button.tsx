@@ -4,6 +4,7 @@ import classes from './Button.module.scss';
 
 export enum ButtonThemeEnum {
    CLEAR = 'clear',
+   OUTLINE = 'outline',
 }
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {

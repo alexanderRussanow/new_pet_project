@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button } from 'shared/ui/Button';
 import { classNames } from '../../../shared/lib/utility/UtilityMethods';
-import { AppLink } from '../../../shared/ui/AppLink/AppLink';
+import { AppLink } from '../../../shared/ui/AppLink/ui/AppLink';
 // styles
 import classes from './Navbar.module.scss';
 

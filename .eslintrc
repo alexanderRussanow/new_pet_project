@@ -179,7 +179,7 @@
         // "i18next/no-literal-string": [
         //     "error",
         //     {
-        //         "markupOnly": true
+        //         "markupOnly": true,
         //     }
         // ],
     },
