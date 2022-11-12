@@ -1,5 +1,5 @@
 import { fireEvent, screen } from '@testing-library/react';
-import { renderWithTranslation } from 'shared/lib/tests/renderWithTransaltion/renderWithTranslation';
+import { ComponentRender } from 'shared/lib/tests/componentRender/ComponentRender';
 import { Sidebar } from './Sidebar';
 
 describe(
@@ -8,14 +8,14 @@ describe(
         it(
             'should render',
             () => {
-                renderWithTranslation( <Sidebar /> );
+                ComponentRender( <Sidebar /> );
                 expect( screen.getByTestId( 'sidebar' ) ).toBeInTheDocument();
             } 
         );
         it(
             'should render with collapsed',
             () => {
-                renderWithTranslation( <Sidebar /> );
+                ComponentRender( <Sidebar /> );
                 const btn = screen.getByTestId( 'sidebar-toggle' );
                 expect( screen.getByTestId( 'sidebar' ) ).toBeInTheDocument();
                 fireEvent.click( btn );

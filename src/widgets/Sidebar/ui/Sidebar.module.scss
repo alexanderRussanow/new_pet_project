@@ -6,24 +6,30 @@
     transition: width 0.3s ease-in-out;
 }
 
-.collapsed {
-    width: var(--sidebar-width-collapsed);
-    .switchers {
-        flex-direction: column;
-    }
-    .linkText {
-        opacity: 0;
-        transition: opacity 0.3s ease-in-out;
-        width: 0;
-    }
-}
-
 .switchers {
     position: absolute;
     inset: auto auto 20px;
     display: flex;
     justify-content: space-evenly;
     width: 100%;
+}
+
+.linkText {
+    opacity: 1;
+}
+
+.collapsed {
+    width: var(--sidebar-width-collapsed);
+
+    .switchers {
+        flex-direction: column;
+    }
+
+    .linkText {
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        width: 0;
+    }
 }
 
 .collapsBtn {
@@ -52,8 +58,4 @@
 .icon {
     margin-right: 10px;
     fill: var(--inverted-primary-color);
-}
-
-.linkText {
-    opacity: 1;
 }
