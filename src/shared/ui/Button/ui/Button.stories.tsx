@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeEnum } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
-import { Button, ButtonThemeEnum } from './Button';
+import { Button, ButtonSizeEnum, ButtonThemeEnum } from './Button';
 
 export default {
     title: 'shared/Button',
@@ -32,3 +32,31 @@ Outline.args = {
 Outline.decorators = [
     ThemeDecorator( ThemeEnum.DARK )
 ];
+
+export const background = Template.bind( {} );
+background.args = {
+    children: 'background',
+    theme: ButtonThemeEnum.BACKGROUND,
+};
+background.decorators = [
+    ThemeDecorator( ThemeEnum.DARK )
+];
+
+export const invertedBackground = Template.bind( {} );
+invertedBackground.args = {
+    children: 'invertedBackground',
+    theme: ButtonThemeEnum.BACKGROUND_INVERTED,
+};
+invertedBackground.decorators = [
+    ThemeDecorator( ThemeEnum.LIGHT )
+];
+
+export const Square = Template.bind( {} );
+Square.args = {
+    children: '>',
+    square: true,
+    size: ButtonSizeEnum.LARGE,
+    theme: ButtonThemeEnum.BACKGROUND_INVERTED,
+};
+
+

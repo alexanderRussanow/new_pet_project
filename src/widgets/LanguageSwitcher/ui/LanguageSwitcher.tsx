@@ -8,10 +8,23 @@ import classes from './LanguageSwitcher.module.scss';
 
 interface LanguageSwitcherProps {
     className?: string;
+    flags?: boolean;
 }
 
-export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ( { className } ) => {
+export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ( { className, flags = true } ) => {
     const { i18n } = useTranslation();
+
+    const langObj = {
+        flags: {
+            en: '🇺🇸',
+            cz: '🇨🇿',
+        },
+        text: {
+            en: 'EN',
+            cz: 'CZ',
+        },
+    };
+    const langMode = langObj[ flags ? 'flags' : 'text' ];
 
     const changeLanguage = () => {
         i18n.changeLanguage( i18n.language === 'cz' ? 'en' : 'cz' );
@@ -28,7 +41,7 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ( { className }
                 ] 
             ) }
             onClick={ changeLanguage }>
-            {i18n.language === 'cz' ? ' 🇺🇸' : '🇨🇿'}
+            {i18n.language === 'cz' ? langMode.en : langMode.cz}
         </Button>
     );
 };
