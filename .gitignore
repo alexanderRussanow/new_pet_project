@@ -6,7 +6,8 @@
 # Node artifact files
 node_modules/
 dist/
-/build/
+/build
+/storybook-static
 
 # Compiled Java class files
 *.class
