@@ -12,4 +12,6 @@
     --font-size-l: 32px;
     --font-line-height-l: 40px;
     --font-l: var(--font-size-l) / var(--font-line-height-l) var(--font-family-main);
+    --modal-z-index: 100;
+    --overlay-background-color: rgba(0, 0, 0, 0.5);
 }

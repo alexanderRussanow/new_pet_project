@@ -48,7 +48,7 @@ invertedBackground.args = {
     theme: ButtonThemeEnum.BACKGROUND_INVERTED,
 };
 invertedBackground.decorators = [
-    ThemeDecorator( ThemeEnum.LIGHT )
+    ThemeDecorator( ThemeEnum.DARK )
 ];
 
 export const Square = Template.bind( {} );

@@ -1,5 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { Button, ButtonSizeEnum } from 'shared/ui/Button';
+import React, { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Button, ButtonSizeEnum, ButtonThemeEnum } from 'shared/ui/Button';
+import { Modal } from 'shared/ui/Modal';
 import { classNames } from '../../../shared/lib/utility/UtilityMethods';
 // styles
 import classes from './Navbar.module.scss';
@@ -9,21 +11,17 @@ interface NavbarProps {
 }
 
 export const Navbar: React.FC<NavbarProps> = ( { className } ) => {
-
+    // i18n
+    const { t } = useTranslation();
+    // state
     const [
-        error,
-        setError
+        isAuthOpen,
+        setIsAuthOpen
     ] = useState( false );
 
-    useEffect(
-        () => {
-            if ( error ) {
-                throw new Error( 'Error' );
-            }
-        },
-        [
-            error
-        ] 
+    const authToggle = useCallback(
+        () => setIsAuthOpen( prev => !prev ),
+        [] 
     );
 
     return (
@@ -38,11 +36,13 @@ export const Navbar: React.FC<NavbarProps> = ( { className } ) => {
             <div className={ classNames( classes.links ) }>
                 <Button
                     size={ ButtonSizeEnum.SMALL }
-                    onClick={ () => {
-                        setError( true );
-                    } }>
-                    throw error
+                    theme={ ButtonThemeEnum.CLEAR_INVERTED }
+                    onClick={ authToggle }>
+                    {t( 'LOGIN' )}
                 </Button>
+                <Modal
+                    isOpen={ isAuthOpen }
+                    onClose={ authToggle } />
             </div>
         </div>
     );
