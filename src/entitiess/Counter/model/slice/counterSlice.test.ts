@@ -1,4 +1,4 @@
-import { counterActions, counterReducer, CounterSchema } from 'entities/Counter';
+import { counterActions, counterReducer, CounterSchema } from 'entitiess/Counter';
 
 describe(
     'counterSlice',

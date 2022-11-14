@@ -7,11 +7,6 @@ export const Counter: React.FC = () => {
     const DISPATCH = useDispatch();
     const value = useSelector( reduxCounterSelector );
 
-    console.log(
-        'VALUE => ',
-        value 
-    );
-
     const increment = () => {
         DISPATCH( counterActions.increment() );
     };
