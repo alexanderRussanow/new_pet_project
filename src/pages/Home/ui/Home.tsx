@@ -1,4 +1,3 @@
-import { Counter } from 'entitiess/Counter';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 // style
@@ -9,7 +8,6 @@ const HomePage: React.FC = () => {
     return (
         <div>
             <h2 className={ classes.test }>{t( 'HOME' )}</h2>
-            <Counter />
         </div>
     );
 };
