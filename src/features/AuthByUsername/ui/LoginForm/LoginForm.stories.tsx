@@ -11,7 +11,18 @@ export default {
     },
 } as ComponentMeta<typeof LoginForm>;
 
-const Template: ComponentStory<typeof LoginForm> = args => <LoginForm { ...args } />;
+const Template: ComponentStory<typeof LoginForm> = args => (
+    <div
+        style={ {
+            width: '100%',
+            height: '100%',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+        } }>
+        <LoginForm { ...args } />
+    </div>
+);
 
 export const Primary = Template.bind( {} );
 

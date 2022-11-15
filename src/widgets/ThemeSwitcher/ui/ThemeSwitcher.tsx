@@ -2,12 +2,12 @@ import { ThemeEnum, useTheme } from 'app/providers/ThemeProvider';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 import DartIcon from 'shared/assets/icons/iconDark.svg';
 import LightIcon from 'shared/assets/icons/iconLight.svg';
-// styles
 import { Button, ButtonThemeEnum } from 'shared/ui/Button';
+// styles
 import classes from './ThemeSwitcher.module.scss';
 
 interface ThemeSwitcherProps {
-   className?: string
+    className?: string;
 }
 
 export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ( { className } ) => {
@@ -24,10 +24,8 @@ export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = ( { className } ) => 
                     classes[ theme ]
                 ] 
             ) }
-            onClick={ toggleTheme }
-        >
+            onClick={ toggleTheme }>
             {theme === ThemeEnum.LIGHT ? <LightIcon /> : <DartIcon />}
         </Button>
-
     );
 };
