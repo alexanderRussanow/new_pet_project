@@ -1,4 +1,3 @@
-
 import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonSizeEnum, ButtonThemeEnum } from 'shared/ui/Button';
@@ -43,7 +42,9 @@ export const Navbar: React.FC<NavbarProps> = ( { className } ) => {
                 </Button>
                 <Modal
                     isOpen={ isAuthOpen }
-                    onClose={ authToggle } />
+                    onClose={ authToggle }>
+                    lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.
+                </Modal>
             </div>
         </div>
     );

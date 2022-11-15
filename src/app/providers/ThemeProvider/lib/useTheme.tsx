@@ -2,8 +2,8 @@ import { useContext } from 'react';
 import { LS_THEME_CONTEXT_KEY, ThemeContext, ThemeEnum } from './ThemeContext';
 
 interface UseThemeResult {
-   theme: ThemeEnum;
-   toggleTheme: () => void;
+    theme: ThemeEnum;
+    toggleTheme: () => void;
 }
 
 export const useTheme = (): UseThemeResult => {
@@ -15,6 +15,7 @@ export const useTheme = (): UseThemeResult => {
     const toggleTheme = () => {
         const newTheme = theme === LIGHT ? DARK : LIGHT;
         setTheme( newTheme );
+        document.body.className = newTheme;
         localStorage.setItem(
             LS_THEME_CONTEXT_KEY,
             newTheme 
