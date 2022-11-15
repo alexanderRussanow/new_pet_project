@@ -7,14 +7,19 @@ import classes from './Modal.module.scss';
 export interface ModalProps {
     className?: string;
     isOpen?: boolean;
+    lazy?: boolean;
     onClose?: () => void;
 }
 
-export const Modal: React.FC<ModalProps> = ( { className, children, isOpen, onClose } ) => {
+export const Modal: React.FC<ModalProps> = ( { className, children, isOpen, lazy, onClose } ) => {
     // state
     const [
         isClosing,
         setIsClosing
+    ] = useState( false );
+    const [
+        isMounted,
+        setIsMounted
     ] = useState( false );
     // refs
     const timerRef = useRef<ReturnType<typeof setTimeout>>( null );
@@ -55,6 +60,19 @@ export const Modal: React.FC<ModalProps> = ( { className, children, isOpen, onCl
     useEffect(
         () => {
             if ( isOpen ) {
+                setIsMounted( true );
+            } else {
+                setIsMounted( false );
+            }
+        },
+        [
+            isOpen
+        ] 
+    );
+
+    useEffect(
+        () => {
+            if ( isOpen ) {
                 document.addEventListener(
                     'keydown',
                     escapeListener 
@@ -74,6 +92,10 @@ export const Modal: React.FC<ModalProps> = ( { className, children, isOpen, onCl
             escapeListener
         ] 
     );
+
+    if ( lazy && !isMounted ) {
+        return null;
+    }
 
     return (
         <Portal>

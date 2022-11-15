@@ -26,6 +26,7 @@
     overflow-y: auto;
     transition: 0.2s transform ease-in-out;
     transform: scale(0.8);
+    font: var(--font-s);
 }
 
 .opened {

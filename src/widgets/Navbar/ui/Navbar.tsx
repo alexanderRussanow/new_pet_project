@@ -1,7 +1,7 @@
-import React, { useCallback, useState } from 'react';
+import { LoginModal } from 'features/AuthByUsername';
+import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button, ButtonSizeEnum, ButtonThemeEnum } from 'shared/ui/Button';
-import { Modal } from 'shared/ui/Modal';
 import { classNames } from '../../../shared/lib/utility/UtilityMethods';
 // styles
 import classes from './Navbar.module.scss';
@@ -15,14 +15,12 @@ export const Navbar: React.FC<NavbarProps> = ( { className } ) => {
     const { t } = useTranslation();
     // state
     const [
-        isAuthOpen,
-        setIsAuthOpen
+        isLoginModalOpen,
+        setIsLoginModalOpen
     ] = useState( false );
 
-    const authToggle = useCallback(
-        () => setIsAuthOpen( prev => !prev ),
-        [] 
-    );
+    const onLoginModalClose = () => setIsLoginModalOpen( false );
+    const onLoginModalOpen = () => setIsLoginModalOpen( true );
 
     return (
         <div
@@ -37,14 +35,12 @@ export const Navbar: React.FC<NavbarProps> = ( { className } ) => {
                 <Button
                     size={ ButtonSizeEnum.SMALL }
                     theme={ ButtonThemeEnum.CLEAR_INVERTED }
-                    onClick={ authToggle }>
+                    onClick={ onLoginModalOpen }>
                     {t( 'LOGIN' )}
                 </Button>
-                <Modal
-                    isOpen={ isAuthOpen }
-                    onClose={ authToggle }>
-                    lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quae.
-                </Modal>
+                <LoginModal
+                    isOpen={ isLoginModalOpen }
+                    onClose={ onLoginModalClose } />
             </div>
         </div>
     );

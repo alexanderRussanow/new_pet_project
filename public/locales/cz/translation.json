@@ -6,5 +6,8 @@
    "BOUNDARY_ERROR": "Stala se chyba při načítání",
    "RELOAD_PAGE": "Znovu načíst",
    "GO_TO_HOME": "Jít na hlavní",
-   "LOGIN": "Přihlášení"
+   "LOGIN": "Přihlášení",
+   "SIGNUP": "Přihlásit se",
+   "USERNAME": "Uživatelské jméno",
+   "PASSWORD": "Heslo"
 }
