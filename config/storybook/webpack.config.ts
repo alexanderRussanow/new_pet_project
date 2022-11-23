@@ -1,6 +1,6 @@
 import { buildCssLoader } from './../build/loaders/buildCssLoader';
 import { BuildPaths } from './../build/types/config';
-import webpack, { RuleSetRule } from 'webpack';
+import webpack, { DefinePlugin, RuleSetRule } from 'webpack';
 import path from 'path';
 
 export default ( { config }: { config: webpack.Configuration } ) => {
@@ -15,7 +15,12 @@ export default ( { config }: { config: webpack.Configuration } ) => {
         entry: '',
         html: '',
     };
-    config.resolve?.modules?.push( paths.src );
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    config.resolve.modules = [
+        paths.src,
+        'node_modules'
+    ];
     config.resolve?.extensions?.push(
         '.ts',
         '.tsx' 
@@ -56,5 +61,8 @@ export default ( { config }: { config: webpack.Configuration } ) => {
     } );
 
     config.module?.rules?.push( buildCssLoader( true ) );
+    config.plugins?.push( new DefinePlugin( {
+        __IS_DEV__: true,
+    } ) );
     return config;
 };

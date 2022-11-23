@@ -1,7 +1,7 @@
 import { DeepPartial } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 import { createReduxStore } from '..';
-import { StateSchema } from '../config/stateSchema';
+import { StateSchema } from '../config/StateSchema';
 
 interface StoreProviderProps {
     initialState?: DeepPartial<StateSchema>;

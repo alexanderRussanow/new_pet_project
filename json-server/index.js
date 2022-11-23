@@ -1,6 +1,7 @@
 const fs = require('fs');
 const jsonServer = require('json-server');
 const path = require('path');
+// const cors = require('cors');
 
 const server = jsonServer.create();
 const router = jsonServer.router(path.resolve(__dirname, 'db.json'));
@@ -14,6 +15,22 @@ server.use(async (req, res, next) => {
     });
     next();
 });
+
+// const domainList = ['http://localhost:3000/']
+
+// const corsOptions = {
+//   origin: function (origin, callback) {
+//     if (domainList.indexOf(origin) !== -1) {
+//       callback(null, true)
+//     } else {
+//       callback(new Error('Not allowed by CORS'))
+//     }
+//   },
+// }
+
+// server.use(cors(corsOptions));
+
+
 
 server.post('/login', (req, res) => {
     try {
@@ -46,6 +63,7 @@ server.use((req, res, next) => {
 
 server.use(router);
 
-server.listen(8888, () => {
-    console.log('server is running on 8888 port');
+server.listen(8000, () => {
+    console.log('server is running on 8000 port');
 });
+

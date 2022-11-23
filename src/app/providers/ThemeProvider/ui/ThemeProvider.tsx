@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { LS_THEME_CONTEXT_KEY, ThemeContext, ThemeEnum } from '../lib/ThemeContext';
 
 const defaultTheme = ( localStorage.getItem( LS_THEME_CONTEXT_KEY ) as ThemeEnum ) || ThemeEnum.LIGHT;
@@ -13,7 +13,20 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ( { children, initial
         theme,
         setTheme
     ] = useState( initialTheme || defaultTheme );
-    
+
+    useEffect(
+        () => {
+            document.body.className = theme;
+            localStorage.setItem(
+                LS_THEME_CONTEXT_KEY,
+                theme 
+            );
+        },
+        [
+            theme
+        ] 
+    );
+
     // memoize context value
     const defaultProps = useMemo(
         () => ( {

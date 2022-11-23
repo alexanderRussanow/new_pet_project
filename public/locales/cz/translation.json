@@ -9,5 +9,6 @@
    "LOGIN": "Přihlášení",
    "SIGNUP": "Přihlásit se",
    "USERNAME": "Uživatelské jméno",
-   "PASSWORD": "Heslo"
+   "PASSWORD": "Heslo",
+   "LOGOUT": "Odhlášení"
 }

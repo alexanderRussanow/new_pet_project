@@ -14,4 +14,10 @@
     --font-l: var(--font-size-l) / var(--font-line-height-l) var(--font-family-main);
     --modal-z-index: 100;
     --overlay-background-color: rgba(0, 0, 0, 0.5);
+    --error-color: #ff0000;
+    --error-color-dark: #b30000;
+    --success-color: #00ff00;
+    --success-color-dark: #00b300;
+    --warning-color: #ffff00;
+    --warning-color-dark: #b3b300;
 }

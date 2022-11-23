@@ -9,5 +9,7 @@
    "LOGIN": "Login",
    "SIGNUP": "Sign up",
    "USERNAME": "Username",
-   "PASSWORD": "Password"
+   "PASSWORD": "Password",
+   "LOGOUT": "Logout"
+
 }

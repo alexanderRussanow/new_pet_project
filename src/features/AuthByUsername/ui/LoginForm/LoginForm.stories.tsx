@@ -1,5 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeEnum } from 'app/providers/ThemeProvider';
+import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
 import { LoginForm } from './LoginForm';
 
@@ -25,8 +26,22 @@ const Template: ComponentStory<typeof LoginForm> = args => (
 );
 
 export const Primary = Template.bind( {} );
+Primary.decorators = [
+    StoreDecorator( {
+        login: {
+            username: 'test',
+            password: 'test',
+        },
+    } ),
+];
 
 export const Dark = Template.bind( {} );
 Dark.decorators = [
-    ThemeDecorator( ThemeEnum.DARK )
+    ThemeDecorator( ThemeEnum.DARK ),
+    StoreDecorator( {
+        login: {
+            username: 'test2',
+            password: 'test2',
+        },
+    } ),
 ];

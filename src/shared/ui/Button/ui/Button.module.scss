@@ -67,3 +67,7 @@
     height: var(--font-line-height-l);
     width: var(--font-line-height-l);
 }
+
+.disabled {
+    opacity: 0.5;
+}
