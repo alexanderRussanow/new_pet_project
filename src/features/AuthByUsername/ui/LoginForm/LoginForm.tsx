@@ -1,8 +1,16 @@
-import { loginActions, loginSelector } from 'features/AuthByUsername';
+import {
+    loginActions,
+    loginErrorSelector,
+    loginIsLoadingSelector,
+    loginPasswordSelector,
+    loginReducer,
+    loginUsernameSelector,
+} from 'features/AuthByUsername';
 import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUsername';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
+import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 import { Button, ButtonSizeEnum, ButtonThemeEnum } from 'shared/ui/Button';
 import { Input } from 'shared/ui/Input';
@@ -11,14 +19,22 @@ import { Text } from '../../../../shared/ui/Text';
 // styles
 import classes from './LoginForm.module.scss';
 
-interface LoginFormProps {
+export interface LoginFormProps {
     className?: string;
 }
 
-export const LoginForm: React.FC<LoginFormProps> = memo( ( { className } ) => {
+const LoginForm: React.FC<LoginFormProps> = memo( ( { className } ) => {
     const { t } = useTranslation();
+    // redux hooks
     const dispatch = useDispatch();
-    const { username, password, isLoading, error } = useSelector( loginSelector );
+    const username = useSelector( loginUsernameSelector );
+    const password = useSelector( loginPasswordSelector );
+    const isLoading = useSelector( loginIsLoadingSelector );
+    const error = useSelector( loginErrorSelector );
+    // default async reducer for login form
+    const loginFormReducer: ReducersList = {
+        login: loginReducer,
+    };
 
     const onUsernameChange = useCallback(
         ( username: string ) => {
@@ -53,39 +69,43 @@ export const LoginForm: React.FC<LoginFormProps> = memo( ( { className } ) => {
     );
 
     return (
-        <div
-            className={ classNames(
-                classes.loginForm,
-                {},
-                [
-                    className
-                ] 
-            ) }>
-            <Text title='Login form' />
-            {error ? <Text
-                content={ error }
-                theme={ TextThemeEnum.ERROR } /> : null}
-            <Input
-                className={ classes.input }
-                placeholder={ t( 'USERNAME' ) }
-                type='text'
-                value={ username }
-                autofocus
-                onChange={ onUsernameChange } />
-            <Input
-                className={ classes.input }
-                placeholder={ t( 'PASSWORD' ) }
-                type='text'
-                value={ password }
-                onChange={ onPasswordChange } />
-            <Button
-                className={ classes.button }
-                disabled={ isLoading }
-                size={ ButtonSizeEnum.SMALL }
-                theme={ ButtonThemeEnum.OUTLINE }
-                onClick={ onLogin }>
-                {t( 'SIGNUP' )}
-            </Button>
-        </div>
+        <DynamicReducerLoader reducers={ loginFormReducer }>
+            <div
+                className={ classNames(
+                    classes.loginForm,
+                    {},
+                    [
+                        className
+                    ] 
+                ) }>
+                <Text title='Login form' />
+                {error ? <Text
+                    content={ error }
+                    theme={ TextThemeEnum.ERROR } /> : null}
+                <Input
+                    className={ classes.input }
+                    placeholder={ t( 'USERNAME' ) }
+                    type='text'
+                    value={ username }
+                    autofocus
+                    onChange={ onUsernameChange } />
+                <Input
+                    className={ classes.input }
+                    placeholder={ t( 'PASSWORD' ) }
+                    type='text'
+                    value={ password }
+                    onChange={ onPasswordChange } />
+                <Button
+                    className={ classes.button }
+                    disabled={ isLoading || false }
+                    size={ ButtonSizeEnum.SMALL }
+                    theme={ ButtonThemeEnum.OUTLINE }
+                    onClick={ onLogin }>
+                    {t( 'SIGNUP' )}
+                </Button>
+            </div>
+        </DynamicReducerLoader>
     );
 } );
+
+export default LoginForm;
