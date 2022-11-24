@@ -1,19 +1,19 @@
 import { BoardPage } from 'pages/Board';
-import { ContactPage } from 'pages/Contact';
+import { ProfilePage } from 'pages/Profile';
 import { HomePage } from 'pages/Home';
 import { Page404 } from 'pages/Page404';
 import { RouteProps } from 'react-router-dom';
 
 export enum AppRoutes {
-   HOME = 'home',
-   CONTACT = 'contact',
-   BOARD = 'board',
-   PAGE_404 = '404',
+    HOME = 'home',
+    PROFILE = 'profile',
+    BOARD = 'board',
+    PAGE_404 = '404',
 }
 
 export const RoutesPath: Record<AppRoutes, string> = {
     [ AppRoutes.HOME ]: '/',
-    [ AppRoutes.CONTACT ]: '/contact',
+    [ AppRoutes.PROFILE ]: '/profile',
     [ AppRoutes.BOARD ]: '/board',
     [ AppRoutes.PAGE_404 ]: '*',
 };
@@ -23,9 +23,9 @@ export const routesConfig: Record<AppRoutes, RouteProps> = {
         path: RoutesPath[ AppRoutes.HOME ],
         element: <HomePage />,
     },
-    [ AppRoutes.CONTACT ]: {
-        path: RoutesPath[ AppRoutes.CONTACT ],
-        element: <ContactPage />,
+    [ AppRoutes.PROFILE ]: {
+        path: RoutesPath[ AppRoutes.PROFILE ],
+        element: <ProfilePage />,
     },
     [ AppRoutes.BOARD ]: {
         path: RoutesPath[ AppRoutes.BOARD ],

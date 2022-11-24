@@ -24,12 +24,6 @@
     .switchers {
         flex-direction: column;
     }
-
-    .linkText {
-        opacity: 0;
-        transition: opacity 0.3s ease-in-out;
-        width: 0;
-    }
 }
 
 .collapsBtn {
@@ -43,19 +37,4 @@
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
-}
-
-.navigationItem {
-    margin: 10px 0;
-}
-
-.link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.icon {
-    margin-right: 10px;
-    fill: var(--inverted-primary-color);
 }

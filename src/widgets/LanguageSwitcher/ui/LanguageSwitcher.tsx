@@ -1,6 +1,5 @@
-
 import { useTranslation } from 'react-i18next';
-import React from 'react';
+import React, { memo } from 'react';
 import { Button, ButtonThemeEnum } from '../../../shared/ui/Button';
 import { classNames } from '../../../shared/lib/utility/UtilityMethods';
 // styles
@@ -11,7 +10,7 @@ interface LanguageSwitcherProps {
     flags?: boolean;
 }
 
-export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ( { className, flags = true } ) => {
+export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = memo( ( { className, flags = true } ) => {
     const { i18n } = useTranslation();
 
     const langObj = {
@@ -44,7 +43,7 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ( { className, 
             {i18n.language === 'cz' ? langMode.en : langMode.cz}
         </Button>
     );
-};
+} );
 
 // "eslint-plugin-react-hooks": "^4.3.0",
 // "eslint-plugin-jsx-a11y": "^6.5.1",

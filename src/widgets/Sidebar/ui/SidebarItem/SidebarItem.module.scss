@@ -1,0 +1,27 @@
+.navigationItem {
+    margin: 10px 0;
+}
+
+.link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon {
+    margin-right: 10px;
+    fill: var(--inverted-primary-color);
+}
+
+.linkText {
+    opacity: 1;
+    transition: opacity 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+.collapsed {
+    .linkText {
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        width: 0;
+    }
+}
