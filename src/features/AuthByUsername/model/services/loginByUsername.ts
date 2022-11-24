@@ -18,7 +18,7 @@ export const loginByUsername = createAsyncThunk<User, LoginByUsernameProps>(
             );
 
             if ( !response.data ) {
-                return rejectWithValue( 'No data' );
+                throw new Error( 'No data' );
             }
 
             localStorage.setItem(
