@@ -12,6 +12,7 @@ export const profileSlice = createSlice( {
     name: 'profile',
     initialState,
     reducers: {},
+    
 } );
 
 export const { actions: profileActions } = profileSlice;

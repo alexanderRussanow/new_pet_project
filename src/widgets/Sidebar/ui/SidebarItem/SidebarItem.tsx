@@ -9,10 +9,9 @@ import classes from './SidebarItem.module.scss';
 export interface SidebarItemProps {
     item: SidebarItemType;
     collapsed: boolean;
-    onClick?: () => void;
 }
 
-export const SidebarItem: React.FC<SidebarItemProps> = memo( ( { item, collapsed, onClick } ) => {
+export const SidebarItem: React.FC<SidebarItemProps> = memo( ( { item, collapsed } ) => {
     const { Icon, path, text } = item;
     const { t } = useTranslation();
 
@@ -23,12 +22,11 @@ export const SidebarItem: React.FC<SidebarItemProps> = memo( ( { item, collapsed
             className={ classNames(
                 classes.navigationItem,
                 { [ classes.collapsed ]: collapsed } 
-            ) }
-            onClick={ onClick && onClick }>
-            <a className={ classNames( classes.link ) }>
+            ) }>
+            <div className={ classNames( classes.link ) }>
                 <Icon className={ classes.icon } />
                 <span className={ classNames( classes.linkText ) }>{t( text )}</span>
-            </a>
+            </div>
         </AppLink>
     );
 } );

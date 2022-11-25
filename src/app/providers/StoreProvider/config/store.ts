@@ -1,11 +1,13 @@
-import { profileReducer } from 'entities/Profile';
 import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
 import { counterReducer } from 'entities/Counter';
+import { profileReducer } from 'entities/Profile';
 import { userReducer } from 'entities/User';
+import { API } from 'shared/api/api';
 import { createReducerManager } from './reducerManager';
-import { StateSchema } from './StateSchema';
+import { NavigateType, StateSchema } from './StateSchema';
 
-export const createReduxStore = ( initialState: StateSchema, asyncReducers?: ReducersMapObject<StateSchema> ) => {
+
+export const createReduxStore = ( initialState: StateSchema, asyncReducers?: ReducersMapObject<StateSchema>, navigate?: NavigateType ) => {
     const rootReducer: ReducersMapObject<StateSchema> = {
         ...asyncReducers,
         counter: counterReducer,
@@ -15,10 +17,19 @@ export const createReduxStore = ( initialState: StateSchema, asyncReducers?: Red
 
     const reducerManager = createReducerManager( rootReducer );
 
-    const store = configureStore<StateSchema>( {
+    const store = configureStore( {
         reducer: reducerManager.reduce,
         devTools: __IS_DEV__,
         preloadedState: initialState,
+        middleware: getDefaultMiddleware =>
+            getDefaultMiddleware( {
+                thunk: {
+                    extraArgument: {
+                        api: API,
+                        navigate,
+                    },
+                },
+            } ),
     } );
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment

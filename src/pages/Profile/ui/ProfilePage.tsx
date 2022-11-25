@@ -17,7 +17,7 @@ const ProfilePage: React.FC = () => {
     return (
         <DynamicReducerLoader reducers={ profilePageReducer }>
             <div className={ classNames( classes.ProfilePage ) }>
-                <h2>{t( 'PROFILE' )}</h2>;
+                <h2>{t( 'PROFILE' )}</h2>
             </div>
         </DynamicReducerLoader>
     );
