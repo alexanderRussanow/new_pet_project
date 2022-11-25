@@ -1,6 +1,7 @@
-import { profileReducer } from 'entities/Profile';
-import React from 'react';
+import { fetchProfileData, ProfileCard, profileReducer } from 'entities/Profile';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useDispatch } from 'react-redux';
 import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 // styles
@@ -8,16 +9,26 @@ import classes from './ProfilePage.module.scss';
 
 const ProfilePage: React.FC = () => {
     const { t } = useTranslation( 'profile' );
+    const dispatch = useDispatch();
 
     // default async reducer for login form
     const profilePageReducer: ReducersList = {
-        login: profileReducer,
+        profile: profileReducer,
     };
+
+    useEffect(
+        () => {
+            dispatch( fetchProfileData() );
+        },
+        [
+            dispatch
+        ] 
+    );
 
     return (
         <DynamicReducerLoader reducers={ profilePageReducer }>
             <div className={ classNames( classes.ProfilePage ) }>
-                <h2>{t( 'PROFILE' )}</h2>
+                <ProfileCard />
             </div>
         </DynamicReducerLoader>
     );

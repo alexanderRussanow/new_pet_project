@@ -1,3 +1,10 @@
 {
-   "PROFILE": "účet"
+   "PROFILE": "Účet",
+   "EDIT": "Upravit účet",
+   "YOUR_NAME": "Vaše jméno",
+   "YOUR_LASTNAME": "Vaše příjmení",
+   "YOUR_USERNAME": "Vaše uživatelské jméno",
+   "YOUR_EMAIL": "Váš e-mail",
+   "YOUR_PHONE": "Váš telefon",
+   "YOUR_ADDRESS": "Vaše adresa"
 }
