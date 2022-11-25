@@ -1,6 +1,6 @@
 import { userActions, userAuthData } from 'entities/User';
 import { LoginModal } from 'features/AuthByUsername';
-import React, { useCallback, useState } from 'react';
+import React, { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, ButtonSizeEnum, ButtonThemeEnum } from 'shared/ui/Button';
@@ -12,7 +12,7 @@ interface NavbarProps {
     className?: string;
 }
 
-export const Navbar: React.FC<NavbarProps> = ( { className } ) => {
+export const Navbar: React.FC<NavbarProps> = memo( ( { className } ) => {
     // i18n
     const { t } = useTranslation();
     // redux hook
@@ -68,4 +68,4 @@ export const Navbar: React.FC<NavbarProps> = ( { className } ) => {
             </div>
         </div>
     );
-};
+} );

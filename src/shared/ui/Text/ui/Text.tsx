@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 // style
 import classes from './Text.module.scss';
@@ -16,7 +17,7 @@ interface TextProps {
     theme?: TextThemeEnum;
 }
 
-export const Text: React.FC<TextProps> = ( { className, title, content, theme = TextThemeEnum.INFO } ) => {
+export const Text: React.FC<TextProps> = memo( ( { className, title, content, theme = TextThemeEnum.INFO } ) => {
     return (
         <div
             className={ classNames(
@@ -31,4 +32,4 @@ export const Text: React.FC<TextProps> = ( { className, title, content, theme = 
             {content ? <p className={ classes.content }>{content}</p> : null}
         </div>
     );
-};
+} );

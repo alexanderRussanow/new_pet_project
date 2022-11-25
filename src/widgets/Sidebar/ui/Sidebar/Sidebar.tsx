@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { memo, useMemo, useState } from 'react';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 import { Button, ButtonSizeEnum, ButtonThemeEnum } from 'shared/ui/Button';
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher';
@@ -12,13 +12,23 @@ interface SidebarProps {
     className?: string;
 }
 
-export const Sidebar: React.FC<SidebarProps> = ( { className } ) => {
+export const Sidebar: React.FC<SidebarProps> = memo( ( { className } ) => {
     const [
         collapsed,
         setCollapsed
     ] = useState( false );
 
     const toggleSidebar = () => setCollapsed( !collapsed );
+
+    const sidebarItemsList = useMemo(
+        () => sidebarItems.map( item => <SidebarItem
+            collapsed={ collapsed }
+            item={ item }
+            key={ item.path } /> ),
+        [
+            collapsed
+        ] 
+    );
 
     return (
         <div
@@ -39,18 +49,11 @@ export const Sidebar: React.FC<SidebarProps> = ( { className } ) => {
                 onClick={ toggleSidebar }>
                 {collapsed ? '>' : '<'}
             </Button>
-            <div className={ classes.navigation }>
-                {sidebarItems.map( item => (
-                    <SidebarItem
-                        collapsed={ collapsed }
-                        item={ item }
-                        key={ item.path } />
-                ) )}
-            </div>
+            <div className={ classes.navigation }>{sidebarItemsList}</div>
             <div className={ classes.switchers }>
                 <ThemeSwitcher />
                 <LanguageSwitcher />
             </div>
         </div>
     );
-};
+} );

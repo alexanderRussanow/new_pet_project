@@ -22,8 +22,7 @@ export const SidebarItem: React.FC<SidebarItemProps> = memo( ( { item, collapsed
             to={ path }
             className={ classNames(
                 classes.navigationItem,
-                { [ classes.collapsed ]: collapsed },
-                [] 
+                { [ classes.collapsed ]: collapsed } 
             ) }
             onClick={ onClick && onClick }>
             <a className={ classNames( classes.link ) }>
