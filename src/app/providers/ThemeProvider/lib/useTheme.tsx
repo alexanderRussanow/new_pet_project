@@ -14,12 +14,12 @@ export const useTheme = (): UseThemeResult => {
     // toggle theme
     const toggleTheme = () => {
         const newTheme = theme === LIGHT ? DARK : LIGHT;
-        setTheme( newTheme );
+        setTheme && setTheme( newTheme );
         localStorage.setItem(
             LS_THEME_CONTEXT_KEY,
             newTheme 
         );
     };
 
-    return { theme, toggleTheme };
+    return { theme: theme || ThemeEnum.LIGHT, toggleTheme };
 };

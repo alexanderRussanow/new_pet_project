@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useCallback } from 'react';
+import { useEffect, useRef, useState, useCallback, MutableRefObject } from 'react';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 import { Portal } from 'shared/ui/Portal';
 // styles
@@ -22,7 +22,7 @@ export const Modal: React.FC<ModalProps> = ( { className, children, isOpen, lazy
         setIsMounted
     ] = useState( false );
     // refs
-    const timerRef = useRef<ReturnType<typeof setTimeout>>( null );
+    const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
     const handleClose = useCallback(
         () => {

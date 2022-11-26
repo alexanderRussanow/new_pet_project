@@ -24,7 +24,15 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     disabled?: boolean;
 }
 
-export const Button: React.FC<ButtonProps> = ( { className, children, size = ButtonSizeEnum.MEDIUM, theme, square, disabled, ...props } ) => (
+export const Button: React.FC<ButtonProps> = ( {
+    className,
+    children,
+    size = ButtonSizeEnum.MEDIUM,
+    theme = ButtonThemeEnum.OUTLINE,
+    square,
+    disabled,
+    ...props
+} ) => (
     <button
         disabled={ disabled }
         className={ classNames(

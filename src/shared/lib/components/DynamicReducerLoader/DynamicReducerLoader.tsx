@@ -21,25 +21,25 @@ export const DynamicReducerLoader: React.FC<DynamicReducerLoaderProps> = ( { chi
         () => {
             Object.entries( reducers ).forEach( ( [
                 reducerName,
-                reducer ]: 
-            ReducerListEntry ) => {
+                reducer
+            ] ) => {
                 store.reducerManager.add(
-                    reducerName,
+                    reducerName as StateSchemaKey,
                     reducer 
                 );
                 dispatch( { type: 'ADD_ASYNC_REDUCER' } );
             } );
             return () => {
                 Object.entries( reducers ).forEach( ( [
-                    reducerName ]: 
-                ReducerListEntry ) => {
-                    store.reducerManager.remove( reducerName );
+                    reducerName
+                ] ) => {
+                    store.reducerManager.remove( reducerName as StateSchemaKey );
                     dispatch( { type: 'REMOVE_ASYNC_REDUCER' } );
                 } );
             };
         },
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        [] 
+        []
     );
 
     return <>{children}</>;
