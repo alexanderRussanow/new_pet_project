@@ -15,43 +15,18 @@ export default ( { config }: { config: webpack.Configuration } ) => {
         entry: '',
         html: '',
     };
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    config.resolve.modules = [
+
+    config.resolve!.modules = [
         paths.src,
         'node_modules'
     ];
-    config.resolve?.extensions?.push(
+    config.resolve!.extensions?.push(
         '.ts',
         '.tsx' 
     );
 
-    // const assetRule = config.module?.rules?.find( ( { test } ) => test.test( '.svg' ) );
-
-    // const assetLoader = {
-    //     loader: assetRule?.loader,
-    //     options: assetRule?.options || assetRule?.query,
-    // };
-
-    // config.module?.rules?.unshift( {
-    //     test: /\.svg$/,
-    //     use: [
-    //         '@svgr/webpack',
-    //         assetLoader
-    //     ],
-    // } );
-
-    // eslint-disable-next-line no-param-reassign, @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    config.module?.rules = config.module.rules.map( ( rule: RuleSetRule ) => {
-        if ( /svg/.test( rule.test as string ) ) {
-            return {
-                ...rule,
-                exclude: /\.svg$/i,
-            };
-        }
-        return rule;
-    } );
+    const rules = config.module!.rules as RuleSetRule[];
+    config.module!.rules = rules.map( rule => ( /svg/.test( rule.test as string ) ? { ...rule, exclude: /\.svg$/i } : rule ) );
 
     config.module?.rules?.push( {
         test: /\.svg$/,
