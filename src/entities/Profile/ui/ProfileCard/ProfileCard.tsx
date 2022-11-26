@@ -1,29 +1,45 @@
-import { profileDataSelector, profileErrorSelector, profileIsLoadingSelector } from 'entities/Profile';
+import { ProfileType } from 'entities/Profile';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
-import { Button, ButtonThemeEnum } from 'shared/ui/Button';
 import { Input } from 'shared/ui/Input';
 import { Loader } from 'shared/ui/Loader';
-import { Text } from 'shared/ui/Text';
-
+import { Text, TextAlignEnum, TextThemeEnum } from 'shared/ui/Text';
 // styles
 import classes from './ProfileCard.module.scss';
 
-export const ProfileCard: React.FC = () => {
+export interface ProfileCardProps {
+    profile?: ProfileType;
+    isLoading?: boolean;
+    error?: string;
+    className?: string;
+    readonly?: boolean;
+    onEditProfileData?: ( key: keyof ProfileType, value: string ) => void;
+}
+
+export const ProfileCard: React.FC<ProfileCardProps> = ( { profile, isLoading, error, readonly, className, onEditProfileData } ) => {
     const { t } = useTranslation( 'profile' );
-    const dispatch = useDispatch();
-    const profile = useSelector( profileDataSelector );
-    const isLoading = useSelector( profileIsLoadingSelector );
-    const error = useSelector( profileErrorSelector );
+
+    if ( error ) {
+        return (
+            <div className={ classes.ProfileCard }>
+                <Text
+                    content={ 'try to refresh page' }
+                    textAlign={ TextAlignEnum.CENTER }
+                    theme={ TextThemeEnum.ERROR }
+                    title={ 'Loading error' } />
+            </div>
+        );
+    }
 
     return (
-        <div className={ classNames( classes.ProfileCard ) }>
-            <div className={ classes.header }>
-                <Text title={ t( 'PROFILE' ) } />
-                <Button theme={ ButtonThemeEnum.OUTLINE }>{t( 'EDIT' )}</Button>
-            </div>
-            {error ? <Text content={ error } /> : null}
+        <div
+            className={ classNames(
+                classes.ProfileCard,
+                {},
+                [
+                    className
+                ] 
+            ) }>
             {isLoading ? (
                 <div className={ classes.loader }>
                     <Loader />
@@ -33,27 +49,75 @@ export const ProfileCard: React.FC = () => {
                     <Input
                         className={ classes.input }
                         placeholder={ t( 'YOUR_NAME' ) }
-                        value={ profile?.name } />
+                        readonly={ readonly }
+                        value={ profile?.name }
+                        onChange={ value => {
+                            onEditProfileData && onEditProfileData(
+                                'name',
+                                value 
+                            );
+                        } }
+                    />
                     <Input
                         className={ classes.input }
                         placeholder={ t( 'YOUR_LASTNAME' ) }
-                        value={ profile?.lastname } />
+                        readonly={ readonly }
+                        value={ profile?.lastname }
+                        onChange={ value => {
+                            onEditProfileData && onEditProfileData(
+                                'lastname',
+                                value 
+                            );
+                        } }
+                    />
                     <Input
                         className={ classes.input }
                         placeholder={ t( 'YOUR_USERNAME' ) }
-                        value={ profile?.username } />
+                        readonly={ readonly }
+                        value={ profile?.username }
+                        onChange={ value => {
+                            onEditProfileData && onEditProfileData(
+                                'username',
+                                value 
+                            );
+                        } }
+                    />
                     <Input
                         className={ classes.input }
                         placeholder={ t( 'YOUR_EMAIL' ) }
-                        value={ profile?.email } />
+                        readonly={ readonly }
+                        value={ profile?.email }
+                        onChange={ value => {
+                            onEditProfileData && onEditProfileData(
+                                'email',
+                                value 
+                            );
+                        } }
+                    />
                     <Input
                         className={ classes.input }
                         placeholder={ t( 'YOUR_PHONE' ) }
-                        value={ profile?.phone } />
+                        readonly={ readonly }
+                        value={ profile?.phone }
+                        onChange={ value => {
+                            onEditProfileData && onEditProfileData(
+                                'phone',
+                                value 
+                            );
+                        } }
+                    />
                     <Input
                         className={ classes.input }
                         placeholder={ t( 'YOUR_ADDRESS' ) }
-                        value={ profile?.address } />
+                        readonly={ readonly }
+                        value={ profile?.address }
+                        onChange={ value => {
+                            onEditProfileData && onEditProfileData(
+                                'address',
+                                value 
+                            );
+                        } }
+                    />
                 </div>
             )}
         </div>

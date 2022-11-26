@@ -3,16 +3,11 @@
     border: 2px solid var(--inverted-bg-color);
 }
 
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
 .loader {
     display: flex;
     justify-content: center;
+    align-items: center;
+    min-height: 250px;
 }
 
 .input {

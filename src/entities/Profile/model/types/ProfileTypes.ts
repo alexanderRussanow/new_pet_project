@@ -1,6 +1,6 @@
-import { Countries, Currency } from './../../../../shared/const/common';
+import { Countries, Currency } from '../../../../shared/const/common';
 
-export interface Profile {
+export interface ProfileType {
     name: string;
     lastname: string;
     email: string;
@@ -18,6 +18,7 @@ export interface Profile {
 export interface ProfileSchema {
     isLoading: boolean;
     readonly: boolean;
-    profileData?: Profile;
+    profileData?: ProfileType;
+    editableData?: ProfileType;
     error?: string;
 }

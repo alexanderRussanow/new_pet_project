@@ -1,20 +1,20 @@
-import { InputHTMLAttributes, memo, useEffect, useRef, useState } from 'react';
+import { InputHTMLAttributes, memo, MutableRefObject, useEffect, useRef, useState } from 'react';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 // styles
 import classes from './Input.module.scss';
 
-type HtmlInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value'>;
+type HtmlInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value' | 'readOnly'>;
 
 interface InputProps extends HtmlInputProps {
     className?: string;
     value?: string;
     placeholder?: string;
     autofocus?: boolean;
-    lazy?: boolean;
+    readonly?: boolean;
     onChange?: ( value: string ) => void;
 }
 
-export const Input: React.FC<InputProps> = memo( ( { className, value, type = 'text', placeholder, autofocus, lazy, onChange, ...props } ) => {
+export const Input: React.FC<InputProps> = memo( ( { className, value, type = 'text', placeholder, autofocus, readonly, onChange, ...props } ) => {
     // state
     const [
         isFocused,
@@ -30,7 +30,7 @@ export const Input: React.FC<InputProps> = memo( ( { className, value, type = 't
 
     const onHandleChange = ( event: React.ChangeEvent<HTMLInputElement> ) => {
         onChange && onChange( event.target.value );
-        setCaretPosition( event.target.selectionStart );
+        setCaretPosition( event.target.selectionStart as number );
     };
 
     const onHandleFocus = () => setIsFocused( true );
@@ -38,8 +38,10 @@ export const Input: React.FC<InputProps> = memo( ( { className, value, type = 't
 
     const onSelectionChange = ( event: React.SyntheticEvent<HTMLInputElement> ) => {
         const target = event.currentTarget as HTMLInputElement;
-        setCaretPosition( target.selectionDirection === 'forward' ? target.selectionEnd : target.selectionStart );
+        setCaretPosition( target.selectionDirection === 'forward' ? ( target.selectionEnd as number ) : ( target.selectionStart as number ) );
     };
+
+    const isCaretShown = isFocused && !readonly;
 
     useEffect(
         () => {
@@ -57,7 +59,7 @@ export const Input: React.FC<InputProps> = memo( ( { className, value, type = 't
         <div
             className={ classNames(
                 classes.inputWrapper,
-                {},
+                { [ classes.readonly ]: readonly },
                 [
                     className
                 ] 
@@ -66,6 +68,7 @@ export const Input: React.FC<InputProps> = memo( ( { className, value, type = 't
             <div className={ classes.caretWrapper }>
                 <input
                     className={ classes.input }
+                    readOnly={ readonly }
                     ref={ inputRef }
                     type={ type }
                     value={ value }
@@ -75,7 +78,7 @@ export const Input: React.FC<InputProps> = memo( ( { className, value, type = 't
                     onSelect={ onSelectionChange }
                     { ...props }
                 />
-                {isFocused ? (
+                {isCaretShown ? (
                     <div
                         className={ classes.caret }
                         style={ {
