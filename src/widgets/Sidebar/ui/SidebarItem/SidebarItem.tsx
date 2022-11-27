@@ -19,11 +19,6 @@ export const SidebarItem: React.FC<SidebarItemProps> = memo( ( { item, collapsed
     // redux hooks
     const isAuth = useSelector( userAuthData );
 
-    console.log(
-        'SidebarItem render',
-        isAuth 
-    );
-
     if ( privateOnly && !isAuth ) {
         console.log( 'SidebarItem: privateOnly && !isAuth' );
         return null;
