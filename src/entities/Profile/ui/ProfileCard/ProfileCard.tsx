@@ -19,7 +19,7 @@ export interface ProfileCardProps {
     onEditProfileData?: ( key: keyof ProfileType, value: string ) => void;
 }
 
-export const ProfileCard: React.FC<ProfileCardProps> = ( { profile, isLoading, error, readonly, className, onEditProfileData } ) => {
+export const ProfileCard: React.FC<ProfileCardProps> = ( { profile, isLoading, error, readonly = true, className, onEditProfileData } ) => {
     const { t } = useTranslation( 'profile' );
 
     if ( error ) {
@@ -49,9 +49,10 @@ export const ProfileCard: React.FC<ProfileCardProps> = ( { profile, isLoading, e
                 </div>
             ) : (
                 <div className={ classes.content }>
-                    <Avatar
+                    {profile?.avatar ? <Avatar
                         readonly={ readonly }
-                        src={ profile?.avatar } />
+                        src={ profile?.avatar } /> : null}
+
                     <Input
                         className={ classes.input }
                         placeholder={ t( 'YOUR_NAME' ) }

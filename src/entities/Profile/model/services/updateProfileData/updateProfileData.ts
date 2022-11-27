@@ -20,6 +20,9 @@ export const updateProfileData = createAsyncThunk<ProfileType, void, ThunkConfig
                 '/profile',
                 formData 
             );
+            if ( !response.data ) {
+                throw new Error( 'No data' );
+            }
             return response.data;
         } catch ( error ) {
             return rejectWithValue( [

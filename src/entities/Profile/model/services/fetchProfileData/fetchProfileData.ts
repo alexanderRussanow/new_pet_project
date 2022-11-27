@@ -7,7 +7,9 @@ export const fetchProfileData = createAsyncThunk<ProfileType, void, ThunkConfig<
     async ( _, { rejectWithValue, extra } ) => {
         try {
             const response = await extra.api.get<ProfileType>( '/profile' );
-
+            if ( !response.data ) {
+                throw new Error( 'No data' );
+            }
             return response.data;
         } catch ( error ) {
             return rejectWithValue( 'Wrong email or password' );
