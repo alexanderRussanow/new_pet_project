@@ -5,3 +5,4 @@ export const profileIsLoadingSelector = ( state: StateSchema ) => state.profile.
 export const profileErrorSelector = ( state: StateSchema ) => state.profile.error;
 export const profileReadonlySelector = ( state: StateSchema ) => state.profile.readonly;
 export const profileFormDataSelector = ( state: StateSchema ) => state.profile.editableData;
+export const profileValidationErrorsSelector = ( state: StateSchema ) => state.profile.validationErrors;

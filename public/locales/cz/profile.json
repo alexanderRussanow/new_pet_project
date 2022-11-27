@@ -10,4 +10,12 @@
    "SAVE": "Uložit",
    "CANCEL": "Zrušit",
    "YOUR_AVATAR": "Avatarka",
+   "NAME_LENGTH_ERROR": "Jméno musí mít minimálně 3 znaky a maximálně 20 znaků",
+   "LASTNAME_LENGTH_ERROR": "Příjmení musí mít minimálně 3 znaky a maximálně 20 znaků",
+   "EMAIL_REQUIRED_ERROR": "E-mail je povinný",
+   "USERNAME_ERROR": "Uživatelské jméno je povinné",
+   "AVATAR_ERROR": "Avatarka je povinná",
+   "NO_DATA_ERROR": "Žádná data",
+   "VALIDATION_ERRORS": "Chyby ověření",
+   "FETCH_ERROR": "Chyba při získávání dat"
 }

@@ -9,5 +9,13 @@
    "YOUR_ADDRESS": "Votre adresse",
    "SAVE": "Save",
    "CANCEL": "Cancel",
-   "YOUR_AVATAR": "Avatar"
+   "YOUR_AVATAR": "Avatar",
+   "NAME_LENGTH_ERROR": "Name must be between 3 and 20 characters",
+   "LASTNAME_LENGTH_ERROR": "Lastname must be between 3 and 20 characters",
+   "EMAIL_REQUIRED_ERROR":  "Email is required",
+   "USERNAME_ERROR": "Username is required",
+   "AVATAR_ERROR": "Avatar is required",
+   "NO_DATA_ERROR": "No data to save",
+   "VALIDATION_ERRORS": "Some validation errors",
+   "FETCH_ERROR": "Error while fetching data"
 }

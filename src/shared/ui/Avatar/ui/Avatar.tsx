@@ -20,6 +20,8 @@ export const Avatar: React.FC<AvatarProps> = ( { src, alt = 'avatar', className,
                 ...inlineStyle,
                 width: size,
                 height: size,
+                minHeight: size,
+                minWidth: size,
             };
         },
         [
