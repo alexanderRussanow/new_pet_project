@@ -1,6 +1,9 @@
+import { CountriesSelect } from 'entities/Counties/ui/CountriesSelect';
+import { CurrencySelect } from 'entities/Currency';
 import { ProfileType } from 'entities/Profile';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
+import { Avatar } from 'shared/ui/Avatar';
 import { Input } from 'shared/ui/Input';
 import { Loader } from 'shared/ui/Loader';
 import { Text, TextAlignEnum, TextThemeEnum } from 'shared/ui/Text';
@@ -35,7 +38,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = ( { profile, isLoading, e
         <div
             className={ classNames(
                 classes.ProfileCard,
-                {},
+                { [ classes.editing ]: !readonly },
                 [
                     className
                 ] 
@@ -46,6 +49,9 @@ export const ProfileCard: React.FC<ProfileCardProps> = ( { profile, isLoading, e
                 </div>
             ) : (
                 <div className={ classes.content }>
+                    <Avatar
+                        readonly={ readonly }
+                        src={ profile?.avatar } />
                     <Input
                         className={ classes.input }
                         placeholder={ t( 'YOUR_NAME' ) }
@@ -84,6 +90,18 @@ export const ProfileCard: React.FC<ProfileCardProps> = ( { profile, isLoading, e
                     />
                     <Input
                         className={ classes.input }
+                        placeholder={ t( 'YOUR_AVATAR' ) }
+                        readonly={ readonly }
+                        value={ profile?.avatar }
+                        onChange={ value => {
+                            onEditProfileData && onEditProfileData(
+                                'avatar',
+                                value 
+                            );
+                        } }
+                    />
+                    <Input
+                        className={ classes.input }
                         placeholder={ t( 'YOUR_EMAIL' ) }
                         readonly={ readonly }
                         value={ profile?.email }
@@ -114,6 +132,28 @@ export const ProfileCard: React.FC<ProfileCardProps> = ( { profile, isLoading, e
                         onChange={ value => {
                             onEditProfileData && onEditProfileData(
                                 'address',
+                                value 
+                            );
+                        } }
+                    />
+                    <CountriesSelect
+                        className={ classes.input }
+                        readonly={ readonly }
+                        value={ profile?.country }
+                        onChange={ value => {
+                            onEditProfileData && onEditProfileData(
+                                'country',
+                                value 
+                            );
+                        } }
+                    />
+                    <CurrencySelect
+                        className={ classes.input }
+                        readonly={ readonly }
+                        value={ profile?.currency }
+                        onChange={ value => {
+                            onEditProfileData && onEditProfileData(
+                                'currency',
                                 value 
                             );
                         } }

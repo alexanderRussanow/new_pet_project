@@ -1,4 +1,4 @@
-import { InputHTMLAttributes, memo, MutableRefObject, useEffect, useRef, useState } from 'react';
+import { InputHTMLAttributes, memo, useEffect, useRef, useState } from 'react';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 // styles
 import classes from './Input.module.scss';

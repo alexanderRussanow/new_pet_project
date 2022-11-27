@@ -18,7 +18,7 @@ export const Page404: React.FC<Page404Props> = ( { className } ) => {
                     className
                 ] 
             ) }>
-            <h2>{t( '404' )}</h2>
+            <h2 style={ { marginBottom: 20 } }>{t( '404' )}</h2>
 
             <img
                 alt='404page'

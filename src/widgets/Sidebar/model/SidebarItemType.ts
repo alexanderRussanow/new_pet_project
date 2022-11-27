@@ -7,6 +7,7 @@ export interface SidebarItemType {
     path: string;
     text: string;
     Icon: React.VFC<React.SVGProps<SVGSVGElement>>;
+    privateOnly?: boolean;
 }
 
 export const sidebarItems: SidebarItemType[] = [
@@ -19,6 +20,7 @@ export const sidebarItems: SidebarItemType[] = [
         path: RoutesPath.profile,
         text: 'PROFILE',
         Icon: ProfileIcon,
+        privateOnly: true,
     },
     {
         path: RoutesPath.board,

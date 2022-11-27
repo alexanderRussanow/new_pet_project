@@ -10,5 +10,8 @@
    "SIGNUP": "Přihlásit se",
    "USERNAME": "Uživatelské jméno",
    "PASSWORD": "Heslo",
-   "LOGOUT": "Odhlášení"
+   "LOGOUT": "Odhlášení",
+   "COUNTRY": "Země",
+   "CURRENCY": "Měna",
+   "404": "Ups... Stránka nenalezena"
 }

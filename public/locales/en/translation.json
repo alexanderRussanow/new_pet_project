@@ -10,6 +10,8 @@
    "SIGNUP": "Sign up",
    "USERNAME": "Username",
    "PASSWORD": "Password",
-   "LOGOUT": "Logout"
-
+   "LOGOUT": "Logout",
+   "COUNTRY": "Country",
+   "CURRENCY": "Currency",
+   "404": "Ups... Page not found"
 }

@@ -4,6 +4,10 @@ import { HomePage } from 'pages/Home';
 import { Page404 } from 'pages/Page404';
 import { RouteProps } from 'react-router-dom';
 
+export type AppRouteProps = RouteProps & {
+    private?: boolean;
+};
+
 export enum AppRoutes {
     HOME = 'home',
     PROFILE = 'profile',
@@ -18,7 +22,7 @@ export const RoutesPath: Record<AppRoutes, string> = {
     [ AppRoutes.PAGE_404 ]: '*',
 };
 
-export const routesConfig: Record<AppRoutes, RouteProps> = {
+export const routesConfig: Record<AppRoutes, AppRouteProps> = {
     [ AppRoutes.HOME ]: {
         path: RoutesPath[ AppRoutes.HOME ],
         element: <HomePage />,
@@ -26,6 +30,7 @@ export const routesConfig: Record<AppRoutes, RouteProps> = {
     [ AppRoutes.PROFILE ]: {
         path: RoutesPath[ AppRoutes.PROFILE ],
         element: <ProfilePage />,
+        private: true,
     },
     [ AppRoutes.BOARD ]: {
         path: RoutesPath[ AppRoutes.BOARD ],

@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { fetchProfileData, updateProfileData } from 'entities/Profile';
-
 import { ProfileType, ProfileSchema } from '../types/ProfileTypes';
 
 const initialState: ProfileSchema = {
@@ -63,6 +62,7 @@ export const profileSlice = createSlice( {
                     state.isLoading = false;
                     state.profileData = action.payload;
                     state.editableData = action.payload;
+                    state.readonly = true;
                 } 
             )
             .addCase(
