@@ -8,12 +8,27 @@ interface UseThemeResult {
 
 export const useTheme = (): UseThemeResult => {
     // destructuring theme enum
-    const { LIGHT, DARK } = ThemeEnum;
+    const { LIGHT, DARK, VIOLET } = ThemeEnum;
     // context theme
     const { theme, setTheme } = useContext( ThemeContext );
     // toggle theme
     const toggleTheme = () => {
-        const newTheme = theme === LIGHT ? DARK : LIGHT;
+        let newTheme;
+
+        switch ( theme ) {
+            case LIGHT:
+                newTheme = DARK;
+                break;
+            case DARK:
+                newTheme = VIOLET;
+                break;
+            case VIOLET:
+                newTheme = LIGHT;
+                break;
+            default:
+                newTheme = LIGHT;
+        }
+
         setTheme && setTheme( newTheme );
         localStorage.setItem(
             LS_THEME_CONTEXT_KEY,
