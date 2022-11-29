@@ -1,5 +1,7 @@
 {
    "BOARD": "board",
    "POSTS": "Posts",
-   "POST_DETAIL": "Post detail"
+   "POST_DETAIL": "Post detail",
+   "POST_NOT_EXIST": "Post does not exist",
+   "LOADING_ERROR": "Loading error"
 }

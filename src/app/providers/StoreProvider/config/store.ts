@@ -1,6 +1,5 @@
 import { CombinedState, configureStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { counterReducer } from 'entities/Counter';
-import { profileReducer } from 'entities/Profile';
 import { userReducer } from 'entities/User';
 import { API } from 'shared/api/api';
 import { createReducerManager } from './reducerManager';
@@ -11,7 +10,6 @@ export const createReduxStore = ( initialState: StateSchema, asyncReducers?: Red
         ...asyncReducers,
         counter: counterReducer,
         user: userReducer,
-        profile: profileReducer,
     };
 
     const reducerManager = createReducerManager( rootReducer );

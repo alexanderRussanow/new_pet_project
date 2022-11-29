@@ -47,3 +47,9 @@ export interface PostType {
     tags: PostTags[];
     content: PostContent[];
 }
+
+export interface PostSchema {
+    isLoading: boolean;
+    postData?: PostType;
+    error?: string;
+}

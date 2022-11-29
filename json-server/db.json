@@ -67,7 +67,8 @@
                     "id": "2",
                     "type": "IMAGE",
                     "title": "Content title 2",
-                    "img": "https://www.w3schools.com/w3images/woods.jpg"
+                    "src": "https://www.w3schools.com/w3images/woods.jpg",
+                    "alt": "Image"
                 },
                 {
                     "id": "3",
