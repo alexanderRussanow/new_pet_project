@@ -1,44 +1,31 @@
-import { userAuthData } from 'entities/User';
-import { memo, Suspense, useMemo } from 'react';
-import { useSelector } from 'react-redux';
+import { memo, Suspense, useCallback } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { Loader } from 'shared/ui/Loader/ui/Loader';
 import { PageLoader } from 'widgets/PageLoader.tsx';
 import { routesConfig } from '../../../../shared/config/routeConfig/routeConfig';
+import { RequireAuth } from './RequireAuth';
 
 export const AppRouter: React.FC = memo( () => {
-    // redux hooks
-    const isAuth = useSelector( userAuthData );
+    const renderRoutes = useCallback(
+        route => {
+            const component = (
+                <Suspense
+                    fallback={
+                        <PageLoader>
+                            <Loader />
+                        </PageLoader>
+                    }>
+                    <div className='page'>{route.element}</div>
+                </Suspense>
+            );
 
-    const renderRoutes = useMemo(
-        () => {
-            return Object.values( routesConfig ).filter( route => {
-                return route.private && !isAuth ? false : true;
-            } );
+            return <Route
+                element={ route.private ? <RequireAuth>{component}</RequireAuth> : component }
+                key={ route.path }
+                path={ route.path } />;
         },
-        [
-            isAuth
-        ] 
+        [] 
     );
 
-    return (
-        <Routes>
-            {renderRoutes.map( ( { path, element } ) => (
-                <Route
-                    key={ path }
-                    path={ path }
-                    element={
-                        <Suspense
-                            fallback={
-                                <PageLoader>
-                                    <Loader />
-                                </PageLoader>
-                            }>
-                            <div className='page'>{element}</div>
-                        </Suspense>
-                    }
-                />
-            ) )}
-        </Routes>
-    );
+    return <Routes>{Object.values( routesConfig ).map( renderRoutes )}</Routes>;
 } );

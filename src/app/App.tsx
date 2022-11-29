@@ -1,13 +1,15 @@
-import { userActions } from 'entities/User';
+import { userActions, userIsInited } from 'entities/User';
 import { Suspense, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
 import { classNames } from '../shared/lib/utility/UtilityMethods';
 import { AppRouter } from './providers/router/ui/AppRouter';
 
 const App = () => {
+    // redux hooks
     const dispatch = useDispatch();
+    const userIsInitialized = useSelector( userIsInited );
 
     useEffect(
         () => {
@@ -24,7 +26,7 @@ const App = () => {
                 <Navbar />
                 <div className='page-content'>
                     <Sidebar />
-                    <AppRouter />
+                    {userIsInitialized ? <AppRouter /> : null}
                 </div>
             </Suspense>
         </div>
