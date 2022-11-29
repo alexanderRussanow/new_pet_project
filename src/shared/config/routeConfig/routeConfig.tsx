@@ -1,9 +1,9 @@
-import { BlogPage } from 'pages/Blog';
+import { PostsPage } from 'pages/Posts';
 import { ProfilePage } from 'pages/Profile';
 import { HomePage } from 'pages/Home';
 import { Page404 } from 'pages/Page404';
 import { RouteProps } from 'react-router-dom';
-import { BlogDetailPage } from 'pages/BlogDetail';
+import { PostDetailPage } from 'pages/PostDetail';
 
 export type AppRouteProps = RouteProps & {
     private?: boolean;
@@ -12,16 +12,16 @@ export type AppRouteProps = RouteProps & {
 export enum AppRoutes {
     HOME = 'home',
     PROFILE = 'profile',
-    BLOG = 'blog',
+    POSTS = 'posts',
     PAGE_404 = '404',
-    BLOG_DETAIL = 'blogDetail',
+    POST_DETAIL = 'postDetail',
 }
 
 export const RoutesPath: Record<AppRoutes, string> = {
     [ AppRoutes.HOME ]: '/',
     [ AppRoutes.PROFILE ]: '/profile',
-    [ AppRoutes.BLOG ]: '/blog',
-    [ AppRoutes.BLOG_DETAIL ]: '/blog/',
+    [ AppRoutes.POSTS ]: '/posts',
+    [ AppRoutes.POST_DETAIL ]: '/posts/',
     [ AppRoutes.PAGE_404 ]: '*',
 };
 
@@ -35,14 +35,14 @@ export const routesConfig: Record<AppRoutes, AppRouteProps> = {
         element: <ProfilePage />,
         private: true,
     },
-    [ AppRoutes.BLOG ]: {
-        path: RoutesPath[ AppRoutes.BLOG ],
-        element: <BlogPage />,
+    [ AppRoutes.POSTS ]: {
+        path: RoutesPath[ AppRoutes.POSTS ],
+        element: <PostsPage />,
         private: true,
     },
-    [ AppRoutes.BLOG_DETAIL ]: {
-        path: RoutesPath[ AppRoutes.BLOG_DETAIL ] + ':id',
-        element: <BlogDetailPage />,
+    [ AppRoutes.POST_DETAIL ]: {
+        path: RoutesPath[ AppRoutes.POST_DETAIL ] + ':id',
+        element: <PostDetailPage />,
         private: true,
     },
     [ AppRoutes.PAGE_404 ]: {

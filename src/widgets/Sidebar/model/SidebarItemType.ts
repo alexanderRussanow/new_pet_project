@@ -1,6 +1,6 @@
 import HomeIcon from '../../../shared/assets/icons/home.svg';
 import ProfileIcon from '../../../shared/assets/icons/profile.svg';
-import BoardIcon from '../../../shared/assets/icons/board.svg';
+import PostsIcon from '../../../shared/assets/icons/board.svg';
 import { RoutesPath } from 'shared/config/routeConfig/routeConfig';
 
 export interface SidebarItemType {
@@ -23,8 +23,8 @@ export const sidebarItems: SidebarItemType[] = [
         privateOnly: true,
     },
     {
-        path: RoutesPath.blog,
-        text: 'BLOG',
-        Icon: BoardIcon,
+        path: RoutesPath.posts,
+        text: 'POSTS',
+        Icon: PostsIcon,
     },
 ];
