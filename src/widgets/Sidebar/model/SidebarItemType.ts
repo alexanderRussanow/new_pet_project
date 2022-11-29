@@ -23,8 +23,8 @@ export const sidebarItems: SidebarItemType[] = [
         privateOnly: true,
     },
     {
-        path: RoutesPath.board,
-        text: 'BOARD',
+        path: RoutesPath.blog,
+        text: 'BLOG',
         Icon: BoardIcon,
     },
 ];

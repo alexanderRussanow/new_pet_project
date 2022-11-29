@@ -13,5 +13,6 @@
    "LOGOUT": "Logout",
    "COUNTRY": "Country",
    "CURRENCY": "Currency",
-   "404": "Ups... Page not found"
+   "404": "Ups... Page not found",
+   "BLOG": "Blog"
 }
