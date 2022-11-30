@@ -1,5 +1,5 @@
 import { ContentCode } from 'entities/Post';
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 import { Button } from 'shared/ui/Button';
 import { Icon } from 'shared/ui/Icon';
@@ -13,9 +13,14 @@ export interface PostCodeBlockProps {
 }
 
 export const PostCodeBlock: React.FC<PostCodeBlockProps> = memo( ( { content, className } ) => {
-    const copyToClipboard = ( text: string ) => {
-        navigator.clipboard.writeText( text );
-    };
+    const copyToClipboard = useCallback(
+        () => {
+            navigator.clipboard.writeText( content?.code || '' );
+        },
+        [
+            content?.code
+        ] 
+    );
 
     return (
         <pre
@@ -28,7 +33,7 @@ export const PostCodeBlock: React.FC<PostCodeBlockProps> = memo( ( { content, cl
             ) }>
             <Button
                 className={ classes.copyBtn }
-                onClick={ () => copyToClipboard( content?.code || '' ) }>
+                onClick={ copyToClipboard }>
                 <Icon Svg={ CopyIcon } />
             </Button>
             <code>{content?.code}</code>

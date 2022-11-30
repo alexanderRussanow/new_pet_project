@@ -131,7 +131,9 @@ export const PostDetails: React.FC<PostDetailsProps> = memo( ( { postId, classNa
 
     useEffect(
         () => {
-            dispatch( fetchPostById( postId ) );
+            if ( __PROJECT__ !== 'storybook' ) {
+                dispatch( fetchPostById( postId ) );
+            }
         },
         [
             dispatch,
