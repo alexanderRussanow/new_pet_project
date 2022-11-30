@@ -15,6 +15,7 @@
 
 .linkText {
     opacity: 1;
+    font: var(--font-m);
     transition: opacity 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 

@@ -7,12 +7,7 @@ const PostDetailPage: React.FC = () => {
     const { t } = useTranslation( 'post' );
     const { id } = useParams();
 
-    return (
-        <div>
-            <h3>TEST</h3>
-            {id ? <PostDetails postId={ id } /> : <h2>{t( 'POST_NOT_EXIST' )}</h2>}
-        </div>
-    );
+    return <div>{id ? <PostDetails postId={ id } /> : <h2>{t( 'POST_NOT_EXIST' )}</h2>}</div>;
 };
 
 export default memo( PostDetailPage );

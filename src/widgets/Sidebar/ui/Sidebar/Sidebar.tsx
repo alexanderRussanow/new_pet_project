@@ -44,7 +44,7 @@ export const Sidebar: React.FC<SidebarProps> = memo( ( { className } ) => {
                 className={ classes.collapsBtn }
                 data-testid='sidebar-toggle'
                 size={ ButtonSizeEnum.MEDIUM }
-                theme={ ButtonThemeEnum.BACKGROUND }
+                theme={ ButtonThemeEnum.BACKGROUND_INVERTED }
                 square
                 onClick={ toggleSidebar }>
                 {collapsed ? '>' : '<'}

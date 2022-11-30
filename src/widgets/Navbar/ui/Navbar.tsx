@@ -46,7 +46,7 @@ export const Navbar: React.FC<NavbarProps> = memo( ( { className } ) => {
                 {authUserData ? (
                     <>
                         <Button
-                            size={ ButtonSizeEnum.SMALL }
+                            size={ ButtonSizeEnum.MEDIUM }
                             theme={ ButtonThemeEnum.CLEAR_INVERTED }
                             onClick={ onLogoutHandler }>
                             {t( 'LOGOUT' )}
@@ -55,7 +55,7 @@ export const Navbar: React.FC<NavbarProps> = memo( ( { className } ) => {
                 ) : (
                     <>
                         <Button
-                            size={ ButtonSizeEnum.SMALL }
+                            size={ ButtonSizeEnum.MEDIUM }
                             theme={ ButtonThemeEnum.CLEAR_INVERTED }
                             onClick={ onLoginModalOpen }>
                             {t( 'LOGIN' )}

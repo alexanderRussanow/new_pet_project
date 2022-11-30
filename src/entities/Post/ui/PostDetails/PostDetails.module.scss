@@ -1,19 +1,37 @@
-
 .PostDetails {
-   min-height: 100%;
+    min-height: 100%;
 }
 
 .logo {
-   display: flex;
-   align-items: center;
-   margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 .title {
-   margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .skeleton {
-   margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
+.info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.logoWrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.icon {
+    margin-right: 10px;
+}
+
+.block {
+    margin-bottom: 20px;
+}

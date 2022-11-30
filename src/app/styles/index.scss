@@ -1,8 +1,8 @@
-@import "./variables/global";
-@import "./reset";
-@import "./themes/dark";
-@import "./themes/light";
-@import "./themes/violet";
+@import './variables/global';
+@import './reset';
+@import './themes/dark';
+@import './themes/light';
+@import './themes/violet';
 
 .app {
     font: var(--font-s);
@@ -11,13 +11,14 @@
     min-height: 100vh;
 }
 
-.page-content {
-    display: flex;
-}
-
 .page {
     flex-grow: 1;
     padding: 20px 20px 20px 40px;
     height: calc(100vh - var(--navbar-height));
     overflow-y: auto;
+    // width: 100%;
+}
+
+.page-content {
+    display: flex;
 }

@@ -15,22 +15,22 @@ export enum PostContentTypeEnum {
 export interface ContentText {
     id: string;
     type: PostContentTypeEnum.TEXT;
-    title: string;
-    text: string;
+    title?: string;
+    text?: string[];
 }
 
 export interface ContentCode {
     id: string;
     type: PostContentTypeEnum.CODE;
-    code: string;
+    code?: string;
 }
 
 export interface ContentImage {
     id: string;
     type: PostContentTypeEnum.IMAGE;
     src: string;
-    title: string;
-    alt: string;
+    title?: string;
+    alt?: string;
 }
 
 export type PostContent = ContentText | ContentCode | ContentImage;

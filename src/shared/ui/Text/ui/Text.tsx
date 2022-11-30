@@ -16,15 +16,22 @@ export enum TextThemeEnum {
     INFO = 'info',
 }
 
+export enum TextSizeEnum {
+    SMALL = 'small',
+    MEDIUM = 'medium',
+    LARGE = 'large',
+}
+
 interface TextProps {
     className?: string;
     title?: string;
     content?: string;
     theme?: TextThemeEnum;
+    size?: TextSizeEnum;
     textAlign?: TextAlignEnum;
 }
 
-export const Text: React.FC<TextProps> = memo( ( { className, title, content, theme = TextThemeEnum.INFO, textAlign = TextAlignEnum.LEFT } ) => {
+export const Text: React.FC<TextProps> = memo( ( { className, title, content, theme = TextThemeEnum.INFO, textAlign = TextAlignEnum.LEFT, size = TextSizeEnum.MEDIUM } ) => {
     return (
         <div
             className={ classNames(
@@ -33,7 +40,8 @@ export const Text: React.FC<TextProps> = memo( ( { className, title, content, th
                 [
                     className,
                     classes[ theme ],
-                    classes[ textAlign ]
+                    classes[ textAlign ],
+                    classes[ size ]
                 ] 
             ) }>
             {title ? <p className={ classes.title }>{title}</p> : null}
