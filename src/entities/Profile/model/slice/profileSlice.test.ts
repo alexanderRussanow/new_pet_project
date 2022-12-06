@@ -5,7 +5,7 @@ describe(
     'profileSlice tests',
     () => {
         it(
-            'should set username',
+            'should update readonly field',
             () => {
                 const state: DeepPartial<ProfileSchema> = {
                     readonly: true,
