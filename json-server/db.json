@@ -2,20 +2,17 @@
     "comments": [
         {
             "id": "1",
-            "content": "some comment",
-            "postId": "1",
+            "text": "some comment",
             "userId": "1"
         },
         {
             "id": "2",
-            "content": "some comment",
-            "postId": "2",
+            "text": "some comment",
             "userId": "2"
         },
         {
             "id": "3",
-            "content": "some comment",
-            "postId": "3",
+            "text": "some comment",
             "userId": "3"
         }
     ],

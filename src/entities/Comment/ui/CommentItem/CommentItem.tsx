@@ -43,9 +43,9 @@ export const CommentItem: React.FC<CommentItemProps> = memo( ( { comment, isLoad
                 ) : (
                     <>
                         <div className={ classes.header }>
-                            <Avatar
+                            {comment?.user.avatar ? <Avatar
                                 size={ 30 }
-                                src={ comment?.user.avatar } />
+                                src={ comment?.user.avatar } /> : null}
                             <Text
                                 className={ classes.username }
                                 content={ comment?.user.username } />

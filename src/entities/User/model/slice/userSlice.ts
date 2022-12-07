@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { User, UserSchema } from 'entities/User';
+import { UserType, UserSchema } from 'entities/User';
 import { USER_LS_KEY } from 'shared/const/localStorage';
 
 const initialState: UserSchema = {
@@ -10,7 +10,7 @@ export const userSlice = createSlice( {
     name: 'user',
     initialState,
     reducers: {
-        setAuthUser: ( state, action: PayloadAction<User> ) => {
+        setAuthUser: ( state, action: PayloadAction<UserType> ) => {
             state.authData = action.payload;
         },
         initUserData: state => {
