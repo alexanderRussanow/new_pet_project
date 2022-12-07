@@ -13,7 +13,15 @@ export interface AvatarProps {
     onClick?: () => void;
 }
 
-export const Avatar: React.FC<AvatarProps> = ( { src, alt = 'avatar', className, size = 50, inlineStyle, readonly, onClick } ) => {
+export const Avatar: React.FC<AvatarProps> = ( {
+    src = 'https://robohash.org/stefan-one',
+    alt = 'avatar',
+    className,
+    size = 50,
+    inlineStyle,
+    readonly,
+    onClick,
+} ) => {
     const styles = useMemo<CSSProperties>(
         () => {
             return {

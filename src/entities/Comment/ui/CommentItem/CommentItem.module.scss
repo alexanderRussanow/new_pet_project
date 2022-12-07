@@ -1,0 +1,21 @@
+.CommentItem {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid var(--primary-color);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.username {
+    margin-left: 20px;
+}

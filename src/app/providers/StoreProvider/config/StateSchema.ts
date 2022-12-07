@@ -5,6 +5,7 @@ import { PostSchema } from 'entities/Post';
 import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
+import { PostDetailsCommentSchema } from 'pages/PostDetail';
 import { To, NavigateOptions } from 'react-router-dom';
 
 export interface StateSchema {
@@ -14,6 +15,7 @@ export interface StateSchema {
     login?: LoginSchema;
     profile?: ProfileSchema;
     post?: PostSchema;
+    postComments?: PostDetailsCommentSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

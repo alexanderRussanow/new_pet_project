@@ -1,9 +1,10 @@
-export interface User {
+export interface UserType {
     id: string;
     username: string;
+    avatar?: string;
 }
 
 export interface UserSchema {
-    authData?: User;
+    authData?: UserType;
     isInited: boolean;
 }
