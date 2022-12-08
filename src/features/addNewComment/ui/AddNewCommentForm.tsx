@@ -6,28 +6,28 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 import { Button, ButtonThemeEnum } from 'shared/ui/Button';
 import { Input } from 'shared/ui/Input';
-import { getCommentErrorSelector, getCommentTextSelector } from '../model/selectors/addNewCommentSelectors';
-import { sendComment } from '../model/services/sendComment';
+import { getCommentTextSelector } from '../model/selectors/addNewCommentSelectors';
 import { addNewCommentActions, addNewCommentReducer } from '../model/slice/addCommentSlice';
 // styles
 import classes from './AddNewCommentForm.module.scss';
 
 export interface AddNewCommentFormProps {
     className?: string;
+    onSendComment: ( text: string ) => void;
 }
 
 const reducer: ReducersList = {
     addNewComment: addNewCommentReducer,
 };
 
-const AddNewCommentForm: React.FC<AddNewCommentFormProps> = memo( ( { className } ) => {
+const AddNewCommentForm: React.FC<AddNewCommentFormProps> = memo( ( { onSendComment, className } ) => {
     const { t } = useTranslation();
     // redux hooks
     const text = useSelector( getCommentTextSelector );
-    const error = useSelector( getCommentErrorSelector );
+    //  const error = useSelector( getCommentErrorSelector );
     const dispatch = useAppDispatch();
 
-    const onTextChange = useCallback(
+    const onCommentTextChange = useCallback(
         ( value: string ) => {
             dispatch( addNewCommentActions.addText( value ) );
         },
@@ -36,12 +36,15 @@ const AddNewCommentForm: React.FC<AddNewCommentFormProps> = memo( ( { className 
         ]
     );
 
-    const onSendComment = useCallback(
+    const onSendCommentHandler = useCallback(
         () => {
-            dispatch( sendComment() );
+            onSendComment( text || '' );
+            onCommentTextChange( '' );
         },
         [
-            dispatch
+            onSendComment,
+            onCommentTextChange,
+            text
         ] 
     );
 
@@ -59,10 +62,10 @@ const AddNewCommentForm: React.FC<AddNewCommentFormProps> = memo( ( { className 
                     className={ classes.input }
                     placeholder={ t( 'TYPE_COMMENT' ) }
                     value={ text }
-                    onChange={ onTextChange } />
+                    onChange={ onCommentTextChange } />
                 <Button
                     theme={ ButtonThemeEnum.OUTLINE }
-                    onClick={ onSendComment }>
+                    onClick={ onSendCommentHandler }>
                     {t( 'SEND_COMMENT' )}
                 </Button>
             </div>

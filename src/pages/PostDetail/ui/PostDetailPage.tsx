@@ -1,7 +1,7 @@
 import { CommentList } from 'entities/Comment';
 import { PostDetails } from 'entities/Post';
 import { AddNewCommentForm } from 'features/addNewComment';
-import React, { memo } from 'react';
+import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
@@ -11,6 +11,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 import { Text } from 'shared/ui/Text';
 import { commentsIsLoading } from '../model/selectors/postDetailsCommentSelectors';
+import { addCommentForPost } from '../model/services/addCommentForPost';
 import { fetchCommentsByPostId } from '../model/services/fetchCommentsByPostId';
 import { getPostComments, postCommentsReducer } from '../model/slice/postDetailsCommentsSlice';
 // styles
@@ -26,7 +27,17 @@ const PostDetailPage: React.FC = () => {
     // redux hooks
     const comments = useSelector( getPostComments.selectAll );
     const isLoading = useSelector( commentsIsLoading );
+
     const dispatch = useAppDispatch();
+
+    const onSendComment = useCallback(
+        text => {
+            dispatch( addCommentForPost( text ) );
+        },
+        [
+            dispatch
+        ]
+    );
 
     useInitialEffect( () => {
         dispatch( fetchCommentsByPostId( id ) );
@@ -46,7 +57,7 @@ const PostDetailPage: React.FC = () => {
                         <Text
                             className={ classes.commentsTitle }
                             title={ t( 'COMMENTS' ) } />
-                        <AddNewCommentForm />
+                        <AddNewCommentForm onSendComment={ onSendComment } />
                         <CommentList
                             className={ classes.comments }
                             comments={ comments }

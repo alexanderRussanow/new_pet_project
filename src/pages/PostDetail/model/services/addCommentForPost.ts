@@ -3,13 +3,12 @@ import { ThunkConfig } from 'app/providers/StoreProvider';
 import { CommentType } from 'entities/Comment';
 import { getPostData } from 'entities/Post/model/selectors/postSelectors';
 import { userAuthData } from 'entities/User';
-import { addNewCommentActions, getCommentTextSelector } from 'features/addNewComment';
+import { fetchCommentsByPostId } from 'pages/PostDetail/model/services/fetchCommentsByPostId';
 
-export const sendComment = createAsyncThunk<CommentType, void, ThunkConfig<string>>(
-    'sendComment',
-    async ( _, { rejectWithValue, getState, dispatch, extra } ) => {
+export const addCommentForPost = createAsyncThunk<CommentType, string, ThunkConfig<string>>(
+    'addCommentForPost',
+    async ( text, { rejectWithValue, getState, dispatch, extra } ) => {
         const userId = userAuthData( getState() )?.id;
-        const text = getCommentTextSelector( getState() );
         const postId = getPostData( getState() )?.id;
 
         if ( !userId || !text || !postId ) {
@@ -30,7 +29,7 @@ export const sendComment = createAsyncThunk<CommentType, void, ThunkConfig<strin
                 throw new Error( 'No data' );
             }
 
-            dispatch( addNewCommentActions.addText( '' ) );
+            dispatch( fetchCommentsByPostId( postId ) );
 
             return response.data;
         } catch ( error ) {
