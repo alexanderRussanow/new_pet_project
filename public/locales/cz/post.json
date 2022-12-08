@@ -3,5 +3,6 @@
    "POSTS": "Články",
    "POST_DETAIL": "Článek",
    "POST_NOT_EXIST": "Článek neexistuje",
-   "LOADING_ERROR": "Chyba při načítání"
+   "LOADING_ERROR": "Chyba při načítání",
+   "COMMENTS": "Komentáře"
 }

@@ -19,7 +19,7 @@ export enum AppRoutes {
 
 export const RoutesPath: Record<AppRoutes, string> = {
     [ AppRoutes.HOME ]: '/',
-    [ AppRoutes.PROFILE ]: '/profile',
+    [ AppRoutes.PROFILE ]: '/profile/',
     [ AppRoutes.POSTS ]: '/posts',
     [ AppRoutes.POST_DETAIL ]: '/posts/',
     [ AppRoutes.PAGE_404 ]: '*',
@@ -31,7 +31,7 @@ export const routesConfig: Record<AppRoutes, AppRouteProps> = {
         element: <HomePage />,
     },
     [ AppRoutes.PROFILE ]: {
-        path: RoutesPath[ AppRoutes.PROFILE ],
+        path: RoutesPath[ AppRoutes.PROFILE ] + ':id',
         element: <ProfilePage />,
         private: true,
     },

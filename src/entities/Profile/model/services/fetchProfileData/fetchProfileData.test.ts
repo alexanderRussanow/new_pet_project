@@ -22,7 +22,7 @@ describe(
             async () => {
                 const thunk = new TestAsyncThunk( fetchProfileData );
                 thunk.api.get.mockResolvedValue( Promise.resolve( { data: profileData } ) );
-                const result = await thunk.callThunk();
+                const result = await thunk.callThunk( '1' );
                 expect( thunk.api.get ).toHaveBeenCalled();
                 expect( result.meta.requestStatus ).toEqual( 'fulfilled' );
                 expect( result.payload ).toEqual( profileData );
@@ -33,7 +33,7 @@ describe(
             async () => {
                 const thunk = new TestAsyncThunk( fetchProfileData );
                 thunk.api.get.mockResolvedValue( Promise.resolve( { status: 500 } ) );
-                const result = await thunk.callThunk();
+                const result = await thunk.callThunk( '1' );
                 expect( result.meta.requestStatus ).toBe( 'rejected' );
             } 
         );

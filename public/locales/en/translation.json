@@ -14,5 +14,8 @@
    "COUNTRY": "Country",
    "CURRENCY": "Currency",
    "404": "Ups... Page not found",
-   "POSTS": "Posts"
+   "POSTS": "Posts",
+   "TYPE_COMMENT": "Type comment",
+   "SEND_COMMENT": "Send",
+   "NO_COMMENTS": "No comments yet"
 }

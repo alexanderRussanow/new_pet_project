@@ -13,6 +13,9 @@
    "LOGOUT": "Odhlášení",
    "COUNTRY": "Země",
    "CURRENCY": "Měna",
-   "404": "Ups... Stránka nenalezena",
-   "POSTS": "Články"
+   "404": "Ups... Stránka nenalezená",
+   "POSTS": "Články",
+   "TYPE_COMMENT": "Napište komentář",
+   "SEND_COMMENT": "Odeslat",
+   "NO_COMMENTS": "Žádné komentáře"
 }

@@ -1,3 +1,4 @@
+import { AddNewCommentSchema } from './../../../../features/addNewComment/model/types/AddNewCommentSchema';
 import { AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject, Dispatch } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
 import { CounterSchema } from 'entities/Counter';
@@ -16,6 +17,7 @@ export interface StateSchema {
     profile?: ProfileSchema;
     post?: PostSchema;
     postComments?: PostDetailsCommentSchema;
+    addNewComment: AddNewCommentSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

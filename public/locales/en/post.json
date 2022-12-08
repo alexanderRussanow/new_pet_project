@@ -3,5 +3,6 @@
    "POSTS": "Posts",
    "POST_DETAIL": "Post detail",
    "POST_NOT_EXIST": "Post does not exist",
-   "LOADING_ERROR": "Loading error"
+   "LOADING_ERROR": "Loading error",
+   "COMMENTS": "Comments"
 }

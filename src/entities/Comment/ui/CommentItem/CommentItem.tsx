@@ -1,10 +1,12 @@
 import { memo } from 'react';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 import { Avatar } from 'shared/ui/Avatar';
-import { CommentType } from '../..';
-import { Text } from 'shared/ui/Text';
 import { Skeleton } from 'shared/ui/Skeleton';
+import { Text } from 'shared/ui/Text';
+import { CommentType } from '../..';
 // styles
+import { RoutesPath } from 'shared/config/routeConfig/routeConfig';
+import { AppLink } from 'shared/ui/AppLink';
 import classes from './CommentItem.module.scss';
 
 export interface CommentItemProps {
@@ -42,14 +44,16 @@ export const CommentItem: React.FC<CommentItemProps> = memo( ( { comment, isLoad
                     </>
                 ) : (
                     <>
-                        <div className={ classes.header }>
+                        <AppLink
+                            className={ classes.header }
+                            to={ RoutesPath.profile + comment?.user.id }>
                             {comment?.user.avatar ? <Avatar
                                 size={ 30 }
                                 src={ comment?.user.avatar } /> : null}
                             <Text
                                 className={ classes.username }
                                 content={ comment?.user.username } />
-                        </div>
+                        </AppLink>
                         <Text content={ comment?.text } />
                     </>
                 )}

@@ -25,6 +25,11 @@ export interface LoginFormProps {
     onLoginSuccess: () => void;
 }
 
+// default async reducer for login form
+const loginFormReducer: ReducersList = {
+    login: loginReducer,
+};
+
 const LoginForm: React.FC<LoginFormProps> = memo( ( { className, onLoginSuccess } ) => {
     const { t } = useTranslation();
     // redux hooks
@@ -33,10 +38,6 @@ const LoginForm: React.FC<LoginFormProps> = memo( ( { className, onLoginSuccess 
     const password = useSelector( loginPasswordSelector );
     const isLoading = useSelector( loginIsLoadingSelector );
     const error = useSelector( loginErrorSelector );
-    // default async reducer for login form
-    const loginFormReducer: ReducersList = {
-        login: loginReducer,
-    };
 
     const onUsernameChange = useCallback(
         ( username: string ) => {

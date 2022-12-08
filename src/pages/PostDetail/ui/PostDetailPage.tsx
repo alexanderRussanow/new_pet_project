@@ -1,5 +1,6 @@
 import { CommentList } from 'entities/Comment';
 import { PostDetails } from 'entities/Post';
+import { AddNewCommentForm } from 'features/addNewComment';
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -45,7 +46,9 @@ const PostDetailPage: React.FC = () => {
                         <Text
                             className={ classes.commentsTitle }
                             title={ t( 'COMMENTS' ) } />
+                        <AddNewCommentForm />
                         <CommentList
+                            className={ classes.comments }
                             comments={ comments }
                             isLoading={ isLoading } />
                     </>

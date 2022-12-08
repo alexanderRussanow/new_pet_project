@@ -82,7 +82,7 @@ export const Input: React.FC<InputProps> = memo( ( { className, value, type = 't
                     <div
                         className={ classes.caret }
                         style={ {
-                            left: caretPosition * 9.65,
+                            left: caretPosition * 7.2,
                         } }
                     />
                 ) : null}
