@@ -2,6 +2,7 @@ import { CountriesEnum } from './../../../Counties/model/types/CountriesEnum';
 import { CurrencyEnum } from './../../../Currency/model/types/CurrencyEnum';
 
 export interface ProfileType {
+    id?: string;
     name?: string;
     lastname?: string;
     email?: string;

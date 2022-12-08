@@ -1,4 +1,5 @@
-import { profileActions, profileReadonlySelector, updateProfileData } from 'entities/Profile';
+import { profileActions, profileDataSelector, profileReadonlySelector, updateProfileData } from 'entities/Profile';
+import { userAuthData } from 'entities/User';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -13,6 +14,9 @@ export const ProfilePageHeader: React.FC = () => {
     // redux hooks
     const readonly = useSelector( profileReadonlySelector );
     const dispatch = useAppDispatch();
+    const authData = useSelector( userAuthData );
+    const profileData = useSelector( profileDataSelector );
+    const canEdit = authData?.id === profileData?.id;
 
     const handleEditClick = useCallback(
         () => {
@@ -44,27 +48,30 @@ export const ProfilePageHeader: React.FC = () => {
     return (
         <div className={ classes.header }>
             <Text title={ t( 'PROFILE' ) } />
-            {readonly ? (
-                <Button
-                    theme={ ButtonThemeEnum.OUTLINE }
-                    onClick={ handleEditClick }>
-                    {t( 'EDIT' )}
-                </Button>
-            ) : (
-                <div>
+            {canEdit ? (
+                readonly ? (
                     <Button
-                        theme={ ButtonThemeEnum.BACKGROUND_INVERTED }
-                        onClick={ handleSaveClick }>
-                        {t( 'SAVE' )}
-                    </Button>
-                    <Button
-                        style={ { marginLeft: 10 } }
                         theme={ ButtonThemeEnum.OUTLINE }
-                        onClick={ handleCancelClick }>
-                        {t( 'CANCEL' )}
+                        onClick={ handleEditClick }>
+                        {t( 'EDIT' )}
                     </Button>
-                </div>
-            )}
+                ) : (
+                    <div>
+                        <Button
+                            theme={ ButtonThemeEnum.BACKGROUND_INVERTED }
+                            onClick={ handleSaveClick }>
+                            {t( 'SAVE' )}
+                        </Button>
+                        <Button
+                            style={ { marginLeft: 10 } }
+                            theme={ ButtonThemeEnum.OUTLINE }
+                            onClick={ handleCancelClick }>
+                            {t( 'CANCEL' )}
+                        </Button>
+                    </div>
+                )
+            ) : null}
+            {}
         </div>
     );
 };

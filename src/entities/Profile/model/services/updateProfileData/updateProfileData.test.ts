@@ -4,6 +4,7 @@ import { updateProfileData, ErrorProfileEnum } from 'entities/Profile';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncthunk/TestAsyncThunk';
 
 const profileData = {
+    id: '123',
     name: 'John Doe',
     lastname: 'Doe',
     username: 'johndoe',
