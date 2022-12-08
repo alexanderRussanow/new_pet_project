@@ -23,12 +23,24 @@ export const CommentList: React.FC<CommentListProps> = memo( ( { comments, isLoa
         <Text content={ t( 'NO_COMMENTS' ) } />
     );
 
-    return <div
-        className={ classNames(
-            'commentList',
-            {},
-            [
-                className
-            ] 
-        ) }>{isLoading ? <Skeleton /> : content}</div>;
+    return (
+        <div
+            className={ classNames(
+                'commentList',
+                {},
+                [
+                    className
+                ] 
+            ) }>
+            {isLoading ? (
+                <>
+                    <CommentItem isLoading />
+                    <CommentItem isLoading />
+                    <CommentItem isLoading />
+                </>
+            ) : (
+                content
+            )}
+        </div>
+    );
 } );
