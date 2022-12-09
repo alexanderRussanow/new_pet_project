@@ -12,9 +12,9 @@ import { Avatar } from 'shared/ui/Avatar';
 import { Icon } from 'shared/ui/Icon';
 import { Skeleton } from 'shared/ui/Skeleton';
 import { Text, TextSizeEnum, TextThemeEnum } from 'shared/ui/Text';
-import { PostCodeBlock } from '../PostCodeBlock/PostCodeBlock';
-import { PostImageBlock } from '../PostImageBlock/PostImageBlock';
-import { PostTextBlock } from '../PostTextBlock/PostTextBlock';
+import { PostCodeBlock } from '../PostBlocks/PostCodeBlock/PostCodeBlock';
+import { PostImageBlock } from '../PostBlocks/PostImageBlock/PostImageBlock';
+import { PostTextBlock } from '../PostBlocks/PostTextBlock/PostTextBlock';
 import CalenderIcon from './../../../../shared/assets/icons/calendar-20-20.svg';
 import EyeIcon from './../../../../shared/assets/icons/eye-20-20.svg';
 // styles

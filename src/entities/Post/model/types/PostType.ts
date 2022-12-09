@@ -53,3 +53,8 @@ export interface PostSchema {
     postData?: PostType;
     error?: string;
 }
+
+export enum PostListViewModeEnum {
+    LIST = 'LIST',
+    GRID = 'GRID',
+}

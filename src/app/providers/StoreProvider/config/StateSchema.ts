@@ -15,7 +15,7 @@ export interface StateSchema {
     profile?: ProfileSchema;
     post?: PostSchema;
     postComments?: PostDetailsCommentSchema;
-    addNewComment: AddNewCommentSchema;
+    addNewComment?: AddNewCommentSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
