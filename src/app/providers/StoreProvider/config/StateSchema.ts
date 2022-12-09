@@ -1,16 +1,14 @@
-import { AddNewCommentSchema } from './../../../../features/addNewComment/model/types/AddNewCommentSchema';
-import { AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject, Dispatch } from '@reduxjs/toolkit';
+import { AnyAction, CombinedState, Dispatch, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
-import { CounterSchema } from 'entities/Counter';
 import { PostSchema } from 'entities/Post';
 import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
 import { PostDetailsCommentSchema } from 'pages/PostDetail';
-import { To, NavigateOptions } from 'react-router-dom';
+import { NavigateOptions, To } from 'react-router-dom';
+import { AddNewCommentSchema } from './../../../../features/addNewComment/model/types/AddNewCommentSchema';
 
 export interface StateSchema {
-    counter: CounterSchema;
     user: UserSchema;
     // async reducers
     login?: LoginSchema;

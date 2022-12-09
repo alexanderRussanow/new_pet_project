@@ -1,10 +1,10 @@
-import { userAuthData } from 'entities/User';
+import { getUserAuthData } from 'entities/User';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink';
-import { SidebarItemType } from 'widgets/Sidebar/model/SidebarItemType';
+import { SidebarItemType } from 'widgets/Sidebar/model/types/SidebarItemType';
 // styles
 import classes from './SidebarItem.module.scss';
 
@@ -17,7 +17,7 @@ export const SidebarItem: React.FC<SidebarItemProps> = memo( ( { item, collapsed
     const { Icon, path, text, privateOnly } = item;
     const { t } = useTranslation();
     // redux hooks
-    const isAuth = useSelector( userAuthData );
+    const isAuth = useSelector( getUserAuthData );
 
     if ( privateOnly && !isAuth ) {
         return null;

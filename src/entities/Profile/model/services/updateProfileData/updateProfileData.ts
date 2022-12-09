@@ -1,14 +1,14 @@
 import { ErrorProfileEnum } from 'entities/Profile';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
-import { profileFormDataSelector } from '../../selectors/profileDataSelectors';
+import { getProfileFormDataSelector } from '../../selectors/profileDataSelectors';
 import { ProfileType } from '../../types/ProfileTypes';
 import { profileValidation } from '../validation/profileValifation';
 
 export const updateProfileData = createAsyncThunk<ProfileType, void, ThunkConfig<ErrorProfileEnum[]>>(
     'updateProfileData',
     async ( _, { rejectWithValue, extra, getState } ) => {
-        const formData = profileFormDataSelector( getState() );
+        const formData = getProfileFormDataSelector( getState() );
         const validationErrors = profileValidation( formData as ProfileType );
         const profileId = formData?.id;
 

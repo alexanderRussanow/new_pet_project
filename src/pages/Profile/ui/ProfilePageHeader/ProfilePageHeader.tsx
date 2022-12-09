@@ -1,5 +1,5 @@
-import { profileActions, profileDataSelector, profileReadonlySelector, updateProfileData } from 'entities/Profile';
-import { userAuthData } from 'entities/User';
+import { profileActions, getProfileDataSelector, getProfileReadonlySelector, updateProfileData } from 'entities/Profile';
+import { getUserAuthData } from 'entities/User';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -12,10 +12,10 @@ import classes from './ProfilePageHeader.module.scss';
 export const ProfilePageHeader: React.FC = () => {
     const { t } = useTranslation( 'profile' );
     // redux hooks
-    const readonly = useSelector( profileReadonlySelector );
+    const readonly = useSelector( getProfileReadonlySelector );
     const dispatch = useAppDispatch();
-    const authData = useSelector( userAuthData );
-    const profileData = useSelector( profileDataSelector );
+    const authData = useSelector( getUserAuthData );
+    const profileData = useSelector( getProfileDataSelector );
     const canEdit = authData?.id === profileData?.id;
 
     const handleEditClick = useCallback(

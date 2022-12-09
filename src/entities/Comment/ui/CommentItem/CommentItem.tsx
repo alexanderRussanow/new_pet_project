@@ -4,9 +4,9 @@ import { Avatar } from 'shared/ui/Avatar';
 import { Skeleton } from 'shared/ui/Skeleton';
 import { Text } from 'shared/ui/Text';
 import { CommentType } from '../..';
-// styles
 import { RoutesPath } from 'shared/config/routeConfig/routeConfig';
 import { AppLink } from 'shared/ui/AppLink';
+// styles
 import classes from './CommentItem.module.scss';
 
 export interface CommentItemProps {

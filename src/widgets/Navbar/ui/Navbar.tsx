@@ -1,4 +1,4 @@
-import { userActions, userAuthData } from 'entities/User';
+import { userActions, getUserAuthData } from 'entities/User';
 import { LoginModal } from 'features/AuthByUsername';
 import React, { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -16,7 +16,7 @@ export const Navbar: React.FC<NavbarProps> = memo( ( { className } ) => {
     // i18n
     const { t } = useTranslation();
     // redux hook
-    const authUserData = useSelector( userAuthData );
+    const authUserData = useSelector( getUserAuthData );
     const dispatch = useDispatch();
     // state
     const [

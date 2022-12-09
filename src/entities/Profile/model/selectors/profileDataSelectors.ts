@@ -1,8 +1,8 @@
 import { StateSchema } from 'app/providers/StoreProvider';
 
-export const profileDataSelector = ( state: StateSchema ) => state.profile?.profileData;
-export const profileIsLoadingSelector = ( state: StateSchema ) => state.profile?.isLoading;
-export const profileErrorSelector = ( state: StateSchema ) => state.profile?.error;
-export const profileReadonlySelector = ( state: StateSchema ) => state.profile?.readonly;
-export const profileFormDataSelector = ( state: StateSchema ) => state.profile?.editableData;
-export const profileValidationErrorsSelector = ( state: StateSchema ) => state.profile?.validationErrors;
+export const getProfileDataSelector = ( state: StateSchema ) => state.profile?.profileData;
+export const getProfileIsLoadingSelector = ( state: StateSchema ) => state.profile?.isLoading;
+export const getProfileErrorSelector = ( state: StateSchema ) => state.profile?.error;
+export const getProfileReadonlySelector = ( state: StateSchema ) => state.profile?.readonly;
+export const getProfileFormDataSelector = ( state: StateSchema ) => state.profile?.editableData;
+export const getProfileValidationErrorsSelector = ( state: StateSchema ) => state.profile?.validationErrors;

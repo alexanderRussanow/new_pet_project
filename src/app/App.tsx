@@ -1,4 +1,4 @@
-import { userActions, userIsInited } from 'entities/User';
+import { userActions, getUserIsInited } from 'entities/User';
 import { Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navbar } from 'widgets/Navbar';
@@ -9,7 +9,7 @@ import { AppRouter } from './providers/router/ui/AppRouter';
 const App = () => {
     // redux hooks
     const dispatch = useDispatch();
-    const userIsInitialized = useSelector( userIsInited );
+    const userIsInitialized = useSelector( getUserIsInited );
 
     useEffect(
         () => {

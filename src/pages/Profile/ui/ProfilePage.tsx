@@ -2,13 +2,13 @@ import {
     fetchProfileData,
     profileActions,
     ProfileCard,
-    profileErrorSelector,
-    profileFormDataSelector,
-    profileIsLoadingSelector,
-    profileReadonlySelector,
+    getProfileErrorSelector,
+    getProfileFormDataSelector,
+    getProfileIsLoadingSelector,
+    getProfileReadonlySelector,
     profileReducer,
     ProfileType,
-    profileValidationErrorsSelector,
+    getProfileValidationErrorsSelector,
 } from 'entities/Profile';
 import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -32,11 +32,11 @@ const ProfilePage: React.FC = () => {
     const { id } = useParams<{ id: string }>();
     // redux hooks
     const dispatch = useDispatch();
-    const isLoading = useSelector( profileIsLoadingSelector );
-    const error = useSelector( profileErrorSelector );
-    const readonly = useSelector( profileReadonlySelector );
-    const profileFormData = useSelector( profileFormDataSelector );
-    const validationErrors = useSelector( profileValidationErrorsSelector );
+    const isLoading = useSelector( getProfileIsLoadingSelector );
+    const error = useSelector( getProfileErrorSelector );
+    const readonly = useSelector( getProfileReadonlySelector );
+    const profileFormData = useSelector( getProfileFormDataSelector );
+    const validationErrors = useSelector( getProfileValidationErrorsSelector );
 
     const onEditProfileData = useCallback(
         ( key: keyof ProfileType, value: string ) => {

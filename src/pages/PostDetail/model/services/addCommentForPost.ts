@@ -2,13 +2,13 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
 import { CommentType } from 'entities/Comment';
 import { getPostData } from 'entities/Post/model/selectors/postSelectors';
-import { userAuthData } from 'entities/User';
+import { getUserAuthData } from 'entities/User';
 import { fetchCommentsByPostId } from 'pages/PostDetail/model/services/fetchCommentsByPostId';
 
 export const addCommentForPost = createAsyncThunk<CommentType, string, ThunkConfig<string>>(
     'addCommentForPost',
     async ( text, { rejectWithValue, getState, dispatch, extra } ) => {
-        const userId = userAuthData( getState() )?.id;
+        const userId = getUserAuthData( getState() )?.id;
         const postId = getPostData( getState() )?.id;
 
         if ( !userId || !text || !postId ) {

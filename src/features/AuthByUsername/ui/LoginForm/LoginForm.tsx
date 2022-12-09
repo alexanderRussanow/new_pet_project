@@ -1,10 +1,10 @@
 import {
     loginActions,
-    loginErrorSelector,
-    loginIsLoadingSelector,
-    loginPasswordSelector,
+    getLoginErrorSelector,
+    getLoginIsLoadingSelector,
+    getLoginPasswordSelector,
     loginReducer,
-    loginUsernameSelector,
+    getLoginUsernameSelector,
 } from 'features/AuthByUsername';
 import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUsername';
 import { memo, useCallback } from 'react';
@@ -34,10 +34,10 @@ const LoginForm: React.FC<LoginFormProps> = memo( ( { className, onLoginSuccess 
     const { t } = useTranslation();
     // redux hooks
     const dispatch = useAppDispatch();
-    const username = useSelector( loginUsernameSelector );
-    const password = useSelector( loginPasswordSelector );
-    const isLoading = useSelector( loginIsLoadingSelector );
-    const error = useSelector( loginErrorSelector );
+    const username = useSelector( getLoginUsernameSelector );
+    const password = useSelector( getLoginPasswordSelector );
+    const isLoading = useSelector( getLoginIsLoadingSelector );
+    const error = useSelector( getLoginErrorSelector );
 
     const onUsernameChange = useCallback(
         ( username: string ) => {

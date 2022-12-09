@@ -1,8 +1,9 @@
 import { memo, useMemo, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 import { Button, ButtonSizeEnum, ButtonThemeEnum } from 'shared/ui/Button';
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher';
-import { sidebarItems } from 'widgets/Sidebar/model/SidebarItemType';
+import { getSidebarItems } from 'widgets/Sidebar/model/selectors/getSidebarItems';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 // styles
@@ -13,6 +14,9 @@ interface SidebarProps {
 }
 
 export const Sidebar: React.FC<SidebarProps> = memo( ( { className } ) => {
+    // redux hooks
+    const sidebarItems = useSelector( getSidebarItems );
+
     const [
         collapsed,
         setCollapsed
@@ -26,8 +30,9 @@ export const Sidebar: React.FC<SidebarProps> = memo( ( { className } ) => {
             item={ item }
             key={ item.path } /> ),
         [
-            collapsed
-        ] 
+            collapsed,
+            sidebarItems
+        ]
     );
 
     return (
