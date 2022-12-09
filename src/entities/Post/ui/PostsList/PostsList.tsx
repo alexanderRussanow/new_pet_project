@@ -14,7 +14,7 @@ export interface PostListProps {
     className?: string;
 }
 
-export const PostList: React.FC<PostListProps> = memo( ( { posts, viewMode, isLoading, className } ) => {
+export const PostList: React.FC<PostListProps> = memo( ( { posts, viewMode = PostListViewModeEnum.LIST, isLoading, className } ) => {
     const { t } = useTranslation( 'post' );
     return (
         <div
@@ -22,7 +22,8 @@ export const PostList: React.FC<PostListProps> = memo( ( { posts, viewMode, isLo
                 classes.PostList,
                 {},
                 [
-                    className
+                    className,
+                    classes[ viewMode as string ]
                 ] 
             ) }>
             {posts.length ? posts.map( post => <PostListItem

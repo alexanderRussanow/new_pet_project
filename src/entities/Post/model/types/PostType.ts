@@ -1,3 +1,4 @@
+import { UserType } from 'entities/User';
 export type PostTags = 'IT' | 'Web' | 'Design' | 'Marketing' | 'Business' | 'Science' | 'Other';
 
 export enum PostContentTypeEnum {
@@ -37,6 +38,7 @@ export type PostContent = ContentText | ContentCode | ContentImage;
 
 export interface PostType {
     id: string;
+    user: UserType;
     title: string;
     subtitle: string;
     img: string;
