@@ -1,5 +1,5 @@
 .PostListItem {
-    margin: 15px;
+    // margin: 15px;
 }
 
 .GRID {
@@ -39,21 +39,26 @@
         height: 200px;
         position: relative;
     }
+
     .img {
         width: 200px;
         height: 200px;
+        object-fit: cover;
     }
+
     .infoWrapper {
         display: flex;
         align-items: center;
         margin-top: 8px;
     }
+
     .tags p {
         width: 115px;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
     }
+
     .views {
         margin-left: auto;
         margin-right: 8px;
@@ -91,6 +96,7 @@
 
     .footer {
         display: flex;
+        justify-content: space-between;
         align-items: center;
         margin-top: 16px;
     }
@@ -98,5 +104,11 @@
     .textBlock {
         max-height: 200px;
         overflow-y: hidden;
+    }
+
+    .infoWrapper {
+        display: flex;
+        align-items: center;
+        margin-top: 8px;
     }
 }

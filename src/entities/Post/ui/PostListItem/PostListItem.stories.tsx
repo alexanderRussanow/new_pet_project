@@ -1,15 +1,23 @@
-import { PostList, PostListViewModeEnum, PostType } from 'entities/Post';
-import React, { memo } from 'react';
-import { classNames } from 'shared/lib/utility/UtilityMethods';
-// styles
-import classes from './PostsPage.module.scss';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { PostListViewModeEnum, PostType } from 'entities/Post/model/types/PostType';
+import { PostListItem } from './PostListItem';
 
-export interface PostPageProps {
-    className?: string;
-}
+export default {
+    title: 'entities/PostListItem',
+    component: PostListItem,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
+} as ComponentMeta<typeof PostListItem>;
+
+const Template: ComponentStory<typeof PostListItem> = args => <PostListItem { ...args } />;
 
 const post = {
     id: '1',
+    user: {
+        id: '1',
+        username: 'John Doe',
+    },
     title: 'React news 1',
     subtitle: 'TypeScript is awesome',
     img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1200px-Typescript_logo_2020.svg.png',
@@ -17,15 +25,10 @@ const post = {
     views: 88888,
     likes: 88,
     author: 'John Doe',
-    user: {
-        id: '1',
-        username: 'Jara the Master',
-        avatar: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnhs5csH1daXRNQLsG7OiZbTPvoNlHd0G0SDO1gD-Wfat9ELHkHo0nhTw610sh9IyqgyI&usqp=CAU',
-    },
     tags: [
         'IT',
         'Web',
-        'Design'
+        'Mobile'
     ],
     content: [
         {
@@ -52,27 +55,14 @@ const post = {
     ],
 } as PostType;
 
-const PostsPage: React.FC<PostPageProps> = ( { className } ) => {
-
-    return (
-        <div
-            className={ classNames(
-                classes.PostPage,
-                {},
-                [
-                    className
-                ] 
-            ) }>
-            <PostList
-                viewMode={ PostListViewModeEnum.LIST }
-                posts={ new Array( 16 ).fill( 0 ).map( ( item, index ) => ( {
-                    ...post,
-                    id: `${ index }`,
-                } ) ) }
-                isLoading
-            />
-        </div>
-    );
+export const GRID = Template.bind( {} );
+GRID.args = {
+    viewMode: PostListViewModeEnum.GRID,
+    post,
 };
 
-export default memo( PostsPage );
+export const LIST = Template.bind( {} );
+LIST.args = {
+    viewMode: PostListViewModeEnum.LIST,
+    post,
+};

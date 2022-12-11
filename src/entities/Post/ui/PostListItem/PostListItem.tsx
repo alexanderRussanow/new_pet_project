@@ -48,7 +48,9 @@ export const PostListItem: React.FC<PostListItemProps> = memo( ( { post, viewMod
                 ] 
             ) }>
             {viewMode === PostListViewModeEnum.GRID ? (
-                <Card>
+                <Card
+                    className={ classes.card }
+                    onClick={ onPostOpen }>
                     <div className={ classes.imgWrapper }>
                         <img
                             alt={ post.title }
@@ -94,9 +96,9 @@ export const PostListItem: React.FC<PostListItemProps> = memo( ( { post, viewMod
                         alt={ post.title }
                         className={ classes.img }
                         src={ post.img } />
-                    {textBlock && <PostTextBlock
+                    {textBlock ? <PostTextBlock
                         className={ classes.textBlock }
-                        content={ textBlock } />}
+                        content={ textBlock } /> : null}
                     <div className={ classes.footer }>
                         <Button
                             theme={ ButtonThemeEnum.OUTLINE }
