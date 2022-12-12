@@ -4,7 +4,7 @@ import { postReducer } from 'entities/Post';
 import { profileReducer } from 'entities/Profile';
 import { addNewCommentReducer } from 'features/addNewComment';
 import { loginReducer } from 'features/AuthByUsername';
-import { postCommentsReducer } from 'pages/PostDetail';
+import { postCommentsReducer } from 'pages/PostDetailPage';
 import { ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 
 const defaultAsyncReducers: ReducersList = {

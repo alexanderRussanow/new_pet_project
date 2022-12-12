@@ -12,7 +12,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 import { Button, ButtonThemeEnum } from 'shared/ui/Button';
 import { Text } from 'shared/ui/Text';
-import { commentsIsLoading } from '../model/selectors/postDetailsCommentSelectors';
+import { getCommentsIsLoading } from '../model/selectors/postDetailsCommentSelectors';
 import { addCommentForPost } from '../model/services/addCommentForPost';
 import { fetchCommentsByPostId } from '../model/services/fetchCommentsByPostId';
 import { getPostComments, postCommentsReducer } from '../model/slice/postDetailsCommentsSlice';
@@ -29,7 +29,7 @@ const PostDetailPage: React.FC = () => {
     const navigate = useNavigate();
     // redux hooks
     const comments = useSelector( getPostComments.selectAll );
-    const isLoading = useSelector( commentsIsLoading );
+    const isLoading = useSelector( getCommentsIsLoading );
 
     const dispatch = useAppDispatch();
 

@@ -4,5 +4,7 @@
    "POST_DETAIL": "Post detail",
    "POST_NOT_EXIST": "Post does not exist",
    "LOADING_ERROR": "Loading error",
-   "COMMENTS": "Comments"
+   "COMMENTS": "Comments",
+   "STEP_BACK": "Back to posts",
+   "READ_MORE": "Read more"
 }

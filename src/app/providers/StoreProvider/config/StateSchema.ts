@@ -4,7 +4,8 @@ import { PostSchema } from 'entities/Post';
 import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
-import { PostDetailsCommentSchema } from 'pages/PostDetail';
+import { PostDetailsCommentSchema } from 'pages/PostDetailPage';
+import { PostsPageSchema } from 'pages/PostsPage';
 import { NavigateOptions, To } from 'react-router-dom';
 import { AddNewCommentSchema } from './../../../../features/addNewComment/model/types/AddNewCommentSchema';
 
@@ -16,6 +17,7 @@ export interface StateSchema {
     post?: PostSchema;
     postComments?: PostDetailsCommentSchema;
     addNewComment?: AddNewCommentSchema;
+    postsPage: PostsPageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

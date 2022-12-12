@@ -1,0 +1,66 @@
+import { PostList, PostListViewModeEnum, PostViewSwitcher } from 'entities/Post';
+import React, { memo, useCallback } from 'react';
+import { useSelector } from 'react-redux';
+import { useInitialEffect } from 'shared/hooks/useInitialEffect';
+import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
+import { classNames } from 'shared/lib/utility/UtilityMethods';
+import { getPostsPageIsLoading, getPostsPageViewMode } from '../model/selectors/postsPageSelectors';
+import { fetchPosts } from '../model/services/fetchPosts';
+import { getPostsPagePosts, postsPageActions, postsPageReducer } from '../model/slice/postsPageSlice';
+// styles
+import classes from './PostsPage.module.scss';
+
+export interface PostPageProps {
+    className?: string;
+}
+
+const reducer: ReducersList = {
+    postsPage: postsPageReducer,
+};
+
+const PostsPage: React.FC<PostPageProps> = ( { className } ) => {
+    // redux hooks
+    const dispatch = useAppDispatch();
+    const postsList = useSelector( getPostsPagePosts.selectAll );
+    const isLoading = useSelector( getPostsPageIsLoading );
+    const viewMode = useSelector( getPostsPageViewMode );
+
+    const viewModeToggle = useCallback(
+        ( view: PostListViewModeEnum ) => {
+            dispatch( postsPageActions.setViewMode( view ) );
+        },
+        [
+            dispatch
+        ]
+    );
+
+    useInitialEffect( () => {
+        dispatch( fetchPosts() );
+        dispatch( postsPageActions.initState );
+    } );
+
+    return (
+        <DynamicReducerLoader reducers={ reducer }>
+            <div
+                className={ classNames(
+                    classes.PostPage,
+                    {},
+                    [
+                        className
+                    ] 
+                ) }>
+                <PostViewSwitcher
+                    className={ classes.viewToggle }
+                    viewMode={ viewMode as PostListViewModeEnum }
+                    onViewModeChange={ viewModeToggle } />
+                <PostList
+                    isLoading={ isLoading }
+                    posts={ postsList }
+                    viewMode={ viewMode } />
+            </div>
+        </DynamicReducerLoader>
+    );
+};
+
+export default memo( PostsPage );

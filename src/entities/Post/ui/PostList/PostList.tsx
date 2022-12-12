@@ -3,7 +3,6 @@ import { memo } from 'react';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 import { PostListItem } from '../PostListItem/PostListItem';
 import { PostListItemSkeleton } from '../PostListItemSkeleton/PostListItemSkeleton';
-
 // styles
 import classes from './PostList.module.scss';
 

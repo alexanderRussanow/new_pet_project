@@ -4,3 +4,4 @@ export * from './model/slice/postSlice';
 export * from './model/selectors/postSelectors';
 export * from './ui/PostList/PostList';
 export * from './ui/PostListItem/PostListItem';
+export * from './ui/PostViewSwitcher/PostViewSwitcher';
