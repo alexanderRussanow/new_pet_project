@@ -1,16 +1,26 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
 import { PostType } from 'entities/Post/model/types/PostType';
+import { getPostsPageLimit } from '../../selectors/postsPageSelectors';
 
-export const fetchPosts = createAsyncThunk<PostType[], void, ThunkConfig<string>>(
+export interface FetchPostsProps {
+    page?: number;
+}
+
+export const fetchPosts = createAsyncThunk<PostType[], FetchPostsProps, ThunkConfig<string>>(
     'fetchPosts',
-    async ( _, { rejectWithValue, extra } ) => {
+    async ( props, { rejectWithValue, extra, getState } ) => {
+        const { page } = props;
+        const limit = getPostsPageLimit( getState() );
+
         try {
             const response = await extra.api.get<PostType[]>(
                 `/posts`,
                 {
                     params: {
                         _expand: 'user',
+                        _page: page,
+                        _limit: limit,
                     },
                 } 
             );
@@ -22,5 +32,5 @@ export const fetchPosts = createAsyncThunk<PostType[], void, ThunkConfig<string>
         } catch ( error ) {
             return rejectWithValue( 'Some problems with fetching posts...' );
         }
-    } 
+    }
 );

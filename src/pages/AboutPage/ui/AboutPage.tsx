@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
+import { Page } from 'shared/ui/Page';
 // style
 import classes from './AboutPage.module.scss';
 
@@ -8,14 +9,14 @@ const AboutPage: React.FC = () => {
     const { t } = useTranslation();
 
     return (
-        <div>
-            <h2
-                className={ classNames(
-                    classes.AboutPage,
-                    {},
-                    [] 
-                ) }>{t( 'ABOUT' )}</h2>
-        </div>
+        <Page
+            className={ classNames(
+                classes.AboutPage,
+                {},
+                [] 
+            ) }>
+            <h2>{t( 'ABOUT' )}</h2>
+        </Page>
     );
 };
 

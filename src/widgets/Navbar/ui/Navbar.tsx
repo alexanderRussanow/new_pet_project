@@ -35,7 +35,7 @@ export const Navbar: React.FC<NavbarProps> = memo( ( { className } ) => {
     );
 
     return (
-        <div
+        <header
             className={ classNames(
                 classes.navbar,
                 {},
@@ -70,6 +70,6 @@ export const Navbar: React.FC<NavbarProps> = memo( ( { className } ) => {
                     </>
                 )}
             </div>
-        </div>
+        </header>
     );
 } );

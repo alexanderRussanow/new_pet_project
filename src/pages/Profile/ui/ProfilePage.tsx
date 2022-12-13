@@ -17,6 +17,7 @@ import { useParams } from 'react-router-dom';
 import { useInitialEffect } from 'shared/hooks/useInitialEffect';
 import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
+import { Page } from 'shared/ui/Page';
 import { Text, TextThemeEnum } from 'shared/ui/Text';
 import { ProfilePageHeader } from '..';
 // styles
@@ -27,7 +28,11 @@ const profilePageReducer: ReducersList = {
     profile: profileReducer,
 };
 
-const ProfilePage: React.FC = () => {
+export interface ProfilePageProps {
+    className?: string;
+}
+
+const ProfilePage: React.FC<ProfilePageProps> = ( { className } ) => {
     const { t } = useTranslation( 'profile' );
     const { id } = useParams<{ id: string }>();
     // redux hooks
@@ -60,7 +65,14 @@ const ProfilePage: React.FC = () => {
 
     return (
         <DynamicReducerLoader reducers={ profilePageReducer }>
-            <div className={ classNames( classes.ProfilePage ) }>
+            <Page
+                className={ classNames(
+                    classes.ProfilePage,
+                    {},
+                    [
+                        className
+                    ] 
+                ) }>
                 <ProfilePageHeader />
                 {validationErrors ? validationErrors.map( error => <Text
                     content={ t( error ) }
@@ -73,7 +85,7 @@ const ProfilePage: React.FC = () => {
                     readonly={ readonly }
                     onEditProfileData={ onEditProfileData }
                 />
-            </div>
+            </Page>
         </DynamicReducerLoader>
     );
 };

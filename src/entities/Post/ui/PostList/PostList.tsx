@@ -14,7 +14,6 @@ export interface PostListProps {
 }
 
 export const PostList: React.FC<PostListProps> = memo( ( { posts, viewMode, isLoading, className } ) => {
-
     return (
         <div
             className={ classNames(
@@ -25,6 +24,15 @@ export const PostList: React.FC<PostListProps> = memo( ( { posts, viewMode, isLo
                     classes[ viewMode as string ]
                 ] 
             ) }>
+            {posts.length
+                ? posts.map( post => {
+                    return <PostListItem
+                        className={ classes.card }
+                        key={ post.id }
+                        post={ post }
+                        viewMode={ viewMode } />;
+                } )
+                : null}
             {isLoading
                 ? new Array( viewMode === PostListViewModeEnum.LIST ? 3 : 10 ).fill( 0 ).map( ( item, index ) => {
                     return <PostListItemSkeleton
@@ -32,15 +40,7 @@ export const PostList: React.FC<PostListProps> = memo( ( { posts, viewMode, isLo
                         key={ index }
                         viewMode={ viewMode } />;
                 } )
-                : posts.length
-                    ? posts.map( post => {
-                        return <PostListItem
-                            className={ classes.card }
-                            key={ post.id }
-                            post={ post }
-                            viewMode={ viewMode } />;
-                    } )
-                    : null}
+                : null}
         </div>
     );
 } );

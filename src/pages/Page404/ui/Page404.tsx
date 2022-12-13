@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
+import { Page } from 'shared/ui/Page';
 // styles
 import classes from './Page404.module.scss';
 
@@ -10,7 +11,7 @@ interface Page404Props {
 export const Page404: React.FC<Page404Props> = ( { className } ) => {
     const { t } = useTranslation();
     return (
-        <div
+        <Page
             className={ classNames(
                 classes.page404,
                 {},
@@ -23,6 +24,6 @@ export const Page404: React.FC<Page404Props> = ( { className } ) => {
             <img
                 alt='404page'
                 src='/media/gifs/419.gif' />
-        </div>
+        </Page>
     );
 };

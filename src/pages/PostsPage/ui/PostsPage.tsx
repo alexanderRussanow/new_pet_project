@@ -5,8 +5,10 @@ import { useInitialEffect } from 'shared/hooks/useInitialEffect';
 import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
+import { Page } from 'shared/ui/Page';
 import { getPostsPageIsLoading, getPostsPageViewMode } from '../model/selectors/postsPageSelectors';
-import { fetchPosts } from '../model/services/fetchPosts';
+import { fetchNextPostsPage } from '../model/services/fetchNextPostsPage/fetchNextPostsPage';
+import { fetchPosts } from '../model/services/fetchPosts/fetchPosts';
 import { getPostsPagePosts, postsPageActions, postsPageReducer } from '../model/slice/postsPageSlice';
 // styles
 import classes from './PostsPage.module.scss';
@@ -35,21 +37,33 @@ const PostsPage: React.FC<PostPageProps> = ( { className } ) => {
         ]
     );
 
+    const onLoadMore = useCallback(
+        () => {
+            dispatch( fetchNextPostsPage() );
+        },
+        [
+            dispatch
+        ] 
+    );
+
     useInitialEffect( () => {
-        dispatch( fetchPosts() );
         dispatch( postsPageActions.initState );
+        dispatch( fetchPosts( {
+            page: 1,
+        } ) );
     } );
 
     return (
         <DynamicReducerLoader reducers={ reducer }>
-            <div
+            <Page
                 className={ classNames(
                     classes.PostPage,
                     {},
                     [
                         className
                     ] 
-                ) }>
+                ) }
+                onScrollEnd={ onLoadMore }>
                 <PostViewSwitcher
                     className={ classes.viewToggle }
                     viewMode={ viewMode as PostListViewModeEnum }
@@ -58,7 +72,7 @@ const PostsPage: React.FC<PostPageProps> = ( { className } ) => {
                     isLoading={ isLoading }
                     posts={ postsList }
                     viewMode={ viewMode } />
-            </div>
+            </Page>
         </DynamicReducerLoader>
     );
 };

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-export const useInitialEffect = ( callback: () => void ) => {
+export function useInitialEffect( callback: () => void ) {
     useEffect(
         () => {
             if ( __PROJECT__ !== 'storybook' ) {
@@ -8,6 +8,6 @@ export const useInitialEffect = ( callback: () => void ) => {
             }
         },
         // eslint-disable-next-line react-hooks/exhaustive-deps
-        [] 
+        []
     );
-};
+}

@@ -1,4 +1,4 @@
-import { fetchPosts } from './../services/fetchPosts';
+import { fetchPosts } from '../services/fetchPosts/fetchPosts';
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { PostType } from 'entities/Post/model/types/PostType';
@@ -20,6 +20,8 @@ const postsPageSlice = createSlice( {
         ids: [],
         entities: {},
         viewMode: PostListViewModeEnum.GRID,
+        page: 1,
+        hasMore: true,
     } ),
     reducers: {
         setViewMode: ( state, action: PayloadAction<PostListViewModeEnum> ) => {
@@ -29,8 +31,13 @@ const postsPageSlice = createSlice( {
                 action.payload 
             );
         },
+        setPageNumber: ( state, action: PayloadAction<number> ) => {
+            state.page = action.payload;
+        },
         initState: state => {
-            state.viewMode = localStorage.getItem( VIEW_MODE_LS_KEY ) as PostListViewModeEnum;
+            const view = localStorage.getItem( VIEW_MODE_LS_KEY ) as PostListViewModeEnum;
+            state.viewMode = view;
+            state.limit = view === PostListViewModeEnum.GRID ? 9 : 3;
         },
     },
     extraReducers: builder => {
@@ -46,10 +53,11 @@ const postsPageSlice = createSlice( {
                 fetchPosts.fulfilled,
                 ( state, action: PayloadAction<PostType[]> ) => {
                     state.isLoading = false;
-                    postsPageAdapter.setAll(
+                    postsPageAdapter.addMany(
                         state,
                         action.payload 
                     );
+                    state.hasMore = action.payload.length > 0;
                 } 
             )
             .addCase(

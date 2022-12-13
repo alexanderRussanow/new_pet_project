@@ -1,24 +1,28 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Input } from 'shared/ui/Input';
+import { classNames } from 'shared/lib/utility/UtilityMethods';
+import { Page } from 'shared/ui/Page';
 // style
 import classes from './home.module.scss';
 
-const HomePage: React.FC = () => {
+export interface HomePageProps {
+    className?: string;
+}
+
+const HomePage: React.FC<HomePageProps> = ( { className } ) => {
     const { t } = useTranslation( 'home' );
-    const [
-        value,
-        setValue
-    ] = useState( '' );
 
     return (
-        <div>
-            <h2 className={ classes.test }>{t( 'HOME' )}</h2>
-            <Input
-                placeholder='username'
-                value={ value }
-                onChange={ setValue } />
-        </div>
+        <Page
+            className={ classNames(
+                classes.HomePage,
+                {},
+                [
+                    className
+                ] 
+            ) }>
+            <h2>{t( 'HOME' )}</h2>
+        </Page>
     );
 };
 
