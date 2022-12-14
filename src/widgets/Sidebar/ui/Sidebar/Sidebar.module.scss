@@ -18,6 +18,14 @@
     opacity: 1;
 }
 
+.navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 20px;
+    margin-left: 50px;
+}
+
 .collapsed {
     width: var(--sidebar-width-collapsed);
 
@@ -35,13 +43,4 @@
     position: absolute;
     right: -35px;
     bottom: 40px;
-}
-
-.navigation {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-top: 20px;
-    margin-left: 50px;
-
 }

@@ -1,5 +1,5 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { loginErrorSelector, loginIsLoadingSelector, loginPasswordSelector, loginUsernameSelector } from './loginSelectors';
+import { getLoginErrorSelector, getLoginIsLoadingSelector, getLoginPasswordSelector, getLoginUsernameSelector } from './loginSelectors';
 
 describe(
     'loginSelectors tests',
@@ -13,7 +13,7 @@ describe(
                         username,
                     },
                 };
-                expect( loginUsernameSelector( state as StateSchema ) ).toEqual( username );
+                expect( getLoginUsernameSelector( state as StateSchema ) ).toEqual( username );
             } 
         );
         it(
@@ -22,7 +22,7 @@ describe(
                 const state: DeepPartial<StateSchema> = {
                     login: undefined,
                 };
-                expect( loginUsernameSelector( state as StateSchema ) ).toEqual( '' );
+                expect( getLoginUsernameSelector( state as StateSchema ) ).toEqual( '' );
             } 
         );
         it(
@@ -34,7 +34,7 @@ describe(
                         password,
                     },
                 };
-                expect( loginPasswordSelector( state as StateSchema ) ).toEqual( password );
+                expect( getLoginPasswordSelector( state as StateSchema ) ).toEqual( password );
             } 
         );
         it(
@@ -43,7 +43,7 @@ describe(
                 const state: DeepPartial<StateSchema> = {
                     login: undefined,
                 };
-                expect( loginPasswordSelector( state as StateSchema ) ).toEqual( '' );
+                expect( getLoginPasswordSelector( state as StateSchema ) ).toEqual( '' );
             } 
         );
         it(
@@ -55,7 +55,7 @@ describe(
                         isLoading,
                     },
                 };
-                expect( loginIsLoadingSelector( state as StateSchema ) ).toEqual( isLoading );
+                expect( getLoginIsLoadingSelector( state as StateSchema ) ).toEqual( isLoading );
             } 
         );
         it(
@@ -64,7 +64,7 @@ describe(
                 const state: DeepPartial<StateSchema> = {
                     login: undefined,
                 };
-                expect( loginIsLoadingSelector( state as StateSchema ) ).toEqual( false );
+                expect( getLoginIsLoadingSelector( state as StateSchema ) ).toEqual( false );
             } 
         );
         it(
@@ -76,7 +76,7 @@ describe(
                         error,
                     },
                 };
-                expect( loginErrorSelector( state as StateSchema ) ).toEqual( error );
+                expect( getLoginErrorSelector( state as StateSchema ) ).toEqual( error );
             } 
         );
         it(
@@ -85,7 +85,7 @@ describe(
                 const state: DeepPartial<StateSchema> = {
                     login: undefined,
                 };
-                expect( loginErrorSelector( state as StateSchema ) ).toEqual( undefined );
+                expect( getLoginErrorSelector( state as StateSchema ) ).toEqual( undefined );
             } 
         );
     } 

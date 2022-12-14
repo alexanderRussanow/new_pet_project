@@ -1,7 +1,7 @@
 import { StateSchema } from 'app/providers/StoreProvider';
 import { CountriesEnum } from 'entities/Counties';
 import { CurrencyEnum } from 'entities/Currency';
-import { profileDataSelector, profileErrorSelector, profileIsLoadingSelector } from './profileDataSelectors';
+import { getProfileDataSelector, getProfileErrorSelector, getProfileIsLoadingSelector } from './profileDataSelectors';
 
 describe(
     'Profile Selectors tests',
@@ -24,7 +24,7 @@ describe(
                         profileData: profile,
                     },
                 };
-                expect( profileDataSelector( state as StateSchema ) ).toEqual( profile );
+                expect( getProfileDataSelector( state as StateSchema ) ).toEqual( profile );
             } 
         );
         it(
@@ -35,7 +35,7 @@ describe(
                         profileData: undefined,
                     },
                 };
-                expect( profileDataSelector( state as StateSchema ) ).toBeUndefined();
+                expect( getProfileDataSelector( state as StateSchema ) ).toBeUndefined();
             } 
         );
         it(
@@ -46,7 +46,7 @@ describe(
                         isLoading: true,
                     },
                 };
-                expect( profileIsLoadingSelector( state as StateSchema ) ).toBeTruthy();
+                expect( getProfileIsLoadingSelector( state as StateSchema ) ).toBeTruthy();
             } 
         );
         it(
@@ -57,7 +57,7 @@ describe(
                         error: 'Error',
                     },
                 };
-                expect( profileErrorSelector( state as StateSchema ) ).toBe( 'Error' );
+                expect( getProfileErrorSelector( state as StateSchema ) ).toBe( 'Error' );
             } 
         );
     } 
