@@ -1,8 +1,9 @@
-import { userActions, getUserAuthData } from 'entities/User';
+import { getUserAuthData, userActions } from 'entities/User';
 import { LoginModal } from 'features/AuthByUsername';
 import React, { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Button, ButtonSizeEnum, ButtonThemeEnum } from 'shared/ui/Button';
 import { Text, TextThemeEnum } from 'shared/ui/Text';
 import { classNames } from '../../../shared/lib/utility/UtilityMethods';
@@ -18,7 +19,7 @@ export const Navbar: React.FC<NavbarProps> = memo( ( { className } ) => {
     const { t } = useTranslation();
     // redux hook
     const authUserData = useSelector( getUserAuthData );
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     // state
     const [
         isLoginModalOpen,

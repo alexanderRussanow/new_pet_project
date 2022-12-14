@@ -1,3 +1,4 @@
+import { ScrollPreservationSchema } from './../../../../features/scrollPreservation /model/types/ScrollPreservationTypes';
 import { AnyAction, CombinedState, Dispatch, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
 import { PostSchema } from 'entities/Post';
@@ -11,6 +12,7 @@ import { AddNewCommentSchema } from './../../../../features/addNewComment/model/
 
 export interface StateSchema {
     user: UserSchema;
+    scroll: ScrollPreservationSchema
     // async reducers
     login?: LoginSchema;
     profile?: ProfileSchema;

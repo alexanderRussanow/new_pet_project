@@ -5,7 +5,7 @@ import { useInitialEffect } from 'shared/hooks/useInitialEffect';
 import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
-import { Page } from 'shared/ui/Page';
+import { Page } from 'widgets/Page';
 import { getPostsPageIsLoading, getPostsPageViewMode } from '../model/selectors/postsPageSelectors';
 import { fetchNextPostsPage } from '../model/services/fetchNextPostsPage/fetchNextPostsPage';
 import { initPostsPage } from '../model/services/initPostsPage.ts/initPostsPage';

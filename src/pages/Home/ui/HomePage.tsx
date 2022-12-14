@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
-import { Page } from 'shared/ui/Page';
+import { Page } from 'widgets/Page';
 // style
 import classes from './HomePage.module.scss';
 

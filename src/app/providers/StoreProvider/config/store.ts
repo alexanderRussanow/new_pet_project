@@ -1,5 +1,6 @@
 import { CombinedState, configureStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { userReducer } from 'entities/User';
+import { scrollPreservationSliceReducer } from 'features/scrollPreservation ';
 import { API } from 'shared/api/api';
 import { createReducerManager } from './reducerManager';
 import { StateSchema } from './StateSchema';
@@ -8,6 +9,7 @@ export const createReduxStore = ( initialState: StateSchema, asyncReducers?: Red
     const rootReducers: ReducersMapObject<StateSchema> = {
         ...asyncReducers,
         user: userReducer,
+        scroll: scrollPreservationSliceReducer
     };
 
     const reducerManager = createReducerManager( rootReducers );

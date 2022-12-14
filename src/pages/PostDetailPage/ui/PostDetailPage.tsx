@@ -11,7 +11,7 @@ import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/Dynami
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 import { Button, ButtonThemeEnum } from 'shared/ui/Button';
-import { Page } from 'shared/ui/Page';
+import { Page } from 'widgets/Page';
 import { Text } from 'shared/ui/Text';
 import { getCommentsIsLoading } from '../model/selectors/postDetailsCommentSelectors';
 import { addCommentForPost } from '../model/services/addCommentForPost';

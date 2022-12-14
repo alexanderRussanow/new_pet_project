@@ -1,26 +1,23 @@
 import {
-    fetchProfileData,
-    profileActions,
-    ProfileCard,
-    getProfileErrorSelector,
+    fetchProfileData, getProfileErrorSelector,
     getProfileFormDataSelector,
     getProfileIsLoadingSelector,
-    getProfileReadonlySelector,
-    profileReducer,
-    ProfileType,
-    getProfileValidationErrorsSelector,
+    getProfileReadonlySelector, getProfileValidationErrorsSelector, profileActions,
+    ProfileCard, profileReducer,
+    ProfileType
 } from 'entities/Profile';
 import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { useInitialEffect } from 'shared/hooks/useInitialEffect';
 import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
-import { Page } from 'shared/ui/Page';
 import { Text, TextThemeEnum } from 'shared/ui/Text';
+import { Page } from 'widgets/Page';
 import { ProfilePageHeader } from '..';
 // styles
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import classes from './ProfilePage.module.scss';
 
 // default async reducer for login form
@@ -36,7 +33,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ( { className } ) => {
     const { t } = useTranslation( 'profile' );
     const { id } = useParams<{ id: string }>();
     // redux hooks
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const isLoading = useSelector( getProfileIsLoadingSelector );
     const error = useSelector( getProfileErrorSelector );
     const readonly = useSelector( getProfileReadonlySelector );
