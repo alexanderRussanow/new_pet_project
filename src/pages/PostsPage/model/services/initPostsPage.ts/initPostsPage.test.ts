@@ -1,17 +1,18 @@
-import { fetchNextPostsPage } from './fetchNextPostsPage';
+import { PostListViewModeEnum } from 'entities/Post';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncthunk/TestAsyncThunk';
 import { fetchPosts } from '../fetchPosts/fetchPosts';
+import { initPostsPage } from './initPostsPage';
 
 jest.mock( '../fetchPosts/fetchPosts' );
 
 describe(
-    'fetchNextPostsPage',
+    'initPostsPage',
     () => {
         it(
-            'should load the next page of posts',
+            'should init the posts page',
             async () => {
                 const thunk = new TestAsyncThunk(
-                    fetchNextPostsPage,
+                    initPostsPage,
                     {
                         postsPage: {
                             page: 1,
@@ -20,21 +21,21 @@ describe(
                             hasMore: true,
                             isLoading: false,
                             error: undefined,
-                            limit: 6,
-                            hasInited: false
+                            hasInited: false,
+                            viewMode: PostListViewModeEnum.GRID,
                         },
                     } 
                 );
                 await thunk.callThunk();
                 expect( thunk.dispatch ).toBeCalledTimes( 4 );
-                expect( fetchPosts ).toBeCalledWith( { page: 2 } );
+                expect( fetchPosts ).toBeCalledWith( { page: 1 } );
             } 
         );
         it(
-            "async thunk shouldn't dispatch anything if there is no more posts to load",
+            "async thunk shouldn't call fetchPosts if the posts page has already been inited",
             async () => {
                 const thunk = new TestAsyncThunk(
-                    fetchNextPostsPage,
+                    initPostsPage,
                     {
                         postsPage: {
                             page: 1,
@@ -44,30 +45,7 @@ describe(
                             isLoading: false,
                             error: undefined,
                             limit: 6,
-                            hasInited: false
-                        },
-                    } 
-                );
-                await thunk.callThunk();
-                expect( thunk.dispatch ).toBeCalledTimes( 2 );
-                expect( fetchPosts ).not.toBeCalled();
-            } 
-        );
-        it(
-            "async thunk shouldn't dispatch anything if there is already loading posts",
-            async () => {
-                const thunk = new TestAsyncThunk(
-                    fetchNextPostsPage,
-                    {
-                        postsPage: {
-                            page: 1,
-                            ids: [],
-                            entities: {},
-                            hasMore: true,
-                            isLoading: true,
-                            error: undefined,
-                            limit: 6,
-                            hasInited: false
+                            hasInited: true,
                         },
                     } 
                 );

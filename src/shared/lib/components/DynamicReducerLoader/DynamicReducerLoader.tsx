@@ -20,15 +20,21 @@ export const DynamicReducerLoader: React.FC<DynamicReducerLoaderProps> = ( { chi
 
     useEffect(
         () => {
+            const mountedReducers = store.reducerManager.getReducerMap();
+
             Object.entries( reducers ).forEach( ( [
                 reducerName,
                 reducer
             ] ) => {
-                store.reducerManager.add(
-                    reducerName as StateSchemaKey,
-                    reducer 
-                );
-                dispatch( { type: 'ADD_ASYNC_REDUCER' } );
+                const isAlreadyMounted = mountedReducers.hasOwnProperty( reducerName as StateSchemaKey );
+
+                if ( !isAlreadyMounted ) {
+                    store.reducerManager.add(
+                        reducerName as StateSchemaKey,
+                        reducer 
+                    );
+                    dispatch( { type: 'ADD_ASYNC_REDUCER' } );
+                }
             } );
             return () => {
                 if ( removeAfterUnmount ) {

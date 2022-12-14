@@ -6,9 +6,9 @@ import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/Dynami
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 import { Page } from 'shared/ui/Page';
-import { getPostsPageHasInited, getPostsPageIsLoading, getPostsPageViewMode } from '../model/selectors/postsPageSelectors';
+import { getPostsPageIsLoading, getPostsPageViewMode } from '../model/selectors/postsPageSelectors';
 import { fetchNextPostsPage } from '../model/services/fetchNextPostsPage/fetchNextPostsPage';
-import { fetchPosts } from '../model/services/fetchPosts/fetchPosts';
+import { initPostsPage } from '../model/services/initPostsPage.ts/initPostsPage';
 import { getPostsPagePosts, postsPageActions, postsPageReducer } from '../model/slice/postsPageSlice';
 // styles
 import classes from './PostsPage.module.scss';
@@ -27,7 +27,6 @@ const PostsPage: React.FC<PostPageProps> = ( { className } ) => {
     const postsList = useSelector( getPostsPagePosts.selectAll );
     const isLoading = useSelector( getPostsPageIsLoading );
     const viewMode = useSelector( getPostsPageViewMode );
-    const hasInited = useSelector( getPostsPageHasInited );
 
     const viewModeToggle = useCallback(
         ( view: PostListViewModeEnum ) => {
@@ -48,12 +47,7 @@ const PostsPage: React.FC<PostPageProps> = ( { className } ) => {
     );
 
     useInitialEffect( () => {
-        if ( !hasInited ) {
-            dispatch( postsPageActions.initState() );
-            dispatch( fetchPosts( {
-                page: 1,
-            } ) );
-        }
+        dispatch( initPostsPage() );
     } );
 
     return (
