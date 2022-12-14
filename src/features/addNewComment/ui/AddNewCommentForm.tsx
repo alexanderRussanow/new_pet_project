@@ -38,7 +38,7 @@ const AddNewCommentForm: React.FC<AddNewCommentFormProps> = memo( ( { onSendComm
 
     const onSendCommentHandler = useCallback(
         () => {
-            onSendComment( text || '' );
+            onSendComment( text );
             onCommentTextChange( '' );
         },
         [

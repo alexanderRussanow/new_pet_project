@@ -34,10 +34,11 @@ export const PostList: React.FC<PostListProps> = memo( ( { posts, viewMode, isLo
                 } )
                 : null}
             {isLoading
-                ? new Array( viewMode === PostListViewModeEnum.LIST ? 3 : 10 ).fill( 0 ).map( ( item ) => {
+                ? new Array( viewMode === PostListViewModeEnum.LIST ? 3 : 10 ).fill( 0 ).map( ( item, index ) => {
                     return <PostListItemSkeleton
                         className={ classes.card }
-                        key={ item.id }
+                        // eslint-disable-next-line react/no-array-index-key
+                        key={ index }
                         viewMode={ viewMode } />;
                 } )
                 : null}
