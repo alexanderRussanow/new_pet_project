@@ -26,6 +26,7 @@ export const PostTextBlock: React.FC<PostTextBlockProps> = memo( ( { content, cl
             {content?.text && content.text.map( ( text, index ) => <Text
                 className={ classes.text }
                 content={ text }
+                // eslint-disable-next-line react/no-array-index-key
                 key={ index } /> )}
         </div>
     );

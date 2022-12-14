@@ -15,15 +15,15 @@ const Template: ComponentStory<typeof Input> = args => <Input { ...args } />;
 
 export const Primary = Template.bind( {} );
 Primary.args = {
-    placeholder: 'passwod',
+    placeholder: 'password',
     value: 'username',
     autofocus: true,
 };
 
 export const Dark = Template.bind( {} );
 Dark.args = {
-    placeholder: 'passwod',
-    value: 'passwod',
+    placeholder: 'password',
+    value: 'password',
     autofocus: true,
 };
 Dark.decorators = [

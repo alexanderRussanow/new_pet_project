@@ -5,6 +5,7 @@ export const classNames = ( cls: string, mods: Mods = {}, additionalClasses: Arr
         cls,
         ...Object.entries( mods )
             .filter( ( [
+                // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 _,
                 value
             ] ) => Boolean( value ) )

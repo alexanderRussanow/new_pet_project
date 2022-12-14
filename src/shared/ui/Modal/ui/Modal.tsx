@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useCallback, MutableRefObject } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 import { Portal } from 'shared/ui/Portal';
 // styles

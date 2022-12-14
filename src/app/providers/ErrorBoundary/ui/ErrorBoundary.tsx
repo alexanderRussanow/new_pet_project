@@ -15,7 +15,7 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
         this.state = { hasError: false };
     }
 
-    static getDerivedStateFromError( error: Error ) {
+    static getDerivedStateFromError( _error: Error ) {
         // Update state so the next render will show the fallback UI.
         return { hasError: true };
     }
@@ -35,7 +35,11 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
         if ( hasError ) {
             console.log( 'hasError' );
             // You can render any custom fallback UI
-            return <Suspense fallback=''><ErrorBoundaryNotification /></Suspense>;
+            return (
+                <Suspense fallback=''>
+                    <ErrorBoundaryNotification />
+                </Suspense>
+            );
         }
 
         return children;
