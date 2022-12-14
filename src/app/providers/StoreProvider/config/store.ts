@@ -2,15 +2,15 @@ import { CombinedState, configureStore, Reducer, ReducersMapObject } from '@redu
 import { userReducer } from 'entities/User';
 import { API } from 'shared/api/api';
 import { createReducerManager } from './reducerManager';
-import { NavigateType, StateSchema } from './StateSchema';
+import { StateSchema } from './StateSchema';
 
-export const createReduxStore = ( initialState: StateSchema, asyncReducers?: ReducersMapObject<StateSchema>, navigate?: NavigateType ) => {
-    const rootReducer: ReducersMapObject<StateSchema> = {
+export const createReduxStore = ( initialState: StateSchema, asyncReducers?: ReducersMapObject<StateSchema> ) => {
+    const rootReducers: ReducersMapObject<StateSchema> = {
         ...asyncReducers,
         user: userReducer,
     };
 
-    const reducerManager = createReducerManager( rootReducer );
+    const reducerManager = createReducerManager( rootReducers );
 
     const store = configureStore( {
         reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
@@ -21,7 +21,6 @@ export const createReduxStore = ( initialState: StateSchema, asyncReducers?: Red
                 thunk: {
                     extraArgument: {
                         api: API,
-                        navigate,
                     },
                 },
             } ),

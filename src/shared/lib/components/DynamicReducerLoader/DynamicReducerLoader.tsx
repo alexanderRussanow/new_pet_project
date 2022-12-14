@@ -10,9 +10,10 @@ export type ReducerListEntry = [StateSchemaKey, Reducer];
 
 export interface DynamicReducerLoaderProps {
     reducers: ReducersList;
+    removeAfterUnmount?: boolean;
 }
 
-export const DynamicReducerLoader: React.FC<DynamicReducerLoaderProps> = ( { children, reducers } ) => {
+export const DynamicReducerLoader: React.FC<DynamicReducerLoaderProps> = ( { children, removeAfterUnmount = true, reducers } ) => {
     // redux hooks
     const store = useStore() as ReduxStoreWithManager;
     const dispatch = useDispatch();
@@ -30,12 +31,14 @@ export const DynamicReducerLoader: React.FC<DynamicReducerLoaderProps> = ( { chi
                 dispatch( { type: 'ADD_ASYNC_REDUCER' } );
             } );
             return () => {
-                Object.entries( reducers ).forEach( ( [
-                    reducerName
-                ] ) => {
-                    store.reducerManager.remove( reducerName as StateSchemaKey );
-                    dispatch( { type: 'REMOVE_ASYNC_REDUCER' } );
-                } );
+                if ( removeAfterUnmount ) {
+                    Object.entries( reducers ).forEach( ( [
+                        reducerName
+                    ] ) => {
+                        store.reducerManager.remove( reducerName as StateSchemaKey );
+                        dispatch( { type: 'REMOVE_ASYNC_REDUCER' } );
+                    } );
+                }
             };
         },
         // eslint-disable-next-line react-hooks/exhaustive-deps

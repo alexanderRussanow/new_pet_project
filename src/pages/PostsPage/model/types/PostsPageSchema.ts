@@ -9,4 +9,5 @@ export interface PostsPageSchema extends EntityState<PostType> {
     page: number;
     hasMore: boolean;
     limit?: number;
+    hasInited: boolean;
 }

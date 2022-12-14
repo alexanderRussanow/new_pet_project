@@ -17,7 +17,7 @@ export interface StateSchema {
     post?: PostSchema;
     postComments?: PostDetailsCommentSchema;
     addNewComment?: AddNewCommentSchema;
-    postsPage: PostsPageSchema;
+    postsPage?: PostsPageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
@@ -37,12 +37,11 @@ export type NavigateType = ( to: To, options?: NavigateOptions ) => void;
 
 export interface ThunkExtraArgument {
     api: AxiosInstance;
-    navigate?: NavigateType;
 }
 
 export interface ThunkConfig<T> {
     rejectValue: T;
     extra: ThunkExtraArgument;
-    dispatch?: Dispatch;
     state: StateSchema;
+    dispatch?: Dispatch;
 }

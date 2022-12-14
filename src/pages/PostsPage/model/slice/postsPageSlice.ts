@@ -22,6 +22,7 @@ const postsPageSlice = createSlice( {
         viewMode: PostListViewModeEnum.GRID,
         page: 1,
         hasMore: true,
+        hasInited: false,
     } ),
     reducers: {
         setViewMode: ( state, action: PayloadAction<PostListViewModeEnum> ) => {
@@ -38,6 +39,7 @@ const postsPageSlice = createSlice( {
             const view = localStorage.getItem( VIEW_MODE_LS_KEY ) as PostListViewModeEnum;
             state.viewMode = view;
             state.limit = view === PostListViewModeEnum.GRID ? 9 : 3;
+            state.hasInited = true;
         },
     },
     extraReducers: builder => {
