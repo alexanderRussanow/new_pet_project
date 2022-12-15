@@ -64,7 +64,7 @@ export const Navbar: React.FC<NavbarProps> = memo( ( { className } ) => {
                         </div>
                         <Button
                             size={ ButtonSizeEnum.MEDIUM }
-                            theme={ ButtonThemeEnum.BACKGROUND }
+                            theme={ ButtonThemeEnum.OUTLINE }
                             onClick={ onLogoutHandler }>
                             {t( 'LOGOUT' )}
                         </Button>

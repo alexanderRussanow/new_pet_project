@@ -75,6 +75,19 @@ const LoginForm: React.FC<LoginFormProps> = memo( ( { className, onLoginSuccess 
         ] 
     );
 
+    const onEnterPress = useCallback(
+        ( event: React.KeyboardEvent<HTMLInputElement> ) => {
+            if ( event.key === 'Enter' && username && password ) {
+                onLogin();
+            }
+        },
+        [
+            onLogin,
+            username,
+            password
+        ]
+    );
+
     return (
         <DynamicReducerLoader reducers={ loginFormReducer }>
             <div
@@ -101,7 +114,9 @@ const LoginForm: React.FC<LoginFormProps> = memo( ( { className, onLoginSuccess 
                     placeholder={ t( 'PASSWORD' ) }
                     type='text'
                     value={ password }
-                    onChange={ onPasswordChange } />
+                    onChange={ onPasswordChange }
+                    onKeyPress={ onEnterPress }
+                />
                 <Button
                     className={ classes.button }
                     disabled={ isLoading || false }

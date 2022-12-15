@@ -138,7 +138,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = ( { profile, isLoading, e
                         } }
                     />
                     <CountriesSelect
-                        className={ classes.input }
+                        className={ classes.select }
                         readonly={ readonly }
                         value={ profile?.country }
                         onChange={ value => {
@@ -149,7 +149,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = ( { profile, isLoading, e
                         } }
                     />
                     <CurrencySelect
-                        className={ classes.input }
+                        className={ classes.select }
                         readonly={ readonly }
                         value={ profile?.currency }
                         onChange={ value => {

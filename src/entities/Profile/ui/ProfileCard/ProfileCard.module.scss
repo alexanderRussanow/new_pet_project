@@ -1,6 +1,7 @@
 .ProfileCard {
     padding: 20px;
     border: 2px solid var(--inverted-bg-color);
+    border-radius: 4px;
 }
 
 .loader {
@@ -17,4 +18,9 @@
 
 .editing {
     border: 2px dashed var(--inverted-bg-color);
+}
+
+.select {
+    align-items: center;
+    margin-bottom: 8px;
 }
