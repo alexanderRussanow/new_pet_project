@@ -1,6 +1,6 @@
 import { CommentList } from 'entities/Comment';
 import { PostDetails } from 'entities/Post';
-import { AddNewCommentForm } from 'features/addNewComment';
+import { AddNewCommentForm } from 'features/AddNewComment';
 import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';

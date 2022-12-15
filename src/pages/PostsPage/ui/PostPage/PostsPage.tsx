@@ -1,4 +1,9 @@
-import { PostList, PostListViewModeEnum, PostViewSwitcher } from 'entities/Post';
+import { PostList } from 'entities/Post';
+import { PostPageFilters, postsFiltersReducer } from 'features/PostsFilters';
+import { getPostsPageIsLoading, getPostsPageViewMode } from 'pages/PostsPage/model/selectors/postsPageSelectors';
+import { fetchNextPostsPage } from 'pages/PostsPage/model/services/fetchNextPostsPage/fetchNextPostsPage';
+import { initPostsPage } from 'pages/PostsPage/model/services/initPostsPage/initPostsPage';
+import { getPostsPagePosts, postsPageReducer } from 'pages/PostsPage/model/slice/postsPageSlice';
 import React, { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/hooks/useInitialEffect';
@@ -6,10 +11,7 @@ import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/Dynami
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 import { Page } from 'widgets/Page';
-import { getPostsPageIsLoading, getPostsPageViewMode } from '../model/selectors/postsPageSelectors';
-import { fetchNextPostsPage } from '../model/services/fetchNextPostsPage/fetchNextPostsPage';
-import { initPostsPage } from '../model/services/initPostsPage.ts/initPostsPage';
-import { getPostsPagePosts, postsPageActions, postsPageReducer } from '../model/slice/postsPageSlice';
+
 // styles
 import classes from './PostsPage.module.scss';
 
@@ -19,6 +21,7 @@ export interface PostPageProps {
 
 const reducer: ReducersList = {
     postsPage: postsPageReducer,
+    postsFilters: postsFiltersReducer
 };
 
 const PostsPage: React.FC<PostPageProps> = ( { className } ) => {
@@ -27,15 +30,6 @@ const PostsPage: React.FC<PostPageProps> = ( { className } ) => {
     const postsList = useSelector( getPostsPagePosts.selectAll );
     const isLoading = useSelector( getPostsPageIsLoading );
     const viewMode = useSelector( getPostsPageViewMode );
-
-    const viewModeToggle = useCallback(
-        ( view: PostListViewModeEnum ) => {
-            dispatch( postsPageActions.setViewMode( view ) );
-        },
-        [
-            dispatch
-        ]
-    );
 
     const onLoadMore = useCallback(
         () => {
@@ -63,10 +57,7 @@ const PostsPage: React.FC<PostPageProps> = ( { className } ) => {
                     ] 
                 ) }
                 onScrollEnd={ onLoadMore }>
-                <PostViewSwitcher
-                    className={ classes.viewToggle }
-                    viewMode={ viewMode as PostListViewModeEnum }
-                    onViewModeChange={ viewModeToggle } />
+                <PostPageFilters />
                 <PostList
                     isLoading={ isLoading }
                     posts={ postsList }

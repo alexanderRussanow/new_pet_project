@@ -2,7 +2,7 @@ import { Story } from '@storybook/react';
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
 import { postReducer } from 'entities/Post';
 import { profileReducer } from 'entities/Profile';
-import { addNewCommentReducer } from 'features/addNewComment';
+import { addNewCommentReducer } from 'features/AddNewComment';
 import { loginReducer } from 'features/AuthByUsername';
 import { postCommentsReducer } from 'pages/PostDetailPage';
 import { postsPageReducer } from 'pages/PostsPage/model/slice/postsPageSlice';

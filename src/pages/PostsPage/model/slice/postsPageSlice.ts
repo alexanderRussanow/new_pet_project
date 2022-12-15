@@ -1,10 +1,9 @@
-import { fetchPosts } from '../services/fetchPosts/fetchPosts';
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
-import { PostType } from 'entities/Post/model/types/PostType';
-import { PostsPageSchema } from '../types/PostsPageSchema';
-import { PostListViewModeEnum } from './../../../../entities/Post/model/types/PostType';
+import { PostListViewModeEnum, PostType } from 'entities/Post';
 import { VIEW_MODE_LS_KEY } from 'shared/const/localStorage';
+import { fetchPosts } from '../services/fetchPosts/fetchPosts';
+import { PostsPageSchema } from '../types/PostsPageSchema';
 
 const postsPageAdapter = createEntityAdapter<PostType>( {
     selectId: post => post.id,
@@ -23,6 +22,7 @@ const postsPageSlice = createSlice( {
         page: 1,
         hasMore: true,
         hasInited: false,
+        limit: 9,
     } ),
     reducers: {
         setViewMode: ( state, action: PayloadAction<PostListViewModeEnum> ) => {
@@ -46,20 +46,30 @@ const postsPageSlice = createSlice( {
         builder
             .addCase(
                 fetchPosts.pending,
-                state => {
+                ( state, action ) => {
                     state.isLoading = true;
                     state.error = undefined;
+                    if ( action.meta.arg.replace ) {
+                        postsPageAdapter.removeAll( state );
+                    }
                 } 
             )
             .addCase(
                 fetchPosts.fulfilled,
-                ( state, action: PayloadAction<PostType[]> ) => {
+                ( state, action ) => {
                     state.isLoading = false;
-                    postsPageAdapter.addMany(
-                        state,
-                        action.payload 
-                    );
                     state.hasMore = action.payload.length > 0;
+                    if ( action.meta.arg.replace ) {
+                        postsPageAdapter.setAll(
+                            state,
+                            action.payload 
+                        );
+                    } else {
+                        postsPageAdapter.addMany(
+                            state,
+                            action.payload 
+                        );
+                    }
                 } 
             )
             .addCase(

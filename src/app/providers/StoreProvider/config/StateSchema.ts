@@ -6,9 +6,10 @@ import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
 import { PostDetailsCommentSchema } from 'pages/PostDetailPage';
-import { PostsPageSchema } from 'pages/PostsPage';
 import { NavigateOptions, To } from 'react-router-dom';
-import { AddNewCommentSchema } from './../../../../features/addNewComment/model/types/AddNewCommentSchema';
+import { AddNewCommentSchema } from '../../../../features/AddNewComment/model/types/AddNewCommentSchema';
+import { PostsPageSchema } from 'pages/PostsPage';
+import { PostsFiltersSchema } from 'features/PostsFilters';
 
 export interface StateSchema {
     user: UserSchema;
@@ -20,6 +21,7 @@ export interface StateSchema {
     postComments?: PostDetailsCommentSchema;
     addNewComment?: AddNewCommentSchema;
     postsPage?: PostsPageSchema;
+    postsFilters?: PostsFiltersSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

@@ -4,7 +4,6 @@ import { getPostsPageHasMore, getPostsPagePage, getPostsPageIsLoading } from '..
 import { postsPageActions } from '../../slice/postsPageSlice';
 import { fetchPosts } from '../fetchPosts/fetchPosts';
 
-
 export const fetchNextPostsPage = createAsyncThunk<void, void, ThunkConfig<string>>(
     'fetchNextPostsPage',
     async ( _, { dispatch, getState } ) => {
@@ -14,7 +13,7 @@ export const fetchNextPostsPage = createAsyncThunk<void, void, ThunkConfig<strin
 
         if ( hasMore && !isLoading ) {
             dispatch( postsPageActions.setPageNumber( Number( page ) + 1 ) );
-            dispatch( fetchPosts( { page: page + 1 } ) );
+            dispatch( fetchPosts( {} ) );
         }
     } 
 );

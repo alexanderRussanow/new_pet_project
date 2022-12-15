@@ -1,2 +1,7 @@
-export { PostsPageLazy as PostsPage } from './ui/PostsPage.lazy';
+export { PostsPageLazy as PostsPage } from './ui/PostPage/PostsPage.lazy';
 export * from './model/types/PostsPageSchema';
+export * from './model/slice/postsPageSlice';
+export * from './model/selectors/postsPageSelectors';
+export * from './model/services/fetchNextPostsPage/fetchNextPostsPage';
+export * from './model/services/fetchPosts/fetchPosts';
+export * from './model/services/initPostsPage/initPostsPage';

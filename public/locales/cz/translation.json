@@ -1,7 +1,7 @@
 {
    "ABOUT": "O nás",
-   "HOME": "hlavní",
-   "PROFILE": "účet",
+   "HOME": "Hlavní",
+   "PROFILE": "Účet",
    "BOARD": "přehled",
    "BOUNDARY_ERROR": "Stala se chyba při načítání",
    "RELOAD_PAGE": "Znovu načíst",
@@ -17,5 +17,15 @@
    "POSTS": "Články",
    "TYPE_COMMENT": "Napište komentář",
    "SEND_COMMENT": "Odeslat",
-   "NO_COMMENTS": "Žádné komentáře"
+   "NO_COMMENTS": "Žádné komentáře",
+   "SORT_BY": "Seřadit podle",
+   "SORT_BY_DATE_ASC": "Datum vzestupně",
+   "SORT_BY_DATE_DESC": "Datum sestupně",
+   "SORT_BY_VIEWS_ASC": "Zobrazení vzestupně",
+   "SORT_BY_VIEWS_DESC": "Zobrazení sestupně",
+   "SORT_BY_LIKES_ASC": "Líbí se vzestupně",
+   "SORT_BY_LIKES_DESC": "Líbí se sestupně",
+   "SORT_BY_TITLE_ASC": "Název vzestupně",
+   "SORT_BY_TITLE_DESC": "Název sestupně",
+   "SEARCH": "Hledat"
 }

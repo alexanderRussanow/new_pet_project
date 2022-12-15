@@ -10,9 +10,7 @@ export const initPostsPage = createAsyncThunk<void, void, ThunkConfig<string>>(
         const hasInited = getPostsPageHasInited( getState() );
         if ( !hasInited ) {
             dispatch( postsPageActions.initState() );
-            dispatch( fetchPosts( {
-                page: 1,
-            } ) );
+            dispatch( fetchPosts( {} ) );
         }
     } 
 );

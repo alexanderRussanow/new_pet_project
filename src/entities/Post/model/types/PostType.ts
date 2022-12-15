@@ -60,3 +60,15 @@ export enum PostListViewModeEnum {
     LIST = 'LIST',
     GRID = 'GRID',
 }
+
+export enum OrderEnum {
+    ASC = 'asc',
+    DESC = 'desc',
+}
+
+export enum PostSortFieldEnum {
+    DATE = 'date',
+    VIEWS = 'views',
+    LIKES = 'likes',
+    TITLE = 'title',
+}
