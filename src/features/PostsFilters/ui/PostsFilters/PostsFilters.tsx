@@ -13,13 +13,13 @@ import { Card } from 'shared/ui/Card';
 import { Input } from 'shared/ui/Input';
 import { Select, SelectOptions } from 'shared/ui/Select';
 // styles
-import classes from './PostsPageFilters.module.scss';
+import classes from './PostsFilters.module.scss';
 
-export interface PostPageFiltersProps {
+export interface PostsFiltersProps {
     className?: string;
 }
 
-export const PostPageFilters: React.FC<PostPageFiltersProps> = memo( ( { className } ) => {
+export const PostsFilters: React.FC<PostsFiltersProps> = memo( ( { className } ) => {
     const { t } = useTranslation();
     // redux hooks
     const dispatch = useAppDispatch();
@@ -119,7 +119,7 @@ export const PostPageFilters: React.FC<PostPageFiltersProps> = memo( ( { classNa
     return (
         <div
             className={ classNames(
-                classes.PostPageFilters,
+                classes.PostsFilters,
                 {},
                 [
                     className

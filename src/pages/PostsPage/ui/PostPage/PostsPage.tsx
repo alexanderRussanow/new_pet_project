@@ -1,5 +1,5 @@
 import { PostList } from 'entities/Post';
-import { PostPageFilters, postsFiltersReducer } from 'features/PostsFilters';
+import { PostsFilters, postsFiltersReducer } from 'features/PostsFilters';
 import { getPostsPageIsLoading, getPostsPageViewMode } from 'pages/PostsPage/model/selectors/postsPageSelectors';
 import { fetchNextPostsPage } from 'pages/PostsPage/model/services/fetchNextPostsPage/fetchNextPostsPage';
 import { initPostsPage } from 'pages/PostsPage/model/services/initPostsPage/initPostsPage';
@@ -21,7 +21,7 @@ export interface PostPageProps {
 
 const reducer: ReducersList = {
     postsPage: postsPageReducer,
-    postsFilters: postsFiltersReducer
+    postsFilters: postsFiltersReducer,
 };
 
 const PostsPage: React.FC<PostPageProps> = ( { className } ) => {
@@ -57,7 +57,7 @@ const PostsPage: React.FC<PostPageProps> = ( { className } ) => {
                     ] 
                 ) }
                 onScrollEnd={ onLoadMore }>
-                <PostPageFilters />
+                <PostsFilters />
                 <PostList
                     isLoading={ isLoading }
                     posts={ postsList }
