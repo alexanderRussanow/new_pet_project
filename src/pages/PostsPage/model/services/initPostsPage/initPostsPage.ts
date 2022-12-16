@@ -1,16 +1,29 @@
+import { postsFiltersActions } from 'features/PostsFilters';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
 import { getPostsPageHasInited } from '../../selectors/postsPageSelectors';
 import { postsPageActions } from '../../slice/postsPageSlice';
 import { fetchPosts } from '../fetchPosts/fetchPosts';
 
-export const initPostsPage = createAsyncThunk<void, void, ThunkConfig<string>>(
+export const initPostsPage = createAsyncThunk<void, URLSearchParams, ThunkConfig<string>>(
     'initPostsPage',
-    async ( _, { dispatch, getState } ) => {
+    async ( searchParams, { dispatch, getState } ) => {
         const hasInited = getPostsPageHasInited( getState() );
         if ( !hasInited ) {
+            const search = searchParams.get( 'search' ) || '';
+            const sort = searchParams.get( 'sort' ) || 'date';
+            const order = searchParams.get( 'order' ) || 'asc';
+
+            if ( search ) {
+                dispatch( postsFiltersActions.setSearchQuery( search ) );
+            }
+
+            if ( sort && order ) {
+                dispatch( postsFiltersActions.setFilters( `${ order }_${ sort }` ) );
+            }
+
             dispatch( postsPageActions.initState() );
             dispatch( fetchPosts( {} ) );
         }
-    } 
+    }
 );

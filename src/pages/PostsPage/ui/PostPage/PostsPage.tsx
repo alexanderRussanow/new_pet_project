@@ -6,6 +6,7 @@ import { initPostsPage } from 'pages/PostsPage/model/services/initPostsPage/init
 import { getPostsPagePosts, postsPageReducer } from 'pages/PostsPage/model/slice/postsPageSlice';
 import React, { memo, useCallback } from 'react';
 import { useSelector } from 'react-redux';
+import { useSearchParams } from 'react-router-dom';
 import { useInitialEffect } from 'shared/hooks/useInitialEffect';
 import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
@@ -30,6 +31,9 @@ const PostsPage: React.FC<PostPageProps> = ( { className } ) => {
     const postsList = useSelector( getPostsPagePosts.selectAll );
     const isLoading = useSelector( getPostsPageIsLoading );
     const viewMode = useSelector( getPostsPageViewMode );
+    const [
+        searchParams
+    ] = useSearchParams();
 
     const onLoadMore = useCallback(
         () => {
@@ -41,7 +45,7 @@ const PostsPage: React.FC<PostPageProps> = ( { className } ) => {
     );
 
     useInitialEffect( () => {
-        dispatch( initPostsPage() );
+        dispatch( initPostsPage( searchParams ) );
     } );
 
     return (

@@ -4,7 +4,7 @@ import { ThunkConfig } from 'app/providers/StoreProvider';
 import { PostType } from 'entities/Post/model/types/PostType';
 import { getPostsPageLimit } from '../../selectors/postsPageSelectors';
 import { getPostsFilterSort, getPostsFilterOrder, getPostsFilterSearchQuery } from 'features/PostsFilters';
-
+import { addQueryParams } from 'shared/ui/URL/addQueryParams';
 
 export interface FetchPostsProps {
     replace?: boolean;
@@ -20,6 +20,7 @@ export const fetchPosts = createAsyncThunk<PostType[], FetchPostsProps, ThunkCon
         const search = getPostsFilterSearchQuery( getState() );
 
         try {
+            addQueryParams( { sort, order, search } );
             const response = await extra.api.get<PostType[]>(
                 `/posts`,
                 {
@@ -41,5 +42,5 @@ export const fetchPosts = createAsyncThunk<PostType[], FetchPostsProps, ThunkCon
         } catch ( error ) {
             return rejectWithValue( 'Some problems with fetching posts...' );
         }
-    } 
+    }
 );

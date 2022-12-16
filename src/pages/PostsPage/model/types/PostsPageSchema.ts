@@ -8,6 +8,6 @@ export interface PostsPageSchema extends EntityState<PostType> {
     // pagination
     page: number;
     hasMore: boolean;
-    limit?: number;
+    limit: number;
     hasInited: boolean;
 }
