@@ -1,3 +1,4 @@
+import { getPostsFilterTag } from './../../../../../features/PostsFilters/model/selectors/PostsFiltersSelectors';
 import { getPostsPagePage } from './../../selectors/postsPageSelectors';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
@@ -18,9 +19,10 @@ export const fetchPosts = createAsyncThunk<PostType[], FetchPostsProps, ThunkCon
         const sort = getPostsFilterSort( getState() );
         const order = getPostsFilterOrder( getState() );
         const search = getPostsFilterSearchQuery( getState() );
+        const tag = getPostsFilterTag( getState() );
 
         try {
-            addQueryParams( { sort, order, search } );
+            addQueryParams( { sort, order, tag, search } );
             const response = await extra.api.get<PostType[]>(
                 `/posts`,
                 {
@@ -30,6 +32,7 @@ export const fetchPosts = createAsyncThunk<PostType[], FetchPostsProps, ThunkCon
                         _limit: limit,
                         _sort: sort,
                         _order: order,
+                        _tag: tag,
                         q: search,
                     },
                 } 

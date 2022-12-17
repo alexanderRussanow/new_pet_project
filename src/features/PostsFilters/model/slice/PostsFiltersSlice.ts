@@ -1,11 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { OrderEnum, PostSortFieldEnum } from 'entities/Post';
+import { OrderEnum, PostSortFieldEnum, PostTags } from 'entities/Post';
 import { PostsFiltersSchema } from '../types/PostsFiltersSchema';
 
 const initialState: PostsFiltersSchema = {
     order: OrderEnum.ASC,
     sort: PostSortFieldEnum.DATE,
     searchQuery: '',
+    tag: 'All',
 };
 
 const postsFiltersSlice = createSlice( {
@@ -16,6 +17,9 @@ const postsFiltersSlice = createSlice( {
             const splitPayload = action.payload.split( '_' );
             state.order = splitPayload[ 0 ] as OrderEnum;
             state.sort = splitPayload[ 1 ] as PostSortFieldEnum;
+        },
+        setTag: ( state, action: PayloadAction<string> ) => {
+            state.tag = action.payload as PostTags;
         },
         setSearchQuery: ( state, action: PayloadAction<string> ) => {
             state.searchQuery = action.payload;

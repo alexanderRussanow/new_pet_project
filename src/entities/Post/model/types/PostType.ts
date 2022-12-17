@@ -1,5 +1,5 @@
 import { UserType } from 'entities/User';
-export type PostTags = 'IT' | 'Web' | 'Design' | 'Marketing' | 'Business' | 'Science' | 'Other';
+export type PostTags = 'All' | 'IT' | 'Web' | 'Design' | 'Business' | 'Other';
 
 export enum PostContentTypeEnum {
     TEXT = 'TEXT',

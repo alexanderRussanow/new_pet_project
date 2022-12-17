@@ -1,5 +1,5 @@
-import { PostViewSwitcher, PostListViewModeEnum, PostSortFieldEnum, OrderEnum } from 'entities/Post';
-import { getPostsFilterOrder, getPostsFilterSearchQuery, getPostsFilterSort, postsFiltersActions } from 'features/PostsFilters';
+import { OrderEnum, PostListViewModeEnum, PostSortFieldEnum, PostViewSwitcher } from 'entities/Post';
+import { getPostsFilterOrder, getPostsFilterSearchQuery, getPostsFilterSort, getPostsFilterTag, postsFiltersActions } from 'features/PostsFilters';
 import { fetchPosts } from 'pages/PostsPage';
 import { getPostsPageViewMode } from 'pages/PostsPage/model/selectors/postsPageSelectors';
 import { postsPageActions } from 'pages/PostsPage/model/slice/postsPageSlice';
@@ -12,6 +12,7 @@ import { classNames } from 'shared/lib/utility/UtilityMethods';
 import { Card } from 'shared/ui/Card';
 import { Input } from 'shared/ui/Input';
 import { Select, SelectOptions } from 'shared/ui/Select';
+import { Tabs, TabType } from 'shared/ui/Tabs/ui/Tabs';
 // styles
 import classes from './PostsFilters.module.scss';
 
@@ -28,6 +29,7 @@ export const PostsFilters: React.FC<PostsFiltersProps> = memo( ( { className } )
     const order = useSelector( getPostsFilterOrder );
     const searchQuery = useSelector( getPostsFilterSearchQuery );
     const selectedValue = `${ order }_${ sort }`;
+    const tag = useSelector( getPostsFilterTag );
 
     const viewModeToggle = useCallback(
         ( view: PostListViewModeEnum ) => {
@@ -76,6 +78,17 @@ export const PostsFilters: React.FC<PostsFiltersProps> = memo( ( { className } )
         ]
     );
 
+    const onTabCklicHandler = useCallback(
+        ( value: string ) => {
+            return () => {
+                dispatch( postsFiltersActions.setTag( value ) );
+            };
+        },
+        [
+            dispatch
+        ]
+    );
+
     const sortOptions = useMemo<SelectOptions[]>(
         () => [
             {
@@ -116,6 +129,39 @@ export const PostsFilters: React.FC<PostsFiltersProps> = memo( ( { className } )
         ]
     );
 
+    const tags = useMemo<TabType[]>(
+        () => [
+            {
+                label: 'All',
+                content: t( 'ALL' ),
+            },
+            {
+                label: 'IT',
+                content: t( 'IT' ),
+            },
+            {
+                label: 'Web',
+                content: t( 'WEB' ),
+            },
+            {
+                label: 'Design',
+                content: t( 'DESIGN' ),
+            },
+
+            {
+                label: 'Business',
+                content: t( 'BUSINESS' ),
+            },
+            {
+                label: 'Other',
+                content: t( 'OTHER' ),
+            },
+        ],
+        [
+            t
+        ]
+    );
+
     return (
         <div
             className={ classNames(
@@ -142,6 +188,11 @@ export const PostsFilters: React.FC<PostsFiltersProps> = memo( ( { className } )
                     value={ searchQuery }
                     onChange={ onSearchQueryChange } />
             </Card>
+            <Tabs
+                className={ classes.tabs }
+                tabs={ tags }
+                value={ tag }
+                onTabClick={ onTabCklicHandler( tag ) } />
         </div>
     );
 } );

@@ -13,6 +13,7 @@ export const initPostsPage = createAsyncThunk<void, URLSearchParams, ThunkConfig
             const search = searchParams.get( 'search' ) || '';
             const sort = searchParams.get( 'sort' ) || 'date';
             const order = searchParams.get( 'order' ) || 'asc';
+            const tag = searchParams.get( 'tag' ) || 'All';
 
             if ( search ) {
                 dispatch( postsFiltersActions.setSearchQuery( search ) );
@@ -20,6 +21,10 @@ export const initPostsPage = createAsyncThunk<void, URLSearchParams, ThunkConfig
 
             if ( sort && order ) {
                 dispatch( postsFiltersActions.setFilters( `${ order }_${ sort }` ) );
+            }
+
+            if ( tag ) {
+                dispatch( postsFiltersActions.setTag( tag ) );
             }
 
             dispatch( postsPageActions.initState() );
