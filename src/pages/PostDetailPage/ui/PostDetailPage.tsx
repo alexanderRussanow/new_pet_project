@@ -1,6 +1,5 @@
 import { CommentList } from 'entities/Comment';
 import { PostDetails } from 'entities/Post';
-import { AddNewCommentForm } from 'features/AddNewComment';
 import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -19,6 +18,7 @@ import { fetchCommentsByPostId } from '../model/services/fetchCommentsByPostId';
 import { getPostComments, postCommentsReducer } from '../model/slice/postDetailsCommentsSlice';
 // styles
 import classes from './PostDetailPage.module.scss';
+import { AddNewCommentForm1 } from 'features/AddNewComment1';
 
 const reducer: ReducersList = {
     postComments: postCommentsReducer,
@@ -75,7 +75,7 @@ const PostDetailPage: React.FC = () => {
                         <Text
                             className={ classes.commentsTitle }
                             title={ t( 'COMMENTS' ) } />
-                        <AddNewCommentForm onSendComment={ onSendComment } />
+                        <AddNewCommentForm1 onSendComment={ onSendComment } />
                         <CommentList
                             className={ classes.comments }
                             comments={ comments }

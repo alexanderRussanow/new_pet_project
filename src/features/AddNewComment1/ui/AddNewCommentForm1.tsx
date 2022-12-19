@@ -20,7 +20,7 @@ const reducer: ReducersList = {
     addNewComment: addNewCommentReducer,
 };
 
-const AddNewCommentForm: React.FC<AddNewCommentFormProps> = memo( ( { onSendComment, className } ) => {
+const AddNewCommentForm1: React.FC<AddNewCommentFormProps> = memo( ( { onSendComment, className } ) => {
     const { t } = useTranslation();
     // redux hooks
     const text = useSelector( getCommentTextSelector );
@@ -73,4 +73,4 @@ const AddNewCommentForm: React.FC<AddNewCommentFormProps> = memo( ( { onSendComm
     );
 } );
 
-export default AddNewCommentForm;
+export default AddNewCommentForm1;

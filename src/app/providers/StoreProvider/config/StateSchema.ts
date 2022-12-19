@@ -7,7 +7,7 @@ import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
 import { PostDetailsCommentSchema } from 'pages/PostDetailPage';
 import { NavigateOptions, To } from 'react-router-dom';
-import { AddNewCommentSchema } from '../../../../features/AddNewComment/model/types/AddNewCommentSchema';
+import { AddNewCommentSchema } from '../../../../features/AddNewComment1/model/types/AddNewCommentSchema';
 import { PostsPageSchema } from 'pages/PostsPage';
 import { PostsFiltersSchema } from 'features/PostsFilters';
 
