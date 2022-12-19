@@ -11,6 +11,7 @@ describe(
         it(
             'should init the posts page',
             async () => {
+                const searchParams = new URLSearchParams( window.location.search );
                 const thunk = new TestAsyncThunk(
                     initPostsPage,
                     {
@@ -26,14 +27,15 @@ describe(
                         },
                     } 
                 );
-                await thunk.callThunk();
-                expect( thunk.dispatch ).toBeCalledTimes( 4 );
-                expect( fetchPosts ).toBeCalledWith( { page: 1 } );
+                await thunk.callThunk( searchParams );
+                expect( thunk.dispatch ).toBeCalledTimes( 6 );
+                expect( fetchPosts ).toBeCalledWith( { } );
             } 
         );
         it(
             "async thunk shouldn't call fetchPosts if the posts page has already been inited",
             async () => {
+                const searchParams = new URLSearchParams( window.location.search );
                 const thunk = new TestAsyncThunk(
                     initPostsPage,
                     {
@@ -49,7 +51,7 @@ describe(
                         },
                     } 
                 );
-                await thunk.callThunk();
+                await thunk.callThunk( searchParams );
                 expect( thunk.dispatch ).toBeCalledTimes( 2 );
                 expect( fetchPosts ).not.toBeCalled();
             } 

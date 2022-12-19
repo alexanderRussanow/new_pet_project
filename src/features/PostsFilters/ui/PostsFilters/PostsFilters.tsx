@@ -1,8 +1,7 @@
 import { OrderEnum, PostListViewModeEnum, PostSortFieldEnum, PostViewSwitcher } from 'entities/Post';
 import { getPostsFilterOrder, getPostsFilterSearchQuery, getPostsFilterSort, getPostsFilterTag, postsFiltersActions } from 'features/PostsFilters';
-import { fetchPosts } from 'pages/PostsPage';
+import { fetchPosts, postsPageActions } from 'pages/PostsPage';
 import { getPostsPageViewMode } from 'pages/PostsPage/model/selectors/postsPageSelectors';
-import { postsPageActions } from 'pages/PostsPage/model/slice/postsPageSlice';
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';

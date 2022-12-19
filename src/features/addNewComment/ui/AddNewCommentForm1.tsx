@@ -9,7 +9,7 @@ import { Input } from 'shared/ui/Input';
 import { getCommentTextSelector } from '../model/selectors/addNewCommentSelectors';
 import { addNewCommentActions, addNewCommentReducer } from '../model/slice/addCommentSlice';
 // styles
-import classes from './AddNewCommentForm.module.scss';
+import classes from './AddNewCommentForm1.module.scss';
 
 export interface AddNewCommentFormProps {
     className?: string;

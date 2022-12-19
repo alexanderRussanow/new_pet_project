@@ -21,13 +21,13 @@ describe(
                             isLoading: false,
                             error: undefined,
                             limit: 6,
-                            hasInited: false
+                            hasInited: false,
                         },
                     } 
                 );
                 await thunk.callThunk();
                 expect( thunk.dispatch ).toBeCalledTimes( 4 );
-                expect( fetchPosts ).toBeCalledWith( { page: 2 } );
+                expect( fetchPosts ).toBeCalledWith( {} );
             } 
         );
         it(
@@ -44,7 +44,7 @@ describe(
                             isLoading: false,
                             error: undefined,
                             limit: 6,
-                            hasInited: false
+                            hasInited: false,
                         },
                     } 
                 );
@@ -67,7 +67,7 @@ describe(
                             isLoading: true,
                             error: undefined,
                             limit: 6,
-                            hasInited: false
+                            hasInited: false,
                         },
                     } 
                 );

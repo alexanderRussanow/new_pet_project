@@ -1,4 +1,4 @@
-import { getPostsFilterTag } from './../../../../../features/PostsFilters/model/selectors/PostsFiltersSelectors';
+import { getPostsFilterTag } from '../../../../../features/PostsFilters/model/selectors/postsFiltersSelectors1';
 import { getPostsPagePage } from './../../selectors/postsPageSelectors';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
