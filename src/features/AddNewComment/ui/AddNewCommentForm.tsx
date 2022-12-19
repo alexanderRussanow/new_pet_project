@@ -9,7 +9,7 @@ import { Input } from 'shared/ui/Input';
 import { getCommentTextSelector } from '../model/selectors/addNewCommentSelectors';
 import { addNewCommentActions, addNewCommentReducer } from '../model/slice/addCommentSlice';
 // styles
-import classes from './AddNewCommentForm1.module.scss';
+import classes from './AddNewCommentForm.module.scss';
 
 export interface AddNewCommentFormProps {
     className?: string;
@@ -20,7 +20,7 @@ const reducer: ReducersList = {
     addNewComment: addNewCommentReducer,
 };
 
-const AddNewCommentForm1: React.FC<AddNewCommentFormProps> = memo( ( { onSendComment, className } ) => {
+const AddNewCommentForm: React.FC<AddNewCommentFormProps> = memo( ( { onSendComment, className } ) => {
     const { t } = useTranslation();
     // redux hooks
     const text = useSelector( getCommentTextSelector );
@@ -73,4 +73,4 @@ const AddNewCommentForm1: React.FC<AddNewCommentFormProps> = memo( ( { onSendCom
     );
 } );
 
-export default AddNewCommentForm1;
+export default AddNewCommentForm;

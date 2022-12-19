@@ -16,9 +16,9 @@ import { getCommentsIsLoading } from '../model/selectors/postDetailsCommentSelec
 import { addCommentForPost } from '../model/services/addCommentForPost';
 import { fetchCommentsByPostId } from '../model/services/fetchCommentsByPostId';
 import { getPostComments, postCommentsReducer } from '../model/slice/postDetailsCommentsSlice';
+import { AddNewCommentForm } from 'features/AddNewComment';
 // styles
 import classes from './PostDetailPage.module.scss';
-import { AddNewCommentForm1 } from 'features/AddNewComment1';
 
 const reducer: ReducersList = {
     postComments: postCommentsReducer,
@@ -75,7 +75,7 @@ const PostDetailPage: React.FC = () => {
                         <Text
                             className={ classes.commentsTitle }
                             title={ t( 'COMMENTS' ) } />
-                        <AddNewCommentForm1 onSendComment={ onSendComment } />
+                        <AddNewCommentForm onSendComment={ onSendComment } />
                         <CommentList
                             className={ classes.comments }
                             comments={ comments }
