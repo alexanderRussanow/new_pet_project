@@ -5,7 +5,7 @@ import { PostSchema } from 'entities/Post';
 import { ProfileSchema } from 'entities/Profile';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
-import { PostDetailsCommentSchema } from 'pages/PostDetailPage';
+import { PostDetailsCommentSchema, PostDetailsRecommendationSchema } from 'pages/PostDetailPage';
 import { NavigateOptions, To } from 'react-router-dom';
 import { AddNewCommentSchema } from '../../../../features/AddNewComment/model/types/AddNewCommentSchema';
 import { PostsPageSchema } from 'pages/PostsPage';
@@ -13,15 +13,16 @@ import { PostsFiltersSchema } from 'features/PostsFilters';
 
 export interface StateSchema {
     user: UserSchema;
-    scroll: ScrollPreservationSchema
+    scroll: ScrollPreservationSchema;
     // async reducers
     login?: LoginSchema;
     profile?: ProfileSchema;
     post?: PostSchema;
-    postComments?: PostDetailsCommentSchema;
     addNewComment?: AddNewCommentSchema;
     postsPage?: PostsPageSchema;
     postsFilters?: PostsFiltersSchema;
+    postComments?: PostDetailsCommentSchema;
+    postRecommendations: PostDetailsRecommendationSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

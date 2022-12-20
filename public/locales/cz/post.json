@@ -23,5 +23,6 @@
    "BUSINESS": "Podnikání",
    "OTHER": "Ostatní",
    "SEARCH": "Hledat",
-   "POSTS_NOT_FOUND": "Články nebyly nalezeny"
+   "POSTS_NOT_FOUND": "Články nebyly nalezeny",
+   "RECOMMENDATIONS": "Doporučené"
 }

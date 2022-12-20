@@ -81,11 +81,11 @@ export const PostsFilters: React.FC<PostsFiltersProps> = memo( ( { className } )
         ( value: TabType ) => {
             dispatch( postsFiltersActions.setTag( value.label as PostTags ) );
             dispatch( postsPageActions.setPageNumber( 1 ) );
-            debouncedFetch();
+            fetchData();
         },
         [
             dispatch,
-            debouncedFetch
+            fetchData
         ]
     );
 

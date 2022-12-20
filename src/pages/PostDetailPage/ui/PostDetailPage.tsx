@@ -1,5 +1,5 @@
 import { CommentList } from 'entities/Comment';
-import { PostDetails } from 'entities/Post';
+import { PostDetails, PostList, PostListViewModeEnum } from 'entities/Post';
 import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -16,12 +16,16 @@ import { getCommentsIsLoading } from '../model/selectors/postDetailsCommentSelec
 import { addCommentForPost } from '../model/services/addCommentForPost';
 import { fetchCommentsByPostId } from '../model/services/fetchCommentsByPostId';
 import { getPostComments, postCommentsReducer } from '../model/slice/postDetailsCommentsSlice';
+import { getPostRecommendations, postRecommendationsReducer } from '../model/slice/postDetailsRecommendationSlice';
 import { AddNewCommentForm } from 'features/AddNewComment';
 // styles
 import classes from './PostDetailPage.module.scss';
+import { getRecommendationsIsLoading } from '../model/selectors/postDetailsRecommendationsSelectors';
+import { fetchPostRecommendations } from '../model/services/fetchRecommendations';
 
 const reducer: ReducersList = {
     postComments: postCommentsReducer,
+    postRecommendations: postRecommendationsReducer,
 };
 
 const PostDetailPage: React.FC = () => {
@@ -29,10 +33,11 @@ const PostDetailPage: React.FC = () => {
     const { id } = useParams();
     const navigate = useNavigate();
     // redux hooks
-    const comments = useSelector( getPostComments.selectAll );
-    const isLoading = useSelector( getCommentsIsLoading );
-
     const dispatch = useAppDispatch();
+    const comments = useSelector( getPostComments.selectAll );
+    const commentsIsLoading = useSelector( getCommentsIsLoading );
+    const recommendations = useSelector( getPostRecommendations.selectAll );
+    const recommendationsIsLoading = useSelector( getRecommendationsIsLoading );
 
     const onSendComment = useCallback(
         text => {
@@ -54,6 +59,7 @@ const PostDetailPage: React.FC = () => {
 
     useInitialEffect( () => {
         dispatch( fetchCommentsByPostId( id ) );
+        dispatch( fetchPostRecommendations() );
     } );
 
     return (
@@ -74,12 +80,21 @@ const PostDetailPage: React.FC = () => {
                         <PostDetails postId={ id } />
                         <Text
                             className={ classes.commentsTitle }
+                            title={ t( 'RECOMMENDATIONS' ) } />
+                        <PostList
+                            className={ classes.recommendations }
+                            isLoading={ recommendationsIsLoading }
+                            posts={ recommendations }
+                            viewMode={ PostListViewModeEnum.GRID }
+                        />
+                        <Text
+                            className={ classes.commentsTitle }
                             title={ t( 'COMMENTS' ) } />
                         <AddNewCommentForm onSendComment={ onSendComment } />
                         <CommentList
                             className={ classes.comments }
                             comments={ comments }
-                            isLoading={ isLoading } />
+                            isLoading={ commentsIsLoading } />
                     </>
                 ) : (
                     <h2>{t( 'POST_NOT_EXIST' )}</h2>

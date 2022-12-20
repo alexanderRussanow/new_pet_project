@@ -4,6 +4,7 @@ import { ThunkConfig } from 'app/providers/StoreProvider';
 import { getPostsPageHasInited } from '../../selectors/postsPageSelectors';
 import { postsPageActions } from '../../slice/postsPageSlice';
 import { fetchPosts } from '../fetchPosts/fetchPosts';
+import { PostTags } from 'entities/Post';
 
 export const initPostsPage = createAsyncThunk<void, URLSearchParams, ThunkConfig<string>>(
     'initPostsPage',
@@ -24,7 +25,7 @@ export const initPostsPage = createAsyncThunk<void, URLSearchParams, ThunkConfig
             }
 
             if ( tag ) {
-                dispatch( postsFiltersActions.setTag( tag ) );
+                dispatch( postsFiltersActions.setTag( tag as PostTags ) );
             }
 
             dispatch( postsPageActions.initState() );
