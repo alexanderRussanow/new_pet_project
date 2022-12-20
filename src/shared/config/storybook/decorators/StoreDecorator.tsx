@@ -4,7 +4,8 @@ import { postReducer } from 'entities/Post';
 import { profileReducer } from 'entities/Profile';
 import { addNewCommentReducer } from 'features/AddNewComment';
 import { loginReducer } from 'features/AuthByUsername';
-import { postCommentsReducer } from 'pages/PostDetailPage';
+import { postsFiltersReducer } from 'features/PostsFilters';
+import { postDetailsMainReducer } from 'pages/PostDetailsPage';
 import { postsPageReducer } from 'pages/PostsPage/model/slice/postsPageSlice';
 import { ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 
@@ -12,9 +13,10 @@ const defaultAsyncReducers: ReducersList = {
     login: loginReducer,
     profile: profileReducer,
     post: postReducer,
-    postComments: postCommentsReducer,
+    postsDetails: postDetailsMainReducer,
     addNewComment: addNewCommentReducer,
-    postsPage: postsPageReducer
+    postsPage: postsPageReducer,
+    postsFilters: postsFiltersReducer,
 };
 
 export const StoreDecorator = ( state: DeepPartial<StateSchema>, asyncReducers?: ReducersList ) => ( StoryComponent: Story ) =>

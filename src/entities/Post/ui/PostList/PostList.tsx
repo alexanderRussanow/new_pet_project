@@ -1,6 +1,5 @@
 import { PostListViewModeEnum, PostType } from 'entities/Post/model/types/PostType';
-import { t } from 'i18next';
-import { memo } from 'react';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 import { Text } from 'shared/ui/Text';
@@ -13,10 +12,11 @@ export interface PostListProps {
     posts: PostType[];
     viewMode?: PostListViewModeEnum;
     isLoading?: boolean;
+    target?: HTMLAttributeAnchorTarget;
     className?: string;
 }
 
-export const PostList: React.FC<PostListProps> = memo( ( { posts, viewMode, isLoading, className } ) => {
+export const PostList: React.FC<PostListProps> = memo( ( { posts, target, viewMode, isLoading, className } ) => {
     const { t } = useTranslation( 'post' );
     const getViewMode = viewMode === PostListViewModeEnum.LIST ? 3 : 10;
 
@@ -52,6 +52,7 @@ export const PostList: React.FC<PostListProps> = memo( ( { posts, viewMode, isLo
                         className={ classes.card }
                         key={ post.id }
                         post={ post }
+                        target={ target }
                         viewMode={ viewMode } />;
                 } )
                 : null}

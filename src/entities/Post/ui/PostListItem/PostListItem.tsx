@@ -1,6 +1,7 @@
 import { ContentText, PostContentTypeEnum, PostListViewModeEnum, PostType } from 'entities/Post/model/types/PostType';
-import { memo, useCallback } from 'react';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { RoutesPath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 import { Avatar } from 'shared/ui/Avatar';
 import { Button, ButtonThemeEnum } from 'shared/ui/Button';
@@ -9,33 +10,21 @@ import { Icon } from 'shared/ui/Icon';
 import { Text } from 'shared/ui/Text';
 import ViewsIcon from '../../../../shared/assets/icons/eye-20-20.svg';
 import { PostTextBlock } from '../PostBlocks/PostTextBlock/PostTextBlock';
-import { useNavigate } from 'react-router-dom';
-import { RoutesPath } from 'shared/config/routeConfig/routeConfig';
 
 // styles
+import { AppLink } from 'shared/ui/AppLink';
 import classes from './PostListItem.module.scss';
 
 export interface PostListItemProps {
     post: PostType;
+    target?: HTMLAttributeAnchorTarget;
     className?: string;
     viewMode?: PostListViewModeEnum;
 }
 
-export const PostListItem: React.FC<PostListItemProps> = memo( ( { post, viewMode, className } ) => {
+export const PostListItem: React.FC<PostListItemProps> = memo( ( { post, target, viewMode, className } ) => {
     const { t } = useTranslation( 'post' );
-    const navigate = useNavigate();
-
     const textBlock = post.content.find( block => block.type === PostContentTypeEnum.TEXT ) as ContentText;
-
-    const onPostOpen = useCallback(
-        () => {
-            navigate( RoutesPath.postDetail + post.id );
-        },
-        [
-            post.id,
-            navigate
-        ] 
-    );
 
     return (
         <div
@@ -48,31 +37,33 @@ export const PostListItem: React.FC<PostListItemProps> = memo( ( { post, viewMod
                 ] 
             ) }>
             {viewMode === PostListViewModeEnum.GRID ? (
-                <Card
-                    className={ classes.card }
-                    onClick={ onPostOpen }>
-                    <div className={ classes.imgWrapper }>
-                        <img
-                            alt={ post.title }
-                            className={ classes.img }
-                            src={ post.img } />
+                <AppLink
+                    target={ target }
+                    to={ RoutesPath.postDetail + post.id }>
+                    <Card className={ classes.card }>
+                        <div className={ classes.imgWrapper }>
+                            <img
+                                alt={ post.title }
+                                className={ classes.img }
+                                src={ post.img } />
+                            <Text
+                                className={ classes.date }
+                                content={ post.date } />
+                        </div>
+                        <div className={ classes.infoWrapper }>
+                            <Text
+                                className={ classes.tags }
+                                content={ post.tags.join( ', ' ) } />
+                            <Text
+                                className={ classes.views }
+                                content={ String( post.views ) } />
+                            <Icon Svg={ ViewsIcon } />
+                        </div>
                         <Text
-                            className={ classes.date }
-                            content={ post.date } />
-                    </div>
-                    <div className={ classes.infoWrapper }>
-                        <Text
-                            className={ classes.tags }
-                            content={ post.tags.join( ', ' ) } />
-                        <Text
-                            className={ classes.views }
-                            content={ String( post.views ) } />
-                        <Icon Svg={ ViewsIcon } />
-                    </div>
-                    <Text
-                        className={ classes.title }
-                        title={ post.title } />
-                </Card>
+                            className={ classes.title }
+                            title={ post.title } />
+                    </Card>
+                </AppLink>
             ) : (
                 <Card className={ classes.card }>
                     <div className={ classes.header }>
@@ -100,11 +91,11 @@ export const PostListItem: React.FC<PostListItemProps> = memo( ( { post, viewMod
                         className={ classes.textBlock }
                         content={ textBlock } /> : null}
                     <div className={ classes.footer }>
-                        <Button
-                            theme={ ButtonThemeEnum.OUTLINE }
-                            onClick={ onPostOpen }>
-                            {t( 'READ_MORE' )}
-                        </Button>
+                        <AppLink
+                            target={ target }
+                            to={ RoutesPath.postDetail + post.id }>
+                            <Button theme={ ButtonThemeEnum.OUTLINE }>{t( 'READ_MORE' )}</Button>
+                        </AppLink>
                         <div className={ classes.infoWrapper }>
                             <Text
                                 className={ classes.views }

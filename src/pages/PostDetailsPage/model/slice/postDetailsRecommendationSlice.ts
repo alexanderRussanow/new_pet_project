@@ -8,7 +8,7 @@ const recommendationsAdapter = createEntityAdapter<PostType>( {
     selectId: post => post.id,
 } );
 
-export const getPostRecommendations = recommendationsAdapter.getSelectors<StateSchema>( state => state.postRecommendations || recommendationsAdapter.getInitialState() );
+export const getPostRecommendations = recommendationsAdapter.getSelectors<StateSchema>( state => state.postsDetails?.recommendations || recommendationsAdapter.getInitialState() );
 
 const postDetailsRecommendationSlice = createSlice( {
     name: 'postDetailsRecommendationSlice',

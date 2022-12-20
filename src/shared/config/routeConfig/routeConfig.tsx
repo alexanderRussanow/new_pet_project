@@ -3,7 +3,7 @@ import { ProfilePage } from 'pages/Profile';
 import { HomePage } from 'pages/Home';
 import { Page404 } from 'pages/Page404';
 import { RouteProps } from 'react-router-dom';
-import { PostDetailPage } from 'pages/PostDetailPage';
+import { PostDetailPage } from 'pages/PostDetailsPage';
 import { AboutPage } from 'pages/AboutPage';
 
 export type AppRouteProps = RouteProps & {

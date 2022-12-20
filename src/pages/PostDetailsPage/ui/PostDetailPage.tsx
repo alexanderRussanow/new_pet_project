@@ -1,5 +1,6 @@
 import { CommentList } from 'entities/Comment';
 import { PostDetails, PostList, PostListViewModeEnum } from 'entities/Post';
+import { AddNewCommentForm } from 'features/AddNewComment';
 import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -10,22 +11,21 @@ import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/Dynami
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 import { Button, ButtonThemeEnum } from 'shared/ui/Button';
-import { Page } from 'widgets/Page';
 import { Text } from 'shared/ui/Text';
+import { Page } from 'widgets/Page';
 import { getCommentsIsLoading } from '../model/selectors/postDetailsCommentSelectors';
 import { addCommentForPost } from '../model/services/addCommentForPost';
 import { fetchCommentsByPostId } from '../model/services/fetchCommentsByPostId';
-import { getPostComments, postCommentsReducer } from '../model/slice/postDetailsCommentsSlice';
-import { getPostRecommendations, postRecommendationsReducer } from '../model/slice/postDetailsRecommendationSlice';
-import { AddNewCommentForm } from 'features/AddNewComment';
-// styles
-import classes from './PostDetailPage.module.scss';
+import { getPostComments } from '../model/slice/postDetailsCommentsSlice';
+import { getPostRecommendations } from '../model/slice/postDetailsRecommendationSlice';
 import { getRecommendationsIsLoading } from '../model/selectors/postDetailsRecommendationsSelectors';
 import { fetchPostRecommendations } from '../model/services/fetchRecommendations';
+import { postDetailsMainReducer } from '../model/slice/postDetailsMainSlice';
+// styles
+import classes from './PostDetailPage.module.scss';
 
 const reducer: ReducersList = {
-    postComments: postCommentsReducer,
-    postRecommendations: postRecommendationsReducer,
+    postsDetails: postDetailsMainReducer,
 };
 
 const PostDetailPage: React.FC = () => {
@@ -85,6 +85,7 @@ const PostDetailPage: React.FC = () => {
                             className={ classes.recommendations }
                             isLoading={ recommendationsIsLoading }
                             posts={ recommendations }
+                            target={ '_blank' }
                             viewMode={ PostListViewModeEnum.GRID }
                         />
                         <Text
