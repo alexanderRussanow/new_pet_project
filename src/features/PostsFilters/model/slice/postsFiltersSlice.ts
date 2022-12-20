@@ -18,8 +18,8 @@ const postsFiltersSlice = createSlice( {
             state.order = splitPayload[ 0 ] as OrderEnum;
             state.sort = splitPayload[ 1 ] as PostSortFieldEnum;
         },
-        setTag: ( state, action: PayloadAction<string> ) => {
-            state.tag = action.payload as PostTags;
+        setTag: ( state, action: PayloadAction<PostTags> ) => {
+            state.tag = action.payload;
         },
         setSearchQuery: ( state, action: PayloadAction<string> ) => {
             state.searchQuery = action.payload;

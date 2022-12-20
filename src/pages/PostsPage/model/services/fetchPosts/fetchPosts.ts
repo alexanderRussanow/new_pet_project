@@ -1,4 +1,4 @@
-import { getPostsFilterTag } from '../../../../../features/PostsFilters/model/selectors/postsFiltersSelectors1';
+import { getPostsFilterTag } from '../../../../../features/PostsFilters/model/selectors/postsFiltersSelectors';
 import { getPostsPagePage } from './../../selectors/postsPageSelectors';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
@@ -32,8 +32,8 @@ export const fetchPosts = createAsyncThunk<PostType[], FetchPostsProps, ThunkCon
                         _limit: limit,
                         _sort: sort,
                         _order: order,
-                        _tag: tag,
-                        q: search,
+                        q: search === '' ? undefined : search,
+                        tags: tag === 'All' ? undefined : tag,
                     },
                 } 
             );

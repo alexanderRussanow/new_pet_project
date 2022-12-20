@@ -6,5 +6,22 @@
    "LOADING_ERROR": "Chyba při načítání",
    "COMMENTS": "Komentáře",
    "STEP_BACK": "Zpět",
-   "READ_MORE": "Číst dál"
+   "READ_MORE": "Číst dál",
+   "SORT_BY": "Seřadit podle",
+   "SORT_BY_DATE_ASC": "Datum vzestupně",
+   "SORT_BY_DATE_DESC": "Datum sestupně",
+   "SORT_BY_VIEWS_ASC": "Zobrazení vzestupně",
+   "SORT_BY_VIEWS_DESC": "Zobrazení sestupně",
+   "SORT_BY_LIKES_ASC": "Líbí se vzestupně",
+   "SORT_BY_LIKES_DESC": "Líbí se sestupně",
+   "SORT_BY_TITLE_ASC": "Název vzestupně",
+   "SORT_BY_TITLE_DESC": "Název sestupně",
+   "All": "Vše",
+   "IT": "IT",
+   "WEB": "Web",
+   "DESIGN": "Design",
+   "BUSINESS": "Podnikání",
+   "OTHER": "Ostatní",
+   "SEARCH": "Hledat",
+   "POSTS_NOT_FOUND": "Články nebyly nalezeny"
 }

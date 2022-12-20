@@ -1,4 +1,4 @@
-import { OrderEnum, PostListViewModeEnum, PostSortFieldEnum, PostViewSwitcher } from 'entities/Post';
+import { OrderEnum, PostListViewModeEnum, PostSortFieldEnum, PostTags, PostViewSwitcher } from 'entities/Post';
 import { getPostsFilterOrder, getPostsFilterSearchQuery, getPostsFilterSort, getPostsFilterTag, postsFiltersActions } from 'features/PostsFilters';
 import { fetchPosts, postsPageActions } from 'pages/PostsPage';
 import { getPostsPageViewMode } from 'pages/PostsPage/model/selectors/postsPageSelectors';
@@ -11,7 +11,7 @@ import { classNames } from 'shared/lib/utility/UtilityMethods';
 import { Card } from 'shared/ui/Card';
 import { Input } from 'shared/ui/Input';
 import { Select, SelectOptions } from 'shared/ui/Select';
-import { Tabs, TabType } from 'shared/ui/Tabs/ui/Tabs';
+import { Tabs, TabType } from 'shared/ui/Tabs';
 // styles
 import classes from './PostsFilters.module.scss';
 
@@ -20,7 +20,7 @@ export interface PostsFiltersProps {
 }
 
 export const PostsFilters: React.FC<PostsFiltersProps> = memo( ( { className } ) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation( 'post' );
     // redux hooks
     const dispatch = useAppDispatch();
     const viewMode = useSelector( getPostsPageViewMode );
@@ -78,13 +78,14 @@ export const PostsFilters: React.FC<PostsFiltersProps> = memo( ( { className } )
     );
 
     const onTabCklicHandler = useCallback(
-        ( value: string ) => {
-            return () => {
-                dispatch( postsFiltersActions.setTag( value ) );
-            };
+        ( value: TabType ) => {
+            dispatch( postsFiltersActions.setTag( value.label as PostTags ) );
+            dispatch( postsPageActions.setPageNumber( 1 ) );
+            debouncedFetch();
         },
         [
-            dispatch
+            dispatch,
+            debouncedFetch
         ]
     );
 
@@ -191,7 +192,7 @@ export const PostsFilters: React.FC<PostsFiltersProps> = memo( ( { className } )
                 className={ classes.tabs }
                 tabs={ tags }
                 value={ tag }
-                onTabClick={ onTabCklicHandler( tag ) } />
+                onTabClick={ onTabCklicHandler } />
         </div>
     );
 } );

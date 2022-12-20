@@ -18,11 +18,7 @@ export interface TabsProps {
 
 export const Tabs: React.FC<TabsProps> = memo( ( { tabs, value, className, onTabClick } ) => {
     const onTabClickHandler = useCallback(
-        ( tab: TabType ) => {
-            return () => {
-                onTabClick && onTabClick( tab );
-            };
-        },
+        ( tab: TabType ) => () => onTabClick && onTabClick( tab ),
         [
             onTabClick
         ]
