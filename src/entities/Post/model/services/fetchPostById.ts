@@ -6,7 +6,14 @@ export const fetchPostById = createAsyncThunk<PostType, string, ThunkConfig<stri
     'fetchPostById',
     async ( postId, { rejectWithValue, extra } ) => {
         try {
-            const response = await extra.api.get<PostType>( `/posts/${ postId }` );
+            const response = await extra.api.get<PostType>(
+                `/posts/${ postId }`,
+                {
+                    params: {
+                        _expand: 'user',
+                    },
+                } 
+            );
             if ( !response.data ) {
                 throw new Error( 'No data' );
             }

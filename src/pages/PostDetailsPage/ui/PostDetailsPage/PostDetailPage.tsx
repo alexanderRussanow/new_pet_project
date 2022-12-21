@@ -4,24 +4,23 @@ import { AddNewCommentForm } from 'features/AddNewComment';
 import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
-import { RoutesPath } from 'shared/config/routeConfig/routeConfig';
+import { useParams } from 'react-router-dom';
 import { useInitialEffect } from 'shared/hooks/useInitialEffect';
 import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
-import { Button, ButtonThemeEnum } from 'shared/ui/Button';
 import { Text } from 'shared/ui/Text';
 import { Page } from 'widgets/Page';
-import { getCommentsIsLoading } from '../model/selectors/postDetailsCommentSelectors';
-import { addCommentForPost } from '../model/services/addCommentForPost';
-import { fetchCommentsByPostId } from '../model/services/fetchCommentsByPostId';
-import { getPostComments } from '../model/slice/postDetailsCommentsSlice';
-import { getPostRecommendations } from '../model/slice/postDetailsRecommendationSlice';
-import { getRecommendationsIsLoading } from '../model/selectors/postDetailsRecommendationsSelectors';
-import { fetchPostRecommendations } from '../model/services/fetchRecommendations';
-import { postDetailsMainReducer } from '../model/slice/postDetailsMainSlice';
+import { getCommentsIsLoading } from '../../model/selectors/postDetailsCommentSelectors';
+import { getRecommendationsIsLoading } from '../../model/selectors/postDetailsRecommendationsSelectors';
+import { addCommentForPost } from '../../model/services/addCommentForPost';
+import { fetchCommentsByPostId } from '../../model/services/fetchCommentsByPostId';
+import { fetchPostRecommendations } from '../../model/services/fetchRecommendations';
+import { getPostComments } from '../../model/slice/postDetailsCommentsSlice';
+import { postDetailsMainReducer } from '../../model/slice/postDetailsMainSlice';
+import { getPostRecommendations } from '../../model/slice/postDetailsRecommendationSlice';
 // styles
+import { PostDetailsPageHeader } from '../PostDetailsPageHeader/PostDetailsPageHeader';
 import classes from './PostDetailPage.module.scss';
 
 const reducer: ReducersList = {
@@ -31,7 +30,6 @@ const reducer: ReducersList = {
 const PostDetailPage: React.FC = () => {
     const { t } = useTranslation( 'post' );
     const { id } = useParams();
-    const navigate = useNavigate();
     // redux hooks
     const dispatch = useAppDispatch();
     const comments = useSelector( getPostComments.selectAll );
@@ -46,15 +44,6 @@ const PostDetailPage: React.FC = () => {
         [
             dispatch
         ]
-    );
-
-    const backToPostsList = useCallback(
-        () => {
-            navigate( RoutesPath.posts );
-        },
-        [
-            navigate
-        ] 
     );
 
     useInitialEffect( () => {
@@ -72,11 +61,7 @@ const PostDetailPage: React.FC = () => {
                 ) }>
                 {id ? (
                     <>
-                        <Button
-                            theme={ ButtonThemeEnum.OUTLINE }
-                            onClick={ backToPostsList }>
-                            {t( 'STEP_BACK' )}
-                        </Button>
+                        <PostDetailsPageHeader />
                         <PostDetails postId={ id } />
                         <Text
                             className={ classes.commentsTitle }

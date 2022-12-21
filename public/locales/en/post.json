@@ -24,5 +24,9 @@
    "OTHER" : "Other",
    "SEARCH": "Search",
    "POSTS_NOT_FOUND": "Posts not found",
-   "RECOMMENDATIONS": "Recommendations"
+   "RECOMMENDATIONS": "Recommendations",
+   "EDIT": "Edit",
+   "PAGE_NOT_READY_YET": "Page is not ready yet",
+   "EDIT_PAGE": "Edit page",
+   "CREATE_PAGE": "Create page"
 }

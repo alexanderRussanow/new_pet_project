@@ -83,3 +83,13 @@
         color: var(--warning-color-dark);
     }
 }
+
+.inverted {
+    .title {
+        color: var(--inverted-primary-color);
+    }
+
+    .content {
+        color: var(--inverted-secondary-color);
+    }
+}

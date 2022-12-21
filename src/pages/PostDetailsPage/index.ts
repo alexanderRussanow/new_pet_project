@@ -1,4 +1,4 @@
-export { PostDetailPageLazy as PostDetailPage } from './ui/PostDetailPage.lazy';
+export { PostDetailPageLazy as PostDetailPage } from './ui/PostDetailsPage/PostDetailPage.lazy';
 export * from './model/types/PostDetailsCommentSchema';
 export * from './model/types/PostDetailsRecommendationSchema';
 export * from './model/types/PostDetailsMainSchema';

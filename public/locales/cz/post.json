@@ -24,5 +24,9 @@
    "OTHER": "Ostatní",
    "SEARCH": "Hledat",
    "POSTS_NOT_FOUND": "Články nebyly nalezeny",
-   "RECOMMENDATIONS": "Doporučené"
+   "RECOMMENDATIONS": "Doporučené",
+   "EDIT": "Upravit",
+   "PAGE_NOT_READY_YET": "Stránka není ještě připravena",
+   "EDIT_PAGE": "Stránka pro úpravy článku",
+   "CREATE_PAGE": "Stránka pro vytvoření článku",
 }

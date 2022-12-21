@@ -14,6 +14,8 @@ export enum TextThemeEnum {
     SUCCESS = 'success',
     WARNING = 'warning',
     INFO = 'info',
+    INVERTED = 'inverted',
+
 }
 
 export enum TextSizeEnum {
