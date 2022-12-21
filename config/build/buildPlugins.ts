@@ -4,6 +4,7 @@ import webpack from 'webpack';
 import { BuildOptions } from './types/config';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import CopyPlugin from 'copy-webpack-plugin';
 
 export const buildPlugins = ({ paths, isDev, apiUrl, project }: BuildOptions): webpack.WebpackPluginInstance[] => {
     
@@ -20,6 +21,14 @@ export const buildPlugins = ({ paths, isDev, apiUrl, project }: BuildOptions): w
             __IS_DEV__: JSON.stringify(isDev),
             __API__: JSON.stringify(apiUrl),
             __PROJECT__: JSON.stringify(project),
+        }),
+        new CopyPlugin({
+            patterns: [
+                {
+                    from: paths.locales,
+                    to: paths.buildLocales,
+                },
+            ],
         })
     ];
 

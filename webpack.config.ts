@@ -28,6 +28,16 @@ export default ( env: BuildEnv ) => {
             __dirname,
             'src' 
         ),
+        locales: path.resolve(
+            __dirname,
+            'public',
+            'locales' 
+        ),
+        buildLocales: path.resolve(
+            __dirname,
+            'build',
+            'locales' 
+        ),
     };
 
     const config: webpack.Configuration = buildWebpackConfig( {

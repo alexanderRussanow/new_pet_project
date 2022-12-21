@@ -5,6 +5,8 @@ export interface BuildPaths {
    html: string;
    build: string;
    src: string;
+   locales: string;
+   buildLocales: string;
 
 }
 

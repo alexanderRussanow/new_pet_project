@@ -9,35 +9,11 @@ const router = jsonServer.router(path.resolve(__dirname, 'db.json'));
 server.use(jsonServer.defaults({}));
 server.use(jsonServer.bodyParser);
 
-server.use(async (req, res, next) => {
-    await new Promise((res) => {
-        setTimeout(res, 800);
-    });
-    next();
-});
-
-// const domainList = ['http://localhost:3000/']
-
-// const corsOptions = {
-//   origin: function (origin, callback) {
-//     if (domainList.indexOf(origin) !== -1) {
-//       callback(null, true)
-//     } else {
-//       callback(new Error('Not allowed by CORS'))
-//     }
-//   },
-// }
-
-// server.use(cors(corsOptions));
-
-
-
 server.post('/login', (req, res) => {
     try {
         const { username, password } = req.body;
         const db = JSON.parse(fs.readFileSync(path.resolve(__dirname, 'db.json'), 'UTF-8'));
         const { users = [] } = db;
-        console.log(users);
 
         const userFromBd = users.find(
             (user) => user.username === username && user.password === password,
