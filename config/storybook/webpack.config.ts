@@ -9,11 +9,13 @@ export default ( { config }: { config: webpack.Configuration } ) => {
             __dirname,
             '..',
             '..',
-            'src' 
+            'src'
         ),
         build: '',
         entry: '',
         html: '',
+        locales: '',
+        buildLocales: ''
     };
 
     config.resolve!.modules = [
