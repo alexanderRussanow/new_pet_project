@@ -1,6 +1,7 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
+import { Column } from 'shared/ui/Layout';
 import { Text } from 'shared/ui/Text';
 import { CommentType } from '../../model/types/Comment';
 import { CommentItem } from '../CommentItem/CommentItem';
@@ -23,14 +24,17 @@ export const CommentList: React.FC<CommentListProps> = memo( ( { comments, isLoa
     );
 
     return (
-        <div
+        <Column
+            align='start'
+            gap='small'
             className={ classNames(
                 'commentList',
                 {},
                 [
                     className
                 ] 
-            ) }>
+            ) }
+            width100>
             {isLoading ? (
                 <>
                     <CommentItem isLoading />
@@ -40,6 +44,6 @@ export const CommentList: React.FC<CommentListProps> = memo( ( { comments, isLoa
             ) : (
                 content
             )}
-        </div>
+        </Column>
     );
 } );

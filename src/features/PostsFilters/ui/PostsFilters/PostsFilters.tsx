@@ -10,6 +10,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 import { Card } from 'shared/ui/Card';
 import { Input } from 'shared/ui/Input';
+import { Row } from 'shared/ui/Layout';
 import { Select, SelectOptions } from 'shared/ui/Select';
 import { Tabs, TabType } from 'shared/ui/Tabs';
 // styles
@@ -171,7 +172,9 @@ export const PostsFilters: React.FC<PostsFiltersProps> = memo( ( { className } )
                     className
                 ] 
             ) }>
-            <div className={ classes.filtersWrapper }>
+            <Row
+                className={ classes.filtersWrapper }
+                justify='between'>
                 <Select
                     label={ t( 'SORT_BY' ) }
                     options={ sortOptions }
@@ -181,7 +184,7 @@ export const PostsFilters: React.FC<PostsFiltersProps> = memo( ( { className } )
                     className={ classes.viewToggle }
                     viewMode={ viewMode }
                     onViewModeChange={ viewModeToggle } />
-            </div>
+            </Row>
             <Card className={ classes.searchLine }>
                 <Input
                     placeholder={ t( 'SEARCH' ) }

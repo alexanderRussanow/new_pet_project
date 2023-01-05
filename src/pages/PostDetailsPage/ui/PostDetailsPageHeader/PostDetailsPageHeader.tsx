@@ -7,8 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { RoutesPath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 import { Button, ButtonThemeEnum } from 'shared/ui/Button';
-// styles
-import classes from './PostDetailsPageHeader.module.scss';
+import { Row } from 'shared/ui/Layout';
 
 export interface PostDetailsPageHeaderProps {
     className?: string;
@@ -41,9 +40,10 @@ export const PostDetailsPageHeader: React.FC<PostDetailsPageHeaderProps> = memo(
     );
 
     return (
-        <div
+        <Row
+            justify='between'
             className={ classNames(
-                classes.PostDetailsPageHeader,
+                'PostDetailsPageHeader',
                 {},
                 [
                     className
@@ -61,6 +61,6 @@ export const PostDetailsPageHeader: React.FC<PostDetailsPageHeaderProps> = memo(
                     {t( 'EDIT' )}
                 </Button>
             ) : null}
-        </div>
+        </Row>
     );
 } );

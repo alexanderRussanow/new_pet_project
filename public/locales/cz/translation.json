@@ -19,5 +19,7 @@
    "SEND_COMMENT": "Odeslat",
    "NO_COMMENTS": "Žádné komentáře",
    "SEARCH": "Hledat",
-   "RECOMMENDATIONS": "Doporučení"
+   "RECOMMENDATIONS": "Doporučení",
+   "STEP_BACK": "Zpět",
+   "EDIT": "Upravit"
 }

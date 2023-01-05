@@ -6,6 +6,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 import { Button, ButtonThemeEnum } from 'shared/ui/Button';
 import { Input } from 'shared/ui/Input';
+import { Row } from 'shared/ui/Layout';
 import { getCommentTextSelector } from '../model/selectors/addNewCommentSelectors';
 import { addNewCommentActions, addNewCommentReducer } from '../model/slice/addCommentSlice';
 // styles
@@ -50,7 +51,8 @@ const AddNewCommentForm: React.FC<AddNewCommentFormProps> = memo( ( { onSendComm
 
     return (
         <DynamicReducerLoader reducers={ reducer }>
-            <div
+            <Row
+                justify='between'
                 className={ classNames(
                     classes.AddNewCommentForm,
                     {},
@@ -68,7 +70,7 @@ const AddNewCommentForm: React.FC<AddNewCommentFormProps> = memo( ( { onSendComm
                     onClick={ onSendCommentHandler }>
                     {t( 'SEND_COMMENT' )}
                 </Button>
-            </div>
+            </Row>
         </DynamicReducerLoader>
     );
 } );

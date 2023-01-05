@@ -1,6 +1,7 @@
 import { memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 import { Card, CardThemeEnum } from 'shared/ui/Card';
+import { Row } from 'shared/ui/Layout';
 // styles
 import classes from './Tabs.module.scss';
 
@@ -25,7 +26,8 @@ export const Tabs: React.FC<TabsProps> = memo( ( { tabs, value, className, onTab
     );
 
     return (
-        <div
+        <Row
+            gap='small'
             className={ classNames(
                 classes.Tabs,
                 {},
@@ -44,6 +46,6 @@ export const Tabs: React.FC<TabsProps> = memo( ( { tabs, value, className, onTab
                     </Card>
                 ) )
                 : null}
-        </div>
+        </Row>
     );
 } );

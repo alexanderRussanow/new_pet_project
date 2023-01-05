@@ -19,5 +19,7 @@
    "SEND_COMMENT": "Send",
    "NO_COMMENTS": "No comments yet",
    "SEARCH": "Search",
-   "RECOMMENDATIONS": "Recommendations"
+   "RECOMMENDATIONS": "Recommendations",
+   "STEP_BACK": "Back to posts",
+   "EDIT": "Edit"
 }

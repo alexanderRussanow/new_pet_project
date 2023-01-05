@@ -5,9 +5,8 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Button, ButtonThemeEnum } from 'shared/ui/Button';
+import { Row } from 'shared/ui/Layout';
 import { Text } from 'shared/ui/Text';
-// styles
-import classes from './ProfilePageHeader.module.scss';
 
 export const ProfilePageHeader: React.FC = () => {
     const { t } = useTranslation( 'profile' );
@@ -46,7 +45,9 @@ export const ProfilePageHeader: React.FC = () => {
     );
 
     return (
-        <div className={ classes.header }>
+        <Row
+            justify='between'
+            width100>
             <Text title={ t( 'PROFILE' ) } />
             {canEdit ? (
                 readonly ? (
@@ -56,22 +57,20 @@ export const ProfilePageHeader: React.FC = () => {
                         {t( 'EDIT' )}
                     </Button>
                 ) : (
-                    <div>
+                    <Row gap='small'>
                         <Button
                             theme={ ButtonThemeEnum.BACKGROUND_INVERTED }
                             onClick={ handleSaveClick }>
                             {t( 'SAVE' )}
                         </Button>
                         <Button
-                            style={ { marginLeft: 10 } }
                             theme={ ButtonThemeEnum.OUTLINE }
                             onClick={ handleCancelClick }>
                             {t( 'CANCEL' )}
                         </Button>
-                    </div>
+                    </Row>
                 )
             ) : null}
-            {}
-        </div>
+        </Row>
     );
 };

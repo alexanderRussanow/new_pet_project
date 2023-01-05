@@ -1,10 +1,14 @@
 import {
-    fetchProfileData, getProfileErrorSelector,
+    fetchProfileData,
+    getProfileErrorSelector,
     getProfileFormDataSelector,
     getProfileIsLoadingSelector,
-    getProfileReadonlySelector, getProfileValidationErrorsSelector, profileActions,
-    ProfileCard, profileReducer,
-    ProfileType
+    getProfileReadonlySelector,
+    getProfileValidationErrorsSelector,
+    profileActions,
+    ProfileCard,
+    profileReducer,
+    ProfileType,
 } from 'entities/Profile';
 import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -19,6 +23,7 @@ import { ProfilePageHeader } from '..';
 // styles
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import classes from './ProfilePage.module.scss';
+import { Column } from 'shared/ui/Layout';
 
 // default async reducer for login form
 const profilePageReducer: ReducersList = {
@@ -70,18 +75,22 @@ const ProfilePage: React.FC<ProfilePageProps> = ( { className } ) => {
                         className
                     ] 
                 ) }>
-                <ProfilePageHeader />
-                {validationErrors ? validationErrors.map( error => <Text
-                    content={ t( error ) }
-                    key={ error }
-                    theme={ TextThemeEnum.ERROR } /> ) : null}
-                <ProfileCard
-                    error={ error }
-                    isLoading={ isLoading }
-                    profile={ profileFormData }
-                    readonly={ readonly }
-                    onEditProfileData={ onEditProfileData }
-                />
+                <Column
+                    gap='small'
+                    width100>
+                    <ProfilePageHeader />
+                    {validationErrors ? validationErrors.map( error => <Text
+                        content={ t( error ) }
+                        key={ error }
+                        theme={ TextThemeEnum.ERROR } /> ) : null}
+                    <ProfileCard
+                        error={ error }
+                        isLoading={ isLoading }
+                        profile={ profileFormData }
+                        readonly={ readonly }
+                        onEditProfileData={ onEditProfileData }
+                    />
+                </Column>
             </Page>
         </DynamicReducerLoader>
     );

@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { Avatar } from 'shared/ui/Avatar';
 import { Button, ButtonSizeEnum, ButtonThemeEnum } from 'shared/ui/Button';
+import { Row } from 'shared/ui/Layout';
 import { Text, TextSizeEnum } from 'shared/ui/Text';
 import { classNames } from '../../../shared/lib/utility/UtilityMethods';
 // styles
@@ -47,28 +48,23 @@ export const Navbar: React.FC<NavbarProps> = memo( ( { className } ) => {
             ) }>
             <div className={ classNames( classes.links ) }>
                 {authUserData ? (
-                    <div className={ classes.authBlock }>
-                        <div
-                            className={ classes.authBlock }
-                            style={ {
-                                color: 'var(--bg-color) !important',
-                            } }>
-                            <Text
-                                className={ classes.username }
-                                size={ TextSizeEnum.SMALL }
-                                title={ authUserData.username } />
-                            <Avatar
-                                className={ classes.avatar }
-                                size={ 40 }
-                                src={ authUserData.avatar } />
-                        </div>
+                    <Row gap='extraSmall'>
+                        <Text
+                            className={ classes.username }
+                            size={ TextSizeEnum.SMALL }
+                            title={ authUserData.username } />
+                        <Avatar
+                            className={ classes.avatar }
+                            size={ 40 }
+                            src={ authUserData.avatar } />
+
                         <Button
                             size={ ButtonSizeEnum.MEDIUM }
                             theme={ ButtonThemeEnum.OUTLINE }
                             onClick={ onLogoutHandler }>
                             {t( 'LOGOUT' )}
                         </Button>
-                    </div>
+                    </Row>
                 ) : (
                     <>
                         <Button

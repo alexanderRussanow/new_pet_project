@@ -2,6 +2,7 @@ import { memo, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 import { Button, ButtonSizeEnum, ButtonThemeEnum } from 'shared/ui/Button';
+import { Column, Row } from 'shared/ui/Layout';
 import { LanguageSwitcher } from 'widgets/LanguageSwitcher';
 import { getSidebarItems } from 'widgets/Sidebar/model/selectors/getSidebarItems';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
@@ -54,11 +55,19 @@ export const Sidebar: React.FC<SidebarProps> = memo( ( { className } ) => {
                 onClick={ toggleSidebar }>
                 {collapsed ? '>' : '<'}
             </Button>
-            <div className={ classes.navigation }>{sidebarItemsList}</div>
-            <div className={ classes.switchers }>
+            <Column
+                align='start'
+                className={ classes.navigation }
+                gap='medium'>
+                {sidebarItemsList}
+            </Column>
+            <Row
+                className={ classes.switchers }
+                gap='small'
+                justify='evenly'>
                 <ThemeSwitcher />
                 <LanguageSwitcher />
-            </div>
+            </Row>
         </menu>
     );
 } );

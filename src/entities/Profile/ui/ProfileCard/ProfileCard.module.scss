@@ -2,25 +2,9 @@
     padding: 20px;
     border: 2px solid var(--inverted-bg-color);
     border-radius: 4px;
-}
-
-.loader {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 250px;
-}
-
-.input {
-    width: 100%;
-    margin-bottom: 10px;
+    min-height: 300px;
 }
 
 .editing {
     border: 2px dashed var(--inverted-bg-color);
-}
-
-.select {
-    // align-items: center;
-    margin-bottom: 10px;
 }

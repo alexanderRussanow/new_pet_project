@@ -10,6 +10,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 import { Avatar } from 'shared/ui/Avatar';
 import { Icon } from 'shared/ui/Icon';
+import { Column, Row } from 'shared/ui/Layout';
 import { Skeleton } from 'shared/ui/Skeleton';
 import { Text, TextSizeEnum, TextThemeEnum } from 'shared/ui/Text';
 import { PostCodeBlock } from '../PostBlocks/PostCodeBlock/PostCodeBlock';
@@ -41,17 +42,14 @@ export const PostDetails: React.FC<PostDetailsProps> = memo( ( { postId, classNa
             switch ( contentElement.type ) {
                 case PostContentTypeEnum.IMAGE:
                     return <PostImageBlock
-                        className={ classes.block }
                         content={ contentElement }
                         key={ contentElement.id } />;
                 case PostContentTypeEnum.TEXT:
                     return <PostTextBlock
-                        className={ classes.block }
                         content={ contentElement }
                         key={ contentElement.id } />;
                 case PostContentTypeEnum.CODE:
                     return <PostCodeBlock
-                        className={ classes.block }
                         content={ contentElement }
                         key={ contentElement.id } />;
                 default:
@@ -97,34 +95,30 @@ export const PostDetails: React.FC<PostDetailsProps> = memo( ( { postId, classNa
     } else {
         content = (
             <>
-                <div className={ classes.logoWrapper }>
+                <Row
+                    justify='center'
+                    width100>
                     <Avatar
-                        className={ classes.logo }
                         size={ 100 }
                         src={ postData?.img } />
-                </div>
+                </Row>
                 <Text
-                    className={ classes.title }
                     content={ postData?.subtitle }
                     size={ TextSizeEnum.LARGE }
                     title={ postData?.title } />
-                <div className={ classes.info }>
-                    <Icon
-                        Svg={ CalenderIcon }
-                        className={ classes.icon } />
+                <Row gap='small'>
+                    <Icon Svg={ CalenderIcon } />
                     <Text
                         content={ postData?.date }
                         size={ TextSizeEnum.SMALL } />
-                </div>
-                <div className={ classes.info }>
-                    <Icon
-                        Svg={ EyeIcon }
-                        className={ classes.icon } />
+                </Row>
+                <Row gap='small'>
+                    <Icon Svg={ EyeIcon } />
                     <Text
                         content={ String( postData?.views ) }
                         size={ TextSizeEnum.SMALL } />
-                </div>
-                <div>{postData?.content.map( renderContentElement )}</div>
+                </Row>
+                {postData?.content.map( renderContentElement )}
             </>
         );
     }
@@ -143,15 +137,19 @@ export const PostDetails: React.FC<PostDetailsProps> = memo( ( { postId, classNa
 
     return (
         <DynamicReducerLoader reducers={ reducer }>
-            <div
+            <Column
+                align='start'
+                gap='small'
                 className={ classNames(
                     classes.PostDetails,
                     {},
                     [
                         className
                     ] 
-                ) } />
-            {content}
+                ) }
+                width100>
+                {content}
+            </Column>
         </DynamicReducerLoader>
     );
 } );
