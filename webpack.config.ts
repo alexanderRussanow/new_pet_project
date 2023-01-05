@@ -38,6 +38,16 @@ export default ( env: BuildEnv ) => {
             'build',
             'locales' 
         ),
+        media: path.resolve(
+            __dirname,
+            'public',
+            'media'
+        ),
+        buildMedia: path.resolve(
+            __dirname,
+            'build',
+            'media'
+        ),
     };
 
     const config: webpack.Configuration = buildWebpackConfig( {

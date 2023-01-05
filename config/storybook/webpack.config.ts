@@ -15,7 +15,9 @@ export default ( { config }: { config: webpack.Configuration } ) => {
         entry: '',
         html: '',
         locales: '',
-        buildLocales: ''
+        buildLocales: '',
+        media: '',
+        buildMedia: '',
     };
 
     config.resolve!.modules = [

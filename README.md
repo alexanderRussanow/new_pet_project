@@ -4,8 +4,8 @@ Project implemented using Feature-Sliced Design methodology ([https://feature-sl
 App availible on a link [https://master--lambent-froyo-b2f4c7.netlify.app/](https://master--lambent-froyo-b2f4c7.netlify.app/)
 
 ## To use this app you need to login, use:
-### login: Jara
-### password: cimrman
+# login: Jara
+# password: cimrman
 
 
 ## Available Scripts

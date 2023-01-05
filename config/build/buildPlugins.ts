@@ -28,6 +28,10 @@ export const buildPlugins = ({ paths, isDev, apiUrl, project }: BuildOptions): w
                     from: paths.locales,
                     to: paths.buildLocales,
                 },
+                {
+                    from: paths.media,
+                    to: paths.buildMedia,
+                },
             ],
         })
     ];
