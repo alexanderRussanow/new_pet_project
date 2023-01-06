@@ -6,7 +6,7 @@ export type FlexAlign = 'start' | 'end' | 'center' | 'stretch' | 'baseline';
 export type FlexDirection = 'row' | 'rowReverse' | 'column' | 'columnReverse';
 export type FlexGap = 'extraSmall' | 'small' | 'medium' | 'large' | 'extraLarge';
 
-export interface FlexProps {
+export interface FlexProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
     justify?: FlexJustify;
     align?: FlexAlign;
     direction?: FlexDirection;

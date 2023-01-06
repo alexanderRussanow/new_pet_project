@@ -15,14 +15,23 @@ export enum TextThemeEnum {
     WARNING = 'warning',
     INFO = 'info',
     INVERTED = 'inverted',
-
 }
 
 export enum TextSizeEnum {
     SMALL = 'small',
     MEDIUM = 'medium',
     LARGE = 'large',
+    XL = 'xl',
 }
+
+export type HeadingSize = 'h1' | 'h2' | 'h3' | 'h4';
+
+const headingSizeMap: Record<TextSizeEnum, HeadingSize> = {
+    [ TextSizeEnum.SMALL ]: 'h4',
+    [ TextSizeEnum.MEDIUM ]: 'h3',
+    [ TextSizeEnum.LARGE ]: 'h2',
+    [ TextSizeEnum.XL ]: 'h1',
+};
 
 interface TextProps {
     className?: string;
@@ -33,7 +42,9 @@ interface TextProps {
     textAlign?: TextAlignEnum;
 }
 
-export const Text: React.FC<TextProps> = memo( ( { className, title, content, theme = TextThemeEnum.INFO, textAlign = TextAlignEnum.LEFT, size = TextSizeEnum.MEDIUM } ) => {
+export const Text: React.FC<TextProps> = memo( ( { className, title, content, theme = TextThemeEnum.INFO, textAlign = TextAlignEnum.LEFT, size = TextSizeEnum.LARGE } ) => {
+    const Heading = headingSizeMap[ size ];
+
     return (
         <div
             className={ classNames(
@@ -46,7 +57,7 @@ export const Text: React.FC<TextProps> = memo( ( { className, title, content, th
                     classes[ size ]
                 ] 
             ) }>
-            {title ? <p className={ classes.title }>{title}</p> : null}
+            {title ? <Heading className={ classes.title }>{title}</Heading> : null}
             {content ? <p className={ classes.content }>{content}</p> : null}
         </div>
     );

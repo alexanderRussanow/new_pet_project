@@ -46,7 +46,7 @@ export const Sidebar: React.FC<SidebarProps> = memo( ( { className } ) => {
     );
 
     return (
-        <menu
+        <aside
             data-testid='sidebar'
             className={ classNames(
                 classes.sidebar,
@@ -67,7 +67,8 @@ export const Sidebar: React.FC<SidebarProps> = memo( ( { className } ) => {
             <Column
                 align='start'
                 className={ classes.navigation }
-                gap='medium'>
+                gap='medium'
+                role='navigation'>
                 {sidebarItemsList}
             </Column>
             <Row
@@ -77,6 +78,6 @@ export const Sidebar: React.FC<SidebarProps> = memo( ( { className } ) => {
                 <ThemeSwitcher />
                 <LanguageSwitcher />
             </Row>
-        </menu>
+        </aside>
     );
 } );

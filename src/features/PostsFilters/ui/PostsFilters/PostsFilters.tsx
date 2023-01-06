@@ -10,11 +10,9 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 import { Card } from 'shared/ui/Card';
 import { Input } from 'shared/ui/Input';
-import { Row } from 'shared/ui/Layout';
+import { Row, Column } from 'shared/ui/Layout';
 import { Select, SelectOptions } from 'shared/ui/Select';
 import { Tabs, TabType } from 'shared/ui/Tabs';
-// styles
-import classes from './PostsFilters.module.scss';
 
 export interface PostsFiltersProps {
     className?: string;
@@ -164,38 +162,39 @@ export const PostsFilters: React.FC<PostsFiltersProps> = memo( ( { className } )
     );
 
     return (
-        <div
+        <Column
+            align='start'
+            gap='small'
             className={ classNames(
-                classes.PostsFilters,
+                'PostsFilters',
                 {},
                 [
                     className
                 ] 
-            ) }>
+            ) }
+            width100>
             <Row
-                className={ classes.filtersWrapper }
-                justify='between'>
+                justify='between'
+                width100>
                 <Select
                     label={ t( 'SORT_BY' ) }
                     options={ sortOptions }
                     value={ selectedValue }
                     onChange={ onFilterChange } />
                 <PostViewSwitcher
-                    className={ classes.viewToggle }
                     viewMode={ viewMode }
                     onViewModeChange={ viewModeToggle } />
             </Row>
-            <Card className={ classes.searchLine }>
+            <Card style={ { width: '100%' } }>
                 <Input
                     placeholder={ t( 'SEARCH' ) }
                     value={ searchQuery }
                     onChange={ onSearchQueryChange } />
             </Card>
             <Tabs
-                className={ classes.tabs }
                 tabs={ tags }
                 value={ tag }
                 onTabClick={ onTabCklicHandler } />
-        </div>
+        </Column>
     );
 } );

@@ -3,25 +3,8 @@
 }
 
 .LIST {
-    .views {
-        margin-left: auto;
-    }
-
-    .header {
-        display: flex;
-        align-items: center;
-    }
-
-    .username {
-        margin-left: 8px;
-    }
-
     .date {
         margin-left: auto;
-    }
-
-    .title {
-        margin-top: 8px;
     }
 
     .img {
@@ -31,22 +14,9 @@
         margin: 16px 0;
     }
 
-    .footer {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 16px;
-    }
-
     .textBlock {
         max-height: 200px;
         overflow-y: hidden;
-    }
-
-    .infoWrapper {
-        display: flex;
-        align-items: center;
-        margin-top: 8px;
     }
 }
 
@@ -72,14 +42,10 @@
     }
 
     .title {
-        margin-top: 10px;
-
-        p {
-            width: 200px;
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-        }
+        width: 200px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
     }
 
     .imgWrapper {
@@ -94,12 +60,6 @@
         object-fit: cover;
     }
 
-    .infoWrapper {
-        display: flex;
-        align-items: center;
-        margin-top: 8px;
-    }
-
     .tags p {
         width: 115px;
         overflow: hidden;
@@ -107,8 +67,5 @@
         text-overflow: ellipsis;
     }
 
-    .views {
-        margin-left: auto;
-        margin-right: 8px;
-    }
+    
 }

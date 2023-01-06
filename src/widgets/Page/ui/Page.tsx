@@ -52,7 +52,7 @@ export const Page: React.FC<PageProps> = memo( ( { className, children, onScroll
     } );
 
     return (
-        <section
+        <main
             ref={ wrapperRef }
             className={ classNames(
                 classes.Page,
@@ -66,6 +66,6 @@ export const Page: React.FC<PageProps> = memo( ( { className, children, onScroll
             {onScrollEnd ? <div
                 className={ classes.triggerRef }
                 ref={ triggerRef } /> : null}
-        </section>
+        </main>
     );
 } );

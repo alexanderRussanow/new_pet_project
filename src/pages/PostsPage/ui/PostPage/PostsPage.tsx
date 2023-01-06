@@ -11,6 +11,7 @@ import { useInitialEffect } from 'shared/hooks/useInitialEffect';
 import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
+import { Column } from 'shared/ui/Layout';
 import { Page } from 'widgets/Page';
 
 // styles
@@ -61,11 +62,16 @@ const PostsPage: React.FC<PostPageProps> = ( { className } ) => {
                     ] 
                 ) }
                 onScrollEnd={ onLoadMore }>
-                <PostsFilters />
-                <PostList
-                    isLoading={ isLoading }
-                    posts={ postsList }
-                    viewMode={ viewMode } />
+                <Column
+                    align='start'
+                    gap='medium'
+                >
+                    <PostsFilters />
+                    <PostList
+                        isLoading={ isLoading }
+                        posts={ postsList }
+                        viewMode={ viewMode } />
+                </Column>
             </Page>
         </DynamicReducerLoader>
     );

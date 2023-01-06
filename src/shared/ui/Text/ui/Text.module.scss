@@ -48,6 +48,16 @@
     }
 }
 
+.xl {
+    .title {
+        font: var(--font-xxl);
+    }
+
+    .content {
+        font: var(--font-xl);
+    }
+}
+
 .info {
     .title {
         color: var(--primary-color);
