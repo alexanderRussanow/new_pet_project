@@ -18,7 +18,7 @@ export interface PostListProps {
 
 export const PostList: React.FC<PostListProps> = memo( ( { posts, target, viewMode, isLoading, className } ) => {
     const { t } = useTranslation( 'post' );
-    const getViewMode = viewMode === PostListViewModeEnum.LIST ? 3 : 10;
+    const getViewMode = viewMode === PostListViewModeEnum.LIST ? 3 : 6;
 
     if ( !isLoading && !posts.length ) {
         return (

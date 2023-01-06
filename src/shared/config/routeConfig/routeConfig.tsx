@@ -72,5 +72,3 @@ export const routesConfig: Record<AppRoutes, AppRouteProps> = {
         element: <Page404 />,
     },
 };
-
-

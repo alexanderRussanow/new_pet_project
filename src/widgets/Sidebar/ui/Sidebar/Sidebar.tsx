@@ -1,5 +1,6 @@
 import { memo, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
+import { RoutesPath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 import { Button, ButtonSizeEnum, ButtonThemeEnum } from 'shared/ui/Button';
 import { Column, Row } from 'shared/ui/Layout';
@@ -26,10 +27,18 @@ export const Sidebar: React.FC<SidebarProps> = memo( ( { className } ) => {
     const toggleSidebar = () => setCollapsed( !collapsed );
 
     const sidebarItemsList = useMemo(
-        () => sidebarItems.map( item => <SidebarItem
-            collapsed={ collapsed }
-            item={ item }
-            key={ item.path } /> ),
+        () =>
+            sidebarItems
+                .filter( item => {
+                    if ( item.path === RoutesPath.aboutPage ) {
+                        return false;
+                    }
+                    return true;
+                } )
+                .map( item => <SidebarItem
+                    collapsed={ collapsed }
+                    item={ item }
+                    key={ item.path } /> ),
         [
             collapsed,
             sidebarItems

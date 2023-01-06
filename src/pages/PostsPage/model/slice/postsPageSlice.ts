@@ -38,7 +38,7 @@ const postsPageSlice = createSlice( {
         initState: state => {
             const view = localStorage.getItem( VIEW_MODE_LS_KEY ) as PostListViewModeEnum;
             state.viewMode = view;
-            state.limit = view === PostListViewModeEnum.GRID ? 9 : 3;
+            state.limit = view === PostListViewModeEnum.GRID ? 13 : 3;
             state.hasInited = true;
         },
     },

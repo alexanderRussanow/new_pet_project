@@ -1,8 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
+import { Column } from 'shared/ui/Layout';
 import { Page } from 'widgets/Page';
-// style
+// styles
 import classes from './HomePage.module.scss';
 
 export interface HomePageProps {
@@ -21,7 +22,12 @@ const HomePage: React.FC<HomePageProps> = ( { className } ) => {
                     className
                 ] 
             ) }>
-            <h2>{t( 'HOME' )}</h2>
+            <Column
+                align='center'
+                className={ classes.content }
+                justify='center'>
+                <h2>{t( 'HOME' )}</h2>
+            </Column>
         </Page>
     );
 };
