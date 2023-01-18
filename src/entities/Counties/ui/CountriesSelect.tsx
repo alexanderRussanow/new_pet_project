@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Select } from 'shared/ui/Select';
+import { Listbox } from 'shared/ui/Listbox';
 import { CountriesEnum } from '../model/types/CountriesEnum';
 
 export interface CountriesSelectProps {
@@ -13,7 +13,7 @@ export interface CountriesSelectProps {
 const optionList = Object.entries( CountriesEnum ).map( val => {
     return {
         value: val[ 0 ],
-        label: val[ 1 ],
+        content: val[ 1 ],
     };
 } );
 
@@ -24,11 +24,15 @@ export const CountriesSelect: React.FC<CountriesSelectProps> = memo( ( { value, 
         onChange && onChange( value as CountriesEnum );
     };
 
-    return <Select
-        className={ className }
-        label={ t( 'COUNTRY' ) }
-        options={ optionList }
-        readonly={ readonly }
-        value={ value }
-        onChange={ onChangeHandler } />;
+    return (
+        <Listbox
+            className={ className }
+            defaultValue={ t( 'COUNTRY' ) }
+            items={ optionList }
+            label={ t( 'COUNTRY' ) }
+            readonly={ readonly }
+            value={ value }
+            onChange={ onChangeHandler }
+        />
+    );
 } );
