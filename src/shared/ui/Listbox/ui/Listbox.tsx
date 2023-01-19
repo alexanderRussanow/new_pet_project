@@ -1,12 +1,12 @@
 import { Listbox as HeadlessListbox } from '@headlessui/react';
 import { Fragment, memo, ReactNode } from 'react';
-import classes from './Listbox.module.scss';
 import { Button } from 'shared/ui/Button';
 import { Row } from 'shared/ui/Layout';
-// styles
 import { classNames } from 'shared/lib/utility/UtilityMethods';
+import { DropdownDirection } from 'shared/types/ui';
 
-type DropDownDirection = 'top' | 'bottom';
+// styles
+import classes from './Listbox.module.scss';
 
 interface ListboxItem {
     value: string;
@@ -21,16 +21,18 @@ interface ListboxProps {
     defaultValue?: string;
     className?: string;
     readonly?: boolean;
-    direction?: DropDownDirection;
+    direction?: DropdownDirection;
     onChange: ( value: string ) => void;
 }
 
-const mapDirectionClass: Record<DropDownDirection, string> = {
-    top: classes.top,
-    bottom: classes.bottom,
+const mapDirectionClass: Record<DropdownDirection, string> = {
+    'bottom left': classes.bottomLeft,
+    'bottom right': classes.bottomRight,
+    'top left': classes.topLeft,
+    'top right': classes.topRight,
 };
 
-export const Listbox: React.FC<ListboxProps> = memo( ( { items, value, defaultValue, readonly, className, label, direction = 'bottom', onChange } ) => {
+export const Listbox: React.FC<ListboxProps> = memo( ( { items, value, defaultValue, readonly, className, label, direction = 'bottom right', onChange } ) => {
     const onSelectHandler = ( item: ListboxItem ) => {
         onChange( item.content as string );
     };
