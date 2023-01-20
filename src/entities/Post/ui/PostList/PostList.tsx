@@ -46,7 +46,7 @@ export const PostList: React.FC<PostListProps> = memo( ( { posts, target, viewMo
                     classes[ viewMode as string ]
                 ] 
             ) }>
-            {posts.length
+            {posts && posts.length
                 ? posts.map( post => {
                     return <PostListItem
                         className={ classes.card }

@@ -1,3 +1,4 @@
+import { rtkAPI } from './../../../../shared/api/rtkApi';
 import { CombinedState, configureStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { userReducer } from 'entities/User';
 import { scrollPreservationSliceReducer } from 'features/scrollPreservation ';
@@ -9,7 +10,8 @@ export const createReduxStore = ( initialState: StateSchema, asyncReducers?: Red
     const rootReducers: ReducersMapObject<StateSchema> = {
         ...asyncReducers,
         user: userReducer,
-        scroll: scrollPreservationSliceReducer
+        scroll: scrollPreservationSliceReducer,
+        [ rtkAPI.reducerPath ]: rtkAPI.reducer,
     };
 
     const reducerManager = createReducerManager( rootReducers );
@@ -25,7 +27,7 @@ export const createReduxStore = ( initialState: StateSchema, asyncReducers?: Red
                         api: API,
                     },
                 },
-            } ),
+            } ).concat( rtkAPI.middleware ),
     } );
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment

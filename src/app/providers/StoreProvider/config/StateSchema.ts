@@ -1,3 +1,4 @@
+import { rtkAPI } from './../../../../shared/api/rtkApi';
 import { AnyAction, CombinedState, Dispatch, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
 import { PostSchema } from 'entities/Post';
@@ -22,6 +23,7 @@ export interface StateSchema {
     postsPage?: PostsPageSchema;
     postsFilters?: PostsFiltersSchema;
     postsDetails?: PostDetailsMainSchema;
+    [rtkAPI.reducerPath]: ReturnType<typeof rtkAPI.reducer>;
 }
 
 export type StateSchemaKey = keyof StateSchema;
