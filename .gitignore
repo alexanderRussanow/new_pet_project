@@ -8,6 +8,7 @@ node_modules/
 dist/
 /build
 /storybook-static
+/reports
 .loki/report.json
 .loki/report.html
 
