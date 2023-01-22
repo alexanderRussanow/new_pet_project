@@ -1,4 +1,6 @@
-import { ErrorProfileEnum, ProfileType } from 'entities/Profile';
+import { ProfileType } from "entities/Profile";
+import { ErrorProfileEnum } from "../../types/ProfileSchema";
+
 
 export const profileValidation = ( profile?: ProfileType ) => {
     if ( !profile ) {

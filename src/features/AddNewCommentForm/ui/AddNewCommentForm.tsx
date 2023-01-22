@@ -59,7 +59,8 @@ const AddNewCommentForm: React.FC<AddNewCommentFormProps> = memo( ( { onSendComm
                     [
                         className
                     ] 
-                ) }>
+                ) }
+                width100>
                 <Input
                     className={ classes.input }
                     placeholder={ t( 'TYPE_COMMENT' ) }

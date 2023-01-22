@@ -17,5 +17,6 @@
    "AVATAR_ERROR": "Avatarka je povinná",
    "NO_DATA_ERROR": "Žádná data",
    "VALIDATION_ERRORS": "Chyby ověření",
-   "FETCH_ERROR": "Chyba při získávání dat"
+   "FETCH_ERROR": "Chyba při získávání dat",
+   "PROFILE_DOES_NOT_EXIST": "Profil neexistuje"
 }

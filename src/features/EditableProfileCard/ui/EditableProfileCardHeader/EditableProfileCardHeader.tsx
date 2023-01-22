@@ -1,5 +1,7 @@
-import { profileActions, getProfileDataSelector, getProfileReadonlySelector, updateProfileData } from 'entities/Profile';
 import { getUserAuthData } from 'entities/User';
+import { getProfileReadonlySelector, getProfileDataSelector } from 'features/EditableProfileCard/model/selectors/profileDataSelectors';
+import { updateProfileData } from 'features/EditableProfileCard/model/services/updateProfileData/updateProfileData';
+import { profileActions } from 'features/EditableProfileCard/model/slice/profileSlice';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -8,7 +10,7 @@ import { Button, ButtonThemeEnum } from 'shared/ui/Button';
 import { Row } from 'shared/ui/Layout';
 import { Text } from 'shared/ui/Text';
 
-export const ProfilePageHeader: React.FC = () => {
+export const EditableProfileCardHeader: React.FC = () => {
     const { t } = useTranslation( 'profile' );
     // redux hooks
     const readonly = useSelector( getProfileReadonlySelector );

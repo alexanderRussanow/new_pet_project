@@ -1,29 +1,15 @@
 import { PostList, PostListViewModeEnum } from 'entities/Post';
 import { useTranslation } from 'react-i18next';
-import { rtkAPI } from 'shared/api/rtkApi';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 import { Column } from 'shared/ui/Layout';
 import { Text } from 'shared/ui/Text';
+import { useGetRecommendationsQuery } from '../api/postRecommendationsApi';
+// styles
+import classes from './PostRecommendations.module.scss';
 
 export interface PostRecommendationsProps {
     className?: string;
 }
-
-const recommendationApi = rtkAPI.injectEndpoints( {
-    endpoints: build => ( {
-        getRecommendations: build.query( {
-            query: limit => ( {
-                url: `/posts`,
-                params: {
-                    _limit: limit,
-                },
-                method: 'GET',
-            } ),
-        } ),
-    } ),
-} );
-
-const { useGetRecommendationsQuery } = recommendationApi;
 
 export const PostRecommendations: React.FC<PostRecommendationsProps> = ( { className } ) => {
     // rtk hooks
@@ -34,7 +20,7 @@ export const PostRecommendations: React.FC<PostRecommendationsProps> = ( { class
         <Column
             gap='small'
             className={ classNames(
-                ' PostRecommendations ',
+                classes.PostRecommendations,
                 {},
                 [
                     className

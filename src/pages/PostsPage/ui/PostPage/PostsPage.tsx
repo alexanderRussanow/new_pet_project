@@ -1,11 +1,9 @@
-import { PostList } from 'entities/Post';
+import { PostInfiniteList } from 'features/PostInfiniteList';
 import { PostsFilters, postsFiltersReducer } from 'features/PostsFilters';
-import { getPostsPageIsLoading, getPostsPageViewMode } from 'pages/PostsPage/model/selectors/postsPageSelectors';
 import { fetchNextPostsPage } from 'pages/PostsPage/model/services/fetchNextPostsPage/fetchNextPostsPage';
 import { initPostsPage } from 'pages/PostsPage/model/services/initPostsPage/initPostsPage';
-import { getPostsPagePosts, postsPageReducer } from 'pages/PostsPage/model/slice/postsPageSlice';
+import { postsPageReducer } from 'pages/PostsPage/model/slice/postsPageSlice';
 import React, { memo, useCallback } from 'react';
-import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import { useInitialEffect } from 'shared/hooks/useInitialEffect';
 import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
@@ -27,14 +25,12 @@ const reducer: ReducersList = {
 };
 
 const PostsPage: React.FC<PostPageProps> = ( { className } ) => {
-    // redux hooks
-    const dispatch = useAppDispatch();
-    const postsList = useSelector( getPostsPagePosts.selectAll );
-    const isLoading = useSelector( getPostsPageIsLoading );
-    const viewMode = useSelector( getPostsPageViewMode );
     const [
         searchParams
     ] = useSearchParams();
+
+    // redux hook
+    const dispatch = useAppDispatch();
 
     const onLoadMore = useCallback(
         () => {
@@ -64,13 +60,9 @@ const PostsPage: React.FC<PostPageProps> = ( { className } ) => {
                 onScrollEnd={ onLoadMore }>
                 <Column
                     align='start'
-                    gap='medium'
-                >
+                    gap='medium'>
                     <PostsFilters />
-                    <PostList
-                        isLoading={ isLoading }
-                        posts={ postsList }
-                        viewMode={ viewMode } />
+                    <PostInfiniteList />
                 </Column>
             </Page>
         </DynamicReducerLoader>

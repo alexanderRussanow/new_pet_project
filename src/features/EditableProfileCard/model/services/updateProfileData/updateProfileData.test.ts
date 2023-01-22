@@ -1,7 +1,8 @@
 import { CountriesEnum } from 'entities/Counties';
 import { CurrencyEnum } from 'entities/Currency';
-import { updateProfileData, ErrorProfileEnum } from 'entities/Profile';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncthunk/TestAsyncThunk';
+import { ErrorProfileEnum } from '../../types/ProfileSchema';
+import { updateProfileData } from './updateProfileData';
 
 const profileData = {
     id: '123',

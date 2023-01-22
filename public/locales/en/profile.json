@@ -17,5 +17,6 @@
    "AVATAR_ERROR": "Avatar is required",
    "NO_DATA_ERROR": "No data to save",
    "VALIDATION_ERRORS": "Some validation errors",
-   "FETCH_ERROR": "Error while fetching data"
+   "FETCH_ERROR": "Error while fetching data",
+   "PROFILE_DOES_NOT_EXIST": "Profile does not exist"
 }

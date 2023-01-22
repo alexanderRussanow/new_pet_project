@@ -1,9 +1,9 @@
 import { Story } from '@storybook/react';
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
 import { postReducer } from 'entities/Post';
-import { profileReducer } from 'entities/Profile';
-import { addNewCommentReducer } from 'features/AddNewComment';
+import { addNewCommentReducer } from 'features/AddNewCommentForm';
 import { loginReducer } from 'features/AuthByUsername';
+import { profileReducer } from 'features/EditableProfileCard';
 import { postsFiltersReducer } from 'features/PostsFilters';
 import { postDetailsMainReducer } from 'pages/PostDetailsPage';
 import { postsPageReducer } from 'pages/PostsPage/model/slice/postsPageSlice';
