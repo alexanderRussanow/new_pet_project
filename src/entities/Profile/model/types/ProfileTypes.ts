@@ -5,14 +5,14 @@ export interface ProfileType {
     id?: string;
     name?: string;
     lastname?: string;
+    username?: string;
     email?: string;
     phone?: string;
     address?: string;
     city?: string;
-    currency?: CurrencyEnum;
     zip?: string;
+    currency?: CurrencyEnum;
     country?: CountriesEnum;
     company?: string;
-    username?: string;
     avatar?: string;
 }

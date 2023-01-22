@@ -56,7 +56,7 @@ export interface PostSchema {
     error?: string;
 }
 
-export enum PostListViewModeEnum {
+export enum PostsListViewModeEnum {
     LIST = 'LIST',
     GRID = 'GRID',
 }
@@ -66,7 +66,7 @@ export enum OrderEnum {
     DESC = 'desc',
 }
 
-export enum PostSortFieldEnum {
+export enum PostsSortFieldEnum {
     DATE = 'date',
     VIEWS = 'views',
     LIKES = 'likes',

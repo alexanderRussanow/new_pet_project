@@ -1,4 +1,4 @@
-import { PostList, PostListViewModeEnum } from 'entities/Post';
+import { PostsList, PostsListViewModeEnum } from 'entities/Post';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 import { Column } from 'shared/ui/Layout';
@@ -16,6 +16,10 @@ export const PostRecommendations: React.FC<PostRecommendationsProps> = ( { class
     const { data: recommendations, isLoading: recommendationsIsLoading } = useGetRecommendationsQuery( 4 );
     const { t } = useTranslation( 'post' );
 
+    if ( !recommendations || recommendations.length === 0 ) {
+        return null;
+    }
+
     return (
         <Column
             gap='small'
@@ -27,11 +31,11 @@ export const PostRecommendations: React.FC<PostRecommendationsProps> = ( { class
                 ] 
             ) }>
             <Text title={ t( 'RECOMMENDATIONS' ) } />
-            <PostList
+            <PostsList
                 isLoading={ recommendationsIsLoading }
                 posts={ recommendations }
                 target={ '_blank' }
-                viewMode={ PostListViewModeEnum.GRID } />
+                viewMode={ PostsListViewModeEnum.GRID } />
         </Column>
     );
 };

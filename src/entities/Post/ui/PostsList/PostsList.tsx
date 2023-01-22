@@ -1,30 +1,31 @@
-import { PostListViewModeEnum, PostType } from 'entities/Post/model/types/PostType';
+import { PostsListViewModeEnum, PostType } from 'entities/Post/model/types/PostType';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 import { Text } from 'shared/ui/Text';
 import { PostListItem } from '../PostListItem/PostListItem';
 import { PostListItemSkeleton } from '../PostListItemSkeleton/PostListItemSkeleton';
+
 // styles
 import classes from './PostList.module.scss';
 
-export interface PostListProps {
+export interface PostsListProps {
     posts: PostType[];
-    viewMode?: PostListViewModeEnum;
+    viewMode?: PostsListViewModeEnum;
     isLoading?: boolean;
     target?: HTMLAttributeAnchorTarget;
     className?: string;
 }
 
-export const PostList: React.FC<PostListProps> = memo( ( { posts, target, viewMode, isLoading, className } ) => {
+export const PostsList: React.FC<PostsListProps> = memo( ( { posts, target, viewMode, isLoading, className } ) => {
     const { t } = useTranslation( 'post' );
-    const getViewMode = viewMode === PostListViewModeEnum.LIST ? 3 : 6;
+    const getViewMode = viewMode === PostsListViewModeEnum.LIST ? 3 : 6;
 
     if ( !isLoading && !posts.length ) {
         return (
             <div
                 className={ classNames(
-                    classes.PostList,
+                    classes.PostsList,
                     {},
                     [
                         className,
@@ -39,7 +40,7 @@ export const PostList: React.FC<PostListProps> = memo( ( { posts, target, viewMo
     return (
         <div
             className={ classNames(
-                classes.PostList,
+                classes.PostsList,
                 {},
                 [
                     className,

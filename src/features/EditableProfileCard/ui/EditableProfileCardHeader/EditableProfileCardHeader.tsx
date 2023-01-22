@@ -54,6 +54,7 @@ export const EditableProfileCardHeader: React.FC = () => {
             {canEdit ? (
                 readonly ? (
                     <Button
+                        data-testid='EditableProfileCardHeader.EditButton'
                         theme={ ButtonThemeEnum.OUTLINE }
                         onClick={ handleEditClick }>
                         {t( 'EDIT' )}
@@ -61,11 +62,13 @@ export const EditableProfileCardHeader: React.FC = () => {
                 ) : (
                     <Row gap='small'>
                         <Button
+                            data-testid='EditableProfileCardHeader.SaveButton'
                             theme={ ButtonThemeEnum.BACKGROUND_INVERTED }
                             onClick={ handleSaveClick }>
                             {t( 'SAVE' )}
                         </Button>
                         <Button
+                            data-testid='EditableProfileCardHeader.CancelButton'
                             theme={ ButtonThemeEnum.OUTLINE }
                             onClick={ handleCancelClick }>
                             {t( 'CANCEL' )}

@@ -1,16 +1,16 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { PostListViewModeEnum, PostType } from 'entities/Post/model/types/PostType';
-import { PostList } from './PostList';
+import { PostsListViewModeEnum, PostType } from 'entities/Post/model/types/PostType';
+import { PostsList } from './PostsList';
 
 export default {
-    title: 'entities/PostList',
-    component: PostList,
+    title: 'entities/PostsList',
+    component: PostsList,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof PostList>;
+} as ComponentMeta<typeof PostsList>;
 
-const Template: ComponentStory<typeof PostList> = args => <PostList { ...args } />;
+const Template: ComponentStory<typeof PostsList> = args => <PostsList { ...args } />;
 
 const post = {
     id: '1',
@@ -59,14 +59,14 @@ export const LoadingGrid = Template.bind( {} );
 LoadingGrid.args = {
     posts: [],
     isLoading: true,
-    viewMode: PostListViewModeEnum.GRID,
+    viewMode: PostsListViewModeEnum.GRID,
 };
 
 export const LoadingList = Template.bind( {} );
 LoadingList.args = {
     posts: [],
     isLoading: true,
-    viewMode: PostListViewModeEnum.LIST,
+    viewMode: PostsListViewModeEnum.LIST,
 };
 
 export const Grid = Template.bind( {} );
@@ -76,7 +76,7 @@ Grid.args = {
         id: String( index ),
     } ) ),
     isLoading: false,
-    viewMode: PostListViewModeEnum.GRID,
+    viewMode: PostsListViewModeEnum.GRID,
 };
 
 export const List = Template.bind( {} );
@@ -86,5 +86,5 @@ List.args = {
         id: String( index ),
     } ) ),
     isLoading: false,
-    viewMode: PostListViewModeEnum.LIST,
+    viewMode: PostsListViewModeEnum.LIST,
 };

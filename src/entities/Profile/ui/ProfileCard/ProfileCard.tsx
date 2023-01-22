@@ -66,6 +66,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = ( { profile, error, reado
                 src={ profile?.avatar } /> : null}
 
             <Input
+                data-testid='ProfileCard.ProfileName'
                 placeholder={ t( 'YOUR_NAME' ) }
                 readonly={ readonly }
                 value={ profile?.name }
@@ -77,6 +78,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = ( { profile, error, reado
                 } }
             />
             <Input
+                data-testid='ProfileCard.ProfileLastname'
                 placeholder={ t( 'YOUR_LASTNAME' ) }
                 readonly={ readonly }
                 value={ profile?.lastname }
@@ -88,6 +90,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = ( { profile, error, reado
                 } }
             />
             <Input
+                data-testid='ProfileCard.ProfileUsername'
                 placeholder={ t( 'YOUR_USERNAME' ) }
                 readonly={ readonly }
                 value={ profile?.username }
@@ -99,6 +102,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = ( { profile, error, reado
                 } }
             />
             <Input
+                data-testid='ProfileCard.ProfileAvatar'
                 placeholder={ t( 'YOUR_AVATAR' ) }
                 readonly={ readonly }
                 value={ profile?.avatar }
@@ -110,6 +114,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = ( { profile, error, reado
                 } }
             />
             <Input
+                data-testid='ProfileCard.ProfileEmail'
                 placeholder={ t( 'YOUR_EMAIL' ) }
                 readonly={ readonly }
                 value={ profile?.email }
@@ -121,6 +126,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = ( { profile, error, reado
                 } }
             />
             <Input
+                data-testid='ProfileCard.ProfilePhone'
                 placeholder={ t( 'YOUR_PHONE' ) }
                 readonly={ readonly }
                 value={ profile?.phone }
@@ -132,6 +138,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = ( { profile, error, reado
                 } }
             />
             <Input
+                data-testid='ProfileCard.ProfileAddress'
                 placeholder={ t( 'YOUR_ADDRESS' ) }
                 readonly={ readonly }
                 value={ profile?.address }
@@ -143,6 +150,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = ( { profile, error, reado
                 } }
             />
             <CountriesSelect
+                data-testid='ProfileCard.ProfileCountry'
                 readonly={ readonly }
                 value={ profile?.country }
                 onChange={ value => {
@@ -153,6 +161,7 @@ export const ProfileCard: React.FC<ProfileCardProps> = ( { profile, error, reado
                 } }
             />
             <CurrencySelect
+                data-testid='ProfileCard.ProfileCurrency'
                 readonly={ readonly }
                 value={ profile?.currency }
                 onChange={ value => {

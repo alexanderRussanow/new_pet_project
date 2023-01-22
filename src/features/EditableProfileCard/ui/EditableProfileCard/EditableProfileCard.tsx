@@ -60,6 +60,7 @@ export const EditableProfileCard: React.FC<EditableProfileCardProps> = ( { userI
     return (
         <DynamicReducerLoader reducers={ profilePageReducer }>
             <Column
+                data-testid='EditableProfileCard'
                 gap='small'
                 className={ classNames(
                     'EditableProfileCard',
@@ -70,10 +71,15 @@ export const EditableProfileCard: React.FC<EditableProfileCardProps> = ( { userI
                 ) }
                 width100>
                 <EditableProfileCardHeader />
-                {validationErrors ? validationErrors.map( error => <Text
-                    content={ t( error ) }
-                    key={ error }
-                    theme={ TextThemeEnum.ERROR } /> ) : null}
+                {validationErrors
+                    ? validationErrors.map( error => (
+                        <Text
+                            content={ t( error ) }
+                            data-testid='EditableProfileCard.Error'
+                            key={ error }
+                            theme={ TextThemeEnum.ERROR } />
+                    ) )
+                    : null}
                 <ProfileCard
                     error={ error }
                     isLoading={ isLoading }
