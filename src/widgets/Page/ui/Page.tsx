@@ -14,6 +14,7 @@ import classes from './Page.module.scss';
 
 export interface PageProps {
     className?: string;
+    children?: React.ReactNode;
     onScrollEnd?: () => void;
 }
 

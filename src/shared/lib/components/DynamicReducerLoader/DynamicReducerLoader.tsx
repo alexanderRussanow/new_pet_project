@@ -10,6 +10,7 @@ export type ReducersList = {
 export type ReducerListEntry = [StateSchemaKey, Reducer];
 
 export interface DynamicReducerLoaderProps {
+    children: React.ReactNode;
     reducers: ReducersList;
     removeAfterUnmount?: boolean;
 }

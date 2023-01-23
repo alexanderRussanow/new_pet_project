@@ -4,6 +4,7 @@ import { LS_THEME_CONTEXT_KEY, ThemeContext, ThemeEnum } from '../lib/ThemeConte
 const defaultTheme = ( localStorage.getItem( LS_THEME_CONTEXT_KEY ) as ThemeEnum ) || ThemeEnum.LIGHT;
 
 interface ThemeProviderProps {
+    children: React.ReactNode;
     initialTheme?: ThemeEnum;
 }
 

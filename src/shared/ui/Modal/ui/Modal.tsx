@@ -5,6 +5,7 @@ import { Portal } from 'shared/ui/Portal';
 import classes from './Modal.module.scss';
 
 export interface ModalProps {
+    children: React.ReactNode;
     className?: string;
     isOpen?: boolean;
     lazy?: boolean;
