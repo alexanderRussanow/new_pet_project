@@ -20,7 +20,7 @@ import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
 
 export interface EditableProfileCardProps {
-    userId: string;
+    userId?: string;
     className?: string;
 }
 

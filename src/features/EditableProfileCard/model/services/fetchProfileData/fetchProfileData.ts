@@ -6,6 +6,9 @@ export const fetchProfileData = createAsyncThunk<ProfileType, string, ThunkConfi
     'fetchProfileData',
     async ( profileId, { rejectWithValue, extra } ) => {
         try {
+            if ( !profileId ) {
+                throw new Error( 'No profile ID!' );
+            }
             const response = await extra.api.get<ProfileType>( '/profile/' + profileId );
             if ( !response.data ) {
                 throw new Error( 'No data' );

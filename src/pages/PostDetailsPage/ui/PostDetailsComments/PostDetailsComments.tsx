@@ -14,7 +14,7 @@ import { Column } from 'shared/ui/Layout';
 import { Text } from 'shared/ui/Text';
 
 interface PostDetailCommentsProps {
-    postId: string;
+    postId?: string;
     className?: string;
 }
 
@@ -31,7 +31,7 @@ export const PostDetailComments: React.FC<PostDetailCommentsProps> = ( { postId,
     } );
 
     const onSendComment = useCallback(
-        text => {
+        ( text: string ) => {
             dispatch( addCommentForPost( text ) );
         },
         [

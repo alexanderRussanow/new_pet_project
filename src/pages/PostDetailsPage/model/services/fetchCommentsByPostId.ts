@@ -5,10 +5,10 @@ import { CommentType } from 'entities/Comment';
 export const fetchCommentsByPostId = createAsyncThunk<CommentType[], string | undefined, ThunkConfig<string>>(
     'fetchCommentsByPostId',
     async ( postId, { rejectWithValue, extra } ) => {
-        if ( !postId ) {
-            return rejectWithValue( 'No post ID!' );
-        }
         try {
+            if ( !postId ) {
+                return rejectWithValue( 'No post ID!' );
+            }
             const response = await extra.api.get<CommentType[]>(
                 `/comments/`,
                 {

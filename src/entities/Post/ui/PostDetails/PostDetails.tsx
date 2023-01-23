@@ -26,7 +26,7 @@ const reducer: ReducersList = {
 };
 
 export interface PostDetailsProps {
-    postId: string;
+    postId?: string;
     className?: string;
 }
 
@@ -57,6 +57,18 @@ export const PostDetails: React.FC<PostDetailsProps> = memo( ( { postId, classNa
             }
         },
         [] 
+    );
+
+    useEffect(
+        () => {
+            if ( __PROJECT__ !== 'storybook' ) {
+                dispatch( fetchPostById( postId ) );
+            }
+        },
+        [
+            dispatch,
+            postId
+        ] 
     );
 
     let content;
@@ -122,18 +134,6 @@ export const PostDetails: React.FC<PostDetailsProps> = memo( ( { postId, classNa
             </>
         );
     }
-
-    useEffect(
-        () => {
-            if ( __PROJECT__ !== 'storybook' ) {
-                dispatch( fetchPostById( postId ) );
-            }
-        },
-        [
-            dispatch,
-            postId
-        ] 
-    );
 
     return (
         <DynamicReducerLoader reducers={ reducer }>
