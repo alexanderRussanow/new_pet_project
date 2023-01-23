@@ -1,7 +1,11 @@
 import { OrderEnum, PostsListViewModeEnum, PostsSortFieldEnum, PostTags, PostViewSwitcher } from 'entities/Post';
-import { getPostsFilterOrder, getPostsFilterSearchQuery, getPostsFilterSort, getPostsFilterTag, postsFiltersActions } from 'features/PostsFilters';
-import { fetchPosts, postsPageActions } from 'pages/PostsPage';
-import { getPostsPageViewMode } from 'pages/PostsPage/model/selectors/postsPageSelectors';
+import {
+    getPostsFilterOrder,
+    getPostsFilterSearchQuery,
+    getPostsFilterSort,
+    getPostsFilterTag,
+    getPostsPageViewMode,
+} from '../../model/selectors/postsPageSelectors';
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -13,6 +17,8 @@ import { Input } from 'shared/ui/Input';
 import { Row, Column } from 'shared/ui/Layout';
 import { Select, SelectOptions } from 'shared/ui/Select';
 import { Tabs, TabType } from 'shared/ui/Tabs';
+import { postsPageActions } from '../../model/slice/postsPageSlice';
+import { fetchPosts } from '../../model/services/fetchPosts/fetchPosts';
 
 export interface PostsFiltersProps {
     className?: string;
@@ -54,7 +60,7 @@ export const PostsFilters: React.FC<PostsFiltersProps> = memo( ( { className } )
 
     const onFilterChange = useCallback(
         ( value: string ) => {
-            dispatch( postsFiltersActions.setFilters( value ) );
+            dispatch( postsPageActions.setFilters( value ) );
             dispatch( postsPageActions.setPageNumber( 1 ) );
             fetchData();
         },
@@ -66,7 +72,7 @@ export const PostsFilters: React.FC<PostsFiltersProps> = memo( ( { className } )
 
     const onSearchQueryChange = useCallback(
         ( value: string ) => {
-            dispatch( postsFiltersActions.setSearchQuery( value ) );
+            dispatch( postsPageActions.setSearchQuery( value ) );
             dispatch( postsPageActions.setPageNumber( 1 ) );
             debouncedFetch();
         },
@@ -78,7 +84,7 @@ export const PostsFilters: React.FC<PostsFiltersProps> = memo( ( { className } )
 
     const onTabCklicHandler = useCallback(
         ( value: TabType ) => {
-            dispatch( postsFiltersActions.setTag( value.label as PostTags ) );
+            dispatch( postsPageActions.setTag( value.label as PostTags ) );
             dispatch( postsPageActions.setPageNumber( 1 ) );
             fetchData();
         },

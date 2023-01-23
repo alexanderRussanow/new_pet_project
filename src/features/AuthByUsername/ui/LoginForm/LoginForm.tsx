@@ -1,12 +1,7 @@
-import {
-    loginActions,
-    getLoginErrorSelector,
-    getLoginIsLoadingSelector,
-    getLoginPasswordSelector,
-    loginReducer,
-    getLoginUsernameSelector,
-} from 'features/AuthByUsername';
-import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUsername';
+
+import { getLoginUsernameSelector, getLoginPasswordSelector, getLoginIsLoadingSelector, getLoginErrorSelector } from '../../../AuthByUsername/model/selectors/loginSelectors';
+import { loginByUsername } from '../../../AuthByUsername/model/services/loginByUsername';
+import { loginReducer, loginActions } from '../../../AuthByUsername/model/slice/loginSlice';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';

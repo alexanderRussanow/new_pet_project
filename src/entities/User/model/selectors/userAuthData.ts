@@ -1,6 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
-import { UserRolesEnum } from 'entities/User';
+import { UserRolesEnum } from '../consts/userConsts';
 
 export const getUserAuthData = ( state: StateSchema ) => state.user.authData;
 export const getUserIsInited = ( state: StateSchema ) => state.user.isInited;

@@ -1,9 +1,9 @@
 import { CommentList } from 'entities/Comment';
 import { AddNewCommentForm } from 'features/AddNewCommentForm';
-import { getCommentsIsLoading } from 'pages/PostDetailsPage/model/selectors/postDetailsCommentSelectors';
-import { addCommentForPost } from 'pages/PostDetailsPage/model/services/addCommentForPost';
-import { fetchCommentsByPostId } from 'pages/PostDetailsPage/model/services/fetchCommentsByPostId';
-import { getPostComments } from 'pages/PostDetailsPage/model/slice/postDetailsCommentsSlice';
+import { getCommentsIsLoading } from '../../model/selectors/postDetailsCommentSelectors';
+import { addCommentForPost } from '../../model/services/addCommentForPost';
+import { fetchCommentsByPostId } from '../../model/services/fetchCommentsByPostId';
+import { getPostComments } from '../../model/slice/postDetailsCommentsSlice';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';

@@ -1,6 +1,6 @@
-import { CountriesSelect } from 'entities/Counties/ui/CountriesSelect';
-import { CurrencySelect } from 'entities/Currency';
-import { ProfileType } from 'entities/Profile';
+import { CountriesSelect } from '../../../Counties/ui/CountriesSelect';
+import { CurrencySelect } from '../../../Currency/ui/CurrencySelect';
+import { ProfileType } from '../../../Profile/model/types/ProfileTypes';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 import { Avatar } from 'shared/ui/Avatar';

@@ -1,4 +1,4 @@
-import { ContentImage } from 'entities/Post/model/types/PostType';
+import { ContentImage } from '../../../model/types/PostType';
 import { memo } from 'react';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 import { Text, TextAlignEnum, TextSizeEnum } from 'shared/ui/Text';

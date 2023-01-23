@@ -1,8 +1,6 @@
-import { PostInfiniteList } from 'features/PostInfiniteList';
-import { PostsFilters, postsFiltersReducer } from 'features/PostsFilters';
-import { fetchNextPostsPage } from 'pages/PostsPage/model/services/fetchNextPostsPage/fetchNextPostsPage';
-import { initPostsPage } from 'pages/PostsPage/model/services/initPostsPage/initPostsPage';
-import { postsPageReducer } from 'pages/PostsPage/model/slice/postsPageSlice';
+import { fetchNextPostsPage } from '../../../PostsPage/model/services/fetchNextPostsPage/fetchNextPostsPage';
+import { initPostsPage } from '../../../PostsPage/model/services/initPostsPage/initPostsPage';
+import { postsPageReducer } from '../../../PostsPage/model/slice/postsPageSlice';
 import React, { memo, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { useInitialEffect } from 'shared/hooks/useInitialEffect';
@@ -11,6 +9,8 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 import { Column } from 'shared/ui/Layout';
 import { Page } from 'widgets/Page';
+import { PostInfiniteList } from '../PostInfiniteList/PostInfiniteList';
+import { PostsFilters } from '../PostsFilters/PostsFilters';
 
 // styles
 import classes from './PostsPage.module.scss';
@@ -21,7 +21,6 @@ export interface PostPageProps {
 
 const reducer: ReducersList = {
     postsPage: postsPageReducer,
-    postsFilters: postsFiltersReducer,
 };
 
 const PostsPage: React.FC<PostPageProps> = ( { className } ) => {

@@ -5,6 +5,7 @@ import { BuildOptions } from './types/config';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import CopyPlugin from 'copy-webpack-plugin';
+import CircularDependencyPlugin from 'circular-dependency-plugin';
 
 export const buildPlugins = ({ paths, isDev, apiUrl, project }: BuildOptions): webpack.WebpackPluginInstance[] => {
     
@@ -33,7 +34,11 @@ export const buildPlugins = ({ paths, isDev, apiUrl, project }: BuildOptions): w
                     to: paths.buildMedia,
                 },
             ],
-        })
+        }),
+        new CircularDependencyPlugin({
+            exclude: /node_modules/,
+            failOnError: true,
+        }),
     ];
 
     if (isDev) {

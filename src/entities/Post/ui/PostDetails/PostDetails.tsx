@@ -1,7 +1,8 @@
-import { PostContent, PostContentTypeEnum } from 'entities/Post';
-import { getPostData, getPostError, getPostIsLoading } from 'entities/Post/model/selectors/postSelectors';
-import { fetchPostById } from 'entities/Post/model/services/fetchPostById';
-import { postReducer } from 'entities/Post/model/slice/postSlice';
+
+import { getPostData, getPostError, getPostIsLoading } from '../../model/selectors/postSelectors';
+import { fetchPostById } from '../../model/services/fetchPostById';
+import { postReducer } from '../../model/slice/postSlice';
+import { PostContent } from '../../model/types/PostType';
 import { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -18,6 +19,7 @@ import { PostImageBlock } from '../PostBlocks/PostImageBlock/PostImageBlock';
 import { PostTextBlock } from '../PostBlocks/PostTextBlock/PostTextBlock';
 import CalenderIcon from './../../../../shared/assets/icons/calendar-20-20.svg';
 import EyeIcon from './../../../../shared/assets/icons/eye-20-20.svg';
+import { PostContentTypeEnum } from '../../model/consts/postConsts';
 // styles
 import classes from './PostDetails.module.scss';
 

@@ -1,5 +1,6 @@
 import { PostsList } from 'entities/Post';
-import { getPostsPageIsLoading, getPostsPagePosts, getPostsPageViewMode } from 'pages/PostsPage';
+import { getPostsPageIsLoading, getPostsPageViewMode } from '../../model/selectors/postsPageSelectors';
+import { getPostsPagePosts } from '../../model/slice/postsPageSlice';
 import { useSelector } from 'react-redux';
 
 export interface PostInfiniteListProps {

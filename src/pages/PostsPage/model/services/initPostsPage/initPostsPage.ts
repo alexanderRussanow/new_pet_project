@@ -1,4 +1,3 @@
-import { postsFiltersActions } from 'features/PostsFilters';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
 import { getPostsPageHasInited } from '../../selectors/postsPageSelectors';
@@ -17,15 +16,15 @@ export const initPostsPage = createAsyncThunk<void, URLSearchParams, ThunkConfig
             const tag = searchParams.get( 'tag' ) || 'All';
 
             if ( search ) {
-                dispatch( postsFiltersActions.setSearchQuery( search ) );
+                dispatch( postsPageActions.setSearchQuery( search ) );
             }
 
             if ( sort && order ) {
-                dispatch( postsFiltersActions.setFilters( `${ order }_${ sort }` ) );
+                dispatch( postsPageActions.setFilters( `${ order }_${ sort }` ) );
             }
 
             if ( tag ) {
-                dispatch( postsFiltersActions.setTag( tag as PostTags ) );
+                dispatch( postsPageActions.setTag( tag as PostTags ) );
             }
 
             dispatch( postsPageActions.initState() );

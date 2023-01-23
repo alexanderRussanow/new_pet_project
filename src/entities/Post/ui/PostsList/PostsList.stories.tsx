@@ -1,5 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { PostsListViewModeEnum, PostType } from 'entities/Post/model/types/PostType';
+import { PostsListViewModeEnum } from '../../../Post/model/consts/postConsts';
+import { PostType } from '../../../Post/model/types/PostType';
 import { PostsList } from './PostsList';
 
 export default {

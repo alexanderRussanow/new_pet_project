@@ -4,9 +4,9 @@ import { RoutesPath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 import { Button, ButtonSizeEnum, ButtonThemeEnum } from 'shared/ui/Button';
 import { Column, Row } from 'shared/ui/Layout';
-import { LanguageSwitcher } from 'widgets/LanguageSwitcher';
-import { getSidebarItems } from 'widgets/Sidebar/model/selectors/getSidebarItems';
-import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
+import { LanguageSwitcher } from '../../../LanguageSwitcher';
+import { getSidebarItems } from '../../../Sidebar/model/selectors/getSidebarItems';
+import { ThemeSwitcher } from '../../../ThemeSwitcher';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 // styles
 import classes from './Sidebar.module.scss';

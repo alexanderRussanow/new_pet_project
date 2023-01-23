@@ -1,4 +1,5 @@
-import { ContentCode } from 'entities/Post';
+
+import { ContentCode } from '../../../model/types/PostType';
 import { memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 import { Button } from 'shared/ui/Button';

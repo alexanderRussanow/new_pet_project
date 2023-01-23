@@ -4,13 +4,12 @@ import { AxiosInstance } from 'axios';
 import { PostSchema } from 'entities/Post';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
-import { PostsFiltersSchema } from 'features/PostsFilters';
 import { PostsPageSchema } from 'pages/PostsPage';
 import { NavigateOptions, To } from 'react-router-dom';
 import { AddNewCommentSchema } from '../../../../features/AddNewCommentForm/model/types/AddNewCommentSchema';
 import { ScrollPreservationSchema } from './../../../../features/scrollPreservation /model/types/ScrollPreservationTypes';
-import { PostDetailsMainSchema } from '../../../../pages/PostDetailsPage/model/types/PostDetailsMainSchema';
 import { ProfileSchema } from 'features/EditableProfileCard';
+import { PostDetailsMainSchema } from 'pages/PostDetailsPage';
 
 export interface StateSchema {
     user: UserSchema;
@@ -21,7 +20,6 @@ export interface StateSchema {
     post?: PostSchema;
     addNewComment?: AddNewCommentSchema;
     postsPage?: PostsPageSchema;
-    postsFilters?: PostsFiltersSchema;
     postsDetails?: PostDetailsMainSchema;
     [rtkAPI.reducerPath]: ReturnType<typeof rtkAPI.reducer>;
 }

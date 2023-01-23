@@ -1,4 +1,4 @@
-import { ContentText, PostContentTypeEnum, PostsListViewModeEnum, PostType } from 'entities/Post';
+
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { RoutesPath } from 'shared/config/routeConfig/routeConfig';
@@ -12,6 +12,8 @@ import ViewsIcon from '../../../../shared/assets/icons/eye-20-20.svg';
 import { PostTextBlock } from '../PostBlocks/PostTextBlock/PostTextBlock';
 import { AppLink } from 'shared/ui/AppLink';
 import { Column, Row } from 'shared/ui/Layout';
+import { ContentText, PostType } from '../../model/types/PostType';
+import { PostsListViewModeEnum, PostContentTypeEnum } from '../../model/consts/postConsts';
 // styles
 import classes from './PostListItem.module.scss';
 

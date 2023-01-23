@@ -1,5 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { PostContentTypeEnum, PostType } from 'entities/Post/model/types/PostType';
+import { PostContentTypeEnum } from '../../../Post/model/consts/postConsts';
+import { PostType } from '../../../Post/model/types/PostType';
 import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
 import { PostDetails } from './PostDetails';
 
@@ -15,6 +16,10 @@ const Template: ComponentStory<typeof PostDetails> = args => <PostDetails { ...a
 
 const post: PostType = {
     id: '1',
+    user: {
+        id: '1',
+        username: 'Jara'
+    },
     title: 'Javascript news',
     subtitle: 'What is new in Javascript',
     img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',

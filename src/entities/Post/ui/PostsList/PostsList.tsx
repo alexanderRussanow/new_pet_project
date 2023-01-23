@@ -1,4 +1,5 @@
-import { PostsListViewModeEnum, PostType } from 'entities/Post';
+import { PostsListViewModeEnum } from '../../model/consts/postConsts';
+import { PostType } from '../../model/types/PostType';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/utility/UtilityMethods';

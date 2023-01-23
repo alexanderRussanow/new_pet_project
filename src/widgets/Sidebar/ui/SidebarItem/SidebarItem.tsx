@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink';
-import { SidebarItemType } from 'widgets/Sidebar/model/types/SidebarItemType';
+import { SidebarItemType } from '../../model/types/SidebarItemType';
 // styles
 import classes from './SidebarItem.module.scss';
 
@@ -22,7 +22,7 @@ export const SidebarItem: React.FC<SidebarItemProps> = memo( ( { item, collapsed
     if ( privateOnly && !isAuth ) {
         return null;
     }
-
+    
     return (
         <AppLink
             theme={ AppLinkTheme.SECONDARY }

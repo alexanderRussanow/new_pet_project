@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
-import { classNames } from 'shared/lib/utility/UtilityMethods';
-import { Card, CardThemeEnum } from 'shared/ui/Card';
-import { Row } from 'shared/ui/Layout';
+import { classNames } from '../../../lib/utility/UtilityMethods';
+import { Card, CardThemeEnum } from '../../Card';
+import { Row } from '../../Layout';
 // styles
 import classes from './Tabs.module.scss';
 

@@ -1,6 +1,6 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
-import { PostsListViewModeEnum, PostType } from 'entities/Post';
+import { OrderEnum, PostsListViewModeEnum, PostsSortFieldEnum, PostTags, PostType } from 'entities/Post';
 import { VIEW_MODE_LS_KEY } from 'shared/const/localStorage';
 import { fetchPosts } from '../services/fetchPosts/fetchPosts';
 import { PostsPageSchema } from '../types/PostsPageSchema';
@@ -23,6 +23,10 @@ const postsPageSlice = createSlice( {
         hasMore: true,
         hasInited: false,
         limit: 9,
+        order: OrderEnum.ASC,
+        sort: PostsSortFieldEnum.DATE,
+        searchQuery: '',
+        tag: 'All',
     } ),
     reducers: {
         setViewMode: ( state, action: PayloadAction<PostsListViewModeEnum> ) => {
@@ -40,6 +44,17 @@ const postsPageSlice = createSlice( {
             state.viewMode = view;
             state.limit = view === PostsListViewModeEnum.GRID ? 13 : 3;
             state.hasInited = true;
+        },
+        setFilters: ( state, action: PayloadAction<string> ) => {
+            const splitPayload = action.payload.split( '_' );
+            state.order = splitPayload[ 0 ] as OrderEnum;
+            state.sort = splitPayload[ 1 ] as PostsSortFieldEnum;
+        },
+        setTag: ( state, action: PayloadAction<PostTags> ) => {
+            state.tag = action.payload;
+        },
+        setSearchQuery: ( state, action: PayloadAction<string> ) => {
+            state.searchQuery = action.payload;
         },
     },
     extraReducers: builder => {

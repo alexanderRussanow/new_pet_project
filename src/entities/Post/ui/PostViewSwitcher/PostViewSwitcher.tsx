@@ -1,4 +1,4 @@
-import { PostsListViewModeEnum } from 'entities/Post';
+import { PostsListViewModeEnum } from '../../../Post/model/consts/postConsts';
 import { memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 import { Button, ButtonThemeEnum } from 'shared/ui/Button';

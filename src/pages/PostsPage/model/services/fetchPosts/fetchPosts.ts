@@ -1,10 +1,9 @@
-import { getPostsFilterTag } from '../../../../../features/PostsFilters/model/selectors/postsFiltersSelectors';
-import { getPostsPagePage } from './../../selectors/postsPageSelectors';
+
+import { getPostsFilterOrder, getPostsFilterSearchQuery, getPostsFilterSort, getPostsFilterTag, getPostsPagePage } from './../../selectors/postsPageSelectors';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
 import { PostType } from 'entities/Post/model/types/PostType';
 import { getPostsPageLimit } from '../../selectors/postsPageSelectors';
-import { getPostsFilterSort, getPostsFilterOrder, getPostsFilterSearchQuery } from 'features/PostsFilters';
 import { addQueryParams } from 'shared/ui/URL/addQueryParams';
 
 export interface FetchPostsProps {

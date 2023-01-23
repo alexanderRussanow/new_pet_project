@@ -1,5 +1,5 @@
 import { getPostData } from 'entities/Post';
-import { getPostEditSelector } from 'pages/PostDetailsPage/model/selectors/postIsEditSelectors';
+import { getPostEditSelector } from '../../../PostDetailsPage/model/selectors/postIsEditSelectors';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';

@@ -1,5 +1,5 @@
 import { fetchCommentsByPostId } from '../services/fetchCommentsByPostId';
-import { PostDetailsCommentSchema } from 'pages/PostDetailsPage';
+import { PostDetailsCommentSchema } from '../types/postDetailsPageTypes';
 import { StateSchema } from 'app/providers/StoreProvider';
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { CommentType } from 'entities/Comment';

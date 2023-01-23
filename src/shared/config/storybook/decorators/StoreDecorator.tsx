@@ -4,7 +4,7 @@ import { postReducer } from 'entities/Post';
 import { addNewCommentReducer } from 'features/AddNewCommentForm';
 import { loginReducer } from 'features/AuthByUsername';
 import { profileReducer } from 'features/EditableProfileCard';
-import { postsFiltersReducer } from 'features/PostsFilters';
+import { postsFiltersReducer } from 'pages/PostsPage/ui/PostsFilters';
 import { postDetailsMainReducer } from 'pages/PostDetailsPage';
 import { postsPageReducer } from 'pages/PostsPage/model/slice/postsPageSlice';
 import { ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';

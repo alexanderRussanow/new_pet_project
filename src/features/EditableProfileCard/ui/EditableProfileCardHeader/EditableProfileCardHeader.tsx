@@ -1,7 +1,7 @@
 import { getUserAuthData } from 'entities/User';
-import { getProfileReadonlySelector, getProfileDataSelector } from 'features/EditableProfileCard/model/selectors/profileDataSelectors';
-import { updateProfileData } from 'features/EditableProfileCard/model/services/updateProfileData/updateProfileData';
-import { profileActions } from 'features/EditableProfileCard/model/slice/profileSlice';
+import { getProfileReadonlySelector, getProfileDataSelector } from '../../model/selectors/profileDataSelectors';
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
+import { profileActions } from '../../model/slice/profileSlice';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';

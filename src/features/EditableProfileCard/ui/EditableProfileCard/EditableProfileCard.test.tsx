@@ -2,7 +2,7 @@ import { screen } from '@testing-library/react';
 import { CountriesEnum } from 'entities/Counties';
 import { CurrencyEnum } from 'entities/Currency';
 import { ProfileType } from 'entities/Profile';
-import { profileReducer } from 'features/EditableProfileCard/model/slice/profileSlice';
+import { profileReducer } from '../../../EditableProfileCard/model/slice/profileSlice';
 import { ComponentRender } from 'shared/lib/tests/componentRender/ComponentRender';
 import { EditableProfileCard } from './EditableProfileCard';
 import userEvent from '@testing-library/user-event';
