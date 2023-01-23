@@ -1,4 +1,4 @@
-This pet project without any meaningful name was bootstrapped with Typescript @4.5.5 + React @17.0.2 + Redux Toolkit @1.8.0.\
+This pet project without any meaningful name was bootstrapped with Typescript @4.5.5 + React @18.2.0.\
 Project implemented using Feature-Sliced Design methodology ([https://feature-sliced.design/](https://feature-sliced.design/))
 
 The project uses a Storybook [https://storybook.js.org/](https://storybook.js.org/), different environments for testing: Jest [https://jestjs.io/](https://jestjs.io/), React Testing Library [https://testing-library.com/docs/react-testing-library/intro/](https://testing-library.com/docs/react-testing-library/intro/), Loki screenshot tests [https://loki.js.org/](https://loki.js.org/)

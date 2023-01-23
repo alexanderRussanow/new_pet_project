@@ -1,8 +1,4 @@
-export enum UserRolesEnum {
-    ADMIN = 'ADMIN',
-    USER = 'USER',
-    VISITOR = 'VISITOR',
-}
+import { UserRolesEnum } from "../consts/userConsts";
 
 export interface UserType {
     id: string;

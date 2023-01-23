@@ -1,2 +1,2 @@
 export * from './ui/CountriesSelect';
-export * from './model/types/CountriesEnum';
+export * from './model/consts/CountriesEnum';

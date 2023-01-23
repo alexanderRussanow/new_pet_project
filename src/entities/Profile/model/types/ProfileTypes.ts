@@ -1,5 +1,5 @@
-import { CountriesEnum } from './../../../Counties/model/types/CountriesEnum';
-import { CurrencyEnum } from './../../../Currency/model/types/CurrencyEnum';
+import { CountriesEnum } from '../../../Counties/model/consts/CountriesEnum';
+import { CurrencyEnum } from '../../../Currency/model/consts/CurrencyEnum';
 
 export interface ProfileType {
     id?: string;

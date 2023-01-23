@@ -1,17 +1,7 @@
 import { UserType } from 'entities/User';
-export type PostTags = 'All' | 'IT' | 'Web' | 'Design' | 'Business' | 'Other';
+import { PostContentTypeEnum } from '../consts/postConsts';
 
-export enum PostContentTypeEnum {
-    TEXT = 'TEXT',
-    CODE = 'CODE',
-    IMAGE = 'IMAGE',
-    VIDEO = 'VIDEO',
-    AUDIO = 'AUDIO',
-    EMBED = 'EMBED',
-    LINK = 'LINK',
-    QUOTE = 'QUOTE',
-    FILE = 'FILE',
-}
+export type PostTags = 'All' | 'IT' | 'Web' | 'Design' | 'Business' | 'Other';
 
 export interface ContentText {
     id: string;
@@ -54,21 +44,4 @@ export interface PostSchema {
     isLoading: boolean;
     postData?: PostType;
     error?: string;
-}
-
-export enum PostsListViewModeEnum {
-    LIST = 'LIST',
-    GRID = 'GRID',
-}
-
-export enum OrderEnum {
-    ASC = 'asc',
-    DESC = 'desc',
-}
-
-export enum PostsSortFieldEnum {
-    DATE = 'date',
-    VIEWS = 'views',
-    LIKES = 'likes',
-    TITLE = 'title',
 }

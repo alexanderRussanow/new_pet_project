@@ -1,5 +1,5 @@
 import { ProfileType } from "entities/Profile";
-import { ErrorProfileEnum } from "../../types/ProfileSchema";
+import { ErrorProfileEnum } from "features/EditableProfileCard";
 
 
 export const profileValidation = ( profile?: ProfileType ) => {

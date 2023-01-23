@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Listbox } from 'shared/ui/Listbox';
-import { CurrencyEnum } from '../model/types/CurrencyEnum';
+import { CurrencyEnum } from '../model/consts/CurrencyEnum';
 
 export interface CurrencySelectProps {
     value?: string;

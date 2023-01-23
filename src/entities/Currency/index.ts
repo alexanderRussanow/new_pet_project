@@ -1,2 +1,2 @@
 export * from './ui/CurrencySelect';
-export * from './model/types/CurrencyEnum';
+export * from './model/consts/CurrencyEnum';

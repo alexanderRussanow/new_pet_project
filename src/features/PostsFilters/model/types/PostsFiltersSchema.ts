@@ -1,8 +1,8 @@
-import { OrderEnum, PostSortFieldEnum, PostTags } from 'entities/Post';
+import { OrderEnum, PostsSortFieldEnum, PostTags } from 'entities/Post';
 
 export interface PostsFiltersSchema {
     searchQuery: string;
     order: OrderEnum;
-    sort: PostSortFieldEnum;
+    sort: PostsSortFieldEnum;
     tag: PostTags;
 }
