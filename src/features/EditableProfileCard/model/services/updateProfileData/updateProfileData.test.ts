@@ -1,7 +1,7 @@
 import { CountriesEnum } from 'entities/Counties';
 import { CurrencyEnum } from 'entities/Currency';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncthunk/TestAsyncThunk';
-import { ErrorProfileEnum } from '../../types/ProfileSchema';
+import { ErrorProfileEnum } from '../../consts/editableProfileCardConsts';
 import { updateProfileData } from './updateProfileData';
 
 const profileData = {

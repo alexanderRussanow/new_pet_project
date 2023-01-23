@@ -1,6 +1,6 @@
 import { CountriesEnum } from 'entities/Counties';
 import { CurrencyEnum } from 'entities/Currency';
-import { ErrorProfileEnum } from '../../types/ProfileSchema';
+import { ErrorProfileEnum } from '../../consts/editableProfileCardConsts';
 import { profileValidation } from './profileValifation';
 
 const profileData = {
