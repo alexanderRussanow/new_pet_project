@@ -7,7 +7,7 @@ import { PostListItem } from '../PostListItem/PostListItem';
 import { PostListItemSkeleton } from '../PostListItemSkeleton/PostListItemSkeleton';
 
 // styles
-import classes from './PostList.module.scss';
+import classes from './PostsList.module.scss';
 
 export interface PostsListProps {
     posts: PostType[];

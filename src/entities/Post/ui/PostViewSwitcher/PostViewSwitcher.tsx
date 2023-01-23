@@ -1,4 +1,4 @@
-import { PostListViewModeEnum } from 'entities/Post/model/types/PostType';
+import { PostsListViewModeEnum } from 'entities/Post';
 import { memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 import { Button, ButtonThemeEnum } from 'shared/ui/Button';
@@ -9,13 +9,13 @@ import GridIcon from '../../../../shared/assets/icons/tiled-24-24.svg';
 import classes from './PostViewSwitcher.module.scss';
 
 export interface PostViewSwitcherProps {
-    viewMode: PostListViewModeEnum;
+    viewMode: PostsListViewModeEnum;
     className?: string;
-    onViewModeChange: ( viewMode: PostListViewModeEnum ) => void;
+    onViewModeChange: ( viewMode: PostsListViewModeEnum ) => void;
 }
 
 export const PostViewSwitcher: React.FC<PostViewSwitcherProps> = memo( ( { viewMode, onViewModeChange, className } ) => {
-    const { LIST, GRID } = PostListViewModeEnum;
+    const { LIST, GRID } = PostsListViewModeEnum;
     const listViewMode = viewMode === LIST;
 
     const handleViewModeChange = useCallback(

@@ -1,6 +1,6 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
-import { PostListViewModeEnum, PostType } from 'entities/Post';
+import { PostsListViewModeEnum, PostType } from 'entities/Post';
 import { VIEW_MODE_LS_KEY } from 'shared/const/localStorage';
 import { fetchPosts } from '../services/fetchPosts/fetchPosts';
 import { PostsPageSchema } from '../types/PostsPageSchema';
@@ -18,14 +18,14 @@ const postsPageSlice = createSlice( {
         error: undefined,
         ids: [],
         entities: {},
-        viewMode: PostListViewModeEnum.GRID,
+        viewMode: PostsListViewModeEnum.GRID,
         page: 1,
         hasMore: true,
         hasInited: false,
         limit: 9,
     } ),
     reducers: {
-        setViewMode: ( state, action: PayloadAction<PostListViewModeEnum> ) => {
+        setViewMode: ( state, action: PayloadAction<PostsListViewModeEnum> ) => {
             state.viewMode = action.payload;
             localStorage.setItem(
                 VIEW_MODE_LS_KEY,
@@ -36,9 +36,9 @@ const postsPageSlice = createSlice( {
             state.page = action.payload;
         },
         initState: state => {
-            const view = localStorage.getItem( VIEW_MODE_LS_KEY ) as PostListViewModeEnum;
+            const view = localStorage.getItem( VIEW_MODE_LS_KEY ) as PostsListViewModeEnum;
             state.viewMode = view;
-            state.limit = view === PostListViewModeEnum.GRID ? 13 : 3;
+            state.limit = view === PostsListViewModeEnum.GRID ? 13 : 3;
             state.hasInited = true;
         },
     },

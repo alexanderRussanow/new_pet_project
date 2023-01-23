@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { PostListViewModeEnum, PostType } from 'entities/Post/model/types/PostType';
+import { PostsListViewModeEnum, PostType } from 'entities/Post';
 import { PostListItem } from './PostListItem';
 
 export default {
@@ -57,12 +57,12 @@ const post = {
 
 export const GRID = Template.bind( {} );
 GRID.args = {
-    viewMode: PostListViewModeEnum.GRID,
+    viewMode: PostsListViewModeEnum.GRID,
     post,
 };
 
 export const LIST = Template.bind( {} );
 LIST.args = {
-    viewMode: PostListViewModeEnum.LIST,
+    viewMode: PostsListViewModeEnum.LIST,
     post,
 };

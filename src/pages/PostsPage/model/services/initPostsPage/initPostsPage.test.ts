@@ -1,4 +1,4 @@
-import { PostListViewModeEnum } from 'entities/Post';
+import { PostsListViewModeEnum } from 'entities/Post';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncthunk/TestAsyncThunk';
 import { fetchPosts } from '../fetchPosts/fetchPosts';
 import { initPostsPage } from './initPostsPage';
@@ -23,7 +23,7 @@ describe(
                             isLoading: false,
                             error: undefined,
                             hasInited: false,
-                            viewMode: PostListViewModeEnum.GRID,
+                            viewMode: PostsListViewModeEnum.GRID,
                         },
                     } 
                 );

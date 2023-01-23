@@ -1,4 +1,4 @@
-import { PostListViewModeEnum } from 'entities/Post/model/types/PostType';
+import { PostsListViewModeEnum } from 'entities/Post';
 import { memo } from 'react';
 import { classNames } from 'shared/lib/utility/UtilityMethods';
 import { Card } from 'shared/ui/Card';
@@ -7,7 +7,7 @@ import { Skeleton } from 'shared/ui/Skeleton';
 import classes from '../PostListItem/PostListItem.module.scss';
 
 export interface PostListItemSkeletonProps {
-    viewMode?: PostListViewModeEnum;
+    viewMode?: PostsListViewModeEnum;
     className?: string;
 }
 
@@ -22,7 +22,7 @@ export const PostListItemSkeleton: React.FC<PostListItemSkeletonProps> = memo( (
                     classes[ viewMode as string ]
                 ] 
             ) }>
-            {viewMode === PostListViewModeEnum.LIST ? (
+            {viewMode === PostsListViewModeEnum.LIST ? (
                 <Card className={ classes.card }>
                     <div className={ classes.header }>
                         <Skeleton

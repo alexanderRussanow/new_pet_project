@@ -1,10 +1,10 @@
 import { EntityState } from '@reduxjs/toolkit';
-import { PostListViewModeEnum, PostType } from 'entities/Post';
+import { PostsListViewModeEnum, PostType } from 'entities/Post';
 
 export interface PostsPageSchema extends EntityState<PostType> {
     isLoading?: boolean;
     error?: string;
-    viewMode?: PostListViewModeEnum;
+    viewMode?: PostsListViewModeEnum;
     // pagination
     page: number;
     hasMore: boolean;

@@ -1,4 +1,4 @@
-import { ContentText, PostContentTypeEnum, PostListViewModeEnum, PostType } from 'entities/Post/model/types/PostType';
+import { ContentText, PostContentTypeEnum, PostsListViewModeEnum, PostType } from 'entities/Post';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { RoutesPath } from 'shared/config/routeConfig/routeConfig';
@@ -19,7 +19,7 @@ export interface PostListItemProps {
     post: PostType;
     target?: HTMLAttributeAnchorTarget;
     className?: string;
-    viewMode?: PostListViewModeEnum;
+    viewMode?: PostsListViewModeEnum;
 }
 
 export const PostListItem: React.FC<PostListItemProps> = memo( ( { post, target, viewMode, className } ) => {
@@ -36,7 +36,7 @@ export const PostListItem: React.FC<PostListItemProps> = memo( ( { post, target,
                     classes[ viewMode as string ]
                 ] 
             ) }>
-            {viewMode === PostListViewModeEnum.GRID ? (
+            {viewMode === PostsListViewModeEnum.GRID ? (
                 <AppLink
                     target={ target }
                     to={ RoutesPath.postDetail + post.id }>

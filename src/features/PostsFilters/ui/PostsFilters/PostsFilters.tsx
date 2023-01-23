@@ -1,4 +1,4 @@
-import { OrderEnum, PostListViewModeEnum, PostSortFieldEnum, PostTags, PostViewSwitcher } from 'entities/Post';
+import { OrderEnum, PostsListViewModeEnum, PostsSortFieldEnum, PostTags, PostViewSwitcher } from 'entities/Post';
 import { getPostsFilterOrder, getPostsFilterSearchQuery, getPostsFilterSort, getPostsFilterTag, postsFiltersActions } from 'features/PostsFilters';
 import { fetchPosts, postsPageActions } from 'pages/PostsPage';
 import { getPostsPageViewMode } from 'pages/PostsPage/model/selectors/postsPageSelectors';
@@ -30,7 +30,7 @@ export const PostsFilters: React.FC<PostsFiltersProps> = memo( ( { className } )
     const tag = useSelector( getPostsFilterTag );
 
     const viewModeToggle = useCallback(
-        ( view: PostListViewModeEnum ) => {
+        ( view: PostsListViewModeEnum ) => {
             dispatch( postsPageActions.setViewMode( view ) );
         },
         [
@@ -91,35 +91,35 @@ export const PostsFilters: React.FC<PostsFiltersProps> = memo( ( { className } )
     const sortOptions = useMemo<SelectOptions[]>(
         () => [
             {
-                value: `${ OrderEnum.ASC }_${ PostSortFieldEnum.DATE }`,
+                value: `${ OrderEnum.ASC }_${ PostsSortFieldEnum.DATE }`,
                 label: t( 'SORT_BY_DATE_ASC' ),
             },
             {
-                value: `${ OrderEnum.DESC }_${ PostSortFieldEnum.DATE }`,
+                value: `${ OrderEnum.DESC }_${ PostsSortFieldEnum.DATE }`,
                 label: t( 'SORT_BY_DATE_DESC' ),
             },
             {
-                value: `${ OrderEnum.ASC }_${ PostSortFieldEnum.TITLE }`,
+                value: `${ OrderEnum.ASC }_${ PostsSortFieldEnum.TITLE }`,
                 label: t( 'SORT_BY_TITLE_ASC' ),
             },
             {
-                value: `${ OrderEnum.DESC }_${ PostSortFieldEnum.TITLE }`,
+                value: `${ OrderEnum.DESC }_${ PostsSortFieldEnum.TITLE }`,
                 label: t( 'SORT_BY_TITLE_DESC' ),
             },
             {
-                value: `${ OrderEnum.ASC }_${ PostSortFieldEnum.VIEWS }`,
+                value: `${ OrderEnum.ASC }_${ PostsSortFieldEnum.VIEWS }`,
                 label: t( 'SORT_BY_VIEWS_ASC' ),
             },
             {
-                value: `${ OrderEnum.DESC }_${ PostSortFieldEnum.VIEWS }`,
+                value: `${ OrderEnum.DESC }_${ PostsSortFieldEnum.VIEWS }`,
                 label: t( 'SORT_BY_VIEWS_DESC' ),
             },
             {
-                value: `${ OrderEnum.ASC }_${ PostSortFieldEnum.LIKES }`,
+                value: `${ OrderEnum.ASC }_${ PostsSortFieldEnum.LIKES }`,
                 label: t( 'SORT_BY_LIKES_ASC' ),
             },
             {
-                value: `${ OrderEnum.DESC }_${ PostSortFieldEnum.LIKES }`,
+                value: `${ OrderEnum.DESC }_${ PostsSortFieldEnum.LIKES }`,
                 label: t( 'SORT_BY_LIKES_DESC' ),
             },
         ],

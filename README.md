@@ -3,7 +3,7 @@ Project implemented using Feature-Sliced Design methodology ([https://feature-sl
 
 The project uses a Storybook [https://storybook.js.org/](https://storybook.js.org/), different environments for testing: Jest [https://jestjs.io/](https://jestjs.io/), React Testing Library [https://testing-library.com/docs/react-testing-library/intro/](https://testing-library.com/docs/react-testing-library/intro/), Loki screenshot tests [https://loki.js.org/](https://loki.js.org/)
 
-Project also uses internationalization [https://www.i18next.com/](https://www.i18next.com/) with English and Czech languages.\
+Project also uses internationalization [https://www.i18next.com/](https://www.i18next.com/) with English and Czech languages.
 
 App availible on a link [https://master--lambent-froyo-b2f4c7.netlify.app/](https://master--lambent-froyo-b2f4c7.netlify.app/)
 
