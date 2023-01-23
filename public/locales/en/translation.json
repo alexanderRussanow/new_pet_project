@@ -21,5 +21,8 @@
    "SEARCH": "Search",
    "RECOMMENDATIONS": "Recommendations",
    "STEP_BACK": "Back to posts",
-   "EDIT": "Edit"
+   "EDIT": "Edit",
+   "ADMIN_PAGE": "Admin page",
+   "FORBIDEN_PAGE": "You are not allowed to see this page",
+   "ADMIN": "Dashboard"
 }

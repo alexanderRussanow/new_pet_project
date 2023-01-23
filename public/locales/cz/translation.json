@@ -21,5 +21,8 @@
    "SEARCH": "Hledat",
    "RECOMMENDATIONS": "Doporučení",
    "STEP_BACK": "Zpět",
-   "EDIT": "Upravit"
+   "EDIT": "Upravit",
+   "ADMIN_PAGE": "Stránka správce",
+   "FORBIDEN_PAGE": "Nemáte oprávnění k přístupu k této stránce",
+   "ADMIN": "Správce",
 }

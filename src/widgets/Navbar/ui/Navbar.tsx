@@ -1,4 +1,4 @@
-import { getUserAuthData, userActions } from 'entities/User';
+import { getUserAuthData, isUserAdmin, userActions } from 'entities/User';
 import { LoginModal } from 'features/AuthByUsername';
 import React, { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -23,6 +23,7 @@ export const Navbar: React.FC<NavbarProps> = memo( ( { className } ) => {
     const { t } = useTranslation();
     // redux hook
     const authUserData = useSelector( getUserAuthData );
+    const isAdminDashboardAvaileble = useSelector( isUserAdmin );
     const dispatch = useAppDispatch();
 
     // state
@@ -54,6 +55,14 @@ export const Navbar: React.FC<NavbarProps> = memo( ( { className } ) => {
                     <Dropdown
                         direction='bottom left'
                         items={ [
+                            ...( isAdminDashboardAvaileble
+                                ? [
+                                    {
+                                        content: t( 'ADMIN' ),
+                                        href: RoutesPath.adminPage,
+                                    },
+                                ]
+                                : [] ),
                             {
                                 content: t( 'PROFILE' ),
                                 href: RoutesPath.profile + authUserData.id,
