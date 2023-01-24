@@ -1,5 +1,5 @@
-import { PostDetailsMainSchema } from './../types/PostDetailsMainSchema';
 import { combineReducers } from '@reduxjs/toolkit';
+import { PostDetailsMainSchema } from '../types/postDetailsPageTypes';
 import { postCommentsReducer } from './postDetailsCommentsSlice';
 import { postRecommendationsReducer } from './postDetailsRecommendationSlice';
 

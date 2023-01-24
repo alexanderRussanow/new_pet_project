@@ -4,7 +4,7 @@ export function useThrottle( callback: ( ...args: any[] ) => void, delay: number
     const timeoutRef = useRef( true );
 
     return useCallback(
-        ( ...args ) => {
+        ( ...args: any ) => {
             if ( timeoutRef.current ) {
                 callback( ...args );
 

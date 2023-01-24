@@ -2,7 +2,7 @@ import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolki
 import { StateSchema } from 'app/providers/StoreProvider';
 import { PostType } from 'entities/Post';
 import { fetchPostRecommendations } from '../services/fetchRecommendations';
-import { PostDetailsRecommendationSchema } from '../types/PostDetailsRecommendationSchema';
+import { PostDetailsRecommendationSchema } from '../types/postDetailsPageTypes';
 
 const recommendationsAdapter = createEntityAdapter<PostType>( {
     selectId: post => post.id,
