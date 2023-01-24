@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { Overlay } from 'shared/ui/Overlay';
 import { classNames } from '../../../lib/utility/UtilityMethods';
 import { Portal } from '../../Portal';
 // styles
@@ -102,20 +103,17 @@ export const Modal: React.FC<ModalProps> = ( { className, children, isOpen, lazy
         <Portal>
             <div
                 className={ classNames(
-                    classes.modal,
+                    classes.Modal,
                     { [ classes.opened ]: isOpen, [ classes.isClosing ]: isClosing },
                     [
                         className
                     ] 
                 ) }>
+                <Overlay onClose={ handleClose } />
                 <div
-                    className={ classNames( classes.modalOverlay ) }
-                    onClick={ handleClose }>
-                    <div
-                        className={ classNames( classes.modalContent ) }
-                        onClick={ onContainerClick }>
-                        {children}
-                    </div>
+                    className={ classNames( classes.modalContent ) }
+                    onClick={ onContainerClick }>
+                    {children}
                 </div>
             </div>
         </Portal>

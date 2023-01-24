@@ -30,7 +30,6 @@ export const Navbar: React.FC<NavbarProps> = memo( ( { className } ) => {
 
     const onLoginModalClose = () => setIsLoginModalOpen( false );
     const onLoginModalOpen = () => setIsLoginModalOpen( true );
-    
 
     return (
         <header

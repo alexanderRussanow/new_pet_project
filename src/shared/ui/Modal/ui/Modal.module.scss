@@ -1,19 +1,14 @@
-.modal {
+.Modal {
     position: fixed;
     inset: 0;
     opacity: 0;
     pointer-events: none;
     z-index: -1;
     color: var(--primary-color);
-}
-
-.modalOverlay {
-    background-color: var(--overlay-background-color);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    width: 100%;
+    font: var(--font-s);
 }
 
 .modalContent {

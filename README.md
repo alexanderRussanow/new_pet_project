@@ -30,8 +30,15 @@ Open [http://localhost:6006/](http://localhost:6006/) to view it in the browser.
 
 ### `npm run build:dev`
 
-Runs Webpack Bundle Analyzer.\
-Open [http://localhost:8888/](http://localhost:8888/) to view it in the browser.
+Runs Webpack in Dev mode.\
+
+### `npm run build:prod`
+
+Runs Webpack in Prod mode.\
+
+Webpack Bundle Analyzer availible only with Dev mode.\
+Open [http://127.0.0.1:8888/](http://127.0.0.1:8888/) to view it in the browser.
+
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
