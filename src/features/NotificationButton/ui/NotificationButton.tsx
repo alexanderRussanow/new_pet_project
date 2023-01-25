@@ -4,7 +4,7 @@ import { Button, ButtonThemeEnum } from 'shared/ui/Button';
 import { Icon } from 'shared/ui/Icon';
 import { Popover } from 'shared/ui/Popover/ui/Popover';
 import BellIcon from 'shared/assets/icons/bell-20-20.svg';
-import { memo, useCallback, useState } from 'react';
+import { memo, useCallback, useEffect, useState } from 'react';
 import { Drawer } from 'shared/ui/Drawer';
 
 // style
@@ -14,11 +14,16 @@ export interface NotificationButtonProps {
     className?: string;
 }
 
+/**
+ * @TBD refactor useState and useEffect hooks for detection of mobile device
+ */
 export const NotificationButton: React.FC<NotificationButtonProps> = memo( ( { className } ) => {
     const [
         opened,
         setOpened
     ] = useState( false );
+
+    const setWindowInnerWidth = useState( window.innerWidth )[ 1 ];
 
     const onOpenCloseHandler = useCallback(
         () => {
@@ -37,6 +42,27 @@ export const NotificationButton: React.FC<NotificationButtonProps> = memo( ( { c
     };
 
     const isMobile = detectDevice();
+
+    useEffect(
+        () => {
+            const handleResize = () => {
+                setWindowInnerWidth( window.innerWidth );
+            };
+            window.addEventListener(
+                'resize',
+                handleResize 
+            );
+            return () => {
+                window.removeEventListener(
+                    'resize',
+                    handleResize 
+                );
+            };
+        },
+        [
+            setWindowInnerWidth
+        ] 
+    );
 
     const trigger = (
         <Button

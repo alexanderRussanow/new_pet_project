@@ -1,4 +1,5 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { memo } from 'react';
+import { useModal } from 'shared/hooks/useModal';
 import { Overlay } from 'shared/ui/Overlay';
 import { classNames } from '../../../lib/utility/UtilityMethods';
 import { Portal } from '../../Portal';
@@ -6,94 +7,19 @@ import { Portal } from '../../Portal';
 import classes from './Modal.module.scss';
 
 export interface ModalProps {
+    isOpen: boolean;
     children: React.ReactNode;
     className?: string;
-    isOpen?: boolean;
     lazy?: boolean;
     onClose?: () => void;
 }
 
-export const Modal: React.FC<ModalProps> = ( { className, children, isOpen, lazy, onClose } ) => {
-    // state
-    const [
-        isClosing,
-        setIsClosing
-    ] = useState( false );
-    const [
-        isMounted,
-        setIsMounted
-    ] = useState( false );
-    // refs
-    const timerRef = useRef<ReturnType<typeof setTimeout>>();
-
-    const handleClose = useCallback(
-        () => {
-            if ( onClose ) {
-                setIsClosing( true );
-                timerRef.current = setTimeout(
-                    () => {
-                        onClose();
-                        setIsClosing( false );
-                    },
-                    150 
-                );
-            }
-        },
-        [
-            onClose
-        ] 
-    );
-
-    const onContainerClick = ( event: React.MouseEvent<HTMLDivElement, MouseEvent> ) => {
-        event.stopPropagation();
-    };
-
-    const escapeListener = useCallback(
-        ( event: KeyboardEvent ) => {
-            if ( event.key === 'Escape' ) {
-                handleClose();
-            }
-        },
-        [
-            handleClose
-        ]
-    );
-
-    useEffect(
-        () => {
-            if ( isOpen ) {
-                setIsMounted( true );
-            } else {
-                setIsMounted( false );
-            }
-        },
-        [
-            isOpen
-        ] 
-    );
-
-    useEffect(
-        () => {
-            if ( isOpen ) {
-                document.addEventListener(
-                    'keydown',
-                    escapeListener 
-                );
-            }
-            return () => {
-                document.removeEventListener(
-                    'keydown',
-                    escapeListener 
-                );
-
-                clearTimeout( timerRef.current );
-            };
-        },
-        [
-            isOpen,
-            escapeListener
-        ] 
-    );
+export const Modal: React.FC<ModalProps> = memo( ( { className, children, isOpen, lazy, onClose } ) => {
+    const { isClosing, isMounted, onCloseHandler } = useModal( {
+        isOpen,
+        onClose,
+        animationDelay: 150,
+    } );
 
     if ( lazy && !isMounted ) {
         return null;
@@ -109,13 +35,9 @@ export const Modal: React.FC<ModalProps> = ( { className, children, isOpen, lazy
                         className
                     ] 
                 ) }>
-                <Overlay onClose={ handleClose } />
-                <div
-                    className={ classNames( classes.modalContent ) }
-                    onClick={ onContainerClick }>
-                    {children}
-                </div>
+                <Overlay onClose={ onCloseHandler } />
+                <div className={ classNames( classes.modalContent ) }>{children}</div>
             </div>
         </Portal>
     );
-};
+} );
