@@ -30,11 +30,11 @@ Open [http://localhost:6006/](http://localhost:6006/) to view it in the browser.
 
 ### `npm run build:dev`
 
-Runs Webpack in Dev mode.\
+Build project in Dev mode.\
 
 ### `npm run build:prod`
 
-Runs Webpack in Prod mode.\
+Build project in Prod mode.\
 
 Webpack Bundle Analyzer availible only with Dev mode.\
 Open [http://127.0.0.1:8888/](http://127.0.0.1:8888/) to view it in the browser.
