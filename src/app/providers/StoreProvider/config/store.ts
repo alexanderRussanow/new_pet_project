@@ -1,8 +1,8 @@
 import { rtkAPI } from './../../../../shared/api/rtkApi';
 import { CombinedState, configureStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
-import { userReducer } from 'entities/User';
-import { scrollPreservationSliceReducer } from 'features/scrollPreservation ';
-import { API } from 'shared/api/api';
+import { userReducer } from '@/entities/User';
+import { scrollPreservationSliceReducer } from '@/features/scrollPreservation ';
+import { API } from '@/shared/api/api';
 import { createReducerManager } from './reducerManager';
 import { StateSchema } from './StateSchema';
 

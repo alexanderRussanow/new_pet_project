@@ -1,15 +1,15 @@
 import { rtkAPI } from './../../../../shared/api/rtkApi';
 import { AnyAction, CombinedState, Dispatch, EnhancedStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
-import { PostSchema } from 'entities/Post';
-import { UserSchema } from 'entities/User';
-import { LoginSchema } from 'features/AuthByUsername';
-import { PostsPageSchema } from 'pages/PostsPage';
+import { PostSchema } from '@/entities/Post';
+import { UserSchema } from '@/entities/User';
+import { LoginSchema } from '@/features/AuthByUsername';
+import { PostsPageSchema } from '@/pages/PostsPage';
 import { NavigateOptions, To } from 'react-router-dom';
 import { AddNewCommentSchema } from '../../../../features/AddNewCommentForm/model/types/AddNewCommentSchema';
 import { ScrollPreservationSchema } from './../../../../features/scrollPreservation /model/types/ScrollPreservationTypes';
-import { ProfileSchema } from 'features/EditableProfileCard';
-import { PostDetailsMainSchema } from 'pages/PostDetailsPage';
+import { ProfileSchema } from '@/features/EditableProfileCard';
+import { PostDetailsMainSchema } from '@/pages/PostDetailsPage';
 
 export interface StateSchema {
     user: UserSchema;

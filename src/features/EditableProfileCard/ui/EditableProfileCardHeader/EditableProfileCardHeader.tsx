@@ -1,14 +1,14 @@
-import { getUserAuthData } from 'entities/User';
+import { getUserAuthData } from '@/entities/User';
 import { getProfileReadonlySelector, getProfileDataSelector } from '../../model/selectors/profileDataSelectors';
 import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 import { profileActions } from '../../model/slice/profileSlice';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { Button, ButtonThemeEnum } from 'shared/ui/Button';
-import { Row } from 'shared/ui/Layout';
-import { Text } from 'shared/ui/Text';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { Button, ButtonThemeEnum } from '@/shared/ui/Button';
+import { Row } from '@/shared/ui/Layout';
+import { Text } from '@/shared/ui/Text';
 
 export const EditableProfileCardHeader: React.FC = () => {
     const { t } = useTranslation( 'profile' );

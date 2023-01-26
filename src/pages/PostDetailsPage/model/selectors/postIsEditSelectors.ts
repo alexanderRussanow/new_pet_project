@@ -1,6 +1,6 @@
-import { getUserAuthData } from 'entities/User';
+import { getUserAuthData } from '@/entities/User';
 import { createSelector } from '@reduxjs/toolkit';
-import { getPostData } from 'entities/Post';
+import { getPostData } from '@/entities/Post';
 
 export const getPostEditSelector = createSelector(
     getUserAuthData,

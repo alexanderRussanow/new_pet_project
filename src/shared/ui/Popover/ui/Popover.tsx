@@ -1,6 +1,6 @@
 import { Popover as HeadlesPopover } from '@headlessui/react';
 import { memo } from 'react';
-import { classNames } from 'shared/lib/utility/UtilityMethods';
+import { classNames } from '@/shared/lib/utility/UtilityMethods';
 import { DropdownDirection } from '../../../types/ui';
 
 // styles

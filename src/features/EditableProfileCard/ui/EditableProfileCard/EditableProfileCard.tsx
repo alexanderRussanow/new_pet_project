@@ -1,13 +1,13 @@
-import { ProfileCard, ProfileType } from 'entities/Profile';
+import { ProfileCard, ProfileType } from '@/entities/Profile';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useInitialEffect } from 'shared/hooks/useInitialEffect';
-import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { classNames } from 'shared/lib/utility/UtilityMethods';
-import { Column } from 'shared/ui/Layout';
-import { Text, TextThemeEnum } from 'shared/ui/Text';
+import { useInitialEffect } from '@/shared/hooks/useInitialEffect';
+import { DynamicReducerLoader, ReducersList } from '@/shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { classNames } from '@/shared/lib/utility/UtilityMethods';
+import { Column } from '@/shared/ui/Layout';
+import { Text, TextThemeEnum } from '@/shared/ui/Text';
 import {
     getProfileErrorSelector,
     getProfileFormDataSelector,

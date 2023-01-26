@@ -1,6 +1,6 @@
-import { CountriesEnum } from 'entities/Counties';
-import { CurrencyEnum } from 'entities/Currency';
-import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncthunk/TestAsyncThunk';
+import { CountriesEnum } from '@/entities/Counties';
+import { CurrencyEnum } from '@/entities/Currency';
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncthunk/TestAsyncThunk';
 import { fetchProfileData } from './fetchProfileData';
 
 const profileData = {

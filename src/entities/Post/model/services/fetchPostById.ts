@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from 'app/providers/StoreProvider';
+import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { PostType } from '../types/PostType';
 
 export const fetchPostById = createAsyncThunk<PostType, string | undefined, ThunkConfig<string>>(

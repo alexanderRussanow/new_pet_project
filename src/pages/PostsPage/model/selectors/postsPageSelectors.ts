@@ -1,5 +1,5 @@
-import { StateSchema } from 'app/providers/StoreProvider';
-import { PostsListViewModeEnum } from 'entities/Post';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { PostsListViewModeEnum } from '@/entities/Post';
 
 export const getPostsPageIsLoading = ( state: StateSchema ) => state.postsPage?.isLoading || false;
 export const getPostsPageError = ( state: StateSchema ) => state.postsPage?.error || '';

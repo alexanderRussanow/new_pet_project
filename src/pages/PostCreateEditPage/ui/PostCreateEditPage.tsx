@@ -1,9 +1,9 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-import { classNames } from 'shared/lib/utility/UtilityMethods';
-import { Text } from 'shared/ui/Text';
-import { Page } from 'widgets/Page';
+import { classNames } from '@/shared/lib/utility/UtilityMethods';
+import { Text } from '@/shared/ui/Text';
+import { Page } from '@/widgets/Page';
 // styles
 import classes from './PostCreateEditPage.module.scss';
 

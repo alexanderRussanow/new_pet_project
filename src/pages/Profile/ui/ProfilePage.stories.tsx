@@ -1,9 +1,9 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ThemeEnum } from 'app/providers/ThemeProvider';
-import { CountriesEnum } from 'entities/Counties';
-import { CurrencyEnum } from 'entities/Currency';
-import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
+import { ThemeEnum } from '@/app/providers/ThemeProvider';
+import { CountriesEnum } from '@/entities/Counties';
+import { CurrencyEnum } from '@/entities/Currency';
+import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
 import ProfilePage from './ProfilePage';
 
 export default {

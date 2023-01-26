@@ -1,9 +1,9 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import withMock from 'storybook-addon-mock';
-import { PostType } from 'entities/Post';
+import { PostType } from '@/entities/Post';
 import { PostRecommendations } from './PostRecommendations';
-import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
+import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
 
 export default {
     title: 'features/PostRecommendations',

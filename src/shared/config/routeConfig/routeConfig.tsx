@@ -1,14 +1,14 @@
-import { PostsPage } from 'pages/PostsPage';
-import { ProfilePage } from 'pages/Profile';
-import { HomePage } from 'pages/Home';
-import { Page404 } from 'pages/Page404';
+import { PostsPage } from '@/pages/PostsPage';
+import { ProfilePage } from '@/pages/Profile';
+import { HomePage } from '@/pages/Home';
+import { Page404 } from '@/pages/Page404';
 import { RouteProps } from 'react-router-dom';
-import { PostDetailPage } from 'pages/PostDetailsPage';
-import { AboutPage } from 'pages/AboutPage';
-import { PostCreateEditPage } from 'pages/PostCreateEditPage';
-import { AdminPage } from 'pages/AdminPage';
-import { UserRolesEnum } from 'entities/User';
-import { ForbidenPage } from 'pages/ForbidenPage';
+import { PostDetailPage } from '@/pages/PostDetailsPage';
+import { AboutPage } from '@/pages/AboutPage';
+import { PostCreateEditPage } from '@/pages/PostCreateEditPage';
+import { AdminPage } from '@/pages/AdminPage';
+import { UserRolesEnum } from '@/entities/User';
+import { ForbidenPage } from '@/pages/ForbidenPage';
 
 export type AppRouteProps = RouteProps & {
     private?: boolean;

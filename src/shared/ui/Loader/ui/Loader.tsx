@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/utility/UtilityMethods';
+import { classNames } from '@/shared/lib/utility/UtilityMethods';
 //styles
 import './Loader.scss';
 

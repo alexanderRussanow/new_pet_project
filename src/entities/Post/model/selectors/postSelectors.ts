@@ -1,4 +1,4 @@
-import { StateSchema } from "app/providers/StoreProvider";
+import { StateSchema } from "@/app/providers/StoreProvider";
 
 export const getPostData = ( state: StateSchema ) => state.post?.postData;
 export const getPostError = ( state: StateSchema ) => state.post?.error;

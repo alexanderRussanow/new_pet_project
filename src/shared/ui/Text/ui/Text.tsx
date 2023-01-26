@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { classNames } from 'shared/lib/utility/UtilityMethods';
+import { classNames } from '@/shared/lib/utility/UtilityMethods';
 // style
 import classes from './Text.module.scss';
 

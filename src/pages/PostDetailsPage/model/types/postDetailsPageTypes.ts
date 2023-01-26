@@ -1,6 +1,6 @@
 import { EntityState } from '@reduxjs/toolkit';
-import { CommentType } from 'entities/Comment';
-import { PostType } from 'entities/Post';
+import { CommentType } from '@/entities/Comment';
+import { PostType } from '@/entities/Post';
 
 export interface PostDetailsCommentSchema extends EntityState<CommentType> {
     isLoading?: boolean;

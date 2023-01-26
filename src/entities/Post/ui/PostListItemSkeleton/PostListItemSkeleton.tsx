@@ -1,9 +1,9 @@
 
 import { PostsListViewModeEnum } from '../../../Post/model/consts/postConsts';
 import { memo } from 'react';
-import { classNames } from 'shared/lib/utility/UtilityMethods';
-import { Card } from 'shared/ui/Card';
-import { Skeleton } from 'shared/ui/Skeleton';
+import { classNames } from '@/shared/lib/utility/UtilityMethods';
+import { Card } from '@/shared/ui/Card';
+import { Skeleton } from '@/shared/ui/Skeleton';
 // styles
 import classes from '../PostListItem/PostListItem.module.scss';
 

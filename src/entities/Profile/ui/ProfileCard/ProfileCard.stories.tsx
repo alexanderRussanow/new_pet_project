@@ -1,8 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { ThemeEnum } from 'app/providers/ThemeProvider';
-import { CountriesEnum } from 'entities/Counties';
-import { CurrencyEnum } from 'entities/Currency';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/ThemeDecorator';
+import { ThemeEnum } from '@/app/providers/ThemeProvider';
+import { CountriesEnum } from '@/entities/Counties';
+import { CurrencyEnum } from '@/entities/Currency';
+import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
 import { ProfileCard } from './ProfileCard';
 
 export default {

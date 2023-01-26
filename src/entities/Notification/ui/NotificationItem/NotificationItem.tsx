@@ -1,6 +1,6 @@
-import { classNames } from 'shared/lib/utility/UtilityMethods';
-import { Card } from 'shared/ui/Card';
-import { Text, TextSizeEnum } from 'shared/ui/Text';
+import { classNames } from '@/shared/lib/utility/UtilityMethods';
+import { Card } from '@/shared/ui/Card';
+import { Text, TextSizeEnum } from '@/shared/ui/Text';
 import { NotificationType } from '../../../Notification/model/types/notifications';
 
 // styles

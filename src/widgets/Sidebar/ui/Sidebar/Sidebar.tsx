@@ -1,9 +1,9 @@
 import { memo, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { RoutesPath } from 'shared/config/routeConfig/routeConfig';
-import { classNames } from 'shared/lib/utility/UtilityMethods';
-import { Button, ButtonSizeEnum, ButtonThemeEnum } from 'shared/ui/Button';
-import { Column, Row } from 'shared/ui/Layout';
+import { RoutesPath } from '@/shared/config/routeConfig/routeConfig';
+import { classNames } from '@/shared/lib/utility/UtilityMethods';
+import { Button, ButtonSizeEnum, ButtonThemeEnum } from '@/shared/ui/Button';
+import { Column, Row } from '@/shared/ui/Layout';
 import { LanguageSwitcher } from '../../../LanguageSwitcher';
 import { getSidebarItems } from '../../../Sidebar/model/selectors/getSidebarItems';
 import { ThemeSwitcher } from '../../../ThemeSwitcher';

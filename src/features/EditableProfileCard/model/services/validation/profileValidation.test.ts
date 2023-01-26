@@ -1,5 +1,5 @@
-import { CountriesEnum } from 'entities/Counties';
-import { CurrencyEnum } from 'entities/Currency';
+import { CountriesEnum } from '@/entities/Counties';
+import { CurrencyEnum } from '@/entities/Currency';
 import { ErrorProfileEnum } from '../../consts/editableProfileCardConsts';
 import { profileValidation } from './profileValifation';
 

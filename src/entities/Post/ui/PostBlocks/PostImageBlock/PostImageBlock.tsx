@@ -1,7 +1,7 @@
 import { ContentImage } from '../../../model/types/PostType';
 import { memo } from 'react';
-import { classNames } from 'shared/lib/utility/UtilityMethods';
-import { Text, TextAlignEnum, TextSizeEnum } from 'shared/ui/Text';
+import { classNames } from '@/shared/lib/utility/UtilityMethods';
+import { Text, TextAlignEnum, TextSizeEnum } from '@/shared/ui/Text';
 // styles
 import classes from './PostImageBlock.module.scss';
 

@@ -1,5 +1,5 @@
-import { PostsListViewModeEnum } from 'entities/Post';
-import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncthunk/TestAsyncThunk';
+import { PostsListViewModeEnum } from '@/entities/Post';
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncthunk/TestAsyncThunk';
 import { fetchPosts } from '../fetchPosts/fetchPosts';
 import { initPostsPage } from './initPostsPage';
 

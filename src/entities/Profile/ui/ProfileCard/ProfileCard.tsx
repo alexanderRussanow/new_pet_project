@@ -2,12 +2,12 @@ import { CountriesSelect } from '../../../Counties/ui/CountriesSelect';
 import { CurrencySelect } from '../../../Currency/ui/CurrencySelect';
 import { ProfileType } from '../../../Profile/model/types/ProfileTypes';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/utility/UtilityMethods';
-import { Avatar } from 'shared/ui/Avatar';
-import { Input } from 'shared/ui/Input';
-import { Column, Row } from 'shared/ui/Layout';
-import { Loader } from 'shared/ui/Loader';
-import { Text, TextAlignEnum, TextThemeEnum } from 'shared/ui/Text';
+import { classNames } from '@/shared/lib/utility/UtilityMethods';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Input } from '@/shared/ui/Input';
+import { Column, Row } from '@/shared/ui/Layout';
+import { Loader } from '@/shared/ui/Loader';
+import { Text, TextAlignEnum, TextThemeEnum } from '@/shared/ui/Text';
 // styles
 import classes from './ProfileCard.module.scss';
 

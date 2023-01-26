@@ -1,11 +1,11 @@
-import { NotificationList } from 'entities/Notification';
-import { classNames } from 'shared/lib/utility/UtilityMethods';
-import { Button, ButtonThemeEnum } from 'shared/ui/Button';
-import { Icon } from 'shared/ui/Icon';
-import { Popover } from 'shared/ui/Popover/ui/Popover';
-import BellIcon from 'shared/assets/icons/bell-20-20.svg';
+import { NotificationList } from '@/entities/Notification';
+import { classNames } from '@/shared/lib/utility/UtilityMethods';
+import { Button, ButtonThemeEnum } from '@/shared/ui/Button';
+import { Icon } from '@/shared/ui/Icon';
+import { Popover } from '@/shared/ui/Popover/ui/Popover';
+import BellIcon from '@/shared/assets/icons/bell-20-20.svg';
 import { memo, useCallback, useEffect, useState } from 'react';
-import { Drawer } from 'shared/ui/Drawer';
+import { Drawer } from '@/shared/ui/Drawer';
 
 // style
 import classes from './NotificationButton.module.scss';

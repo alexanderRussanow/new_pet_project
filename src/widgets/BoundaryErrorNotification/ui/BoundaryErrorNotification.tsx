@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/utility/UtilityMethods';
-import { Button } from 'shared/ui/Button';
+import { classNames } from '@/shared/lib/utility/UtilityMethods';
+import { Button } from '@/shared/ui/Button';
 // styles
 import classes from './BoundaryErrorNotification.module.scss';
 

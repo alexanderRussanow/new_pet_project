@@ -1,6 +1,6 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { StateSchema } from 'app/providers/StoreProvider';
-import { PostType } from 'entities/Post';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { PostType } from '@/entities/Post';
 import { fetchPostRecommendations } from '../services/fetchRecommendations';
 import { PostDetailsRecommendationSchema } from '../types/postDetailsPageTypes';
 

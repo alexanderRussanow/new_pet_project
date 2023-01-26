@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/utility/UtilityMethods';
+import { classNames } from '@/shared/lib/utility/UtilityMethods';
 import classes from './Flex.module.scss';
 
 export type FlexJustify = 'start' | 'end' | 'center' | 'between' | 'around' | 'evenly';

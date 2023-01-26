@@ -1,5 +1,5 @@
 import { EntityState } from '@reduxjs/toolkit';
-import { OrderEnum, PostsListViewModeEnum, PostsSortFieldEnum, PostTags, PostType } from 'entities/Post';
+import { OrderEnum, PostsListViewModeEnum, PostsSortFieldEnum, PostTags, PostType } from '@/entities/Post';
 
 export interface PostsPageSchema extends EntityState<PostType> {
     isLoading?: boolean;

@@ -1,4 +1,4 @@
-import { USER_LS_KEY } from 'shared/const/localStorage';
+import { USER_LS_KEY } from '@/shared/const/localStorage';
 import axios from 'axios';
 
 export const API = axios.create( {

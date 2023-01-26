@@ -1,13 +1,14 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { useModal } from 'shared/hooks/useModal';
-import { classNames } from 'shared/lib/utility/UtilityMethods';
-import { Overlay } from 'shared/ui/Overlay';
-import { Portal } from 'shared/ui/Portal';
-import SwipeSubscripeService from 'shared/lib/services/SwipeSubscripeService';
-import { useCallback, useEffect } from 'react';
+import { useModal } from '@/shared/hooks/useModal';
+import { classNames } from '@/shared/lib/utility/UtilityMethods';
+import { Overlay } from '@/shared/ui/Overlay';
+import { Portal } from '@/shared/ui/Portal';
+import SwipeSubscripeService from '@/shared/lib/services/SwipeSubscripeService';
+import { memo, useCallback, useEffect } from 'react';
 
 // stylea
 import classes from './Drawer.module.scss';
+
 
 export interface DrawerProps {
     isOpen: boolean;
@@ -19,7 +20,7 @@ export interface DrawerProps {
 
 const DRAWER_SELECTOR = '*.src-shared-ui-Drawer-ui-Drawer-module__content';
 
-export const Drawer: React.FC<DrawerProps> = ( { children, isOpen, className, lazy, onClose } ) => {
+export const Drawer: React.FC<DrawerProps> = memo( ( { children, isOpen, className, lazy, onClose } ) => {
     const { isMounted, isClosing, onCloseHandler } = useModal( {
         isOpen,
         onClose,
@@ -74,4 +75,4 @@ export const Drawer: React.FC<DrawerProps> = ( { children, isOpen, className, la
             </div>
         </Portal>
     );
-};
+} );

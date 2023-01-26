@@ -1,8 +1,8 @@
-import { EditableProfileCard } from 'features/EditableProfileCard';
+import { EditableProfileCard } from '@/features/EditableProfileCard';
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { classNames } from 'shared/lib/utility/UtilityMethods';
-import { Page } from 'widgets/Page';
+import { classNames } from '@/shared/lib/utility/UtilityMethods';
+import { Page } from '@/widgets/Page';
 
 // styles
 import classes from './ProfilePage.module.scss';

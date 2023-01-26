@@ -3,12 +3,12 @@ import { initPostsPage } from '../../../PostsPage/model/services/initPostsPage/i
 import { postsPageReducer } from '../../../PostsPage/model/slice/postsPageSlice';
 import React, { memo, useCallback } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { useInitialEffect } from 'shared/hooks/useInitialEffect';
-import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { classNames } from 'shared/lib/utility/UtilityMethods';
-import { Column } from 'shared/ui/Layout';
-import { Page } from 'widgets/Page';
+import { useInitialEffect } from '@/shared/hooks/useInitialEffect';
+import { DynamicReducerLoader, ReducersList } from '@/shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { classNames } from '@/shared/lib/utility/UtilityMethods';
+import { Column } from '@/shared/ui/Layout';
+import { Page } from '@/widgets/Page';
 import { PostInfiniteList } from '../PostInfiniteList/PostInfiniteList';
 import { PostsFilters } from '../PostsFilters/PostsFilters';
 

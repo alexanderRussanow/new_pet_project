@@ -1,5 +1,5 @@
-import { classNames } from 'shared/lib/utility/UtilityMethods';
-import { Loader } from 'shared/ui/Loader';
+import { classNames } from '@/shared/lib/utility/UtilityMethods';
+import { Loader } from '@/shared/ui/Loader';
 // styles
 import classes from './PageLoader.module.scss';
 

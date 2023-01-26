@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Listbox } from 'shared/ui/Listbox';
+import { Listbox } from '@/shared/ui/Listbox';
 import { CountriesEnum } from '../model/consts/CountriesEnum';
 
 export interface CountriesSelectProps {

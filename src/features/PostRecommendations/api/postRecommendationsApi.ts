@@ -1,6 +1,6 @@
-import { PostType } from 'entities/Post';
-import { rtkAPI } from 'shared/api/rtkApi';
-import { AppRoutes } from 'shared/config/routeConfig/routeConfig';
+import { PostType } from '@/entities/Post';
+import { rtkAPI } from '@/shared/api/rtkApi';
+import { AppRoutes } from '@/shared/config/routeConfig/routeConfig';
 
 const recommendationApi = rtkAPI.injectEndpoints( {
     endpoints: build => ( {

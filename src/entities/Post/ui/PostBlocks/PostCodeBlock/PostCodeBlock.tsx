@@ -1,9 +1,9 @@
 
 import { ContentCode } from '../../../model/types/PostType';
 import { memo, useCallback } from 'react';
-import { classNames } from 'shared/lib/utility/UtilityMethods';
-import { Button } from 'shared/ui/Button';
-import { Icon } from 'shared/ui/Icon';
+import { classNames } from '@/shared/lib/utility/UtilityMethods';
+import { Button } from '@/shared/ui/Button';
+import { Icon } from '@/shared/ui/Icon';
 import CopyIcon from '../../../../../shared/assets/icons/copy-20-20.svg';
 // styles
 import classes from './PostCodeBlock.module.scss';

@@ -1,8 +1,8 @@
-import { ThemeEnum, useTheme } from 'app/providers/ThemeProvider';
-import { classNames } from 'shared/lib/utility/UtilityMethods';
-import DartIcon from 'shared/assets/icons/iconDark.svg';
-import LightIcon from 'shared/assets/icons/iconLight.svg';
-import { Button, ButtonThemeEnum } from 'shared/ui/Button';
+import { ThemeEnum, useTheme } from '@/app/providers/ThemeProvider';
+import { classNames } from '@/shared/lib/utility/UtilityMethods';
+import DartIcon from '@/shared/assets/icons/iconDark.svg';
+import LightIcon from '@/shared/assets/icons/iconLight.svg';
+import { Button, ButtonThemeEnum } from '@/shared/ui/Button';
 // styles
 import classes from './ThemeSwitcher.module.scss';
 import { memo } from 'react';

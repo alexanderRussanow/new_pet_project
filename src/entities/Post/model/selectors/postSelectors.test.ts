@@ -1,4 +1,4 @@
-import { StateSchema } from 'app/providers/StoreProvider';
+import { StateSchema } from '@/app/providers/StoreProvider';
 import { getPostData, getPostError, getPostIsLoading } from './postSelectors';
 
 describe(

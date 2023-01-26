@@ -1,4 +1,4 @@
-import { UserType } from 'entities/User';
+import { UserType } from '@/entities/User';
 import { PostContentTypeEnum } from '../consts/postConsts';
 
 export type PostTags = 'All' | 'IT' | 'Web' | 'Design' | 'Business' | 'Other';

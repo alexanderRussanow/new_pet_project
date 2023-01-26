@@ -1,9 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from 'app/providers/StoreProvider';
+import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { getPostsPageHasInited } from '../../selectors/postsPageSelectors';
 import { postsPageActions } from '../../slice/postsPageSlice';
 import { fetchPosts } from '../fetchPosts/fetchPosts';
-import { PostTags } from 'entities/Post';
+import { PostTags } from '@/entities/Post';
 
 export const initPostsPage = createAsyncThunk<void, URLSearchParams, ThunkConfig<string>>(
     'initPostsPage',

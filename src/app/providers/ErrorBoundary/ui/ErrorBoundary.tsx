@@ -1,5 +1,5 @@
 import React, { ErrorInfo, ReactNode, Suspense } from 'react';
-import { ErrorBoundaryNotification } from 'widgets/BoundaryErrorNotification';
+import { ErrorBoundaryNotification } from '@/widgets/BoundaryErrorNotification';
 
 interface ErrorBoundaryProps {
     children: ReactNode;

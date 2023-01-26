@@ -1,6 +1,6 @@
-import { StateSchema } from 'app/providers/StoreProvider';
-import { CountriesEnum } from 'entities/Counties';
-import { CurrencyEnum } from 'entities/Currency';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { CountriesEnum } from '@/entities/Counties';
+import { CurrencyEnum } from '@/entities/Currency';
 import { getProfileDataSelector, getProfileErrorSelector, getProfileIsLoadingSelector } from './profileDataSelectors';
 
 describe(

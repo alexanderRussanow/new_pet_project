@@ -1,12 +1,12 @@
 import { screen } from '@testing-library/react';
-import { CountriesEnum } from 'entities/Counties';
-import { CurrencyEnum } from 'entities/Currency';
-import { ProfileType } from 'entities/Profile';
+import { CountriesEnum } from '@/entities/Counties';
+import { CurrencyEnum } from '@/entities/Currency';
+import { ProfileType } from '@/entities/Profile';
 import { profileReducer } from '../../../EditableProfileCard/model/slice/profileSlice';
-import { ComponentRender } from 'shared/lib/tests/componentRender/ComponentRender';
+import { ComponentRender } from '@/shared/lib/tests/componentRender/ComponentRender';
 import { EditableProfileCard } from './EditableProfileCard';
 import userEvent from '@testing-library/user-event';
-import { API } from 'shared/api/api';
+import { API } from '@/shared/api/api';
 
 const testProfileData: ProfileType = {
     id: '1',

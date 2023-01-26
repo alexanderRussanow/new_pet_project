@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from 'app/providers/StoreProvider';
-import { PostType } from 'entities/Post/model/types/PostType';
+import { ThunkConfig } from '@/app/providers/StoreProvider';
+import { PostType } from '@/entities/Post/model/types/PostType';
 
 export const fetchPostRecommendations = createAsyncThunk<PostType[], void, ThunkConfig<string>>(
     'fetchPostRecommendations',

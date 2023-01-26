@@ -1,13 +1,13 @@
-import { getPostData } from 'entities/Post';
+import { getPostData } from '@/entities/Post';
 import { getPostEditSelector } from '../../../PostDetailsPage/model/selectors/postIsEditSelectors';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { RoutesPath } from 'shared/config/routeConfig/routeConfig';
-import { classNames } from 'shared/lib/utility/UtilityMethods';
-import { Button, ButtonThemeEnum } from 'shared/ui/Button';
-import { Row } from 'shared/ui/Layout';
+import { RoutesPath } from '@/shared/config/routeConfig/routeConfig';
+import { classNames } from '@/shared/lib/utility/UtilityMethods';
+import { Button, ButtonThemeEnum } from '@/shared/ui/Button';
+import { Row } from '@/shared/ui/Layout';
 
 export interface PostDetailsPageHeaderProps {
     className?: string;

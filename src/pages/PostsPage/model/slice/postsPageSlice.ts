@@ -1,7 +1,7 @@
 import { createEntityAdapter, createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { StateSchema } from 'app/providers/StoreProvider';
-import { OrderEnum, PostsListViewModeEnum, PostsSortFieldEnum, PostTags, PostType } from 'entities/Post';
-import { VIEW_MODE_LS_KEY } from 'shared/const/localStorage';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { OrderEnum, PostsListViewModeEnum, PostsSortFieldEnum, PostTags, PostType } from '@/entities/Post';
+import { VIEW_MODE_LS_KEY } from '@/shared/const/localStorage';
 import { fetchPosts } from '../services/fetchPosts/fetchPosts';
 import { PostsPageSchema } from '../types/PostsPageSchema';
 

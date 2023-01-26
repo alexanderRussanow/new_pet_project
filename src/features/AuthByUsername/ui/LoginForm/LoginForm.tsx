@@ -5,12 +5,12 @@ import { loginReducer, loginActions } from '../../../AuthByUsername/model/slice/
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { DynamicReducerLoader, ReducersList } from 'shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { classNames } from 'shared/lib/utility/UtilityMethods';
-import { Button, ButtonSizeEnum, ButtonThemeEnum } from 'shared/ui/Button';
-import { Input } from 'shared/ui/Input';
-import { TextThemeEnum } from 'shared/ui/Text';
+import { DynamicReducerLoader, ReducersList } from '@/shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { classNames } from '@/shared/lib/utility/UtilityMethods';
+import { Button, ButtonSizeEnum, ButtonThemeEnum } from '@/shared/ui/Button';
+import { Input } from '@/shared/ui/Input';
+import { TextThemeEnum } from '@/shared/ui/Text';
 import { Text } from '../../../../shared/ui/Text';
 // styles
 import classes from './LoginForm.module.scss';

@@ -1,6 +1,6 @@
 import { memo } from 'react';
-import { useModal } from 'shared/hooks/useModal';
-import { Overlay } from 'shared/ui/Overlay';
+import { useModal } from '@/shared/hooks/useModal';
+import { Overlay } from '@/shared/ui/Overlay';
 import { classNames } from '../../../lib/utility/UtilityMethods';
 import { Portal } from '../../Portal';
 // styles

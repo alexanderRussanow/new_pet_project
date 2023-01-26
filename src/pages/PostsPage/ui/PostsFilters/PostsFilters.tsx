@@ -1,4 +1,4 @@
-import { OrderEnum, PostsListViewModeEnum, PostsSortFieldEnum, PostTags, PostViewSwitcher } from 'entities/Post';
+import { OrderEnum, PostsListViewModeEnum, PostsSortFieldEnum, PostTags, PostViewSwitcher } from '@/entities/Post';
 import {
     getPostsFilterOrder,
     getPostsFilterSearchQuery,
@@ -9,14 +9,14 @@ import {
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useDebounce } from 'shared/hooks/useDebounce';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { classNames } from 'shared/lib/utility/UtilityMethods';
-import { Card } from 'shared/ui/Card';
-import { Input } from 'shared/ui/Input';
-import { Row, Column } from 'shared/ui/Layout';
-import { Select, SelectOptions } from 'shared/ui/Select';
-import { Tabs, TabType } from 'shared/ui/Tabs';
+import { useDebounce } from '@/shared/hooks/useDebounce';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { classNames } from '@/shared/lib/utility/UtilityMethods';
+import { Card } from '@/shared/ui/Card';
+import { Input } from '@/shared/ui/Input';
+import { Row, Column } from '@/shared/ui/Layout';
+import { Select, SelectOptions } from '@/shared/ui/Select';
+import { Tabs, TabType } from '@/shared/ui/Tabs';
 import { postsPageActions } from '../../model/slice/postsPageSlice';
 import { fetchPosts } from '../../model/services/fetchPosts/fetchPosts';
 

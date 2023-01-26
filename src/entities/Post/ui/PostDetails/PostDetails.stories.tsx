@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { PostContentTypeEnum } from '../../../Post/model/consts/postConsts';
 import { PostType } from '../../../Post/model/types/PostType';
-import { StoreDecorator } from 'shared/config/storybook/decorators/StoreDecorator';
+import { StoreDecorator } from '@/shared/config/storybook/decorators/StoreDecorator';
 import { PostDetails } from './PostDetails';
 
 export default {

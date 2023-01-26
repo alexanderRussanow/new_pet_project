@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from 'app/providers/StoreProvider';
+import { ThunkConfig } from '@/app/providers/StoreProvider';
 import { getPostsPageHasMore, getPostsPagePage, getPostsPageIsLoading } from '../../selectors/postsPageSelectors';
 import { postsPageActions } from '../../slice/postsPageSlice';
 import { fetchPosts } from '../fetchPosts/fetchPosts';

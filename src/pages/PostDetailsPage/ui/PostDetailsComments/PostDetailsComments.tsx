@@ -1,5 +1,5 @@
-import { CommentList } from 'entities/Comment';
-import { AddNewCommentForm } from 'features/AddNewCommentForm';
+import { CommentList } from '@/entities/Comment';
+import { AddNewCommentForm } from '@/features/AddNewCommentForm';
 import { getCommentsIsLoading } from '../../model/selectors/postDetailsCommentSelectors';
 import { addCommentForPost } from '../../model/services/addCommentForPost';
 import { fetchCommentsByPostId } from '../../model/services/fetchCommentsByPostId';
@@ -7,11 +7,11 @@ import { getPostComments } from '../../model/slice/postDetailsCommentsSlice';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useInitialEffect } from 'shared/hooks/useInitialEffect';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch';
-import { classNames } from 'shared/lib/utility/UtilityMethods';
-import { Column } from 'shared/ui/Layout';
-import { Text } from 'shared/ui/Text';
+import { useInitialEffect } from '@/shared/hooks/useInitialEffect';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
+import { classNames } from '@/shared/lib/utility/UtilityMethods';
+import { Column } from '@/shared/ui/Layout';
+import { Text } from '@/shared/ui/Text';
 
 interface PostDetailCommentsProps {
     postId?: string;
