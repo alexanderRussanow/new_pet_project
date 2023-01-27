@@ -39,6 +39,7 @@ export default {
             __dirname,
             'svgMock.tsx' 
         ),
+        '^@/(.*)$': '<rootDir>/src/$1'
     },
     globals: {
         __IS_DEV__: true,
