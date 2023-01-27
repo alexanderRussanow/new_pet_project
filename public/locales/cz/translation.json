@@ -24,5 +24,8 @@
    "EDIT": "Upravit",
    "ADMIN_PAGE": "Stránka správce",
    "FORBIDEN_PAGE": "Nemáte oprávnění k přístupu k této stránce",
-   "ADMIN": "Správce"
+   "ADMIN": "Správce",
+   "CANCEL": "Zrušit",
+   "SEND": "Odeslat",
+   "YOUR_FEEDBACK": "Vaše zpětná vazba"
 }

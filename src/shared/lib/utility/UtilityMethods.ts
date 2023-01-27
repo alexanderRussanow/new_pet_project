@@ -7,7 +7,7 @@ export const classNames = ( cls: string, mods: Mods = {}, additionalClasses: Arr
             .filter( ( [
                 // eslint-disable-next-line @typescript-eslint/no-unused-vars
                 _,
-                value
+                value,
             ] ) => Boolean( value ) )
             .map( ( [
                 className
@@ -20,3 +20,11 @@ export const classNames = ( cls: string, mods: Mods = {}, additionalClasses: Arr
             ' ' 
         )
         .trimEnd();
+
+
+export const isMobileDevice = (): boolean => {
+    const isMobile = window.matchMedia;
+    if ( !isMobile ) return false;
+    const device = isMobile( '(pointer:coarse)' );
+    return device.matches;
+};

@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import { useModal } from '@/shared/hooks/useModal';
 import { classNames } from '@/shared/lib/utility/UtilityMethods';
 import { Overlay } from '@/shared/ui/Overlay';
@@ -9,7 +8,6 @@ import { memo, useCallback, useEffect } from 'react';
 // stylea
 import classes from './Drawer.module.scss';
 
-
 export interface DrawerProps {
     isOpen: boolean;
     children?: React.ReactNode;
@@ -18,17 +16,13 @@ export interface DrawerProps {
     onClose?: () => void;
 }
 
-const DRAWER_SELECTOR = '*.src-shared-ui-Drawer-ui-Drawer-module__content';
+const DRAWER_SELECTOR = '*.src-shared-ui-Drawer-ui-Drawer-module__content' || '*._Drawer_h4bft_1 _opened_h4bft_40';
 
 export const Drawer: React.FC<DrawerProps> = memo( ( { children, isOpen, className, lazy, onClose } ) => {
     const { isMounted, isClosing, onCloseHandler } = useModal( {
         isOpen,
         onClose,
     } );
-
-    if ( lazy && !isMounted ) {
-        return null;
-    }
 
     const handleSwipe = useCallback(
         ( direction: string ) => {
@@ -59,6 +53,10 @@ export const Drawer: React.FC<DrawerProps> = memo( ( { children, isOpen, classNa
             handleSwipe
         ] 
     );
+
+    if ( lazy && !isMounted ) {
+        return null;
+    }
 
     return (
         <Portal>

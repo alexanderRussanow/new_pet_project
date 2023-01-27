@@ -24,5 +24,8 @@
    "EDIT": "Edit",
    "ADMIN_PAGE": "Admin page",
    "FORBIDEN_PAGE": "You are not allowed to see this page",
-   "ADMIN": "Dashboard"
+   "ADMIN": "Dashboard",
+   "CANCEL": "Cancel",
+   "SEND": "Send",
+   "YOUR_FEEDBACK": "Your feedback"
 }

@@ -1,5 +1,5 @@
 import { NotificationList } from '@/entities/Notification';
-import { classNames } from '@/shared/lib/utility/UtilityMethods';
+import { classNames, isMobileDevice } from '@/shared/lib/utility/UtilityMethods';
 import { Button, ButtonThemeEnum } from '@/shared/ui/Button';
 import { Icon } from '@/shared/ui/Icon';
 import { Popover } from '@/shared/ui/Popover/ui/Popover';
@@ -14,10 +14,9 @@ export interface NotificationButtonProps {
     className?: string;
 }
 
-/**
- * @TBD refactor useState and useEffect hooks for detection of mobile device
- */
 export const NotificationButton: React.FC<NotificationButtonProps> = memo( ( { className } ) => {
+    const isMobile = isMobileDevice();
+
     const [
         opened,
         setOpened
@@ -33,15 +32,6 @@ export const NotificationButton: React.FC<NotificationButtonProps> = memo( ( { c
             setOpened
         ] 
     );
-
-    const detectDevice = () => {
-        const isMobile = window.matchMedia;
-        if ( !isMobile ) return false;
-        const device = isMobile( '(pointer:coarse)' );
-        return device.matches;
-    };
-
-    const isMobile = detectDevice();
 
     useEffect(
         () => {
@@ -85,6 +75,7 @@ export const NotificationButton: React.FC<NotificationButtonProps> = memo( ( { c
                 {trigger}
                 <Drawer
                     isOpen={ opened }
+                    lazy
                     onClose={ () => setOpened( false ) }>
                     {content}
                 </Drawer>
@@ -102,7 +93,7 @@ export const NotificationButton: React.FC<NotificationButtonProps> = memo( ( { c
                     className
                 ] 
             ) }>
-            <NotificationList className={ classes.notifications } />
+            {content}
         </Popover>
     );
 } );
