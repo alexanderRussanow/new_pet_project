@@ -17,11 +17,12 @@ export interface RatingCardProps {
     hasFeedback?: boolean;
     feedbackTitle?: string;
     className?: string;
+    starsRate?: number;
     onCancel?: ( starsCount: number ) => void;
     onSend?: ( starsCount: number, feedback?: string ) => void;
 }
 
-export const RatingCard: React.FC<RatingCardProps> = memo( ( { title, hasFeedback, feedbackTitle, className, onCancel, onSend } ) => {
+export const RatingCard: React.FC<RatingCardProps> = memo( ( { title, hasFeedback, feedbackTitle, className, starsRate = 0, onCancel, onSend } ) => {
     const { t } = useTranslation();
 
     const isMobile = isMobileDevice();
@@ -33,7 +34,7 @@ export const RatingCard: React.FC<RatingCardProps> = memo( ( { title, hasFeedbac
     const [
         starsCount,
         setStarsCount
-    ] = useState( 0 );
+    ] = useState( starsRate );
     const [
         feedback,
         setFeedback
@@ -96,12 +97,12 @@ export const RatingCard: React.FC<RatingCardProps> = memo( ( { title, hasFeedbac
                 gap='medium'
                 justify='end'>
                 <Button
-                    theme={ ButtonThemeEnum.CLEAR_INVERTED }
+                    theme={ ButtonThemeEnum.CLEAR }
                     onClick={ onCancelClick }>
                     {t( 'CANCEL' )}
                 </Button>
                 <Button
-                    theme={ ButtonThemeEnum.BACKGROUND_INVERTED }
+                    theme={ ButtonThemeEnum.OUTLINE }
                     onClick={ onSendClick }>
                     {t( 'SEND' )}
                 </Button>
@@ -123,7 +124,7 @@ export const RatingCard: React.FC<RatingCardProps> = memo( ( { title, hasFeedbac
                 width100>
                 <Text
                     size={ TextSizeEnum.MEDIUM }
-                    title={ title } />
+                    title={ starsRate ? t( 'YOUR_RATING' ) : title } />
                 <StarRating
                     selectedStars={ starsCount }
                     size={ 35 }

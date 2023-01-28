@@ -27,5 +27,8 @@
    "ADMIN": "Správce",
    "CANCEL": "Zrušit",
    "SEND": "Odeslat",
-   "YOUR_FEEDBACK": "Vaše zpětná vazba"
+   "LEAVE_YOUR_FEEDBACK": "Zanechte nám svou zpětnou vazbu",
+   "YOUR_FEEDBACK": "Vaše zpětná vazba",
+   "ADD_POST_RATING": "Přidejte hodnocení tomuto článku",
+   "YOUR_RATING": "Vaše hodnocení"
 }

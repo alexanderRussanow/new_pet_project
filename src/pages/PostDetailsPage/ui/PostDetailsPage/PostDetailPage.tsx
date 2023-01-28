@@ -12,6 +12,7 @@ import { PostDetailComments } from '../PostDetailsComments/PostDetailsComments';
 import { PostDetailsPageHeader } from '../PostDetailsPageHeader/PostDetailsPageHeader';
 // styles
 import classes from './PostDetailPage.module.scss';
+import { PostRating } from '@/features/PostRating';
 
 const reducer: ReducersList = {
     postsDetails: postDetailsMainReducer,
@@ -33,10 +34,11 @@ const PostDetailPage: React.FC = () => {
                 {id ? (
                     <Column
                         align='stretch'
-                        gap='small'
+                        gap='medium'
                         width100>
                         <PostDetailsPageHeader />
                         <PostDetails postId={ id } />
+                        <PostRating postId={ id } />
                         <PostRecommendations />
                         <PostDetailComments postId={ id } />
                     </Column>

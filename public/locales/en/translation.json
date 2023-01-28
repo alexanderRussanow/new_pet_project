@@ -27,5 +27,8 @@
    "ADMIN": "Dashboard",
    "CANCEL": "Cancel",
    "SEND": "Send",
-   "YOUR_FEEDBACK": "Your feedback"
+   "YOUR_FEEDBACK": "Your feedback",
+   "LEAVE_YOUR_FEEDBACK": "Leave us your feedback",
+   "ADD_POST_RATING": "Add post rating",
+   "YOUR_RATING": "Your rating"
 }
