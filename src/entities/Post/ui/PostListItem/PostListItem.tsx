@@ -1,6 +1,5 @@
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { RoutesPath } from '@/shared/config/routeConfig/routeConfig';
 import { classNames } from '@/shared/lib/utility/UtilityMethods';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { Button, ButtonThemeEnum } from '@/shared/ui/Button/Button';
@@ -14,6 +13,7 @@ import { Column } from '@/shared/ui/Layout/Column/Column';
 import { Row } from '@/shared/ui/Layout/Row/Row';
 import { ContentText, PostType } from '../../model/types/PostType';
 import { PostsListViewModeEnum, PostContentTypeEnum } from '../../model/consts/postConsts';
+import { RoutesPath } from '@/shared/types/routesPaths';
 // styles
 import classes from './PostListItem.module.scss';
 

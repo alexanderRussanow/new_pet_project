@@ -9,36 +9,12 @@ import { PostCreateEditPage } from '@/pages/PostCreateEditPage';
 import { AdminPage } from '@/pages/AdminPage';
 import { UserRolesEnum } from '@/entities/User';
 import { ForbidenPage } from '@/pages/ForbidenPage';
+import { AppRoutes } from '@/shared/const/appRoutes';
+import { RoutesPath } from '@/shared/types/routesPaths';
 
 export type AppRouteProps = RouteProps & {
     private?: boolean;
     roles?: UserRolesEnum[];
-};
-
-export enum AppRoutes {
-    HOME = 'home',
-    PROFILE = 'profile',
-    POSTS = 'posts',
-    PAGE_404 = '404',
-    POST_DETAIL = 'postDetail',
-    ABOUT_PAGE = 'aboutPage',
-    POST_CREATE = 'postCreate',
-    POST_EDIT = 'postEdit',
-    ADMIN_PAGE = 'adminPage',
-    FORBIDEN_PAGE = 'forbidenPage',
-}
-
-export const RoutesPath: Record<AppRoutes, string> = {
-    [ AppRoutes.HOME ]: '/',
-    [ AppRoutes.PROFILE ]: '/profile/',
-    [ AppRoutes.POSTS ]: '/posts',
-    [ AppRoutes.POST_DETAIL ]: '/posts/',
-    [ AppRoutes.ABOUT_PAGE ]: '/about',
-    [ AppRoutes.POST_CREATE ]: '/posts/create',
-    [ AppRoutes.POST_EDIT ]: '/posts/:id/edit',
-    [ AppRoutes.ADMIN_PAGE ]: '/admin',
-    [ AppRoutes.FORBIDEN_PAGE ]: '/forbiden',
-    [ AppRoutes.PAGE_404 ]: '*',
 };
 
 export const routesConfig: Record<AppRoutes, AppRouteProps> = {

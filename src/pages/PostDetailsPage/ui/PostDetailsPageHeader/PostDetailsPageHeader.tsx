@@ -4,10 +4,10 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { RoutesPath } from '@/shared/config/routeConfig/routeConfig';
 import { classNames } from '@/shared/lib/utility/UtilityMethods';
 import { Button, ButtonThemeEnum } from '@/shared/ui/Button/Button';
 import { Row } from '@/shared/ui/Layout/Row/Row';
+import { RoutesPath } from '@/shared/types/routesPaths';
 
 export interface PostDetailsPageHeaderProps {
     className?: string;

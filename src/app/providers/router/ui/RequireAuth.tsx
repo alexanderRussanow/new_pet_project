@@ -1,8 +1,8 @@
 import { getUserAuthData, getUserRoles, UserRolesEnum } from '@/entities/User';
+import { RoutesPath } from '@/shared/types/routesPaths';
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
-import { RoutesPath } from '@/shared/config/routeConfig/routeConfig';
 
 export interface RequireAuthProps {
     roles?: UserRolesEnum[];

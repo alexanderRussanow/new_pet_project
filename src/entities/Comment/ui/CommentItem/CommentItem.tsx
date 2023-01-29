@@ -4,10 +4,10 @@ import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { Text } from '@/shared/ui/Text/Text';
 import { CommentType } from '../..';
-import { RoutesPath } from '@/shared/config/routeConfig/routeConfig';
 import { AppLink } from '@/shared/ui/AppLink/AppLink';
 import { Column } from '@/shared/ui/Layout/Column/Column';
 import { Row } from '@/shared/ui/Layout/Row/Row';
+import { RoutesPath } from '@/shared/types/routesPaths';
 // styles
 import classes from './CommentItem.module.scss';
 

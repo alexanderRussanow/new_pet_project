@@ -2,14 +2,13 @@ import { getUserAuthData, isUserAdmin, userActions } from '@/entities/User';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { RoutesPath } from '@/shared/config/routeConfig/routeConfig';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { classNames } from '@/shared/lib/utility/UtilityMethods';
 import { Avatar } from '@/shared/ui/Avatar/Avatar';
 import { Dropdown } from '@/shared/ui/Dropdown/Dropdown';
 import { Row } from '@/shared/ui/Layout/Row/Row';
 import { Text, TextSizeEnum } from '@/shared/ui/Text/Text';
-
+import { RoutesPath } from '@/shared/types/routesPaths';
 // styles
 import classes from './UserAvatarDropdown.module.scss';
 
