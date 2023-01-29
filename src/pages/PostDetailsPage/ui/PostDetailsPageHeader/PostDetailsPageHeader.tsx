@@ -6,8 +6,8 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { RoutesPath } from '@/shared/config/routeConfig/routeConfig';
 import { classNames } from '@/shared/lib/utility/UtilityMethods';
-import { Button, ButtonThemeEnum } from '@/shared/ui/Button';
-import { Row } from '@/shared/ui/Layout';
+import { Button, ButtonThemeEnum } from '@/shared/ui/Button/Button';
+import { Row } from '@/shared/ui/Layout/Row/Row';
 
 export interface PostDetailsPageHeaderProps {
     className?: string;

@@ -1,6 +1,6 @@
 import { classNames } from '@/shared/lib/utility/UtilityMethods';
-import { Column } from '@/shared/ui/Layout';
-import { Text, TextSizeEnum } from '@/shared/ui/Text';
+import { Column } from '@/shared/ui/Layout/Column/Column';
+import { Text, TextSizeEnum } from '@/shared/ui/Text/Text';
 import { Page } from '@/widgets/Page';
 import React from 'react';
 import { useTranslation } from 'react-i18next';

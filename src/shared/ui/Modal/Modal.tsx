@@ -1,8 +1,8 @@
 import { memo } from 'react';
-import { useModal } from '@/shared/hooks/useModal';
-import { Overlay } from '@/shared/ui/Overlay';
-import { classNames } from '../../../lib/utility/UtilityMethods';
-import { Portal } from '../../Portal';
+import { useModal } from '../../hooks/useModal';
+import { Overlay } from '../../ui/Overlay/Overlay';
+import { classNames } from '../../lib/utility/UtilityMethods';
+import { Portal } from '../Portal/Portal';
 // styles
 import classes from './Modal.module.scss';
 

@@ -6,8 +6,8 @@ import { useInitialEffect } from '@/shared/hooks/useInitialEffect';
 import { DynamicReducerLoader, ReducersList } from '@/shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { classNames } from '@/shared/lib/utility/UtilityMethods';
-import { Column } from '@/shared/ui/Layout';
-import { Text, TextThemeEnum } from '@/shared/ui/Text';
+import { Column } from '@/shared/ui/Layout/Column/Column';
+import { Text, TextThemeEnum } from '@/shared/ui/Text/Text';
 import {
     getProfileErrorSelector,
     getProfileFormDataSelector,

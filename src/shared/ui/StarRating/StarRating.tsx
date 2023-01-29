@@ -1,7 +1,7 @@
-import { classNames } from '@/shared/lib/utility/UtilityMethods';
+import { classNames } from '../../lib/utility/UtilityMethods';
 import { memo, useState } from 'react';
-import { Icon } from '../Icon';
-import { Row } from '../Layout';
+import { Icon } from '../Icon/Icon';
+import { Row } from '../Layout/Row/Row';
 import StarIcon from './../../assets/icons/star-20-20.svg';
 // styls
 import classes from './StarRating.module.scss';

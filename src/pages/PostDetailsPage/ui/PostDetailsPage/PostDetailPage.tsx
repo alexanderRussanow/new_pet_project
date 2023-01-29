@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 import { DynamicReducerLoader, ReducersList } from '@/shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 import { classNames } from '@/shared/lib/utility/UtilityMethods';
-import { Column } from '@/shared/ui/Layout';
 import { Page } from '@/widgets/Page';
 import { postDetailsMainReducer } from '../../model/slice/postDetailsMainSlice';
 import { PostDetailComments } from '../PostDetailsComments/PostDetailsComments';
@@ -13,6 +12,7 @@ import { PostDetailsPageHeader } from '../PostDetailsPageHeader/PostDetailsPageH
 // styles
 import classes from './PostDetailPage.module.scss';
 import { PostRating } from '@/features/PostRating';
+import { Column } from '@/shared/ui/Layout/Column/Column';
 
 const reducer: ReducersList = {
     postsDetails: postDetailsMainReducer,

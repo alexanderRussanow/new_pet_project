@@ -12,13 +12,14 @@ import { useSelector } from 'react-redux';
 import { useDebounce } from '@/shared/hooks/useDebounce';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { classNames } from '@/shared/lib/utility/UtilityMethods';
-import { Card } from '@/shared/ui/Card';
-import { Input } from '@/shared/ui/Input';
-import { Row, Column } from '@/shared/ui/Layout';
-import { Select, SelectOptions } from '@/shared/ui/Select';
-import { Tabs, TabType } from '@/shared/ui/Tabs';
 import { postsPageActions } from '../../model/slice/postsPageSlice';
 import { fetchPosts } from '../../model/services/fetchPosts/fetchPosts';
+import { Card } from '@/shared/ui/Card/Card';
+import { Input } from '@/shared/ui/Input/Input';
+import { Column } from '@/shared/ui/Layout/Flex/Flex.stories';
+import { Row } from '@/shared/ui/Layout/Row/Row';
+import { SelectOptions, Select } from '@/shared/ui/Select/Select';
+import { TabType, Tabs } from '@/shared/ui/Tabs/Tabs';
 
 export interface PostsFiltersProps {
     className?: string;

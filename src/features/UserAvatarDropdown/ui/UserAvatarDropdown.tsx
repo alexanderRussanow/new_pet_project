@@ -5,10 +5,10 @@ import { useSelector } from 'react-redux';
 import { RoutesPath } from '@/shared/config/routeConfig/routeConfig';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { classNames } from '@/shared/lib/utility/UtilityMethods';
-import { Avatar } from '@/shared/ui/Avatar';
-import { Dropdown } from '@/shared/ui/Dropdown';
-import { Row } from '@/shared/ui/Layout';
-import { Text, TextSizeEnum } from '@/shared/ui/Text';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Dropdown } from '@/shared/ui/Dropdown/Dropdown';
+import { Row } from '@/shared/ui/Layout/Row/Row';
+import { Text, TextSizeEnum } from '@/shared/ui/Text/Text';
 
 // styles
 import classes from './UserAvatarDropdown.module.scss';

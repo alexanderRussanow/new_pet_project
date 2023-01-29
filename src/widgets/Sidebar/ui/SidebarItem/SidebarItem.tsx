@@ -3,8 +3,8 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from '@/shared/lib/utility/UtilityMethods';
-import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink';
 import { SidebarItemType } from '../../model/types/SidebarItemType';
+import { AppLink, AppLinkTheme } from '@/shared/ui/AppLink/AppLink';
 // styles
 import classes from './SidebarItem.module.scss';
 

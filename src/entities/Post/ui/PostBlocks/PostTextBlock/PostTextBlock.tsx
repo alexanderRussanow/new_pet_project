@@ -2,7 +2,7 @@
 import { ContentText } from '../../../model/types/PostType';
 import { memo } from 'react';
 import { classNames } from '@/shared/lib/utility/UtilityMethods';
-import { Text } from '@/shared/ui/Text';
+import { Text } from '@/shared/ui/Text/Text';
 // styles
 import classes from './PostTextBlock.module.scss';
 

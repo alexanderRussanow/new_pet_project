@@ -1,7 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { ThemeEnum } from '@/app/providers/ThemeProvider';
 import { ThemeDecorator } from '@/shared/config/storybook/decorators/ThemeDecorator';
-import { Input } from '..';
+import { Input } from './Input';
+
 
 export default {
     title: 'shared/Input',

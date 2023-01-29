@@ -1,12 +1,13 @@
 import { classNames, isMobileDevice } from '@/shared/lib/utility/UtilityMethods';
-import { Button, ButtonThemeEnum } from '@/shared/ui/Button';
-import { Card } from '@/shared/ui/Card';
-import { Drawer } from '@/shared/ui/Drawer';
-import { Input } from '@/shared/ui/Input';
-import { Column, Row } from '@/shared/ui/Layout';
-import { Modal } from '@/shared/ui/Modal';
+import { Button, ButtonThemeEnum } from '@/shared/ui/Button/Button';
+import { Card } from '@/shared/ui/Card/Card';
+import { Drawer } from '@/shared/ui/Drawer/Drawer';
+import { Input } from '@/shared/ui/Input/Input';
+import { Column } from '@/shared/ui/Layout/Column/Column';
+import { Row } from '@/shared/ui/Layout/Row/Row';
+import { Modal } from '@/shared/ui/Modal/Modal';
 import { StarRating } from '@/shared/ui/StarRating/StarRating';
-import { Text, TextSizeEnum } from '@/shared/ui/Text';
+import { Text, TextSizeEnum } from '@/shared/ui/Text/Text';
 import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 // styles

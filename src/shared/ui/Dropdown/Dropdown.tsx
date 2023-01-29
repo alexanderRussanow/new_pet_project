@@ -1,8 +1,8 @@
+import { classNames } from '../../lib/utility/UtilityMethods';
+import { DropdownDirection } from '../../types/ui';
 import { Menu } from '@headlessui/react';
 import { Fragment, ReactNode } from 'react';
-import { classNames } from '../../../lib/utility/UtilityMethods';
-import { DropdownDirection } from '../../../types/ui';
-import { AppLink } from '../../AppLink';
+import { AppLink } from '../AppLink/AppLink';
 // styles
 import classes from './Dropdown.module.scss';
 

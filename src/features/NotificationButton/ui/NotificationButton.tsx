@@ -1,11 +1,11 @@
 import { NotificationList } from '@/entities/Notification';
 import { classNames, isMobileDevice } from '@/shared/lib/utility/UtilityMethods';
-import { Button, ButtonThemeEnum } from '@/shared/ui/Button';
-import { Icon } from '@/shared/ui/Icon';
-import { Popover } from '@/shared/ui/Popover/ui/Popover';
+import { Button, ButtonThemeEnum } from '@/shared/ui/Button/Button';
+import { Icon } from '@/shared/ui/Icon/Icon';
+import { Popover } from '@/shared/ui/Popover/Popover';
 import BellIcon from '@/shared/assets/icons/bell-20-20.svg';
 import { memo, useCallback, useEffect, useState } from 'react';
-import { Drawer } from '@/shared/ui/Drawer';
+import { Drawer } from '@/shared/ui/Drawer/Drawer';
 
 // style
 import classes from './NotificationButton.module.scss';

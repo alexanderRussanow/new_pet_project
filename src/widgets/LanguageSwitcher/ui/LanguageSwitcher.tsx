@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import React, { memo } from 'react';
-import { Button, ButtonThemeEnum } from '../../../shared/ui/Button';
+import { Button, ButtonThemeEnum } from '@/shared/ui/Button/Button';
 import { classNames } from '../../../shared/lib/utility/UtilityMethods';
 // styles
 import classes from './LanguageSwitcher.module.scss';

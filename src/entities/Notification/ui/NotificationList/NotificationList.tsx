@@ -1,6 +1,6 @@
 import { classNames } from '@/shared/lib/utility/UtilityMethods';
-import { Column } from '@/shared/ui/Layout';
-import { Skeleton } from '@/shared/ui/Skeleton';
+import { Column } from '@/shared/ui/Layout/Column/Column';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 import { useGetNotificationsQuery } from '../../../Notification/api/notificationApi';
 import { NotificationItem } from '../NotificationItem/NotificationItem';
 // styles

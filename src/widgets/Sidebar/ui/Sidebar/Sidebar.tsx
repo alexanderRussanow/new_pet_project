@@ -2,12 +2,13 @@ import { memo, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RoutesPath } from '@/shared/config/routeConfig/routeConfig';
 import { classNames } from '@/shared/lib/utility/UtilityMethods';
-import { Button, ButtonSizeEnum, ButtonThemeEnum } from '@/shared/ui/Button';
-import { Column, Row } from '@/shared/ui/Layout';
 import { LanguageSwitcher } from '../../../LanguageSwitcher';
 import { getSidebarItems } from '../../../Sidebar/model/selectors/getSidebarItems';
 import { ThemeSwitcher } from '../../../ThemeSwitcher';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
+import { Button, ButtonSizeEnum, ButtonThemeEnum } from '@/shared/ui/Button/Button';
+import { Column } from '@/shared/ui/Layout/Column/Column';
+import { Row } from '@/shared/ui/Layout/Flex/Flex.stories';
 // styles
 import classes from './Sidebar.module.scss';
 

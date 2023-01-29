@@ -1,9 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/utility/UtilityMethods';
-import { Column } from '@/shared/ui/Layout';
+import { Column } from '@/shared/ui/Layout/Column/Column';
 import { Page } from '@/widgets/Page';
-import { Text, TextSizeEnum } from '@/shared/ui/Text';
+import { Text, TextSizeEnum } from '@/shared/ui/Text/Text';
 // style
 import classes from './AdminPage.module.scss';
 

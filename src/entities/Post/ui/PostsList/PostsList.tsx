@@ -3,7 +3,7 @@ import { PostType } from '../../model/types/PostType';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/utility/UtilityMethods';
-import { Text } from '@/shared/ui/Text';
+import { Text } from '@/shared/ui/Text/Text';
 import { PostListItem } from '../PostListItem/PostListItem';
 import { PostListItemSkeleton } from '../PostListItemSkeleton/PostListItemSkeleton';
 

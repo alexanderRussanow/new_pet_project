@@ -3,11 +3,12 @@ import { CurrencySelect } from '../../../Currency/ui/CurrencySelect';
 import { ProfileType } from '../../../Profile/model/types/ProfileTypes';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/utility/UtilityMethods';
-import { Avatar } from '@/shared/ui/Avatar';
-import { Input } from '@/shared/ui/Input';
-import { Column, Row } from '@/shared/ui/Layout';
-import { Loader } from '@/shared/ui/Loader';
-import { Text, TextAlignEnum, TextThemeEnum } from '@/shared/ui/Text';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Input } from '@/shared/ui/Input/Input';
+import { Column } from '@/shared/ui/Layout/Column/Column';
+import { Row } from '@/shared/ui/Layout/Row/Row';
+import { Loader } from '@/shared/ui/Loader/Loader';
+import { Text, TextAlignEnum, TextThemeEnum } from '@/shared/ui/Text/Text';
 // styles
 import classes from './ProfileCard.module.scss';
 

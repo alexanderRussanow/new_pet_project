@@ -1,4 +1,3 @@
-
 import { getPostData, getPostError, getPostIsLoading } from '../../model/selectors/postSelectors';
 import { fetchPostById } from '../../model/services/fetchPostById';
 import { postReducer } from '../../model/slice/postSlice';
@@ -9,11 +8,12 @@ import { useSelector } from 'react-redux';
 import { ReducersList, DynamicReducerLoader } from '@/shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { classNames } from '@/shared/lib/utility/UtilityMethods';
-import { Avatar } from '@/shared/ui/Avatar';
-import { Icon } from '@/shared/ui/Icon';
-import { Column, Row } from '@/shared/ui/Layout';
-import { Skeleton } from '@/shared/ui/Skeleton';
-import { Text, TextSizeEnum, TextThemeEnum } from '@/shared/ui/Text';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Icon } from '@/shared/ui/Icon/Icon';
+import { Column } from '@/shared/ui/Layout/Column/Column';
+import { Row } from '@/shared/ui/Layout/Row/Row';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { Text, TextSizeEnum, TextThemeEnum } from '@/shared/ui/Text/Text';
 import { PostCodeBlock } from '../PostBlocks/PostCodeBlock/PostCodeBlock';
 import { PostImageBlock } from '../PostBlocks/PostImageBlock/PostImageBlock';
 import { PostTextBlock } from '../PostBlocks/PostTextBlock/PostTextBlock';

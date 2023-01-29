@@ -1,12 +1,12 @@
-import { useModal } from '@/shared/hooks/useModal';
-import { classNames } from '@/shared/lib/utility/UtilityMethods';
-import { Overlay } from '@/shared/ui/Overlay';
-import { Portal } from '@/shared/ui/Portal';
-import SwipeSubscripeService from '@/shared/lib/services/SwipeSubscripeService';
+import { useModal } from '../../hooks/useModal';
+import { classNames } from '../../lib/utility/UtilityMethods';
+import SwipeSubscripeService from '../../lib/services/SwipeSubscripeService';
 import { memo, useCallback, useEffect } from 'react';
-
+import { Portal } from '../Portal/Portal';
+import { Overlay } from '../Overlay/Overlay';
 // stylea
 import classes from './Drawer.module.scss';
+
 
 export interface DrawerProps {
     isOpen: boolean;

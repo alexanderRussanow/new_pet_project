@@ -10,8 +10,8 @@ import { useSelector } from 'react-redux';
 import { useInitialEffect } from '@/shared/hooks/useInitialEffect';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { classNames } from '@/shared/lib/utility/UtilityMethods';
-import { Column } from '@/shared/ui/Layout';
-import { Text } from '@/shared/ui/Text';
+import { Column } from '@/shared/ui/Layout/Column/Column';
+import { Text } from '@/shared/ui/Text/Text';
 
 interface PostDetailCommentsProps {
     postId?: string;

@@ -1,10 +1,9 @@
+import { classNames } from '../../lib/utility/UtilityMethods';
+import { DropdownDirection } from '../../types/ui';
 import { Listbox as HeadlessListbox } from '@headlessui/react';
 import { Fragment, memo, ReactNode } from 'react';
-import { Button } from '../../Button';
-import { Row } from '../../Layout';
-import { classNames } from '../../../lib/utility/UtilityMethods';
-import { DropdownDirection } from '../../..//types/ui';
-
+import { Button } from '../Button/Button';
+import { Row } from '../Layout/Row/Row';
 // styles
 import classes from './Listbox.module.scss';
 

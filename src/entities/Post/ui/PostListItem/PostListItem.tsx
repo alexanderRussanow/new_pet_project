@@ -1,17 +1,17 @@
-
 import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { RoutesPath } from '@/shared/config/routeConfig/routeConfig';
 import { classNames } from '@/shared/lib/utility/UtilityMethods';
-import { Avatar } from '@/shared/ui/Avatar';
-import { Button, ButtonThemeEnum } from '@/shared/ui/Button';
-import { Card } from '@/shared/ui/Card';
-import { Icon } from '@/shared/ui/Icon';
-import { Text } from '@/shared/ui/Text';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Button, ButtonThemeEnum } from '@/shared/ui/Button/Button';
+import { Card } from '@/shared/ui/Card/Card';
+import { Icon } from '@/shared/ui/Icon/Icon';
+import { Text } from '@/shared/ui/Text/Text';
 import ViewsIcon from '../../../../shared/assets/icons/eye-20-20.svg';
 import { PostTextBlock } from '../PostBlocks/PostTextBlock/PostTextBlock';
-import { AppLink } from '@/shared/ui/AppLink';
-import { Column, Row } from '@/shared/ui/Layout';
+import { AppLink } from '@/shared/ui/AppLink/AppLink';
+import { Column } from '@/shared/ui/Layout/Column/Column';
+import { Row } from '@/shared/ui/Layout/Row/Row';
 import { ContentText, PostType } from '../../model/types/PostType';
 import { PostsListViewModeEnum, PostContentTypeEnum } from '../../model/consts/postConsts';
 // styles

@@ -4,9 +4,9 @@ import { useSelector } from 'react-redux';
 import { DynamicReducerLoader, ReducersList } from '@/shared/lib/components/DynamicReducerLoader/DynamicReducerLoader';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { classNames } from '@/shared/lib/utility/UtilityMethods';
-import { Button, ButtonThemeEnum } from '@/shared/ui/Button';
-import { Input } from '@/shared/ui/Input';
-import { Row } from '@/shared/ui/Layout';
+import { Button, ButtonThemeEnum } from '@/shared/ui/Button/Button';
+import { Input } from '@/shared/ui/Input/Input';
+import { Row } from '@/shared/ui/Layout/Row/Row';
 import { getCommentTextSelector } from '../model/selectors/addNewCommentSelectors';
 import { addNewCommentActions, addNewCommentReducer } from '../model/slice/addCommentSlice';
 // styles

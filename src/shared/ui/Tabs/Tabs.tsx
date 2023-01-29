@@ -1,7 +1,7 @@
+import { classNames } from '../../lib/utility/UtilityMethods';
 import { memo, useCallback } from 'react';
-import { classNames } from '../../../lib/utility/UtilityMethods';
-import { Card, CardThemeEnum } from '../../Card';
-import { Row } from '../../Layout';
+import { Card, CardThemeEnum } from '../Card/Card';
+import { Row } from '../Layout/Flex/Flex.stories';
 // styles
 import classes from './Tabs.module.scss';
 
