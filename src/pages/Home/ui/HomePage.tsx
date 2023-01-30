@@ -1,5 +1,6 @@
 import { classNames } from '@/shared/lib/utility/UtilityMethods';
 import { Column } from '@/shared/ui/Layout/Column/Column';
+import { Loader } from '@/shared/ui/Loader/Loader';
 import { Text, TextSizeEnum } from '@/shared/ui/Text/Text';
 import { Page } from '@/widgets/Page';
 import React from 'react';
@@ -15,7 +16,7 @@ const HomePage: React.FC<HomePageProps> = ( { className } ) => {
     const { t } = useTranslation( 'home' );
 
     return (
-        <Page 
+        <Page
             data-testid='homePage'
             className={ classNames(
                 classes.HomePage,
