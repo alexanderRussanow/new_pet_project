@@ -9,9 +9,10 @@ import { useInitialEffect } from '@/shared/hooks/useInitialEffect';
 import { useThrottle } from '@/shared/hooks/useThrottle';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { classNames } from '@/shared/lib/utility/UtilityMethods';
+import { TestProps } from '@/shared/types/data-testid';
+
 // styles
 import classes from './Page.module.scss';
-import { TestProps } from '@/shared/types/test';
 
 export interface PageProps extends TestProps {
     className?: string;
