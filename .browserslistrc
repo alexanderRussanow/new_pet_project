@@ -1,3 +1,8 @@
-# Browsers that we support 
+[production]
 defaults
 not dead
+
+[development]
+last 2 Chrome version
+last 2 Firefox versions
+last 1 Safari version

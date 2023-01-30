@@ -5,7 +5,7 @@ import { buildPlugins } from './buildPlugins';
 import { buildResolvers } from './buildResolvers';
 import { BuildOptions } from './types/config';
 
-export const buildWebpackConfig = (options: BuildOptions): webpack.Configuration => {
+export function buildWebpackConfig (options: BuildOptions): webpack.Configuration {
     const { mode, paths, isDev } = options;
     const config = {
         mode,
@@ -22,7 +22,7 @@ export const buildWebpackConfig = (options: BuildOptions): webpack.Configuration
         },
         resolve: buildResolvers(options),
         plugins: buildPlugins(options),
-        devtool: isDev ? 'inline-source-map' : undefined,
+        devtool: isDev ? 'eval-cheap-module-source-map' : undefined,
         devServer: isDev ? buildDevServer(options) : undefined,
     };
     return config;
