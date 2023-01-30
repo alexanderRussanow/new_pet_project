@@ -14,8 +14,10 @@ import { Row } from '@/shared/ui/Layout/Row/Row';
 import { ContentText, PostType } from '../../model/types/PostType';
 import { PostsListViewModeEnum, PostContentTypeEnum } from '../../model/consts/postConsts';
 import { RoutesPath } from '@/shared/types/routesPaths';
+import { AppImage } from '@/shared/ui/AppImage/AppImage';
 // styles
 import classes from './PostListItem.module.scss';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
 
 export interface PostListItemProps {
     post: PostType;
@@ -47,10 +49,13 @@ export const PostListItem: React.FC<PostListItemProps> = memo( ( { post, target,
                             align='start'
                             gap='small'>
                             <Row className={ classes.imgWrapper }>
-                                <img
+                                <AppImage
                                     alt={ post.title }
                                     className={ classes.img }
-                                    src={ post.img } />
+                                    src={ post.img }
+                                    fallback={ <Skeleton
+                                        height={ 200 }
+                                        width={ 200 } /> } />
                                 <Text
                                     className={ classes.date }
                                     content={ post.date } />
@@ -90,10 +95,13 @@ export const PostListItem: React.FC<PostListItemProps> = memo( ( { post, target,
                         </Row>
                         <Text title={ post.title } />
                         <Text content={ post.tags.join( ', ' ) } />
-                        <img
+                        <AppImage
                             alt={ post.title }
                             className={ classes.img }
-                            src={ post.img } />
+                            src={ post.img }
+                            fallback={ <Skeleton
+                                height={ 250 }
+                                width={ '100%' } /> } />
                         {textBlock ? <PostTextBlock
                             className={ classes.textBlock }
                             content={ textBlock } /> : null}
