@@ -49,6 +49,7 @@ const PostsPage: React.FC<PostPageProps> = ( { className } ) => {
             reducers={ reducer }
             removeAfterUnmount={ false }>
             <Page
+                data-testid='postsPage'
                 className={ classNames(
                     classes.PostPage,
                     {},

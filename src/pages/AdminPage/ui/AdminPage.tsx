@@ -12,6 +12,7 @@ const AdminPage: React.FC = () => {
 
     return (
         <Page
+            data-testid='adminPage'
             className={ classNames(
                 classes.AdminPage,
                 {},

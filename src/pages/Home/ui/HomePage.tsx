@@ -15,7 +15,8 @@ const HomePage: React.FC<HomePageProps> = ( { className } ) => {
     const { t } = useTranslation( 'home' );
 
     return (
-        <Page
+        <Page 
+            data-testid='homePage'
             className={ classNames(
                 classes.HomePage,
                 {},

@@ -12,6 +12,7 @@ export const Page404: React.FC<Page404Props> = ( { className } ) => {
     const { t } = useTranslation();
     return (
         <Page
+            data-testid='page404'
             className={ classNames(
                 classes.page404,
                 {},

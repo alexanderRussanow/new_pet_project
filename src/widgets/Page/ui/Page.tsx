@@ -11,14 +11,15 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { classNames } from '@/shared/lib/utility/UtilityMethods';
 // styles
 import classes from './Page.module.scss';
+import { TestProps } from '@/shared/types/test';
 
-export interface PageProps {
+export interface PageProps extends TestProps {
     className?: string;
     children?: React.ReactNode;
     onScrollEnd?: () => void;
 }
 
-export const Page: React.FC<PageProps> = memo( ( { className, children, onScrollEnd } ) => {
+export const Page: React.FC<PageProps> = memo( ( { className, children, onScrollEnd, ...props } ) => {
     const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
     const { pathname } = useLocation();
@@ -54,6 +55,7 @@ export const Page: React.FC<PageProps> = memo( ( { className, children, onScroll
 
     return (
         <main
+            data-testid={ props[ 'data-testid' ] ?? 'page' }
             ref={ wrapperRef }
             className={ classNames(
                 classes.Page,

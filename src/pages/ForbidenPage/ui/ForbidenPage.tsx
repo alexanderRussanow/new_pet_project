@@ -12,6 +12,7 @@ const ForbidenPage: React.FC = () => {
 
     return (
         <Page
+            data-testid='forbidenPage'
             className={ classNames(
                 classes.ForbidenPage,
                 {},

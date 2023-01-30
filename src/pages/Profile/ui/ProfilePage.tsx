@@ -16,6 +16,7 @@ const ProfilePage: React.FC<ProfilePageProps> = ( { className } ) => {
 
     return (
         <Page
+            data-testid='profilePage'
             className={ classNames(
                 classes.ProfilePage,
                 {},
