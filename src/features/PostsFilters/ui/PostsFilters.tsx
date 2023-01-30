@@ -1,25 +1,26 @@
-import { OrderEnum, PostsListViewModeEnum, PostsSortFieldEnum, PostTags, PostViewSwitcher } from '@/entities/Post';
+import { OrderEnum, PostsListViewModeEnum, PostsSortFieldEnum, PostTags } from '@/entities/Post';
 import {
     getPostsFilterOrder,
     getPostsFilterSearchQuery,
     getPostsFilterSort,
     getPostsFilterTag,
     getPostsPageViewMode,
-} from '../../model/selectors/postsPageSelectors';
+} from '../../../pages/PostsPage/model/selectors/postsPageSelectors';
 import { memo, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { useDebounce } from '@/shared/hooks/useDebounce';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch';
 import { classNames } from '@/shared/lib/utility/UtilityMethods';
-import { postsPageActions } from '../../model/slice/postsPageSlice';
-import { fetchPosts } from '../../model/services/fetchPosts/fetchPosts';
+import { postsPageActions } from '../../../pages/PostsPage/model/slice/postsPageSlice';
+import { fetchPosts } from '../../../pages/PostsPage/model/services/fetchPosts/fetchPosts';
 import { Card } from '@/shared/ui/Card/Card';
 import { Input } from '@/shared/ui/Input/Input';
-import { Column } from '@/shared/ui/Layout/Flex/Flex.stories';
+import { Column } from '@/shared/ui/Layout/Column/Column';
 import { Row } from '@/shared/ui/Layout/Row/Row';
 import { SelectOptions, Select } from '@/shared/ui/Select/Select';
 import { TabType, Tabs } from '@/shared/ui/Tabs/Tabs';
+import { PostViewSwitcher } from '../../PostViewSwitcher/ui/PostViewSwitcher';
 
 export interface PostsFiltersProps {
     className?: string;
