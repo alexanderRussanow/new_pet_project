@@ -22,6 +22,7 @@ export const PostRecommendations: React.FC<PostRecommendationsProps> = ( { class
 
     return (
         <Column
+            data-testid='postRecommendations'
             gap='small'
             className={ classNames(
                 classes.PostRecommendations,

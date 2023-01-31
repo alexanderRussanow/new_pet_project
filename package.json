@@ -24,7 +24,8 @@
         "test:ui:html": "npx reg-cli --from .loki/report.json --report .loki/report.html",
         "storybook": "start-storybook -p 6006 -c ./config/storybook",
         "storybook:build": "build-storybook -c ./config/storybook",
-        "postinstall": "node ./scripts/postinstall-clear-cash.js"
+        "postinstall": "node ./scripts/postinstall-clear-cash.js",
+        "test:e2e": "cypress open"
     },
     "keywords": [],
     "author": "",
@@ -63,6 +64,7 @@
         "babel-plugin-i18next-extract": "^0.8.3",
         "circular-dependency-plugin": "^5.2.2",
         "css-loader": "^6.6.0",
+        "cypress": "^12.4.1",
         "eslint": "^8.10.0",
         "eslint-plugin-alexander-eslint-import-test-plugin": "^0.0.1",
         "eslint-plugin-i18next": "^5.1.2",

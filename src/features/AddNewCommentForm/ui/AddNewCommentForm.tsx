@@ -52,6 +52,7 @@ const AddNewCommentForm: React.FC<AddNewCommentFormProps> = memo( ( { onSendComm
     return (
         <DynamicReducerLoader reducers={ reducer }>
             <Row
+                data-testid='addNewCommentForm'
                 justify='between'
                 className={ classNames(
                     classes.AddNewCommentForm,
@@ -63,10 +64,13 @@ const AddNewCommentForm: React.FC<AddNewCommentFormProps> = memo( ( { onSendComm
                 width100>
                 <Input
                     className={ classes.input }
+                    data-testid='addNewCommentFormInput'
                     placeholder={ t( 'TYPE_COMMENT' ) }
                     value={ text }
-                    onChange={ onCommentTextChange } />
+                    onChange={ onCommentTextChange }
+                />
                 <Button
+                    data-testid='addNewCommentFormButton'
                     theme={ ButtonThemeEnum.OUTLINE }
                     onClick={ onSendCommentHandler }>
                     {t( 'SEND_COMMENT' )}

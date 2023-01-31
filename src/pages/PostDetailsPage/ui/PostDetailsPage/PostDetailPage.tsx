@@ -26,6 +26,7 @@ const PostDetailPage: React.FC = () => {
     return (
         <DynamicReducerLoader reducers={ reducer }>
             <Page
+                data-testid='postDetailPage'
                 className={ classNames(
                     classes.PostDetailPage,
                     {},

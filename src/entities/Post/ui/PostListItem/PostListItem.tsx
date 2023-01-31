@@ -32,6 +32,7 @@ export const PostListItem: React.FC<PostListItemProps> = memo( ( { post, target,
 
     return (
         <div
+            data-testid='postListItem'
             className={ classNames(
                 classes.PostListItem,
                 {},

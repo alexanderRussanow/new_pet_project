@@ -40,6 +40,7 @@ export const PostsList: React.FC<PostsListProps> = memo( ( { posts, target, view
 
     return (
         <div
+            data-testid='postsList'
             className={ classNames(
                 classes.PostsList,
                 {},

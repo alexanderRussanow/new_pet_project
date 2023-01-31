@@ -33,6 +33,7 @@
         // "i18next"
     ],
     "rules": {
+        "@typescript-eslint/no-namespace": "off",
         "array-bracket-newline": [
             "error",
             {
