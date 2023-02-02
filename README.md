@@ -25,10 +25,11 @@ Files with translations are stored in public/locales.
 
 ## Tests
 
-The project uses 3 types of tests:
+The project uses 4 types of tests:
 1) Normal unit tests on jest - `npm run test:unit`. Jest - [https://jestjs.io/](https://jestjs.io/),
 2) Component tests with React testing library - `npm run test:unit`. React Testing Library -[https://testing-library.com/docs/react-testing-library/intro/](https://testing-library.com/docs/react-testing-library/intro/)
 3) Screenshot testing with loki `npm run test:ui`. Loki - [https://loki.js.org/](https://loki.js.org/)
+4) E2E with Cypress `npm run test:e2e`. Cypress - [https://docs.cypress.io/guides/overview/why-cypress](https://docs.cypress.io/guides/overview/why-cypress)
 
 ## Storybook
 

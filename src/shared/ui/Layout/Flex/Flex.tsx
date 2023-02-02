@@ -47,7 +47,16 @@ const gapStyle: Record<FlexGap, string> = {
     extraLarge: classes.gapExtraLarge,
 };
 
-export const Flex: React.FC<FlexProps> = ( { justify = 'start', align = 'center', direction = 'row', gap, width100, className, children } ) => {
+export const Flex: React.FC<FlexProps> = ( {
+    justify = 'start',
+    align = 'center',
+    direction = 'row',
+    gap,
+    width100,
+    className,
+    children,
+    ...restProps
+} ) => {
     const styles = [
         className,
         justifyStyle[ justify ],
@@ -58,6 +67,7 @@ export const Flex: React.FC<FlexProps> = ( { justify = 'start', align = 'center'
 
     return (
         <div
+            { ...restProps }
             className={ classNames(
                 classes.Flex,
                 {

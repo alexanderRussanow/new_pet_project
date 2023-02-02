@@ -1,0 +1,15 @@
+{
+   "id": "1",
+   "name": "Jara",
+   "lastname": "Cimrman",
+   "email": "jaracimrman@seznam.cz",
+   "phone": "8888",
+   "address": "Cimrmanova 1, 123 45 Cimrmanov",
+   "city": "Cimrmanov",
+   "zip": "123 45",
+   "country": "Germany",
+   "currency": "KRW",
+   "company": "Cimrman s.r.o.",
+   "username": "Jara 'the Master'",
+   "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnhs5csH1daXRNQLsG7OiZbTPvoNlHd0G0SDO1gD-Wfat9ELHkHo0nhTw610sh9IyqgyI&usqp=CAU"
+}

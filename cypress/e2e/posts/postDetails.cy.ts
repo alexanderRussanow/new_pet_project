@@ -25,17 +25,18 @@ describe(
                 cy.getByTestid( 'postRecommendations' ).should( 'exist' );
             } 
         );
-        // it(
-        //     'should add new comment to post',
-        //     () => {
-        //         cy.getByTestid( 'postDetailPage' ).should( 'exist' );
-        //         cy.getByTestid( 'addNewCommentForm' ).scrollIntoView();
-        //         cy.getByTestid( 'addNewCommentForm' ).should( 'exist' );
-
-        //         cy.getByTestid( 'addNewCommentFormInput' ).type( 'This is a new comment' );
-        //         cy.getByTestid( 'addNewCommentFormButton' ).click();
-
-    //     }
-    // );
+        it(
+            'should add new comment to post',
+            () => {
+                cy.getByTestid( 'postDetailPage' ).should( 'exist' );
+                cy.getByTestid( 'addNewCommentForm' ).should( 'exist' );
+                cy.getByTestid( 'addNewCommentForm' ).scrollIntoView();
+                cy.createNewComment( 'This is a new comment' );
+                cy.getByTestid( 'commentList' ).should(
+                    'have.length',
+                    1 
+                );
+            } 
+        );
     } 
 );

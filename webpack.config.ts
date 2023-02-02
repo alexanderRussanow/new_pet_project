@@ -4,10 +4,10 @@ import { buildWebpackConfig } from './config/build/buildWebpackConfig';
 import { BuildEnv } from './config/build/types/config';
 
 export default ( env: BuildEnv ) => {
-    const mode = env.mode || 'development';
-    const PORT = env.port || 3000;
+    const mode = env?.mode || 'development';
+    const PORT = env?.port || 3000;
+    const apiUrl = env?.apiUrl || 'http://localhost:8000';
     const isDev = mode === 'development';
-    const apiUrl = env.apiUrl || 'http://localhost:8000';
 
     const paths = {
         entry: path.resolve(
@@ -41,12 +41,12 @@ export default ( env: BuildEnv ) => {
         media: path.resolve(
             __dirname,
             'public',
-            'media'
+            'media' 
         ),
         buildMedia: path.resolve(
             __dirname,
             'build',
-            'media'
+            'media' 
         ),
     };
 

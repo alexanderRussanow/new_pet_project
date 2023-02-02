@@ -5,24 +5,43 @@ import { ReactNode } from 'react';
 import { I18nextProvider } from 'react-i18next';
 import { MemoryRouter } from 'react-router-dom';
 import i18nForTests from '@/shared/config/i18n/i18nForTests';
+import { ThemeEnum, ThemeProvider } from '@/app/providers/ThemeProvider';
+// styles 
+import '@/app/styles/index.scss';
 
 export interface ComponentRenderProps {
     route?: string;
     initialState?: DeepPartial<StateSchema>;
+    theme?: ThemeEnum;
     asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>;
 }
 
-export const ComponentRender = ( component: ReactNode, options: ComponentRenderProps = {} ) => {
-    const { route = '/', initialState, asyncReducers } = options;
+export interface TestProviderProps {
+    children: ReactNode;
+    options?: ComponentRenderProps;
+}
 
-    return render( <MemoryRouter
-        initialEntries={ [
-            route
-        ] }>
-        <StoreProvider
-            asyncReducers={ asyncReducers }
-            initialState={ initialState }>
-            <I18nextProvider i18n={ i18nForTests }>{component}</I18nextProvider>
-        </StoreProvider>
-    </MemoryRouter> );
+export const TestProvider = ( { children, options = {} }: TestProviderProps ) => {
+    const { route = '/', initialState, asyncReducers, theme = ThemeEnum.LIGHT } = options;
+
+    return (
+        <MemoryRouter
+            initialEntries={ [
+                route
+            ] }>
+            <StoreProvider
+                asyncReducers={ asyncReducers }
+                initialState={ initialState }>
+                <I18nextProvider i18n={ i18nForTests }>
+                    <ThemeProvider initialTheme={ theme }>
+                        <div className={ `app ${ theme }` }>{children}</div>
+                    </ThemeProvider>
+                </I18nextProvider>
+            </StoreProvider>
+        </MemoryRouter>
+    );
+};
+
+export const ComponentRender = ( component: ReactNode, options: ComponentRenderProps = {} ) => {
+    return render( <TestProvider options={ options }>{component}</TestProvider> );
 };

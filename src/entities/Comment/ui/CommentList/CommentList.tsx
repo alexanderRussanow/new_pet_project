@@ -26,6 +26,7 @@ export const CommentList: React.FC<CommentListProps> = memo( ( { comments, isLoa
     return (
         <Column
             align='start'
+            data-testid='commentList'
             gap='small'
             className={ classNames(
                 'commentList',

@@ -5,12 +5,12 @@ export interface ColumnProps extends OmitDirectionProps {
     direction?: 'column' | 'columnReverse';
 }
 
-export const Column: React.FC<ColumnProps> = ( { direction, ...props } ) => {
+export const Column: React.FC<ColumnProps> = ( { direction, children, ...restProps } ) => {
     return (
         <Flex
-            { ...props }
+            { ...restProps }
             direction={ direction || 'column' }>
-            {props.children}
+            {children}
         </Flex>
     );
 };
