@@ -16,7 +16,7 @@
             "./src/*"
          ]
       },
-      "isolatedModules": true
+      "isolatedModules": false
    },
    "ts-node": {
       "compilerOptions": {
@@ -26,5 +26,8 @@
    "include": [
       "**/*.ts",
       "**/*.tsx",
+   ],
+   "exclude": [
+      "./cypress.config.ts"
    ]
 }

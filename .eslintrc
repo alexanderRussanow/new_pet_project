@@ -2,43 +2,42 @@
     "root": true,
     "settings": {
         "react": {
-            "version": "detect",
-        },
+            "version": "detect"
+        }
     },
     "env": {
         "browser": true,
         "es2021": true,
-        "jest": true,
+        "jest": true
     },
     "extends": [
         "plugin:react/recommended",
-        // "plugin:i18next/recommended",
         "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:react/recommended",
+        "prettier"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaFeatures": {
-            "jsx": true,
+            "jsx": true
         },
         "ecmaVersion": "latest",
-        "sourceType": "module",
+        "sourceType": "module"
     },
     "plugins": [
         "react",
         "@typescript-eslint",
         "react-hooks",
         "alexander-eslint-import-test-plugin"
-        // "i18next"
     ],
     "rules": {
         "@typescript-eslint/no-namespace": "off",
         "array-bracket-newline": [
             "error",
             {
-                "minItems": 1,
-            },
+                "minItems": 1
+            }
         ],
         "array-element-newline": [
             "error",
@@ -86,8 +85,8 @@
             "error",
             {
                 "component": true,
-                "html": true,
-            },
+                "html": true
+            }
         ],
         "react/jsx-equals-spacing": [
             2,
@@ -109,8 +108,8 @@
             {
                 "callbacksLast": true,
                 "shorthandLast": true,
-                "multiline": "last",
-            },
+                "multiline": "last"
+            }
         ],
         "react/jsx-tag-spacing": 1,
         "react/jsx-indent-props": [
@@ -132,8 +131,8 @@
             "error",
             {
                 "before": true,
-                "after": true,
-            },
+                "after": true
+            }
         ],
         "camelcase": "warn",
         "comma-spacing": [
@@ -173,8 +172,8 @@
             "error",
             {
                 "before": true,
-                "after": true,
-            },
+                "after": true
+            }
         ],
         "@typescript-eslint/indent": [
             "error",
@@ -188,17 +187,17 @@
     "globals": {
         "__IS_DEV__": true,
         "__API__": true,
-        "__PROJECT__": true,
+        "__PROJECT__": true
     },
     "overrides": [
         {
             "files": [
-                "**/src/**/*.{test,stories}.{ts,tsx}",
+                "**/src/**/*.{test,stories}.{ts,tsx}"
             ],
             "rules": {
                 "i18next/no-literal-string": "off",
-                "max-len": "off",
-            },
-        },
-    ],
+                "max-len": "off"
+            }
+        }
+    ]
 }
